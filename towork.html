@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>意休|精神满满地开始工作吧</title>
+		<link rel="stylesheet" href="css/note.css"  type="text/css" />
+		<link rel="icon" href="images/baobao.png" type="image/png">
+		<link rel="bookmark" href="images/baobao.png" />
+		<script src="js/note.js"></script>
+	<style type="text/css">
+		/* * {
+			padding: 0;
+			margin: 0;
+		}
+		
+		ul {
+			list-style: none;
+		}
+		 */
+		a {
+			text-decoration: none;
+		}
+		body {
+			background-color: #aef8e8;
+			font-family: "微软雅黑", "黑体", "宋体";
+			color: #333;
+		}
+		
+		/*头部区域*/
+		.header {
+			width: 100%;
+			height: 66px;
+			background: white;
+			/* overflow: hidden; */
+			position: fixed;
+			top: 0;
+			z-index: 10;
+			border-bottom: 1px solid #f6f6f6;
+		}
+		
+		.tishiwenben {
+			position: absolute;
+			left: 50%;
+			top: 100%;
+			transform: translateX(-50%);
+			background-color: #333;
+			font-size: 14px;
+			display: inline-block;
+			padding: 5px 12px;
+			border-radius: 5px;
+			color: white;
+			visibility: hidden;
+		}
+		
+		.hd {
+			height: 66px;
+			width: 1000px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		
+		
+		.hd .logo {
+			width: 300px;
+			height: 51px;
+			float: left;
+			position: relative;
+			left: -110px;
+			top: 0;
+			margin-top: 3px;
+			background-image: url(./images/logo.gif);
+			background-repeat: no-repeat;
+			background-position: right bottom;
+		}
+		
+		/* input框中placeholder的样式修改 */
+		input::-webkit-input-placeholder {
+			color: #bbb;
+			font-size: 14px;
+		}
+		
+		/*这里根据实际情况设置margin值，原图190*50*/
+		.hd .kuang {
+			float: left;
+			height: 24px;
+			width: 220px;
+			padding: 2px 8px;
+			margin: 18px 4px 18px 20px;
+			visibility: hidden;
+		}
+		
+		
+		.hd .search {
+			float: left;
+			width: 40px;
+			margin-top: 15px;
+			outline: none;
+		}
+		
+		.sousuokuang {
+			float: left;
+			overflow: hidden;
+			width: 320px;
+		}
+		
+		.sousuokuang:hover .kuang {
+			visibility: visible;
+		}
+		
+		.sousuokuang:hover .tishiwenben {
+			visibility: visible;
+		}
+		
+		.hd .nav {
+			float: right;
+			height: 66px;
+			overflow: hidden;
+		}
+		
+		.hd .nav a {
+			display: block;
+			position: relative;
+			top: 0;
+		}
+		
+		.hd .nav li {
+			float: left;
+		}
+		
+		.hd li i,
+		.hd li b {
+			display: block;
+			font-style: normal;
+			font-weight: 400;
+			padding: 0 18px;
+			height: 66px;
+			line-height: 66px;
+			font-size: 14px;
+			color: #333;
+			text-align: center;
+			box-sizing: border-box;
+		}
+		
+		.hd li b {
+			color: #666;
+			background-color: #f6f6f6;
+			border-radius: 0 0 18px 18px;
+			border-top: 2px solid pink;
+		}
+		
+		.nav .daka i{
+			color: white; 
+			font-weight: 700;
+			position: relative;
+			z-index: 1;
+		}
+		.nav .daka span{
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 52px;
+			border-bottom: 14px solid white;
+			border-left: 32px solid pink;
+			border-right: 32px solid pink;
+			top:0;
+		}
+		
+		form.out:focus-within{
+			border-radius: 30px;
+			box-shadow: 0 6px 20px #f4a9c7;
+		}
+		
+		input[type="checkbox"]{
+			display: none;
+		}
+		.cbox{
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			border-radius: 8px;
+			cursor: pointer;
+			position: relative;
+			border:1px solid #dddddd;
+			top:4px;
+			margin-right: 6px;
+		}
+		
+		input:checked+.cbox{
+			border-color: transparent;
+		}
+		input:checked+.cbox::after{
+			display: inline-block;
+			content: "\2714";
+			position: absolute;
+			left: 1px;
+			top:-3px;
+			font-size: 16px;
+			color: pink;
+		} 
+		
+		.taskForWork{
+			text-align: center;
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.taskForWork h1 {
+			margin: 120px auto 80px;
+		}
+		
+		.textTips a {
+			text-decoration: none;
+			color: deeppink;
+		}
+
+		.taskContent {
+			width: 920px;
+			margin: 30px 0;
+			background-color: #fefefe;
+			padding: 70px 40px;
+			color: #888;
+			text-align: left;
+			border-radius: 30px;
+		}
+		
+		.taskType,
+		.taskSkill {
+			margin-left: 120px;
+			padding: 20px 0;
+			color: #555;
+		
+		}
+		
+	
+		.taskType  input,
+		.taskSkill input {
+			margin-right: 4px;
+			background-color: white;
+			cursor: pointer;
+		}
+		
+		.taskType label,
+		.taskSkill label{
+			margin-right: 12px;
+			cursor: pointer;
+			user-select: none;
+		}
+		
+		.singleLine>div{
+			margin-top: 30px; 
+			margin-left:120px;
+			color: #555;
+			z-index: 1;
+		}
+		
+
+		.singleLine input {
+			display: inline-block;
+			width: 260px;
+			height: 26px;
+			/* border-radius: 10px; */
+			outline: none;
+			padding-left: 10px;
+			border: none;
+			border-bottom: 1px solid #333333;
+		}
+		
+		
+		.singleLine em {
+			margin-left: 20px;
+			font-style: normal;
+		}
+		
+		#allTaskData {
+			border-radius: 10px;
+			outline: none;
+			border: 1px solid #f0f0f0;
+			padding: 8px 8px 10px;
+			height: 120px;
+			width: 520px;
+			font-size: 14px;
+		}
+		
+		.btnLine{
+			text-align: center;
+		}
+		
+		.btnLine .dataSTNoteBtn {
+			display: inline-block;
+			width: 60px;
+			height: 40px;
+			line-height: 40px;
+			background-color: whitesmoke;
+			border-radius: 12px;
+			color: #555;
+			font-weight: 600;
+			cursor: pointer;
+			margin-left: 20px;
+		}
+		
+		.btnLine .dataSTNoteBtn:hover {
+			background-color: white;
+		}
+		
+		/*下面是打卡样式*/
+	.slideBox{
+		background-color: rgba(33,33,33,0.8);
+		display: none;
+		position: absolute;
+		left: 50%;
+		margin-left:-274px;
+		color:white;
+		border-radius:12px;
+	}
+	
+	.slideBox.active{
+		top:60px;
+		display: block;
+		transition: 3s;
+	}
+	
+	ul.dayCheck{ 
+		width:568px;
+		padding: 20px;
+		list-style: none;
+		border:1px solid #eee;
+	}
+		
+	
+	.dayCheck .writeIn{
+		padding-left:12px;
+		height: 22px;
+		width: 220px;
+		margin:2px 0 4px 40px;
+		visibility: hidden;
+		
+	}
+	.dayCheck li{
+		padding:4px;
+		width: 560px; /*+60*/
+	}
+	.dayCheck li:hover{
+		background-color: #fbfbfb;
+		color: #333333;
+	}
+	
+	.dayCheck li:hover b ,.dayCheck li:hover i{
+		display: inline-block;
+	}
+	.dayCheck li:hover .writeIn{
+		visibility: visible;
+	}
+	.dayCheck li span{
+		margin:4px 60px;
+		display: inline-block;
+		width: 82px;
+	}
+	.dayCheck li b,.dayCheck li i {
+		display: inline-block;
+		border:1px solid #666666;
+		font-weight: 400;
+		padding:2px 10px;
+		border-radius:14px;
+		cursor: pointer;
+		font-style: normal;
+		display: none;
+		margin-right: 10px;
+	}
+	.dayCheck li b:hover,.dayCheck li i:hover{
+		background-color: pink;
+		border-color: pink;
+	}
+	
+	
+	.dayCheck .addItemBtn, .dayCheck .saveChange{
+		border:1px solid #999999;
+		padding:4px 10px;
+		border-radius:14px;
+		margin: 12px;
+		/* width:72px; */
+		text-align: center;
+		cursor: pointer;
+	}
+	.addItemBtn:hover ,.saveChange:hover {
+		background-color: pink;
+		border-color: transparent;
+	}
+	
+	.scrollbar{
+		width:500px;
+		height: 8px;
+		background: black;
+		border-radius: 6px;
+		border:1px solid pink;
+		display:inline-block;
+		margin:0 30px 0 100px;
+		overflow: hidden;
+		border-spacing: white;
+	}
+	.scrollmove{
+		width:100%;
+		height:100%;
+		border-radius: 6px;
+		background-color: white;
+		animation-fill-mode: forwards ;
+	}
+	
+	.startBtn{
+		text-align: center;
+		display:inline-block;
+		padding:4px 12px;
+		width:176px;
+		border:1px solid pink;
+		border-radius: 20px;
+		cursor:pointer;
+		color: white;
+		background-color: pink;
+	}
+	@keyframes scrollTo{
+		0%{width:100%;}
+		100%{width:0%; }
+	}
+	@keyframes resetScroll{
+		0%{width:100%;}
+		100%{width:100%; }
+	}	
+		
+		/* 虽然后面这个动画是用作reset的，但是好像不写样式也OK */
+	</style>
+	</head>
+	
+	<body>
+		<!--头部区域-->
+		<header class="header">
+			<div class="hd">
+				<h1><a href="./index.html" class="logo">意休</a></h1>
+				<div class="sousuokuang">
+					<form action="https://www.baidu.com/s" target="_blank">
+						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
+						<input class="search" type="image" src="images/sousuo.png"  />
+					</form>
+					<span class="tishiwenben">+增加必备关键字 -排除关键字 双引号来限定整词 site intitle inurl filetype</span>
+				</div>
+				<nav class="nav">
+					<ul>
+						<li class="daka"><a href="javascript:;"><i>打卡</i><b>打卡</b><span></span></a></li>
+						<li><a href="./works.html"><i>Works</i><b>个人作品</b></a></li>
+						<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
+						<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="slideBox">
+			<ul class="dayCheck">
+				<li><input type="text" class="writeIn" placeholder="新项目需要点击保存才生效"/><span class="addItemBtn">增加项目</span><span class="saveChange">保存</span></li>
+				<li><span>学习项目</span><span>学习天数</span>once a day</li>
+			</ul>
+		</div>
+		<script>
+			var dakaState = false;
+			var oDaKa = document.getElementsByClassName("daka")[0];
+			oDaKa.onclick = function(){
+				var oSliBox = document.getElementsByClassName("slideBox")[0];
+				if(dakaState){
+					oSliBox.classList.remove("active");
+					dakaState = false;
+				}else{
+					oSliBox.classList.add("active");
+					dakaState = true;
+				}
+				
+			}
+		</script>
+		
+		
+		
+		<div class="taskForWork">
+			<h1>好的开始就成功了一大半</h1>
+			<section class="textTips">
+				<div>准备物资和环境：水 ，零食，梳子。打起精神状态：适合地做下准备运动，调整呼吸。</div>
+				<div>明确目标：啥条件，输入啥，想得啥，啥技能或工具能帮我们，最优的解决方案是啥。</div>
+				<div>提示：学习没必要全部都学，学适合自己学习的，学自己需要的。</div>
+				<div>最后，要不要来点音乐？
+					<a href="https://www.kugou.com/yy/special/single/1513086.html" target="_blank"> 《悠闲》 </a>
+					<a href="https://www.kugou.com/yy/special/single/1383070.html" target="_blank"> 《触动》 </a>
+					<a href="https://www.kugou.com/yy/special/single/1383070.html" target="_blank"> 《犯傻》 </a>
+					<a href="javascript:;"> 《外文-未上线》 </a>
+				</div>
+			</section>
+
+			<section>
+				<form class="out">
+					<div class="taskContent">   
+						<div class="scrollbar">
+							<div class="scrollmove"></div>
+						</div>
+						<div class="startBtn">开始计时</div>
+						<!-- <p>（Tab键可以快速跳到下一个输入框）</p> -->
+						
+						<div class="taskType">
+							<b>做事的类型：</b>
+							<label><input type="checkbox" name="thingsType" value="旧领域" /><span class="cbox"></span>旧领域</label>
+							<label><input type="checkbox" name="thingsType" value="新领域" /><span class="cbox"></span>新领域</label>
+							<label><input type="checkbox" name="thingsType" value="做项目" /><span class="cbox"></span>项目</label>
+							<label><input type="checkbox" name="thingsType" value="教学" /><span class="cbox"></span>教学</label>
+							<label><input type="checkbox" name="thingsType" value="学习" /><span class="cbox"></span>学习</label>
+							<label><input type="checkbox" name="thingsType" value="整理" /><span class="cbox"></span>整理</label>
+							<label><input type="checkbox" name="thingsType" value="复习" /><span class="cbox"></span>复习</label>
+						</div>
+						<div class="taskSkill">
+							<b>可用的方法：</b>
+							<label><input type="checkbox" name="vaSkills" value="搜索" /><span class="cbox"></span>搜索</label>
+							<label><input type="checkbox" name="vaSkills" value="视频" /><span class="cbox"></span>视频</label>
+							<label><input type="checkbox" name="vaSkills" value="实战" /><span class="cbox"></span>实战</label>
+							<label><input type="checkbox" name="vaSkills" value="导图" /><span class="cbox"></span>导图</label>
+							<label><input type="checkbox" name="vaSkills" value="试错" /><span class="cbox"></span>试错</label>
+							<label><input type="checkbox" name="vaSkills" value="讨论" /><span class="cbox"></span>讨论</label>
+							<label><input type="checkbox" name="vaSkills" value="故事" /><span class="cbox"></span>故事</label>
+						</div>
+	
+						<div class="singleLine">
+							<div><b>总任务：</b><input class="oData" id="taskAGoal" type="text" /><em>一天总任务是什么呢</em></div>
+							<div><b>优先解决：</b><input class="oData" id="taskGoal" type="text" /><em>写个具体的、你现在就能做的任务哦</em></div>
+							<div><b>计划用时：</b><input class="oData" id="taskPTime" type="number" /><em>用时最好控制在30分钟内</em></div>
+							<div><b>任务难度：</b><input class="oData" id="taskLevel" type="number" /><em>十颗星制，给个估值吧</em></div>
+							<div><b>开始时间：</b><input class="oData" id="taskSFTime" type="text" /><em>做事最好的时机，一是十年前，二是现在</em></div>
+							<div><b>任务实际用时：</b><input class="oData" id="taskFTime" type="number" /><em>单位分钟，没做完也没有关系哦</em></div>
+							<div><b>任务完成度：</b><input class="oData" id="taskFStatus" type="number" /><em>%</em></div>
+							<div><b>困难或障碍在哪里：</b><input class="oData" id="taskDifficult" type="text" /><em>目标不明确？不专心？没头绪？搜不到？</em></div>
+							<div><b>接下来？：</b><input class="oData" id="taskContinue" type="text" /><em>接受自身不足，难的可以先放下，办法总比困难多</em></div>
+							<div><b>生成的文本：</b><textarea id="allTaskData"></textarea></div>
+							<div class="btnLine">
+								<div class="dataSTNoteBtn">生成</div>
+								<div class="dataSTNoteBtn">保存</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</section>
+		</div>
+		<script>
+			var oStart = document.getElementsByClassName("startBtn")[0];
+			var oScr =  document.getElementsByClassName("scrollmove")[0];
+			oStart.onclick = function(){
+				oScr.style.animationName = "resetScroll";
+				oScr.style.animationPlayState = "paused";
+				document.querySelector(".startBtn").innerHTML = "开始计时：<span>0</span>分<span>0</span>秒";
+				clearInterval(t);
+				var time = -1;
+				var oPlanTime = document.getElementsByClassName("oData")[2];
+				var planTime = oPlanTime.value*60 || 1800;
+				var oTime = document.querySelectorAll(".startBtn span");
+				setTimeout(function(){
+					oScr.style.animationName = "scrollTo";
+					oScr.style.animationPlayState = "running";
+					oScr.style.animationTimingFunction = "steps("+planTime+") ";
+					oScr.style.animationDuration = planTime+"s ";
+				},1000)
+				
+				var t = setInterval(function(){
+					time++;
+					var m = Math.floor(time/60);
+					var s = time%60;
+					oTime[0].innerText = m;
+					oTime[1].innerText = s;
+					// console.log(m,s);
+					if(time>(planTime+30)){
+						clearInterval(t);
+					}
+				},1000);
+			}
+			
+		</script>
+	
+
+		<!-- 弹框内容 -->
+		<section>
+			<div class="winBack">（ 点击透明区域即可关闭 ）</div>
+			<div class="newWin">
+				<!-- 弹框区域一、统筹区 -->
+				<section class="setThings">
+					<div>郑重说明：本清单的理论知识来自Topbook <a href="https://topbook.cc/course/detail/153" target="_blank">《重新认识GTD》</a>系列文</div>
+					<div class="doList">
+						<section class="main">
+							<div class="head">
+								<h1>执行清单 <span class="getBtn btn">get</span> </h1>
+								<input type="text" class="smInput" autoFocus />
+								<button>添加</button>
+								<button>大框</button>
+								<textarea class="textarea" placeholder="[提示]这里做简单的事项输入,更多操作请在'项目卡片'通过右上角的'more'按钮打开一览表进行修改."></textarea>
+							</div>
+							<p  class="wrongTip">(每天进步一点点，可按enter键添加)</p>
+							<ul class="todoList">
+								<div class="lists"></div>
+								<div class="tips">
+									<span>共&nbsp;<b>0</b>&nbsp;项 </span>
+									<button>清空</button>
+									<button>收集</button>
+								</div>
+							</ul>
+							<nav class="doListNav">
+								<div class="left">
+									<div class="btn">技术醒脑</div>
+									<div class="btn">每日回顾</div>
+									<div class="btn">每周回顾</div>
+								</div>
+								
+								<div class="right">
+									<div class="btn">事件统筹</div>
+									<div class="btn">执行提示</div>
+									<div class="btn">项目卡片</div>
+								</div>
+							</nav>
+						</section>
+					
+						<section class="aside">
+							<!-- 栏目：技术醒脑 -->
+							<div class="knowing part">
+								<h4>GTD：for把事情处理完/做好，not把事情做完</h4>
+								<p>需要达到的目的：</p>
+								<p class="indent">a.记录下来，让大脑清空不混乱。</p>
+								<p class="indent">b.让自己随时都能明确知道，下一步该做什么。</p>
+							
+								<p>除机心（这里机心指机巧功利之心）：人类的聪明在于会工具，容易犯的错误是只会工具。别让工具玩了你。做计划是为了更好的实际效果，带有强目的性，不是为了计划而计划，是为了做事！</p>
+								<p>不去想做什么，该想不做什么。不要老想着做事情，而是享受自己的存在。</p>
+								<p>权衡利害关系。重点不一定是我得到了什么，因为得到什么有时候反而是非常明显的。更可能是因为会失去什么？我能否承受这种失去？比如纪念日？某个自己独处思考的时间？</p>
+								<p>做方案“如何做思维导图公开课”：比如，确定一个选题范围，是技能型为主，还是做一些心法？在这种选题范围内，大致涵盖哪些要点？去哪些地方搜集辅助资料？大概花多久时间写出脚本？多久时间制作完成……</p>
+								<p>思考：比如，为什么不能完成所有的事情？那些做成事儿的人难道不都是能够严谨、努力要求自己今日事今日毕的吗？做距离自己目标更近的事情，那么我的目标是什么？应该怎么确定自己的目标呢？</p>
+								<p>联系：一个小小的任务清单，最终牵扯出来的，仍然可能和个人目标、处事方式有重要的关联。因为只要你愿意多问自己问题，你就能牵扯出一张网，这张网就是很多人说的——体系。</p>
+								<p>如果一个普通人需要处理的事情多到无法处理，是否应该反思下，是不是要得太多了？</p>
+								<p class="indent">①如果你确实不知道自己该做什么，不如先问问自己不能做什么（这是一位老先生的话）；</p>
+								<p class="indent">② 依然把需要做的事情按照目标权重排序，然后有时间就做距离目标比较近的事情，做不完没关系，反正你也做不完所有事情；</p>
+								<p class="indent">③把所有需要做的事情做一个价值排序之后，只取排行榜上前面十件甚至五件，后面不管是什么，都不要再去管它们，时间会让你知道，不管你做没做其他事情，地球照样运转。</p>
+							</div>
+							
+							
+							<!-- 栏目：每日回顾 -->
+							<div class="part">
+								<h4>day回顾：起始 or 终结</h4>
+								<p>收集箱：清空了？（2分钟的立刻做等等五步走），还有其他一些事项被遗忘，没有放进收集箱吗？处理好。</p>
+								<p>等待清单：下一步是什么？主动拿结果，并且确保事情顺利被完成。</p>
+								<p>项目清单：下一步是什么？正在做吗？做得怎么样了？（没做的--安排，把下一步并放进执行清单；在做的，看它的完成度如何）</p>
+								<p>可能清单：要自己主动去思考，这件事可行性有多大。把思考这件事，也放进执行清单。</p>
+								<p class="indent">比如，学习编程是可能清单中的事情。那么 在执行清单中把考虑学习编程这件事也放进去。思考为什么学？什么时候学？怎么学？是否影响正常的目标和生活？</p>
+							</div>
+					
+							<!-- 栏目：每周回顾 -->
+							<div  class="part">
+								<h4>week回顾：更想要 更喜欢 更应该</h4>
+								<p>目的：查漏补缺 + 检查科学性（私人订制）</p>
+								<p>注意点：</p>
+								<p class="indent">①从收集箱出去的项目永远不要再放回收集箱；</p>
+								<p class="indent">②项目清单中的事项需要你主动将其拆解，并为其谋划执行方案，把大项目拆解成小步骤，并分解到其他清单当中。记住 GTD 的第二大目的，随时随地都明确地知道，下一步应该做什么；</p>
+								<p class="indent">③要特别保障等待清单、可能清单、回收箱三个分区当中的回顾，主动确定等待清单是否被完成、回收箱和可能清单中的事项是否有变动（变成可执行或其他）；</p>
+								<p class="indent">④日历或提醒事项应用中的提醒是否恰当，比如下个月末要完成论文是 Deadline，但是否应该这个月就提醒自己，并且分解开来？</p>
+								<p class="indent">⑤为第四步腾出专门的时间，比如每天、每三天或每周、每月。</p>
+								<p>检查清单</p>
+							</div>
+
+							<!-- 栏目：事件统筹 -->
+							<div class="collect part">
+								<h4>事件统筹：让精力集中在想要的方向上</h4>
+								<div class="indent">五步：收集/主动捕获--明晰/强调结果--组织--计划的同时更强调回顾--执行更强调与执行对象的联系（人性化-拿结果）[注意：2分钟可以搞定的请立刻做，不需要安排进来。]</div>
+								<div class="thing">(数据未加载)</div>
+								<div class="resultTip">(处理结果显示区)</div>
+								<div>
+									<p>问题一：可行动吗？（若不可，请选择）</p>
+									<label><input type="radio" name="belong" value="4"  />可能清单</label>
+									<label><input type="radio" name="belong" value="5" />参考资料</label>
+									<label><input type="radio" name="belong" value="6" />回收箱</label>
+									<p>问题二：能一步搞定吗？（若不可，请选择）</p>
+									<label><input type="radio" name="belong" value="3" />项目清单(下一步的计划和安排是？)</label>
+									<p>问题三：该我做吗？（若不是，请选择）</p>
+									<label><input type="radio" name="belong" value="2" />等待清单</label>
+									<div>———标明事项，时限，可能的执行事项，特定时机确认。分析可能情况，主动拿结果，尽量确保这件事能够被顺利完成，配合闹钟使用。</div>
+									<p>问题四：特定时间？（调闹钟或写进日历）</p>
+									<label><input type="radio" name="belong" value="1" />日历事项</label>
+									<input type="date" placeholder="执行的日期是？" />
+									<label><input type="radio" name="belong" value="0" />执行清单</label>
+								</div>
+								<div class="line"></div>
+								<button class="solved">处理完毕，开始下一条</button>
+								<button class="solved">跳过</button>
+								<!-- <button class="solved">显示目前数据</button> -->
+							</div>
+						
+					
+							<!-- 栏目：执行提示 -->
+							<div class="part">
+								<h4>执行提示：万事开头难，害怕解决不了问题</h4>
+								<p>做事前提：保障自己有充足的睡眠、健康的身体，而且不能牺牲合理的人际关系、个人幸福感。</p>
+								<p>切记：量力而为——你不可能完成所有的事情 ，尽可能做离你目标更近的事情。</p>
+								<p>注意点：</p>
+								<p class="indent">①能被放进执行清单的，都是可以一步搞定的。若不是因为自己态度和能力有问题，而是因为事件特殊用时较长，得知道“事情头疼并非因为它难，因为我们很少接触，误以为难”。</p>
+								<p class="indent">②做计划、做方案是每个人的必修课。它不是说，你一开始就得做出多么好的方案，而是你在有这种意识的情况下，愿意去做，并且一次比一次有哪怕一点小小的进步。</p>
+								<p class="indent">③时间矛盾上，做好时间预估，为特别的事件预留时间，可以变通，找别人帮忙。</p>
+								<p class="indent">④放入回收箱的原因有事件本身会变化或一些事真的没必要做。放入可能清单的事短期不变，当下一般不会有变动，没有确定、没有计划。当时机成熟，可能的事情变成可以的时候，你要专门为它做计划。</p>
+								<p class="indent">⑤参考资料：一切可被记录的，就一定可供参考，但参考价值的高低是相对的。回归常识，避免追新、奇、怪；提高信息的检索、辨别能力；提高参考资料的存档标准。</p>
+								<p>人找书很难，但书找书却很容易。
+									提高检索能力，多检索，多辨别，多思考，且不要忘了回归常识，那些检索方法也要学，并且学会辨别好坏。搜索引擎能够找到的，对你来说浅显而平常的知识，一些新概念，但旧瓶装新酒、换汤不换药的，不用专门存档。</p>
+								<p>高效：一次只处理一件事情，定时，打破负罪感幻觉 </p>
+								<p>其他方法：要事第一 四象限法则</p>
+							</div>
+					
+							<!-- 栏目：项目卡片 -->
+							<div class="cards part">
+								<button class="bigger left">deleteAll</button>
+								<button class="bigger">more</button>
+								<nav>
+									<button class="slide">执行</button>
+									<button class="slide">日历</button>
+									<button class="slide">等待</button>
+									<button class="slide">项目</button>
+									<button class="slide">可能</button>
+									<button class="slide">资料</button>
+									<button class="slide">回收</button>
+								</nav>
+								<ul class="listContent">
+									<li>操作说明:</li>
+									<li>(1)本页面只作展示，要想修改各个分类的内容，请点击“more”按钮进入大视图来修改。</li>
+									<li>(2)“deleteAll”按钮删除的是所有数据，请慎重选择。</li>
+								</ul>
+							</div>
+						</section>
+					</div>
+					
+				</section>
+				<!-- 弹框区域二、讨论区 -->
+				<div class="discussArea">
+
+					<!--1. 输入问题 -->
+					<form class="inputBox">
+						<textarea id="disWords" placeholder="想要问什么……"></textarea>
+						<button id="disSearchBtn" class="btn_box" type="button"  disabled="disabled">查找类似问题</button>
+						<input id="reSetBtn" class="btn_box"   type="reset" value="重置" />
+						<input id="disSubmitBtn" class="btn_box" type="button"  value="提问" />
+						<button id="disNoteBtn" class="btn_box" type="button" >做笔记</button>
+						<button id="turnNoteBtn" class="btn_box" type="button" >转到笔记区</button>
+						<span class="wordsCanIn">还可以输入200字</span>
+					</form>
+					<!--2.关键字搜索 -->
+					<div class="hotSearch">
+						热搜：<span>#热门话题</span><span>#我的评论</span>
+					</div>
+					<!--3. 已有问题 -->
+					<div class="discussBox">
+						<ul id="existList"> </ul>
+					</div>
+				</div>
+
+				<!--  弹框区域三、笔记区域-->
+				<div class="noteArea">
+					<!--1. 输入笔记 -->
+					<div class="inputBox">
+						<form>
+							<textarea id="noteWords" placeholder="记笔记的要点是易错，不会但又有用的知识或经验……"></textarea>
+							<input type="reset" class="btn_box" name="reset" value="重置" />
+							<button id="addNoteBtn" class="btn_box" type="button">添加笔记</button>
+							<button id="clearNoteBtn" class="btn_box" type="button">清空所有笔记</button>
+							<button id="saveNoteBtn" class="btn_box" type="button">保存当前修改</button>
+							<input id="turnDisBtn" class="btn_box" value="转到评论区" type="button">
+						</form>
+						<div id="tipsOfChange">提示：单项笔记的修改和删除，还需要点击“保存当前修改”哦~</div>
+					</div>
+
+					<!--2. 已有笔记 -->
+					<ul id="existNoteList"></ul>
+				</div>
+				
+			</div>
+		</section>
+		
+		<!-- 弹框区内容 卡片-->
+		<section class="allCards">
+			<div class="menu">
+				<nav></nav>
+			</div>
+			
+			<div class="maincards">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</section>
+
+		<!-- 右侧固定操作按钮 -->
+		<section>
+			<div class="toFixed">
+				<button type="button" id="nBtnSetThings" class="ybtn_box">统筹</button>
+				<button type="button" id="nBtnAsk" class="ybtn_box">提问</button>
+				<button type="button" id="nBtnDiscuss" class="ybtn_box">评论</button>
+				<button type="button" id="nBtnNote" class="ybtn_box">本子</button>
+			</div>
+		</section>
+
+		<script>
+			const doListState = {
+				val: '',
+				vals: '',
+				list: [],
+				show:3,
+				inshow:0,
+				index:-1,
+				sortList:[["执行清单--focus on one thing"],["日历事项--调好闹钟"],["等待清单--主动去拿结果"],["项目清单--项目太大，分解成可实现的任务吧"],["可能清单--现在时机成熟了吗？"],["参考资料--能找到的不存，有价值或稀罕的存"],["回收箱--有些事还真的不是事"]],
+				txtVal:'',
+				continueSort:true,
+				isSolvedAll:0,
+				newListStr:"",
+				firstSave:-1
+			}
+			initial();
+			
+			const slides = document.querySelectorAll(".slide");
+			
+			function initial(){
+				const getBtn = document.getElementsByClassName("getBtn")[0];
+				getBtn.onclick = function(){
+					const ul = document.getElementsByClassName("todoList")[0];
+					ul.classList.add("card");
+					const tipBtn = document.getElementsByClassName("tips")[0];
+					tipBtn.style.display = "block";
+					const list = doListState.sortList[0];
+					doListState.list = list;
+					showListData(list,1);
+					const num = document.querySelector(".tips b");
+					num.innerText = list.length; // 显示当前的项目数
+					const tip = document.getElementsByClassName("wrongTip")[0];
+					tip.innerText = "(目前状态：数据来自执行清单)";
+				}
+				
+				
+				
+				const bbtns = document.getElementsByClassName("bigger");
+				bbtns[0].onclick = function(){
+					let val = prompt("确定删除所有数据吗？该操作无法挽回。\n若确定销毁，请输入密码123456");
+					if(val==="123456"){
+						clearData();
+						window.location.href="./towork.html";
+						alert("删除成功。");
+					}else{
+						alert("密码错误，删除失败。");
+					}
+				}
+				bbtns[1].onclick = function(){
+					console.log("打开大框模式");
+				}
+				
+				const nextBtn = document.getElementsByClassName("solved");
+				nextBtn[0].onclick = solvedBox;
+				nextBtn[1].onclick = function(){ // 跳过
+					localStorage.setItem("collectIndex",doListState.index);  // 索引值的保存，初次保存的是-1
+					const tip = document.querySelector(".resultTip");
+					if(doListState.txtVal!==""){
+						tip.innerText = "（跳过成功!）";
+					}else{
+						tip.innerText = "（操作失败，没有数据，无法跳过。）";
+					}
+					readBox();
+					localStorage.setItem("collectIndex",doListState.index);  
+				};
+				// nextBtn[2].onclick = function(){ //显示数据
+				// 	console.log("index： "+doListState.index+";       continueSort： "+doListState.continueSort+";     isSolvedAll： "+doListState.isSolvedAll);
+				// 	console.log(doListState.sortList);
+				// }
+				
+				const pagebtns = document.querySelectorAll(".doListNav .btn");
+				const cards = document.querySelectorAll(".part");
+				getChannel(pagebtns,cards);
+				getChannel(); 
+				
+				const tbtns = document.querySelectorAll(".tips button");
+				tbtns[0].onclick = function() { // 全部删除
+					const ul = document.getElementsByClassName("todoList")[0];
+					ul.classList.remove("card");
+					doListState.list = [];
+					const tip = document.getElementsByClassName("tips")[0];
+					tip.style.display = "none";
+					const lists = document.getElementsByClassName("lists")[0];
+					lists.innerText = "";
+				}
+				
+				tbtns[1].onclick = saveIn;
+				const btns = document.querySelectorAll(".head button");
+				
+				btns[0].onclick = handleAdd;
+				btns[1].onclick = function(event) { // 根据文字切换大框的隐藏情况
+					const tNode = document.querySelector(".textarea");
+					if (event.target.innerText === "大框") {
+						event.target.innerText = "收起";
+						tNode.style.display = "block";
+					} else {
+						event.target.innerText = "大框";
+						tNode.style.display = "none";
+					}
+				};
+				
+				const inputSm = document.getElementsByClassName("smInput")[0];
+				const textarea = document.getElementsByClassName("textarea")[0];
+				
+				inputSm.addEventListener("change", handleInput, false);
+				inputSm.addEventListener("keyup", handleEnter, false);
+				textarea.addEventListener("change", handleInput, false);
+				
+			
+				readSortBox();
+				readBox();
+			}
+			
+			function readIndex(){ // 获取内存中上次保存的索引
+				if(localStorage.getItem("collectIndex")){ // 刚刷新网页或每次保存之后都执行
+					doListState.index = localStorage.getItem("collectIndex")*1; // 第一次保存之后是0 。易出错点：这里获取到的是字符串！
+					console.log("readIndex【此时内存中的index为】"+ doListState.index);
+				}
+				if(localStorage.getItem("solvedAll")){
+					doListState.isSolvedAll = localStorage.getItem("solvedAll")*1; 
+				}
+				if(localStorage.getItem("notFirstSave")){ // 判断是不是第一次收集
+					doListState.firstSave = 0;
+				}else{
+					doListState.firstSave = 1;
+				}
+			}
+			
+			function readBox(){ // 功能：获取一下内存索引，负责获取下一项索引，获取当前收集箱
+				readIndex();
+				let index = doListState.index+1; // 已有的index
+				let solvedAll = doListState.isSolvedAll;
+				const pageDealWith = document.querySelectorAll(".doListNav .btn")[3];
+				if(solvedAll===0){
+					pageDealWith.classList.add("news");
+					pageDealWith.innerText="需要处理";
+				}else{
+					pageDealWith.classList.remove("news");
+					pageDealWith.innerText="事件统筹";
+				}
+				
+				const showThing = document.getElementsByClassName("thing")[0]; 
+				if(localStorage.getItem("collectBox")){
+					let listStr = localStorage.getItem("collectBox");
+					let list=[];
+					if(/\$+/.test(listStr)){
+						list = listStr.split("$");
+					}else{
+						list[0] = listStr;
+					}
+					if(index < list.length ){
+						console.log("readbox执行了显示文本，当前收集箱数据："+list+"数组长度："+list.length+"索引："+index);
+						let item = list[index];
+						showThing.innerText = item; // 显示是没问题的
+						doListState.txtVal = item;
+						doListState.index = index; //这个index是用来记录当前处理到哪项的
+					}else{
+						showThing.innerText = "（提示：已全部处理完毕，没有下一条了）";
+						doListState.txtVal = "";
+						doListState.continueSort = false;  
+						doListState.isSolvedAll = 1;
+						// localStorage.setItem("collectBoxNew","null"); // 
+						localStorage.setItem("solvedAll","1");
+					}
+				}else if(localStorage){
+					showThing.innerText = "（提示：目前没有数据，请添加事项并存库）";
+				}else{
+					showThing.innerText = "（提示：该浏览器不支持本功能，请更新至浏览器最新版本或更换浏览器打开）";
+				}
+				
+			}
+			
+			function readSortBox(){ // 初始化或每次处理数据都执行
+			
+				//执行清单--focus on one thing$1~  slist[y]
+				// 日历事项--调好闹钟~
+				// 等待清单--主动去拿结果~
+				//项目清单--项目太大，分解成可实现的任务吧~
+				// 可能清单--现在时机成熟了吗？~
+				// 参考资料--能找到的不存，有价值或稀罕的存~
+				// 回收箱--有些事还真的不是事
+				if(localStorage.getItem("collectSortBox")){
+					let sortListStr = localStorage.getItem("collectSortBox"); 
+					// console.log("getitem得到的sortlist是"+sortListStr);
+					let slist = sortListStr.split("~"); //含有7项的数组
+					let sortList = [];
+					for(let y=0; y<slist.length;y++){
+						let sortListOne = [];
+						let slistOneStr = slist[y];  // 获取了分类--每一项的字符串（有可能有2项，有可能只有1项）
+						if(/\$+/.test(slistOneStr)){
+							sortList[y] = slistOneStr.split("$"); // 请不要这样写 sortListOne = slistOneStr.split("$"); sortList[y] = sortListOne; （循环过程中会受下面sortListOne[0]赋值的影响）
+						}else{
+							sortListOne[0] = slistOneStr; // 易错，这里必须保证sortList里面push的是数组
+							sortList[y] = sortListOne;
+						}
+						// console.log("【每次处理一个分类时】此时的sortlist是"+sortList);
+					}
+					doListState.sortList = sortList;
+					// console.log("[最终sortlist]"+sortList);
+				}
+			}
+			
+			// solvedBox函数实现：点击下一项时，获取当前checked的值,之前存的文本doListState.txtVal, doListState.sortList是暂时存放分类的数组
+			function solvedBox(){ 
+				// 分类存库了  --存进二维数组
+				const radio = document.querySelectorAll("[name='belong']");
+				const tip = document.querySelector(".resultTip");
+				let val = -1; // 作用是当没有选中项时，val为-1.
+				for(let j = 0;j<7;j++){
+					if(radio[j].checked){ 
+						val = radio[j].value*1;
+						break;
+					}
+				}
+				let item = doListState.txtVal;  // 获取显示的文本
+				// console.log("【当前项目为第"+val+"个；【【当前的文本】】"+item);   // 为当前项或许选中的分类
+				if(val>=0 && item){ 
+					if(val===1){
+						const inputDate = document.querySelector("[type='date']").value;
+						item = item + "……[最后期限："+inputDate+"]" ;
+					}
+					let sortlist = doListState.sortList;
+					let slist = sortlist[val]; // slist是 取出对应分类
+					slist[slist.length] = item; // 这里是什么问题？添加新值
+					sortlist[val] = slist;
+					doListState.sortList = sortlist;
+					// console.log("solvedBox分类存库，下一步就是保存数据了，目前sortbox的值"+sortlist); 
+					saveIn("分类");
+					localStorage.setItem("collectIndex",doListState.index); //不存会怎样？
+					tip.innerText = "（处理成功!）";
+					readBox();
+				}else{
+					tip.innerText = "（处理失败！当前没有事项或没有选择放置的位置）";
+					let solvedAll = doListState.isSolvedAll;
+					const pageDealWith = document.querySelectorAll(".doListNav .btn")[3];
+					if(solvedAll===0){
+						pageDealWith.classList.add("news");
+						pageDealWith.innerText="需要处理";
+					}else{
+						pageDealWith.classList.remove("news");
+						pageDealWith.innerText="事件统筹";
+					}
+				}
+			}
+					
+			
+			function addToDoList(){
+				const val = doListState.txtVal;
+				
+			}
+			
+			function saveIn(giveaway="收集") { // 存库
+				const tip = document.getElementsByClassName("wrongTip")[0];
+				if(giveaway==="分类"){
+					// 事项的划分
+					const sortlist = doListState.sortList;
+					const nsort = [];
+					for(let a=0; a<7;a++){
+						let newlist = sortlist[a]; // 获取某个分类的数组
+						nsort.push(newlist.join("$"));  // 分类内容用$拼接起来，放在nosort数组中
+					}
+					const gwStr = nsort.join("~"); 
+					// console.log(nsort,gwStr);
+					if (localStorage) {
+						localStorage.setItem("collectSortBox", gwStr);
+						// console.log("readsortbox前的数据"+gwStr);
+						readSortBox();
+					} else {
+						tip.innerText = "！该浏览器不支持localStorage本地缓存功能，无法存库.";
+					}
+				}else{
+					// 添加式库collectBox  覆盖式库collectBoxNew
+					//  点击收集保存不应该改变index，除非是新处理的时候。
+					const list = doListState.list; // 获取当前列表栏目
+					let str = list.join("$"); // 用$拼凑成字符串
+					if (localStorage) {
+						if(doListState.newListStr === str){
+							tip.innerText = "（请不要调皮收集两个一模一样的清单哦~）";
+						}else{
+							doListState.newListStr = str;
+							localStorage.setItem("collectBoxNew", str); // 把当前列表栏目存进新加项内
+							if(localStorage.getItem("collectBox")){  // 若是有旧的收集箱内容的话，则进行拼接，即收集箱新数据的追加
+								let oldStr = localStorage.getItem("collectBox").toString();
+								str = oldStr + "$" + str;
+							}
+							localStorage.setItem("collectBox", str);
+							// console.log(doListState.firstSave);
+							if(doListState.firstSave===1){ // 未处理分类事项及
+								console.log("第一次存数据，把数据显示出来，用readbox");
+								localStorage.setItem("notFirstSave","yes"); 
+								readBox(); // 这个只能在无数据的时候执行一次。
+							}
+							
+							if(doListState.continueSort === false){ //// 之前处理完了之后再次存事件进收集箱时
+								// console.log("处理完了之后再次存事件进收集箱时");
+								// 记录好当前的index值。
+								doListState.continueSort = true;
+								let index = doListState.index; // 获取当前的索引值
+								localStorage.setItem("collectIndex",index);  // 
+								doListState.isSolvedAll = 0;
+								localStorage.setItem("solvedAll","0"); 
+								// localStorage.setItem("collectIndex",index); 
+								readBox();  // 去一下内存的index
+							}
+							
+							// let index = doListState.index; // 获取当前的索引值
+							// localStorage.setItem("collectIndex",index);  // 索引值的保存，初次保存的是-1
+							// 显示事件统筹 
+							const show = doListState.show; // 获取当前显示的页part
+							const shows = document.querySelectorAll(".part");
+							shows[show].style.display = "none";
+							shows[3].style.display = "block";
+							doListState.show = 3;
+							
+							tip.innerText = "(成功存入收集箱，请在右边进行事件统筹)";
+						}
+						
+					} else {
+						tip.innerText = "!该浏览器不支持localStorage本地缓存功能，无法存库";
+					}
+			
+				}
+				
+			}
+			
+			
+			
+			function clearData(){
+				const list = ["collectIndex" ,"collectBox","collectBoxNew","collectSortBox","solvedAll","notFirstSave"];
+				for(let i = 0; i<list.length; i++){
+					localStorage.removeItem(list[i]);
+				}
+			}
+			
+			function showListData(list,num) {  // 渲染列表
+				let real = [];
+				if(num===1){
+					list.map((item) => {
+						let li = '<li><label><input type="checkbox"/><span class="cbox"></span><b onclick="checkIt(event)">' + item +
+							'</b></label><button onclick="handleDelete(event)">×</button></li>';
+						real.push(li);
+					});
+					let realStr = real.join("");
+					const listItem = document.querySelector(".lists");
+					listItem.innerHTML = realStr;
+				}else if(num===2){
+					list.map((item) => {
+						let li = '<li>' + item +'</li>';
+						real.push(li);
+					});
+					let realStr = real.join("");
+					const slideList = document.getElementsByClassName("listContent")[0];
+					slideList.innerHTML = realStr;
+				}
+				
+			}
+			
+			function getChannel(nodes,shows="undefined"){
+				if(shows==="undefined"){
+					const slides = document.querySelectorAll(".slide");
+					nodes = slides;
+				}
+				for(let part = 0; part<nodes.length;part++){
+					let indexOfPart = part;
+					nodes[part].onclick = function(){
+						// console.log(indexOfPart);
+						if(shows==="undefined"){ // 第indexOfPart个slide
+							const show = doListState.inshow;
+							slides[indexOfPart].classList.add("choose");
+							slides[show].classList.remove("choose");
+							// 读取数据
+							if(doListState.sortList[indexOfPart]){
+								let list = doListState.sortList[indexOfPart];
+								
+								showListData(list,2)
+							}else{
+								const slideList = document.getElementsByClassName("listContent")[0];
+								slideList.innerText = "该项无数据";
+							}
+							doListState.inshow = indexOfPart;
+							
+						}else{
+							const show = doListState.show;
+							shows[show].style.display = "none";
+							shows[indexOfPart].style.display = "block";
+							doListState.show = indexOfPart;
+						}
+					};
+				}
+			}
+		
+			function handleInput(event) { // 输入值发生改变
+				let target = event.target || window.event.srcElement; //兼容写法
+				//console.log(target.tagName);  //得到的事大写的tagName 
+				if (target.tagName.toLowerCase() === "textarea") {
+					// console.log("正常输出");
+					doListState.vals = event.target.value;
+				} else {
+					doListState.val = event.target.value;
+				}
+		
+			}
+		
+			function handleEnter(event) {
+				let keyCode = event.keyCode || event.which;
+				//console.log(keyCode);  //enter对应的值是13
+				if (keyCode === 13) {
+					handleAdd();
+					// console.log("触发了enter");
+				}
+			}
+		
+			function handleAdd() {
+				// console.log("触发了add");
+				let {
+					val,
+					vals,
+					list
+				} = doListState;
+				val = val.trim();
+				vals = vals.trim();
+		
+		
+				if (val !== "" || vals !== "") { // 输入框有值时：
+					const ul = document.getElementsByClassName("todoList")[0];
+					let has = ul.classList.contains("card");
+					if (!has) {
+						ul.classList.add("card");
+					}
+					if (val !== "") {
+						list.push(val);
+						document.getElementsByClassName("smInput")[0].value = '';
+					} else if (vals !== "") {
+						list.push(vals);
+						document.getElementsByClassName("textarea")[0].value = '';
+					}
+		
+					if (list.length === 1) {
+						const tip = document.getElementsByClassName("tips")[0];
+						tip.style.display = "block";
+					}
+					const tip = document.getElementsByClassName("wrongTip")[0];
+					tip.innerText = "";
+					
+					doListState.list = list;
+					doListState.val = ''; // 清空输入框
+					doListState.vals = ''; // 清空输入框
+					let item = val || vals;
+					let li = document.createElement("li");
+					li.innerHTML = '<label><input type="checkbox"/><span class="cbox"></span><b onclick="checkIt(event)">' + item +
+						'</b></label><button onclick="handleDelete(event)">×</button>';
+					let listItem = document.querySelector(".lists");
+					listItem.appendChild(li);
+		
+					const num = document.querySelector(".tips b");
+					num.innerText = list.length; // 显示当前的项目数
+				}
+			}
+		
+			function checkIt(event) {
+				// event.stopPropagation(); // IE则是使用e.cancelBubble = true
+				// event.cancelBubble = true;
+				const item = event.target;
+				if (item.classList.contains("finish")) {
+					item.classList.remove("finish");
+				} else {
+					item.classList.add("finish");
+				}
+			}
+		
+			function handleDelete(e) { // 单项删除,这里的index用值比对的方式
+				const con = e.target.parentNode.querySelector("b").innerText;
+				let list = doListState.list;
+				const index = list.lastIndexOf(con);
+				console.log(con, index);
+				list.splice(index, 1);
+				// splice有增有减，返回删除值，作用在原数组。
+		
+				let listItem = document.querySelector(".lists");
+				listItem.removeChild(e.target.parentNode);
+				if (list.length === 0) {
+					const ul = document.getElementsByClassName("todoList")[0];
+					ul.classList.remove("card");
+					const tip = document.getElementsByClassName("tips")[0];
+					tip.style.display = "none";
+				}
+				doListState.list = list;
+				const num = document.querySelector(".tips b");
+				num.innerText = list.length; // 显示当前的项目数
+			}
+		
+			
+		</script>
+		
+
+		<script>
+			const commentsData = [{
+					id: "us3444567800000023",
+					username: "超级自恋狂",
+					comment: "你为什么这么优秀？",
+					attentionNum: 90,
+					answerList: [
+						["us3444457800000123", "悠悠爱吃", "楼主想要搞事情！！！楼主想要搞事情！", 55],
+						["us1244567800000023", "王也", "要完", 55],
+						["us2224567800000013", "树子晶", "陈独秀", 5],
+						["us3334567800000023", "梦一场", "一起啊，++++1", 12]
+					]
+				},
+
+				{
+					id: "us2222567800005023",
+					username: "天涯浪人",
+					comment: "今天又是奔波的一天。",
+					attentionNum: 90,
+					answerList: [
+						["us9952256780000011", "花落知多少", "干啥子啦？", 3],
+						["us6666567800000027", "窗前", "可不是嘛？", 5],
+						["us7344567800000088", "要命一条", "燥起来！", 5],
+						["us7754567800000093", "天真以为", "楼主想要搞事情！！！", 12]
+					]
+				},
+				{
+					id: "us1887567800001023",
+					username: "这个人不傻",
+					comment: "今天来水一下。",
+					attentionNum: 66,
+					answerList: [
+						["us3414517800000083", "俗家弟子", "莫纠结~", 5],
+						["us5644417800000003", "孟丽", "人生苦短,无病呻吟。", 2]
+					]
+				}
+
+			];
+			const hotWords = ["学习方法", "目标计划", "吃货分享", "搜索技巧", "找思路"];
+			let ohotSearch = document.getElementsByClassName("hotSearch")[0];
+			for (let i of hotWords) {
+				let ospan = document.createElement("span");
+				ospan.innerText = i;
+				ohotSearch.appendChild(ospan);
+			}
+
+
+			// 数据的加载【请设置懒加载】
+			const existList = document.getElementById("existList");
+			for (let item of commentsData) {
+				let oli = document.createElement("li");
+				let odts = [];
+				let content = '<div class="quesFront" data-id=' + item.id + ' ><img src="images/sentence/0.jpg" alt="提问者用户头像" /><h4>' +
+					item.username + ': ' + item.comment + '</h4><span class="attentionBtn" data-id=' + item.id +
+					' data-click=0 data-type="atten" data-comment=' +
+					item.attentionNum + '>关注：' + item.attentionNum + '</span><b class="commentBtn" data-id=' + item.id +
+					' >添加评论</b></div>';
+				// 各个回复格式化 封装：传入评论数
+				for (let j = 0; j < item.answerList.length; j++) {
+					let comment = '<dt class="answerItem"><img src="images/sentence/1.jpg" alt="回答者用户头像" /><div class="comment"><p>用户： ' +
+						item.answerList[j][1] + '</p>' + item.answerList[j][2] +
+						'</div><div class="praise"><span class="attentionBtn" data-id=' +
+						item.answerList[j][0] + ' data-click=0 data-type="praise" data-comment=' + item.answerList[j][3] +
+						'>赞</span><b class="praiseNumber">' +
+						item.answerList[j][3] + '</b></div></dt>';
+					odts.push(comment);
+				}
+				let odtList = odts.join(" ");
+				let allComment = content + '<dl class="answerList ' + item.id + ' " >' + odtList + '</dl>';
+				oli.innerHTML = allComment;
+				existList.appendChild(oli);
+
+			}
+			// window.localStorage.removeItem('discussData');
+			// window.localStorage.removeItem('praiseData');
+
+
+
+			noteOn(); // 定义了变量forNote
+		</script>
+		
+		<script>
+			everyDayDaka();
+			function everyDayDaka(){
+				// 1.每天只能点击一次 进行数据储存
+				// 2.数据显示，存的是对象的字符串
+				var odate = new Date(); //这时间获取的是本地的？
+				var nowDate = odate.getFullYear()+"/"+odate.getMonth()+"/"+odate.getDate();
+				if(window.localStorage){
+					if(localStorage.saveData){
+						var dataDaka = localStorage.getItem("saveData");
+						var dakaData = JSON.parse(dataDaka);
+						var lastSave = localStorage.getItem("lastDaka");
+						if(lastSave!==nowDate){
+							var everyDay = true;
+						}else{
+							var everyDay = false;
+						}
+					}else{
+						console.log("第一次初始化，数据还未存入浏览器中。");
+						var dakaData = {
+							"HTML":0,
+							"CSS":0,
+							"JavaScript":0,
+							"Git":0,
+							"Vue":0,
+							"Weex":0
+						}
+						var everyDay = true;
+					}
+				}else{
+					console.log("该浏览器不支持localStorage本地存储功能。");
+				}
+				
+				function localSave(obj,name){
+					var s = JSON.stringify(obj);
+					localStorage.setItem(name,s);
+				}
+				
+				var oulCheck = document.getElementsByClassName("dayCheck")[0];
+				for(let key in dakaData){
+					let oli = document.createElement("li");
+					oli.innerHTML ="<span>"+ key+"</span><span>"+dakaData[key]+"</span><b>打卡</b><i>删除</i>";
+					oulCheck.append(oli);
+				}
+				
+				function btnAchieve(){
+					var obDaka = document.querySelectorAll(".dayCheck b");
+					var obDel = document.querySelectorAll(".dayCheck i");
+					for (let i = 0; i<obDaka.length;i++){
+						obDaka[i].onclick = function(e){
+							if(everyDay){
+								var keyLi = e.target.parentNode.firstChild.innerText;
+								var newNum = dakaData[keyLi]+1;
+								dakaData[keyLi] = dakaData[keyLi]+1;
+								e.target.previousElementSibling.innerText = newNum;
+								everyDay = false;
+								localSave(dakaData,"saveData");
+								localStorage.setItem("lastDaka",nowDate);
+							}
+						};
+						obDel[i].onclick = function(e){
+							var keyLi = e.target.parentNode.firstChild.innerText;
+							var delVal = window.confirm("是否删除项目"+keyLi);
+							if(delVal){
+								e.target.parentNode.remove();
+								delete dakaData[keyLi]; //为什么没有作用？不能用.来获取属性
+								localSave(dakaData,"saveData");
+							}
+						};
+					}
+				}
+				
+				btnAchieve();
+				
+				var addBtn = document.getElementsByClassName("addItemBtn")[0];
+				addBtn.onclick = function(){
+					var oval =  document.getElementsByClassName("writeIn")[0];
+					var val = oval.value.trim();
+					if(val!==""){
+						let oli = document.createElement("li");
+						oli.innerHTML ="<span>"+ val+"</span><span>0</span><b>打卡</b><i>删除</i>";
+						oulCheck.append(oli);
+						dakaData[val]=0;
+						console.log(dakaData);
+						oval.value = "";
+					}
+				}
+				
+				var saveBtn =  document.getElementsByClassName("saveChange")[0];
+				saveBtn.onclick = function(){
+					localSave(dakaData,"saveData");
+					btnAchieve();
+				}
+			}
+			// localStorage.removeItem("lastSave");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1490 @@
+/*常见参数height width background  margin  float border:2px solid black;斜体变正常font-style:normal;*/
+/*缩略图的大小：width:220px; height:150px*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+video {
+	outline: none;
+}
+
+body {
+	font-family: "微软雅黑", "黑体", "宋体";
+	background: #f6f6f6;
+	color: #333;
+}
+
+::selection {
+	background: pink;
+}
+
+
+.back {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: black;
+	opacity: 0.9;
+	z-index: 11;
+	display: none;
+}
+
+.tan_kuang {
+	width: 800px;
+	height: 450px;
+	position: fixed;
+	background: black;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 12;
+	display: none;
+	color: #ddd;
+}
+
+.tan_kuang .unfind {
+	line-height: 450px;
+}
+
+.new_decide {
+	font-size: 14px;
+	color: white;
+	text-align: center;
+}
+
+.close_kuang {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	right: 30px;
+	top:20px;
+	font-size: 26px;
+	background: black fixed;
+	z-index: 13;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+}
+
+.close_kuang:hover{
+	transform: rotate(90deg);
+	color: pink;
+	font-size: 28px;
+}
+
+video {
+	width: 800px;
+}
+
+.art_tankuang {
+	width: 1140px;
+	height: 800px;
+}
+
+.hl_article{
+	overflow: auto;
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+	box-sizing: border-box;
+	line-height: 1.6em;
+	text-indent: 2em;
+	color: #333;
+	background: #f9f5e9;
+
+}
+.hl_article::-webkit-scrollbar{
+	width: 0px;
+	background: none;
+}
+
+.article_kuang .hl_title {
+	display: block;
+	font-size: 26px;
+	padding-bottom: 16px;
+	margin-bottom: 20px;
+	border-bottom: 4px solid #333;
+}
+
+.article_con {
+	width: 96%;
+	margin: 0 auto;
+}
+
+.article_con .suojin {
+	margin-left: 2em;
+}
+
+.article_con .lvkuang {
+	background: #a8f6c3;
+	display: inline-block;
+	color: black;
+	border-radius: 8px;
+}
+
+/*不断补充区域*/
+/*头部区域另设置,逗号接龙*/
+
+.words.words_top {
+	margin: 88px auto 30px;
+}
+
+h3 {
+	font-weight: 400;
+	font-size: 16px;
+	display: inline-block;
+}
+
+.title1 {
+	float: left;
+}
+
+.title .jiantou {
+	display: block;
+	width: 0;
+	height: 0;
+	border: 12px transparent solid;
+	float: left;
+	margin-top: 10px;
+}
+
+.new_title .jiantou {
+	border-left-color: pink;
+}
+
+.word_title .jiantou {
+	border-left-color: yellow;
+}
+
+.video_title .jiantou {
+	border-left-color: Plum;
+}
+
+.game_title .jiantou {
+	border-left-color: orange;
+}
+
+.fiction_title .jiantou {
+	border-left-color: LightSkyBlue;
+}
+
+.song_title .jiantou {
+	border-left-color: PaleGreen;
+}
+
+.zhiyuwen_title .jiantou {
+	border-left-color: PaleGreen;
+}
+
+
+
+.new,
+.videos,
+.games,
+.fictions,
+.songs {
+	width: 1000px;
+	background: white;
+	margin: 0 auto;
+	box-shadow: 2px 3px 6px 0 #e1e1e1;
+	margin-bottom: 32px;
+}
+
+
+.title a {
+	float: right;
+	font-size: 12px;
+	color: #888;
+}
+
+.title a:hover {
+	text-decoration: underline;
+}
+
+.videos {
+	margin-top: 88px;
+}
+
+
+/*头部区域*/
+.header {
+	width: 100%;
+	height: 66px;
+	background: white;
+	/* overflow: hidden; */
+	position: fixed;
+	top: 0;
+	z-index: 10;
+}
+
+.tishiwenben {
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translateX(-50%);
+	background-color: #333;
+	font-size: 14px;
+	display: inline-block;
+	padding: 5px 12px;
+	border-radius: 5px;
+	color: white;
+	visibility: hidden;
+}
+
+.hd {
+	height: 66px;
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+
+.hd .logo {
+	width: 300px;
+	height: 51px;
+	float: left;
+	position: relative;
+	left: -110px;
+	top: 0;
+	margin-top: 3px;
+	background-image: url(../images/logo.gif);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+
+/* input框中placeholder的样式修改 */
+input::-webkit-input-placeholder {
+	color: #bbb;
+	font-size: 14px;
+}
+
+/*这里根据实际情况设置margin值，原图190*50*/
+.hd .kuang {
+	float: left;
+	height: 24px;
+	width: 220px;
+	padding: 2px 8px;
+	margin: 18px 4px 18px 20px;
+	visibility: hidden;
+}
+
+
+.hd .search {
+	float: left;
+	width: 40px;
+	margin-top: 15px;
+	outline: none;
+}
+
+.sousuokuang {
+	float: left;
+	overflow: hidden;
+	width: 320px;
+}
+
+.sousuokuang:hover .kuang {
+	visibility: visible;
+}
+
+.sousuokuang:hover .tishiwenben {
+	visibility: visible;
+}
+
+.hd .nav {
+	float: right;
+	height: 66px;
+	overflow: hidden;
+}
+
+.hd .nav a {
+	display: block;
+	position: relative;
+	top: 0;
+}
+
+.hd .nav li {
+	float: left;
+}
+
+.hd li i,
+.hd li b {
+	display: block;
+	font-style: normal;
+	font-weight: 400;
+	padding: 0 18px;
+	height: 66px;
+	line-height: 66px;
+	font-size: 14px;
+	color: #333;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.hd li b {
+	color: #666;
+	background-color: #f6f6f6;
+	border-radius: 0 0 18px 18px;
+	border-top: 2px solid pink;
+}
+
+/* .hd li:hover a{  top:-66px;} */
+
+/*海报区域  right:0;  bottom:0; margin-right:28px;  display:none;与block*/
+
+.banner {
+	width: 1000px;
+	height: 410px;
+	margin: 88px auto 12px;
+	position: relative;
+	overflow: hidden;
+}
+
+.banner .btn {
+	width: 36px;
+	height: 60px;
+	background: rgba(66, 66, 66, 0.3);
+	float: left;
+	position: absolute;
+	color: white;
+	cursor: pointer;
+	font-size: 26px;
+	text-align: center;
+	line-height: 60px;
+	top: 50%;
+	margin-top: -40px;
+	z-index: 10;
+	transition: 0.5s;
+}
+
+.banner .btn1 {
+	left: -66px;
+}
+
+.banner .btn2 {
+	right: -66px;
+}
+
+.banner:hover .btn1 {
+	left: 0;
+}
+
+.banner:hover .btn2 {
+	right: 0;
+}
+
+.banner dl {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 0;
+	z-index: 10;
+}
+
+.banner dt {
+	width: 0;
+	height: 0;
+	border: 7px solid rgba(22, 22, 22, 0.6);
+	margin: 20px 14px;
+	transform: rotate(45deg);
+	cursor: pointer;
+	display: inline-block;
+}
+
+.banner dt.active {
+	border-color: #e63;
+}
+
+.banner dt:hover {
+	transform: rotate(90deg);
+	border-color: #333;
+}
+
+.banner li {
+	height: 410px;
+	width: 1000px;
+	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: 1px 2px 4px 0 #e1e1e1;
+	overflow: hidden;
+	display: none;
+}
+
+.banner img {
+	width: 1000px;
+}
+
+
+
+
+/*说说区域*/
+.words {
+	width: 1000px;
+	background: white;
+	box-shadow: 1px 2px 3px 0 #e1e1e1;
+	margin: 0 auto 16px;
+}
+
+.words p {
+	font-size: 14px;
+	color: #555;
+	padding: 10px 24px 20px;
+	text-indent: 2em;
+	line-height: 1.6em;
+}
+
+
+/*内容区域*/
+.title {
+	height: 42px;
+	padding-right: 20px;
+	line-height: 42px;
+	border-bottom: 1px solid #f2f2f2;
+}
+
+.new_title span {
+	float: right;
+	font-size: 12px;
+	color: #888;
+}
+
+.model_con {
+	overflow: hidden;
+	position: relative;
+}
+
+.model_con b {
+	font-size: 14px;
+	padding: 6px 28px;
+	display: block;
+	color: #f9f9f9;
+}
+
+.model_con h2 {
+	font-size: 14px;
+	padding: 3% 0 10px;
+}
+
+.model_con p {
+	font-size: 12px;
+	text-indent: 2em;
+	line-height: 1.6em;
+	padding: 0 16px;
+	text-align: left;
+}
+
+.model_con .box {
+	display: block;
+	float: left;
+	width: 224px;
+	height: 126px;
+	background-repeat: no-repeat ;
+	background-position: center center;
+	background-size: contain;
+	margin: 10px 13px 26px;
+	color: #333;
+}
+
+.video_con .box {
+	background-size: contain;
+	cursor: pointer;
+}
+.video_con .box:hover {
+	background-size: 110%;
+	box-shadow: 0 4px 16px #6a6a6a;
+}
+
+.fiction_con .fic_img {
+	background-size: contain;
+	float: right;
+}
+
+.model_con .gequ_box,
+.fic_box {
+	width: 680px;
+	height: 100px;
+	float: right;
+	margin: 10px 20px 10px 0;
+	padding: 13px 20px;
+}
+
+.model_con .fic_box p {
+	line-height: 1.8em;
+}
+
+.song_con .gequ_box {
+	height: auto;
+}
+
+.song_con .box {
+	margin: 30px 13px 30px;
+	background-size: contain;
+}
+
+/*       可更改top值192，164   background-size:100% auto; */
+.model_con .box_kuang {
+	position: absolute;
+	width: 224px;
+	height: 126px;
+	color: white;
+	text-align: center;
+	top: 192px;
+	transition: 0.5s;
+	box-shadow: 0 0 3px 0 #d3d3d3;
+	background: rgba(202, 202, 202, 0.8);
+}
+
+.box:hover .box_kuang {
+	top: 10px;
+}
+
+/*      更改——调色*/
+.model_con .kuang1 {
+	background: rgba(243, 180, 88, 0.9);
+}
+
+.model_con .kuang2 {
+	background: rgba(123, 180, 222, 0.9);
+}
+
+.model_con .kuang3 {
+	background: rgba(230, 160, 222, 0.9);
+}
+
+.model_con .kuang4 {
+	background: rgba(132, 230, 132, 0.9);
+}
+
+.model_con .box4 {
+	margin-right: 0;
+}
+
+/*游戏页面 */
+.game_body {
+	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);
+}
+
+.game_top {
+	width: 1170px;
+	height: 250px;
+	margin: 0 auto;
+}
+
+.game_top .game_writer {
+	width: 160px;
+	height: 160px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	margin-left: -80px;
+	transform-style: preserve-3d;
+	perspective: 600px;
+}
+
+.game_writer .author_img {
+	width: 160px;
+	height: 160px;
+	background-image: url(../images/touxiang_4b.png);
+	background-size: cover;
+	position: absolute;
+	border-radius: 80px;
+	transition: 0.3s;
+	cursor: pointer;
+	box-shadow: 0 3px 22px #eee;
+}
+
+.game_writer .author_word {
+	width: 160px;
+	height: 160px;
+	text-align: center;
+	border-radius: 80px;
+	background: rgba(22, 22, 22, 0.4);
+	font-size: 14px;
+	line-height: 1.6em;
+	position: absolute;
+	color: white;
+}
+
+.game_writer:hover .author_img {
+	transform: rotateX(90deg);
+}
+
+.all_games {
+	width: 100%;
+	margin: 0 auto;
+}
+
+/* background-image:url(../images/sentence/0000.jpg); */
+.games_con {
+	width: 1170px;
+	margin: 66px auto;
+	background: rgba(22, 22, 22, 0.4);
+	padding: 60px 0;
+	border-radius: 20px;
+}
+
+.games_con::after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.games_con .game {
+	width: 1000px;
+	height: 260px;
+	margin: 10px auto;
+}
+
+.game .game_pic {
+	width: 320px;
+	height: 180px;
+	background-repeat: no-repeat;
+	position: relative;
+	top: 50%;
+	margin-top: -90px;
+	overflow: hidden;
+	transition: 0.5s;
+	background-size: contain;
+	box-shadow: 0 3px 22px #aaa;
+}
+
+.game .game_word {
+	width: 560px;
+	height: 224px;
+	padding: 15px 28px;
+	border-radius: 30px;
+	overflow: auto;
+	color: white;
+	transition: 0.5s ease-out;
+}
+
+.games_con .game:nth-of-type(odd) .game_word {
+	float: right;
+	margin-left: 12px;
+}
+
+.games_con .game:nth-of-type(odd) .game_pic {
+	float: left;
+}
+
+.games_con .game:nth-of-type(even) .game_word {
+	float: left;
+	margin-right: 12px;
+	text-align: right;
+}
+
+.games_con .game:nth-of-type(even) .game_pic {
+	float: right;
+}
+
+.game .game_word h3 {
+	padding-bottom: 5px;
+	display: none;
+}
+
+.game_word a {
+	color: hotpink;
+}
+
+.game .game_word p {
+	font-size: 14px;
+	line-height: 1.6em;
+	text-indent: 2em;
+	text-align: left;
+}
+
+.game .game_word:hover {
+	background: rgba(255, 255, 255, 0.9);
+	color: black;
+}
+
+.game .game_word:hover h3 {
+	display: block;
+}
+
+/* share页面 */
+.share_con {
+	width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+}
+
+
+
+.kapian {
+	box-shadow: 2px 3px 6px 0 #e1e1e1;
+	box-sizing: border-box;
+	margin-bottom: 16px;
+	display: flex;
+	background-color: white;
+}
+
+.share_box {
+	width: 296px;
+	border: 1px solid #e1e1e1;
+	margin: 16px;
+	height: 200px;
+}
+
+.share_box a {
+	color: #888888;
+}
+
+.share_box a:hover {
+	text-decoration: underline;
+	color: hotpink;
+}
+
+.share_box:hover h4 {
+	color: hotpink;
+}
+
+.share_box:hover {
+	background-color: #cee8f8;
+	
+}
+
+.share_box h4 {
+	padding: 12px 8px;
+}
+
+.share_box p {
+	font-size: 14px;
+	padding: 2px 14px;
+	text-indent: 2em;
+}
+
+
+/*玩一玩页面*/
+.play_back {
+	width: 100%;
+	height: 620px;
+	background: url(../images/sentence/0000.jpg) center bottom no-repeat;
+}
+
+.play {
+	width: 1000px;
+	height: 550px;
+	margin: 0 auto;
+	background: white;
+	box-shadow: 0 0 3px 0 #d3d3d3;
+}
+
+.play_title {
+	width: 1000px;
+	height: 42px;
+	border: none;
+}
+
+.play_title h3 {
+	float: left;
+	padding: 0 50px;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.play_title h3.active {
+	background: #eee;
+}
+
+.play_title a {
+	margin-right: 32px;
+}
+
+.play ul {
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.play_con li {
+	width: 1000px;
+	height: 508px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	float: left;
+	display: none;
+	background-color: #eee;
+}
+
+/*play-小句子*/
+.play_con .out {
+	margin: 20px 30px;
+	font-size: 14px;
+	line-height: 1.6em;
+}
+
+.play_con .out_kuang {
+	height: 80px;
+	padding: 28px;
+	border-radius: 30px;
+	margin-bottom: 22px;
+	overflow: hidden;
+	box-shadow: 0 2px 3px 0 #d3d3d3;
+	color: #555;
+}
+
+.play_con .out_kuang:hover {
+	color: black;
+	background: white;
+}
+
+.out_kuang .wen_kuang {
+	width: 740px;
+	float: left;
+	margin-left: 20px;
+}
+
+.out_kuang .tukuang {
+	display: block;
+	width: 96px;
+	height: 96px;
+	float: right;
+	background: white;
+	border-radius: 42px;
+}
+
+.play_con .kse2 {
+	background-color: #ccffff;
+}
+
+.play_con .kse1 {
+	background-color: #ffffcc;
+}
+
+.play_con .kse3 {
+	background-color: #ffcccc;
+}
+
+/*play-小故事*/
+.play_con .gushi {
+	width: 936px;
+	height: 440px;
+	margin: 32px;
+	font-size: 14px;
+}
+
+.gushi .gs_con {
+	width: 736px;
+	height: 440px;
+	float: left;
+	background: white;
+	border-radius: 40px 0 0 40px;
+	position: relative;
+}
+
+.gushi .gs_text {
+	width: 706px;
+	height: 376px;
+	text-indent: 2em;
+	line-height: 1.6em;
+	margin: 32px;
+	overflow: auto;
+	float: left;
+	position: absolute;
+	display: none;
+	background: white;
+}
+
+.gushi .gs_text p {
+	padding-right: 20px;
+}
+
+.gs_text h5 {
+	margin-bottom: 8px;
+}
+
+.gushi .gs_nav {
+	width: 200px;
+	height: 440px;
+	float: left;
+	text-align: center;
+	background-image: url(../images/touxiang_4b.png);
+	background-color: #ccffff;
+	background-size: 60%;
+	background-position: center 8px;
+	background-repeat: no-repeat;
+}
+
+.gushi .gs_nav h4 {
+	padding: 5px 0;
+	background: #ccffff;
+	cursor: pointer;
+}
+
+.gushi .gs_nav p {
+	background: #fafafa;
+	display: none;
+}
+
+.gushi .gs_nav i {
+	display: block;
+	padding: 3px 5px;
+	font-style: normal;
+	cursor: pointer;
+}
+
+.gushi .gs_nav i:hover {
+	background: #ccc;
+}
+
+/*play-小歌单*/
+.play_con .gedan {
+	width: 300px;
+	height: 400px;
+	margin: 46px 0 56px 25px;
+	float: left;
+	color: white;
+	text-align: center;
+	border-radius: 33px;
+	background: #555;
+}
+
+.play_con .gedan h4 {
+	margin: 50px auto 30px;
+}
+
+.play_con .gedan p {
+	padding: 0 20px;
+	line-height: 1.6em;
+	font-size: 12px;
+	margin-bottom: 8px;
+	display: none;
+}
+
+.play_con .gedan img {
+	margin: 32px 0;
+}
+
+.play_con .gedan a {
+	color: white;
+	font-size: 14px;
+	padding: 10px 20px;
+	background: #666;
+	border-radius: 17px;
+	display: none;
+}
+
+.play_con .gedan a:hover {
+	background: #333;
+}
+
+/*play-小游戏*/
+.play_con .youxi {
+	width: 1000px;
+	height: 508px;
+	overflow: hidden;
+	text-align: center;
+	background: url(../images/sentence/youxi.jpg);
+}
+
+.play_con .youxi b {
+	/* float: left; */
+	color: white;
+	font-size: 14px;
+	display: block;
+	/* position: relative; */
+	/* line-height: 120px;
+	background: #222;
+	border: 2px solid #91c0d4;
+	box-shadow: 1px 1px 3px 0 #91c0e4; */
+}
+
+.youxi>div{
+	position: relative;
+	text-align: center;
+	background: #222;
+	border: 2px solid #91c0d4;
+	box-shadow: 1px 1px 3px 0 #91c0e4;
+	display: block;
+}
+
+.play_con .g_box {
+	position: absolute;
+	top: 20%;
+	left: 88%;
+	display: none;
+	transition: 1s ease-out;
+/* 	margin-right: -72%;
+	margin-top: 30%; */
+}
+
+.play_con .youxi .g_box a {
+	transform-origin: 0 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #292d2c;
+	display: block;
+	line-height: 20px;
+	padding: 2px 12px;
+	color: white;
+	background: #222;
+	border-width: 2px 2px 2px 0;
+	border-color: #91c0d4;
+	border-style: solid;
+}
+
+.play_con .youxi .g_box a:hover {
+	color: white;
+	background: #222;
+}
+
+/*play-选事做*/
+.suiji_choose {
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background-image: url(../images/huawen.jpg);
+	background-repeat: no-repeat;
+	background-color: #598091;
+	background-position: 140px 150px;
+}
+
+.suiji_choose dd {
+	position: relative;
+	font-size: 28px;
+	background: transparent;
+	color: #598091;
+	width: 46%;
+	height: 136px;
+	box-sizing: border-box;
+	padding: 20px;
+	margin: 20px 20px 0;
+	box-shadow: 0 0 1px #eee;
+	border-radius: 12px;
+	cursor: pointer;
+
+}
+
+.suiji_choose dd:hover {
+	transform: translateY(2px);
+	background-color: white;
+	background-image: url(../images/sentence/suiji.jpg);
+	background-repeat: no-repeat;
+	background-size: 16%;
+	background-position: 42px bottom;
+	color: #fdaaa6;
+}
+
+.back_doit {
+	width: 70%;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	box-sizing: border-box;
+	padding: 20px;
+	font-size: 14px;
+
+}
+
+/* fiction页面 */
+.fic_body {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc) fixed;
+}
+
+.toc {
+	width: 100%;
+	height: 360px;
+	background: rgba(33, 33, 33, 0.6);
+	position: fixed;
+	left: 0;
+	top: 66px;
+	display: none;
+	color: white;
+	padding: 15px;
+	z-index: 6;
+}
+
+.toc .l_tu {
+	width: 420px;
+	height: 308px;
+}
+
+.toc .l_tu #huabu {
+	margin: 60px 40px;
+}
+
+.toc .l_tu span {
+	position: relative;
+}
+
+.toc .l_tu span:nth-of-type(1) {
+	left: 2px;
+	top: 72px;
+}
+
+.toc .l_tu span:nth-of-type(2) {
+	left: 278px;
+	top: 248px;
+}
+
+.toc .l_tu span:nth-of-type(3) {
+	left: -16px;
+	top: 268px;
+}
+
+.toc .l_tu span:nth-of-type(4) {
+	left: 132px;
+	top: 268px;
+}
+
+.route {
+	cursor: pointer;
+	font-size: 26px;
+	margin: 148px auto 0;
+	text-align: center;
+	color: white;
+}
+
+.all_article {
+	width: 1170px;
+	margin: 40px auto 0;
+}
+
+.article_toc {
+	height: 160px;
+	display: flex;
+	background-color: rgba(33, 33, 33, 0.5);
+	color: white;
+	font-size: 14px;
+	text-align: center;
+}
+
+.art_aside {
+	flex: 1;
+	overflow: auto;
+	border-right: white 1px solid;
+}
+
+.art_aside p {
+	padding: 10px 16px 10px;
+	border-bottom: white 1px solid;
+}
+
+.art_aside dd {
+	margin: 10px auto;
+	padding: 6px 0;
+	cursor: pointer;
+}
+
+.art_aside dd:hover {
+	color: black;
+	background-color: white;
+}
+
+.article_toc .art_main {
+	text-align: left;
+	margin: 12px 60px;
+	flex: 4;
+	overflow: hidden;
+	position: relative;
+}
+
+.art_main .mulu {
+	position: relative;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.art_main:hover .gundongtiao {
+	display: block;
+}
+
+.article_toc li {
+	writing-mode: tb;
+	display: inline-block;
+	vertical-align: text-top;
+	padding: 12px 8px;
+	margin-left: 12px;
+	border-radius: 26px;
+	width: 20px;
+	cursor: pointer;
+}
+
+.article_toc li:hover {
+	color: pink;
+	background-color: rgba(33, 33, 33, 0.5);
+}
+
+.article_toc li::before {
+	height: 12px;
+	width: 12px;
+	border-radius: 6px;
+	content: "";
+	background-color: white;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.art_main .gundongtiao {
+	position: absolute;
+	bottom: 4px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 4px;
+	border: 1px solid white;
+	border-radius: 4px;
+	background-color: white;
+	z-index: 5;
+	display: none;
+	cursor: pointer;
+}
+
+.gundongtiao #gundong {
+	position: absolute;
+	left: 0;
+	width: 8%;
+	height: 2px;
+	animation: 0.3s;
+	border-radius: 4px;
+	background-color: pink;
+	z-index: 6;
+}
+
+#gundong::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: -1px;
+	top: -5px;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: pink;
+	z-index: 7;
+}
+
+
+.all_article .article {
+	width: 100%;
+	margin: 36px auto;
+	background: white;
+	font-size: 14px;
+}
+
+.article .fic_head {
+	overflow: hidden;
+}
+
+.article h1 {
+	padding: 15px 0;
+	padding-left: 20px;
+	float: left;
+}
+
+
+.fic_head span {
+	font-size: 12px;
+	float: right;
+	margin-right: 20px;
+	margin-top: 18px;
+	color: #999;
+}
+
+.article .key_w {
+	color: white;
+	background: rgba(33, 33, 33, 0.6);
+	padding: 5px 30px;
+}
+
+
+.article .con_out {
+	width: 1070px;
+	padding: 40px 50px 20px;
+	overflow: hidden;
+	height: 206px;
+}
+
+.article .con {
+	height: 182px;
+	text-indent: 2em;
+	font-size: 14px;
+	line-height: 1.6em;
+}
+
+.article .con p {
+	padding-top: 16px;
+}
+
+.article .con_out .more {
+	position: relative;
+	bottom: -8px;
+	width: 100%;
+	padding: 5px;
+	height: 26px;
+	text-align: center;
+	background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+	font-size: 18px;
+	color: pink;
+	cursor: pointer;
+}
+
+/* heal治愈页面 */
+.heal_body {
+	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc) fixed;
+}
+
+.heal_out {
+	width: 1000px;
+	margin: 148px auto 0;
+	text-align: center;
+}
+
+.heal_out::after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.heal_out .hl_title {
+	display: block;
+	font-size: 26px;
+	margin-bottom: 28px;
+	color: white;
+}
+
+.heal_out .hl_box {
+	width: 270px;
+	padding: 15px;
+	float: left;
+}
+
+.heal_out .hl_box:nth-of-type(2) {
+	margin: 0 50px;
+}
+
+.heal_out .hl_box span {
+	width: 56px;
+	height: 56px;
+	border-radius: 28px;
+	display: block;
+	font-size: 32px;
+	line-height: 56px;
+	position: relative;
+	left: 50%;
+	top: 40px;
+	margin-left: -28px;
+	background: white;
+}
+
+.heal_out .hl_box .box_in {
+	padding: 70px 24px 30px;
+	background-color: rgba(33, 33, 33, 0.6);
+	border-radius: 20px;
+	color: white;
+}
+
+.hl_box .box_in:hover {
+	box-shadow: 1px 3px 20px pink;
+}
+
+.hl_box .box_in p {
+	line-height: 2em;
+}
+
+.hl_box .box_in p.active {
+	color: black;
+	background: white;
+}
+
+.hl_box .box_in div {
+	margin-bottom: 20px;
+}
+
+.heal_out .tishi_words {
+	margin-top: 32px;
+	float: left;
+	display: inline-block;
+	width: 100%;
+	font-size: 12px;
+}
+
+.heal_out .tishi_box {
+	float: left;
+	width: 990px;
+	margin-top: 8px;
+	padding: 5px;
+	background-color: rgba(33, 33, 33, 0.3);
+	border-radius: 5px;
+}
+
+.heal_out .tishi_box p {
+	line-height: 2em;
+	display: none;
+	text-align: left;
+	padding: 0 10px;
+}
+
+.heal_out .tishi_box p.active {
+	color: black;
+	background: white;
+	display: block;
+}
+
+.zhiyuwen {
+	width: 1000px;
+	margin: 10px auto;
+	background: white;
+}
+
+.zhiyuwen .zhiyuwen_con {
+	padding: 20px;
+	width: 960px;
+	height: 88px;
+	overflow: auto;
+}
+
+.zhiyuwen .zhiyuwen_con span {
+	display: inline-block;
+	line-height: 22px;
+	padding: 0 8px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.zhiyuwen .zhiyuwen_con span:hover {
+	background: pink;
+}
+
+/*底部区域*/
+.footer {
+	width: 100%;
+	text-align: center;
+	padding: 28px 0 18px;
+	font-size: 12px;
+	color: #666;
+}
+
+.footer h1 {
+	font-weight: 400;
+	font-size: 12px;
+	display: inline;
+}
+
+.footer a {
+	color: #666;
+}

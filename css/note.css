@@ -1,0 +1,757 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+
+
+ul {
+	list-style: none;
+}
+
+button {
+	outline: none;
+}
+
+::selection {
+	background: pink;
+}
+
+
+
+:root{
+	--keycolor:#aabbff;
+	--lightcolor:#aaaaaa;
+	--n-fontcolor: #bbbbbb;
+	--btncolor:#5eb6ed;
+}
+
+.setThings>div{
+	margin-top: 50px;
+}
+
+.setThings>div a{
+	color:hotpink;
+}
+
+.setThings .doList{
+	margin: 32px auto;
+	max-width: 1220px;
+	/* position: relative; */
+	display: flex;
+	color:var(--n-fontcolor);
+}
+.doList::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.doList .main{
+	border:1px solid var(--keycolor);
+	min-width: 520px;
+	min-height: 464px;
+	position: relative;
+	margin-left:50px;
+	z-index:3;
+	text-align: center;
+}
+
+
+
+.btn{
+	cursor: pointer;
+	color: var(--keycolor);
+	background-color: white;
+	border:1px solid var(--keycolor);
+	padding:4px 12px;
+	border-radius: 30px;
+}
+
+.btn:hover{
+	background-color: var(--keycolor);
+	color: white;
+	border-color: var(--keycolor);
+}
+.getBtn{
+	display: inline-block;
+}
+
+
+p.wrongTip{
+	margin-top: 12px;
+	text-align: center;
+	font-size: 14px;
+	color:var(--keycolor);
+}
+.doList h1{
+    color: var(--keycolor);
+	padding:50px;
+	font-size: 24px;
+  }
+input.smInput{
+	height: 32px;
+	width: 220px;
+	padding: 0 8px;
+	outline: none;
+	border: 1px solid var(--lightcolor);
+}
+
+
+.doList button{
+	outline: none;
+	border: none;
+	color:white;
+	height: 32px;
+	margin-left: 8px;
+	padding:0 10px;
+	background-color: var(--btncolor);
+	cursor: pointer;
+}
+
+.doList textarea{
+	display: block;
+	width: 360px;
+	height:72px;
+	margin:30px auto 10px;
+	outline: none;
+	border: 1px solid var(--lightcolor);
+	display:none;
+	padding: 6px;
+}
+
+ul.card{
+	margin: 40px auto;
+	width: 300px;
+	list-style: none;
+	border: 1px solid var(--keycolor);
+	padding: 42px;
+	border-radius: 20px;
+	background-color: #131615;
+	/* background-color: #fffae8; */
+	overflow: auto;
+	max-height: 40vh;
+}
+ul.card::-webkit-scrollbar{
+	width: 0px;
+	background: none;
+}
+.doList ul li{
+	overflow: hidden;
+	max-width: 300px;
+	text-align:left;
+	padding: 6px 24px 6px 32px;
+	position: relative;
+	margin-bottom: 20px;
+	border-bottom:  1px dashed #999999;
+	/* color: #25b6bd; */
+	color:#6cbbff;
+}
+.lists b{
+	cursor: pointer;
+	font-weight: 400;
+}
+.lists b.finish{
+	color:#dddddd;
+	text-decoration: line-through;
+}
+
+.doList ul li:hover{
+	border-bottom: 1px solid pink;
+	color: pink;
+}
+.doList li button{
+	width: 42px;
+	height: 42px;
+	text-align: center;
+	line-height: 42px;
+	display: none;
+	position: absolute;
+	right:-8px;
+	top:-2px;
+	background-color: transparent;
+}
+.doList li:hover button{
+	display: block;
+	font-size: 32px;
+	color:pink;
+	border-radius: 20px;
+	transition: 0.3s;
+}
+.doList li:hover .cbox{
+	border-color: pink;
+}
+
+.doList li button:hover{
+	transform: translate(2px, -4px) rotate(90deg);
+}
+
+.doList input[type="checkbox"]{
+	display: none;
+}
+
+.doList input[type="date"]{
+	border:1px solid var(--keycolor);
+	border-radius: 30px;
+	outline: none;
+}
+.doList .cbox{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	cursor: pointer;
+	position: absolute;
+	border:1px solid #dddddd;
+	top:8px;
+	left:0;
+	/* margin-right: 6px; */
+}
+
+.doList input:checked+.cbox{
+	border-color: transparent;
+}
+.doList input:checked+.cbox::after{
+	display: inline-block;
+	content: "☆";
+	position: absolute;
+	left: 3px;
+	top:-3px;
+	font-size: 16px;
+	color: pink;
+} 
+.tips{
+	display: none;
+	text-align: center;
+	color:var(--lightcolor);
+}
+
+.tips button{
+	margin-left: 12px;
+	padding:6px;
+	background-color: transparent;
+	color:var(--lightcolor);
+	font-size: 14px;
+	border: 1px solid transparent;
+}
+.tips button:hover{
+	border-color: var(--lightcolor);
+}
+
+.doListNav{
+	position: absolute;
+	width: 100%;
+	top: 200px;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.doListNav>div{
+	position: absolute;
+}
+.doListNav .left{
+	left:-50px;
+}
+.left div, .right div{
+	margin-top: 36px;
+}
+.doListNav .right{
+	right:-50px;
+}
+
+.doList .aside{
+	position: relative;
+	top: 0;
+	right: 0;
+	border:1px solid var(--keycolor);
+	max-width: 520px;
+	min-height: 424px;
+	padding: 60px 70px 40px 80px;
+	z-index:2;
+	line-height: 1.4em;
+}
+
+.part::-webkit-scrollbar{
+	width: 2px;
+	background: none;
+}
+.part div{
+	text-align: left;
+}
+
+.doList h4{
+	padding-bottom: 30px;
+	color:var(--keycolor);
+}
+.aside p{
+	text-align: left;
+	font-size: 14px;
+	color:var(--n-fontcolor);
+	margin-top: 20px;
+}
+
+.aside .indent{
+	text-indent: 2em;
+	margin-top: 8px;
+}
+
+.aside p:first-letter{
+	font-size: 18px;
+	color:pink;
+}
+
+.aside .indent:first-letter{
+	text-indent: 2em;
+	font-size: 14px;
+	color:var(--n-fontcolor);
+}
+
+.collect .thing{
+	border:1px solid #666666;
+	padding:12px 20px;
+	margin:20px 6px;
+}
+.collect p{
+	margin-top:24px;
+}
+.collect div{
+	font-size: 14px;
+}
+.collect label{
+	margin-left:20px;
+	cursor: pointer;
+}
+.collect input{
+	display: inline-block;
+	margin-right:6px;
+	padding: 2px 8px;
+}
+.line{
+	border:1px dotted var(--keycolor);
+	margin:20px 0;
+}
+
+.aside .part{
+	display: none;
+	overflow: auto;
+	height: 70vh;
+}
+
+.aside .cards{
+	overflow: unset;
+}
+
+.aside .part:nth-child(4){
+	display: block;
+}
+.cards{
+	position: relative;
+}
+.cards nav button{
+	margin-left: 0;
+	background-color: transparent;
+	color:var(--keycolor);
+	border-bottom: 1px solid transparent;
+}
+.cards nav button.choose{
+	border-color: var(--btncolor);
+}
+.cards .bigger{
+	position: absolute;
+	right:-16px;
+	top:-56px;
+}
+.cards .left{
+	right:46px;
+}
+.cards nav{
+	margin-top: 50px;
+}
+.cards .listContent{
+	/* border-left:1px solid  var(--keycolor); */
+	max-height: 58vh;
+	min-height:360px;
+	margin:30px 12px;
+	overflow: auto;
+}
+.listContent::-webkit-scrollbar{
+	width: 2px;
+	background: none;
+}
+
+.listContent li{
+	border-color: transparent;
+	margin-bottom:0;
+	max-width: 360px;
+}
+
+.listContent li::before{
+	content: "";
+	display: block;
+	width:12px;
+	height:12px;
+	border-radius: 6px;
+	background-color: var(--keycolor);
+	position: absolute;
+	top:10px;
+	left:0px;
+}
+.listContent li:hover::before{
+	background-color: pink;
+}
+
+.resultTip{
+	margin: 20px 10px;
+	color:pink;
+}
+
+.btn.news{
+	border-color: pink;
+	color:pink;
+	position: relative;
+	overflow: hidden;
+}
+.btn.news::after{
+	width:120px;
+	height: 14px;
+	background-color: var(--keycolor);
+	content: "";
+	position: absolute;
+	left: -10px;
+	bottom:-4px;
+	animation: wave1 4s linear infinite;
+}
+.btn.news::before{
+	width:72px;
+	height: 72px;
+	border-radius: 50%;
+	background-color: var(--keycolor);
+	content: "";
+	position: absolute;
+	left: -20px;
+	top:16px;
+	animation: wave2 4s linear infinite;
+}
+@keyframes wave1{
+	0%{ bottom:-4px;}
+	40%{ bottom:-5px; }
+	100%{ bottom:-3px; }
+}
+
+@keyframes wave2{
+	0%{ left:-20px; transform: scale(1.0);}
+	30%{ left:30px;  transform: scale(0.9);}
+	100%{ left:90px;  transform: scale(1.2);}
+}
+.btn.news:hover{
+	color: white;
+	background-color: pink;
+}
+
+.toFixed {
+	position: fixed;
+	width:67px;
+	right: 16px;
+	left:0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 5;
+}
+
+.ybtn_box {
+	border: none;
+	padding: 20px 20px;
+	display: block;
+	background-color: #fafafa;
+	cursor: pointer;
+}
+
+.ybtn_box:hover {
+	background-color: pink;
+}
+
+.winBack {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(33, 33, 33, 0.9);
+	z-index: 11;
+	color: #aaa;
+	line-height: 3em;
+	display: none;
+}
+
+.newWin {
+	position: fixed;
+	height: 100%;
+	width: 1200px;
+	background: rgba(0, 0, 0, 0.6);
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	text-align: center;
+	z-index: 12;
+	display: none;
+	color: #ddd;
+}
+
+
+
+.setThings,
+.discussArea,
+.noteArea {
+	display: none;
+	position: relative;
+	left: 0;
+	top: 0;
+	height: 880px;
+	width: 92%;
+	margin: 2% 4%;
+	z-index: 13;
+}
+
+.inputBox,
+.discussBox {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 8px;
+	margin-bottom: 40px;
+}
+
+
+.inputBox textarea {
+	margin-top: 22px;
+	width: 100%;
+	display: block;
+	height: 100px;
+	font-size: 16px;
+	margin-bottom: 16px;
+	border-style: none;
+	line-height: 22px;
+	padding: 8px;
+}
+
+.btn_box {
+	border: 1px solid #666;
+	padding: 10px 30px;
+	background-color: white;
+	margin: 0 6px;
+	outline: none;
+}
+
+.btn_box:hover {
+	color: white;
+	background-color: black;
+}
+
+
+
+.wordsCanIn {
+	color: #AAAAAA;
+	position: relative;
+	bottom: 0;
+	right: -160px;
+	left: auto;
+}
+
+.hotSearch {
+	padding-bottom: 30px;
+}
+
+.hotSearch span {
+	display: inline-block;
+	padding: 4px 12px;
+	cursor: pointer;
+}
+
+.hotSearch span:hover {
+	color: lightgreen;
+}
+
+
+.discussBox,
+#existNoteList {
+	color: white;
+	text-align: left;
+	height: 540px;
+	overflow: auto;
+}
+
+
+#existList li {
+	min-height: 220px;
+}
+
+#disWords ,  #noteWords {
+	outline: none;
+	border-radius: 8px;
+	border: 2px solid transparent;
+	width:1070px;
+}
+
+#disWords:focus, #noteWords:focus {
+	border: 2px solid #ff557f;
+}
+
+.discussBox img {
+	vertical-align: middle;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+}
+
+.quesFront {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.quesFront h4 {
+	font-size: 22px;
+	display: inline-block;
+	padding: 10px 12px;
+}
+
+.quesFront .attentionBtn,
+.quesFront .commentBtn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 1px solid white;
+	border-radius: 16px;
+	padding: 6px 12px;
+	text-align: center;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: 400;
+}
+
+.quesFront :nth-child(3) {
+	left: 76%;
+}
+
+.quesFront :nth-child(4) {
+	left: 86%;
+}
+
+.discussBox .answerList {
+	margin: 10px 0 30px 40px;
+	width: 990px;
+
+}
+
+
+.answerList .answerItem {
+	padding: 10px;
+	border-radius: 10px;
+	border: 2px solid #222;
+	overflow: hidden;
+	margin-bottom: 20px;
+	background-color: #333;
+	color: white;
+}
+
+.answerList img {
+	float: left;
+	margin: 10px 30px 0 0;
+	width: 42px;
+	height: 42px;
+}
+
+.answerList .comment {
+	float: left;
+	width: 810px;
+	color: #efefef;
+}
+
+.answerList p {
+	padding-bottom: 5px;
+	color: #777;
+	font-size: 14px;
+}
+
+.answerList .praise {
+	margin: 10px 0 0 30px;
+	float: right;
+	width: 50px;
+}
+
+.answerList .praise span {
+	display: inline-block;
+	border: 1px solid white;
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	margin-right: 8px;
+	text-align: center;
+	line-height: 32px;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+
+.answerList .praise b {
+	font-weight: 300;
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin-right: 8px;
+	text-align: center;
+	line-height: 32px;
+	cursor: pointer;
+}
+
+
+
+.discussBox span.active {
+	background-color: #ff557f;
+	border: 1px solid #ff557f;
+}
+
+#tipsOfChange {
+	border: 2px dotted #aaa;
+	padding: 14px;
+	margin-top: 26px;
+	color: yellowgreen;
+}
+
+
+
+#existNoteList li {
+	line-height: 1.6em;
+	padding: 12px;
+	overflow: hidden;
+}
+
+#existNoteList li p {
+	width: 90%;
+	padding: 12px;
+	float: left;
+}
+
+#existNoteList li button {
+	float: left;
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	border: 1px solid white;
+	margin: 4px;
+	display: none;
+	cursor: pointer;
+	background-color: white;
+}
+
+#existNoteList li:hover {
+	background-color: pink;
+	color: black;
+}
+
+#existNoteList li:hover button {
+	display: block;
+}
+
+#existNoteList li button:hover {
+	background-color: yellowgreen;
+}

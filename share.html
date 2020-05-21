@@ -1,0 +1,381 @@
+<!doctype html>
+<html>
+	<head>
+		<title>意休 | 你的高效之友</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="images/baobao.png" type="image/png">
+		<link rel="bookmark" href="images/baobao.png" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery-1.11.3.min.js"></script>
+
+		<script>
+
+
+
+			$(function(){
+	
+// 用js配合jquery的ajax来访问文件数据
+$.ajax({
+		url:"data/sentence.txt",
+		data:"",
+		dataType:"text",
+		success:function(re_s){
+			var s_senList=re_s.split("+");
+			var da_share=s_senList[2].split(";");
+			var num_s = da_share.length;
+			var share_suji=0;
+			while(num_s){
+				var share_suji=Math.ceil(Math.random()*10)-1;
+				if (share_suji<num_s){
+					var zq = da_share[share_suji];
+					$(".words").append(zq);
+					return 0;
+				}
+			}
+		}
+	});
+	
+$(".hd .nav li").hover(function(){
+		$(this).find("a").stop().animate({top:-66})
+	},function(){
+		$(this).find("a").stop().animate({top:0})
+	})
+
+//图片的加载
+//    for(var i=1; i<5;i++){
+// 	var t_url="url(images/tool/"+i+".jpg)"
+// 	$(".tool_con .box").eq(i-1).css("background-image",t_url);
+//  	var w_url="url(images/website/"+i+".jpg)"
+// 	$(".website_con .box").eq(i-1).css("background-image",w_url);
+// 	var l_url="url(images/life/"+i+".jpg)"
+// 	$(".life_con .box").eq(i-1).css("background-image",l_url);
+// 	var sp_url="url(images/spirit/"+i+".jpg)"
+// 	$(".spirit_con .box").eq(i-1).css("background-image",sp_url);
+// }
+
+})
+</script>
+	</head>
+
+	<body>
+		<!--头部区域-->
+		<header class="header">
+			<div class="hd">
+				<h1><a href="./index.html" class="logo">意休</a></h1>
+				<div class="sousuokuang">
+					<form action="https://www.baidu.com/s" target="_blank">
+						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
+						<input class="search" type="image" src="images/sousuo.png" />
+					</form>
+					<span class="tishiwenben">+增加必备关键字 -排除关键字 双引号来限定整词 site intitle inurl filetype</span>
+				</div>
+				<nav class="nav">
+					<ul>
+						<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
+						<li><a href="./works.html"><i>Works</i><b>个人作品</b></a></li>
+						<li><a href="./share.html"><i style="color:pink;">Share</i><b>资源分享</b></a></li>
+						<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<script>
+			// // 鼠标滑上搜素框时显示搜索提示的关键字
+			// var oSouSuo = document.getElementsByClassName("sousuokuang")[0];
+			// oSouSuo.onmouseover=function(){
+			// 	document.getElementsByClassName("tishiwenben")[0].style.visibility="visible";
+			// }
+			// oSouSuo.onmouseout=function(){
+			// 	document.getElementsByClassName("tishiwenben")[0].style.visibility="hidden";
+			// }
+		</script>
+
+
+
+		<!--美句区域   修改文字！！-->
+		<section class="words words_top">
+			<div class="word_title title"><i class="jiantou"></i>
+				<h3>作者劝语</h3>
+			</div>
+		</section>
+
+
+		<section class="share_con">
+
+
+			<!--内容框2-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>线上工具箱 A</h4>
+					<p><a target="_blank" href="https://www.toolnb.com/">爱资源在线工具 </a></p>
+					<p><a target="_blank" href="http://www.nicetool.net/">Nicetool </a></p>
+					<p><a target="_blank" href="http://www.toolfk.com/">程序员在线工具 </a></p>
+					<p><a target="_blank" href="https://tool.lu/">在线工具 </a></p>
+					<p><a target="_blank" href="http://tool.cc/123/">工具导航</a></p>
+
+				</div>
+				<div class="share_box">
+					<h4>线上聚合网站 B</h4>
+					<p>>>设计导航<<</p> 
+					<p>
+						<a target="_blank" href="http://ilxdh.com/">龙轩导航 </a> &nbsp;
+						<a target="_blank" href="http://hao.wangchongbuluo.com/">网虫部落 </a>&nbsp;
+						<a target="_blank" href="http://www.haoyonghaowan.com/"> 好用好玩导航 </a></p>
+					<p>
+						<a target="_blank" href="http://www.ziliao6.com/"> 牛导航 </a> &nbsp;
+						<a target="_blank" href="https://search.chongbuluo.com/">快搜 </a>&nbsp;
+						<a target="_blank" href="http://www.xiaolvji.com/"> 效率集</a></p>
+					<p>>>程序员导航<< </p> 
+					<p>
+						<a target="_blank" href="http://www.qingnian8.com/">青年帮 </a> &nbsp;
+						<a target="_blank" href="https://www.jikedaohang.com/"> 极客导航 </a></p>
+					<p>
+						<a target="_blank" href="http://code.giffox.com/"> 程序员导航 </a> &nbsp;
+						<a target="_blank" href="https://www.daohangwan.com/board/ax9b">导航湾 </a>&nbsp;
+						<a target="_blank" href="https://www.cnblogs.com/qianguyihao/p/10701923.html">导航资源收集</a>
+					</p>
+				</div>
+			</div>
+
+			<!--内容框3-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>日常需要</h4>
+					<p>视频播放器 Potplayer&nbsp;&nbsp;[体积小且加载快，变速、加字幕等可操作度高]</p>
+					<p>
+						<a target="_blank" href="https://wx.qq.com/" >微网版</a>&nbsp;&nbsp;
+						<a target="_blank" href="https://mail.sina.com.cn/" >新邮</a>&nbsp;&nbsp;
+						<a target="_blank" href="https://mail.qq.com/" >Q邮</a>&nbsp;&nbsp;
+						<a target="_blank" href="https://mail.163.com/" >易邮</a>&nbsp;&nbsp;
+						<a target="_blank" href="https://pan.baidu.com/" >百度云盘</a></p>
+					<p> 基础版-
+						<a target="_blank" href="https://zxuqian.cn/" >峰华</a>&nbsp;&nbsp;
+						<!-- <a href="https://zxuqian.cn/" target="_blank">峰华</a>&nbsp;&nbsp; -->
+						高配版-
+						<a target="_blank" href="http://www.ruanyifeng.com/blog/">阮一峰</a>&nbsp;&nbsp;
+						<a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰</a>&nbsp;&nbsp;
+						
+					</p>
+					<p>其他日常：日刷英语，Topbook，前端视频；周刷学习观，思维导图，实践。</p>
+				</div>
+
+			</div>
+
+			<!--内容框4-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>前端开发 | 视频学习</h4>
+					<p><a href="https://space.bilibili.com/101977006/favlist?fid=835945706&ftype=create" target="_blank">哔哩哔哩-前端收藏</a></p>
+					<p><a href="https://ke.jikexueyuan.com/zhiye/web/" target="_blank">极客学院-前端开发</a></p>
+					<p><a href="https://www.html.cn/" target="_blank">HTML中文网</a>&nbsp;&nbsp;<a href="https://www.html.cn/js/javascript/" target="_blank">JavaScript</a></p>
+					<p>
+						<a href="https://ke.qq.com/user/index/index.html#/plan/cid=152997&term_id=100174752" target="_blank">腾讯课堂-前端</a>&nbsp;&nbsp;
+						<a href="https://study.163.com/category/480000003120007" target="_blank">网易云课堂-前端</a>
+					</p>
+					<p>
+						<a href="https://zxuqian.cn/front-end-learning-path" target="_blank">路线：</a>&nbsp;&nbsp;
+						<a href="http://www.lvyestudy.com/sass/sass_list.aspx" target="_blank">Sass</a>&nbsp;&nbsp;
+						<a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1031549578462080" target="_blank">JS1</a>&nbsp;&nbsp;
+						<a href="https://wangdoc.com/javascript/types/function.html" target="_blank">JS2</a>&nbsp;&nbsp;
+						<a href="https://es6.ruanyifeng.com/" target="_blank">ES6</a>&nbsp;&nbsp;
+						<a href="https://www.jianshu.com/nb/30927651" target="_blank">试题</a>
+					</p>
+				</div>
+			</div>
+
+			<!--内容框5-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>Topbook | 高效视频书</h4>
+					<p>找到的资料太乱了？好不容易找到资源却发现过期了，还要另找一份适合的教程？</p>
+					<p>那么这个网站就帮大忙了，各种资源和视频讲解一体，还丰富多样，主打高效地学习和生活。<p>
+					<p>推荐：<a href="https://topbook.cc/course/detail/153" target="_blank">GTD学习计划</a>——如何处理日常众多事件，高效做事。</p>
+				</div>
+			</div>
+
+
+			<!--内容框6-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>学习观 | 重新思考学习</h4>
+					<p>我们从小就熟知“好好学习，天天向上”这句话，但是究竟怎样才叫好好学习，这个问题在以前以我们的能力搞不懂，在现在久而久之与某些概念替换而不自知。</p>
+					<p>学习是一门学问，它是需要考究的，其方法也因人而异，我们或许能从及机器学习上获得一点启示。<a href="https://space.bilibili.com/344849038?from=search&seid=13692100793524727015" target="_blank">bilibili-于建国的学习观</a></p>
+				</div>
+			</div>
+
+			<!--内容框7-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>实践出真知 A </h4>
+					<p>实践前搞清学习原则：明确输入输出，多例子连结，分而治之，验证实现。</p>
+					<p>视频学习>文档学习，目的学习>盲目扫资料，思维导图>简单总结，分而治之做项目并解释，可写文章。</p>
+					<p>技巧性：利用好奇心，故事引导，求知若渴，虚心若愚，不受已有模型影响。</p>
+				</div>
+				<div class="share_box">
+					<h4>实践出真知 B</h4>
+					<p>PC端/响应式/移动端/小程序</p>
+					<p>电商网站：京东+小米</p>
+					<p>效果：轮播图，瀑布流，标签云，加载互动，导航栏_线，拖拽事件，滚动的数字，歌词自动移动。</p>
+				</div>
+				<div class="share_box">
+					<h4>实践出真知 C</h4>
+					<p>英：
+					<a href="https://caniuse.com/" target="_blank">测兼容</a> &nbsp;
+					<a href="https://css-tricks.com/" target="_blank">CSS特效</a>&nbsp;
+					<a href="https://codepen.io/" target="_blank">在线编辑</a> &nbsp;
+					<a href="https://www.freecodecamp.org/" target="_blank">步骤</a>
+					<a href="https://stackoverflow.com/" target="_blank">stackoverflow</a>&nbsp;&nbsp;中：
+					<a href="https://segmentfault.com/channel/frontend" target="_blank">思否</a>&nbsp;
+					<a href="https://juejin.im/welcome/frontend" target="_blank">掘金</a>&nbsp;
+					<a href="https://www.csdn.net/nav/web" target="_blank">CSDN</a>&nbsp;
+					<a href="https://www.cnblogs.com/cate/108703/" target="_blank">博园</a>&nbsp;
+					<a href="https://www.zhihu.com/" target="_blank">知乎</a>&nbsp;
+					<a href="https://weixin.sogou.com/" target="_blank">微信文</a>&nbsp;
+					<a href="https://36kr.com/" target="_blank">36氪</a>&nbsp;
+					<a href="https://www.jianshu.com/" target="_blank">简书</a>&nbsp;
+					<a href="https://www.html.cn/texiao/" target="_blank">特效</a>&nbsp;
+					<a href="https://ext.dcloud.net.cn/" target="_blank">插件</a></p>
+					<p>官：
+					<a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN</a>&nbsp;&nbsp;
+					<a href="https://www.w3school.com.cn/r.asp" target="_blank">W3C</a>&nbsp;&nbsp;
+					<a href="https://jquery.com/" target="_blank">jQuery</a>&nbsp;&nbsp;
+					<a href="https://reactjs.org/" target="_blank">React</a>&nbsp;&nbsp;
+					<a href="https://react.docschina.org/" target="_blank">中文React</a>&nbsp;&nbsp;
+					<a href="https://cn.vuejs.org/v2/guide/components.html#%E5%9F%BA%E6%9C%AC%E7%A4%BA%E4%BE%8B" target="_blank">Vue</a>&nbsp;&nbsp;
+					<a href="https://ask.dcloud.net.cn/docs/" target="_blank">Dcloud文档</a>&nbsp;&nbsp;
+					<a href="https://angularjs.org/" target="_blank">Angular</a>&nbsp;&nbsp;
+					<a href="https://angular.cn/" target="_blank">Angular-中</a>&nbsp;&nbsp;
+					<a href="https://www.bootcss.com/" target="_blank">BootStrap</a>&nbsp;&nbsp;
+					<a href="https://www.sass.hk/" target="_blank">Sass</a>&nbsp;&nbsp;
+					<a href="http://lesscss.cn/" target="_blank">Less</a>&nbsp;&nbsp;
+					<a href="https://www.webpackjs.com/" target="_blank">Webpack</a>&nbsp;&nbsp;
+					<a href="https://www.gulpjs.com.cn/" target="_blank">Gulp</a>&nbsp;&nbsp;
+					</p>
+					
+				</div>
+			</div>
+
+			<!--内容框8-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>解决问题能力 定位</h4>
+					<p>a.个人能力—> 通用能力 + 专业能力</p>
+					<p>专业能力 = 专业知识 + 解决问题 </p>
+					<br />
+					<p>b.解决问题/组织运用能力 = 指导下解决-独立解决-独立高质量解决-指导他人解决。</p>
+					<p>能力认定在于问题大小和解决的程度。</p>
+				</div>
+				<div class="share_box">
+					<h4>解决问题能力 考量</h4>
+					<p>a.体现思路，骨干代码，功能实现</p>
+					<p>b.这样解决是好，还是很好？(会不会存在什么问题？你已解决了多少？能想到多少问题？还能解决多少？有没有其他方案，为什么选择这个，什么情况下其他方案更优秀？)</p>
+					<p>c.想出尽可能多的解决思路，选最优解</p>
+				</div>
+
+				<div class="share_box">
+					<h4>解决问题能力 细节</h4>
+					<p>a.算法结构 逻辑的展现</p>
+					<p>b.经验 经验足不足</p>
+					<p>c.英语 阅读</p>
+				</div>
+			</div>
+
+			<!--内容框1-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>笔记-贴图软件Snipaste</h4>
+					<p>win10可在微软自带的应用商店上安装，其他资源：<a href="https://zh.snipaste.com/" target="_blank"> （下载）</a></p>
+					<p>特色：截到的图可以贴在屏幕上是不是很过瘾？不仅如此，贴图可以多次修改，还可以加马赛克等等。做视频笔记是再好不过了。</p>
+				</div>
+				<div class="share_box">
+					<h4>笔记-OCR图转文软件</h4>
+					<p><a href="https://www.tianruoocr.cn/" target="_blank">天若软件-官网下载</a></p>
+					<p>特点：截屏就可以把区域内的文字识别出来了，但是一次不能太多，否则出现错误就会变多。</p>
+					<p>另外，翻译的冷门方法：除了浏览器自带的翻译功能，用手机微信扫一扫也能翻译。</p>
+				</div>
+				<div class="share_box">
+					<h4>笔记-思维导图MindMaster</h4>
+					<p><a href="https://www.edrawsoft.cn/mindmaster/" target="_blank">MindMaster-官网下载</a></p>
+					<p>特点：颜色功能强大方便，模板多。</p>
+					<p>[免费版]图片导出是会有水印的，适合做笔记和不需要太清晰的图输出（用截图工具）。</p>
+					<p>优点：容易导入；缺点：不容易导出，依赖性强。</p>
+				</div>
+
+			</div>
+
+
+			<!--内容框9-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>学习观---知识小记 A（为什么学习）</h4>
+					<p>费曼说过，如果你没有办法用简单的语言表述你所学的知识，你就没有真正学会。</p>
+					<p>学习：从有限的例子中找到问题和答案的规律（知识）的过程，这也是把信息压缩成知识的过程。</p>
+					<p>学习是为了用有限的知识解决新问题。学习正是用知识（找出规律）来压缩信息。</p>
+				</div>
+				<div class="share_box">
+					<h4>学习观---知识小记 B（学习原则1）</h4>
+					<p>学习的第一步：明确输入和输出，即问题和答案。（容易存在的误区：学习不等同记忆，知识不等同信息）</p>
+					<p>学习的第二步：用例子构建知识。学习中分清例子和知识，构建自己的知识体系。华罗庚的把书读厚再读薄的过程。</p>
+					<p>学习的第三步：验证知识的有效性。</p>
+				</div>
+
+				<div class="share_box">
+					<h4>学习观---知识小记 C（学习误区）</h4>
+					<p>学习误区——知识分运动类和思考类，而错误学习的原因有三：</p>
+					<p>（1）错误的输入输出</p>
+					<p>（2）错误学习方式:如用学运动类的方法学思考类的知识</p>
+					<p>（3）不用例子学习/把知识当信息（记忆的时候特别需要例子来配合）</p>
+				</div>
+			</div>
+
+			<!--内容框10-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>学习观---知识小记 D （学习原则2）</h4>
+					<p>我们可以同时应用多个运动类知识，但意识在某一刻只能专注于一个思考类问题。因此若无法从脑中搜索到能直接从输入到输出的知识，问题就无法解决，再加上掌握的知识有限，难度更大了，它需要分而治之。</p>
+					<p>应对办法：（1）多学知识 （2）分而治之。（解决指数级数量的问题）</p>
+				</div>
+
+				<div class="share_box">
+					<h4>学习观---知识小记 E （学习方法一）</h4>
+					<p>思维导图：除了帮助记忆，还意在帮助你克服学习和应用中的误区。</p>
+					<p>（1）列关键词——它是什么(压缩信息，找输入输出) </p>
+					<p>（2）找到输入输出变量之间不变的函数关系(即规律)——它的目的(弄懂输入是怎么变成输出的)——优化关键词</p>
+				</div>
+				<div class="share_box">
+					<h4>学习观---知识小记 F （学习方法一）</h4>
+					<p>（3）拆分知识，这种能力属于二阶知识。拆分的思路可分为正向思维与逆向思维两种，拆分原则是知识之间尽可能彼此独立。</p>
+					<p>（4）二阶知识：描述知识与知识的关系（一般知识描述信息与信息的关系）知识与知识的条件循环与并列组合的过程。</p>
+				</div>
+			</div>
+
+			<!--内容框11-->
+			<div class="kapian">
+				<div class="share_box">
+					<h4>学习观---知识小记 G （学习方法二）</h4>
+					<p>费曼技巧= 学习（思维导图）+ 解释（满足原则4：用新例子验证知识），费曼技巧是以【目的】为导向的学习方法，核心在【验证】。(即温故而知新，可以为师矣)</p>
+					<p>思维导图满足3个原则：明确知识的输入输出，用例子重塑大脑链接，理清关系与拆分知识。它是以【过程】为主导的学习方法，核心在【拆分】。</p>
+				</div>
+
+				<div class="share_box">
+					<h4>学习观---知识小记 H （学习观运用）</h4>
+					<p>学习英语——这个运动类知识，听 说 读 写，是学习单词，不是记忆单词。</p>
+					<p>文理科学习的区别在于变体的数量，变体少的时候可以选择记忆，变体多的时候必须学习，由于计算机的出现，我们应该学习一些变体多、可替代性低的知识。</p>
+				</div>
+				<div class="share_box">
+					<h4>学习观---知识小记 I （学习认知）</h4>
+					<p>（1）感知真实——依靠模型。人看到的世界和接收的信息并不是全部的，但确实能让我们生存下去的。感知模型无法改变，认知模型依靠科学，观念模型太多。</p>
+					<p>（2）建模欲望——好奇心（好奇的是例子，即故事；要与自己相关），阻止好奇心的是保护已有模型的固执心（认为没必要学或已经学过，权威思维）。</p>
+				</div>
+			</div>
+		</section>
+
+
+
+		<!--底部区域、填补网址2个-->
+		<footer class="footer">
+			&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>意休 | 你的高效之友</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="images/baobao.png" type="image/png">
+		<link rel="bookmark" href="images/baobao.png" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery-1.11.3.min.js"></script>
+
+		<script>
+			$(function(){
+
+	
+//video_src=$(".tan_kuang video").attr("src");
+	$(".video_con .box").click(function(){
+		var video_src1=$(this).attr("rel1");
+		// 判断视频文件是否存在，若存在就加载，若不存在添加提示文字
+		/* 有人说：js是用来处理前端业务的，对于处理文件，它没有这样的功能，因为他是客户端脚本！无法操作到服务器上的资源！
+		不过你可以通过其他的服务端脚本或者编程语言来判断文件是否存在，再用AJAX技术来判断服务端返回的数据来确定是否存在该文件！ */
+		// var video_source=$.ajax({
+		// 	url:video_src1,   //这个能生效吗？
+		// 	success:function(){    //无法访问的返回值是undefined？
+		// 		video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
+		// 		alert(123);
+		// 		return video_source;
+		// 	}
+		// });
+		
+		// 用了try catch还是没资源的时候不显示  失败操作
+		$(".tan_kuang,.back").css("display","block");
+		try{
+			var video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
+			$(".tan_kuang").append(video_source);
+		}catch(e){
+			var video_null='<p class="unfind">糟糕视频不见了，可以尝试通过优酷观看。</p>';
+			$(".tan_kuang").append(video_null);
+		}
+		
+		
+		
+		
+		$(".back").click(function(){
+			// alert($(".tan_kuang video").currentTime);
+			$(".tan_kuang video").remove();
+			$(".tan_kuang,.back").css("display","none");
+			$(".tan_kuang p").remove();
+		}) 
+	})
+	
+
+	// 用js配合jquery的ajax来访问文件数据
+	$.ajax({
+			url:"data/sentence.txt",
+			data:"",
+			dataType:"text",
+			success:function(re_w){
+				var w_senList=re_w.split("+");
+				var da_works=w_senList[1].split(";");
+				var num_w = da_works.length;
+				var w_suji=0;
+				while(num_w){
+					var w_suji=Math.ceil(Math.random()*10)-1;
+					if (w_suji<num_w){
+						var zh = da_works[w_suji];
+						$(".words").append(zh);
+						return 0;
+					}
+				}
+			}
+		});
+		
+	
+
+
+	$(".hd .nav li").hover(function(){
+		$(this).find("a").stop().animate({top:-66})
+	},function(){
+		$(this).find("a").stop().animate({top:0})
+	})
+
+
+   for(var i=1; i<5;i++){
+	var v_url="url(images/video/"+i+".jpg)"
+	$(".video_con .box").eq(i-1).css("background-image",v_url);
+ 	var g_url="url(images/game/00"+i+".jpg)"
+	$(".game_con .box").eq(i-1).css("background-image",g_url);
+	// var f_url="url(images/fiction/"+i+".jpg)"
+	// $(".fiction_con .box").eq(i-1).css("background-image",f_url);
+	// var s_url="url(images/song/"+i+".jpg)"
+	// $(".song_con .box").eq(i-1).css("background-image",s_url);
+}
+
+})
+</script>
+
+
+	</head>
+
+	<body>
+		<!--头部区域-->
+		<header class="header">
+
+			<div class="hd">
+				<h1><a href="./index.html" class="logo">意休</a></h1>
+				<div class="sousuokuang">
+					<form target="_blank" action="https://www.baidu.com/s">
+						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
+						<input class="search" type="image" src="images/sousuo.png" />
+					</form>
+					<span class="tishiwenben">+增加必备关键字 -排除关键字 双引号来限定整词 site intitle inurl filetype</span>
+				</div>
+				<nav class="nav">
+					<ul>
+						<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
+						<li><a href="./works.html"><i style="color: pink ;">Works</i><b>个人作品</b></a></li>
+						<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
+						<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+
+
+		<!--弹出框-->
+		<div class="back"></div>
+		<div class="tan_kuang">
+			<!-- <div class="close_kuang">×</div> -->
+			<!-- <video>Your browser does not support HTML5 video.</video> -->
+		</div>
+
+		<!--内容框1-->
+
+		<section class="videos">
+			<div class="video_title title"><i class="jiantou"></i>
+				<h3>视频内容</h3>
+				<a href="https://i.youku.com/u/UMzk2MDYyMTg0?spm=a2h0k.11417342.soresults.dnameX" target="_blank">更多作品</a>
+			</div>
+
+			<div class="video_con model_con">
+				<span class="box box1" rel1="video/1.mp4"></span>
+				<span class="box box2" rel1="video/2.mp4"></span>
+				<span class="box box3" rel1="video/3.mp4"></span>
+				<span class="box box4" rel1="video/4.mp4"></span>
+			</div>
+		</section>
+
+
+
+		<!--内容框2-->
+
+		<section class="fictions">
+			<div class="fiction_title title"><i class="jiantou"></i>
+				<h3>小说作品</h3><a href="./fiction.html">更多内容</a>
+			</div>
+
+			<div class="fiction_con model_con">
+
+				<a class="box fic_img" style="background-image:url(images/touxiang_4b.png);"></a>
+				<div class="fic_box">
+					<p>2019年11月19日，我决定开始从事web前端开发，本也没有期待过一帆风顺。</p>
+					<p>但现实啊就是那么现实，总是给人惊喜，那么你愿意听我说一下吗？</p>
+					<p>不得不说，每一个新的领域的接触和深入，都是一次伟大的冒险。我喜欢每次都有不同探索体验的这种感觉，在这个过程中写下自己的感悟，也希望你能从中看到想要的东西。</p>
+					<p>一切都没还有结束，一切都才刚刚开始……</p>
+				</div>
+
+			</div>
+		</section>
+
+
+		<!--内容框3 游戏介绍-->
+
+		<section class="games">
+			<div class="game_title title"><i class="jiantou"></i>
+				<h3>游戏作品</h3><a href="./game.html">更多游戏</a>
+			</div>
+
+			<div class="game_con model_con">
+				<a class="box box1" href="http://www.66rpg.com/game/575459" target="_blank">
+					<div class="box_kuang kuang1"><b>&gt;&gt;&nbsp;&nbsp;'家有'书签&nbsp;&nbsp;&lt;&lt;</b>
+						<h2>奇幻 剧情</h2>
+						<p>一段与“书签”之间的缘分……</p>
+					</div>
+				</a>
+
+				<a class="box box2" href="http://www.66rpg.com/game/873721" target="_blank">
+					<div class="box_kuang kuang2"><b>&gt;&gt;&nbsp;&nbsp;人在'诡'途&nbsp;&nbsp;&lt;&lt;</b>
+						<h2>异世界 解谜</h2>
+						<p>真相不向我走来，我就向真相走去。</p>
+					</div>
+				</a>
+
+				<a class="box box3" href="http://www.66rpg.com/game/792676" target="_blank">
+					<div class="box_kuang kuang3"><b>&gt;&gt;&nbsp;&nbsp;帅帅哥哥别跑&nbsp;&nbsp;&lt;&lt;</b>
+						<h2>攻略 解谜</h2>
+						<p>我一直以为我是青铜，没想到居然是王者。</p>
+					</div>
+				</a>
+
+				<a class="box box4" href="http://www.66rpg.com/game/1006711" target="_blank">
+					<div class="box_kuang kuang4"><b>&gt;&gt;&nbsp;&nbsp;涅槃爱情&nbsp;&nbsp;&lt;&lt;</b>
+						<h2>重生 解谜</h2>
+						<p>这一次，由我来守护你！</p>
+					</div>
+				</a>
+			</div>
+		</section>
+
+		<!--美句区域-->
+		<section class="words">
+			<div class="word_title title"><i class="jiantou"></i>
+				<h3>作者的话</h3>
+			</div>
+		</section>
+
+		<!--内容框4-->
+
+		<section class="songs">
+			<div class="song_title title"><i class="jiantou"></i>
+				<h3>治愈之海</h3><a href="./heal.html">更多内容</a>
+			</div>
+
+			<div class="song_con model_con">
+				<a class="box" style="background-image:url(images/heal.jpg);"></a>
+				<div class="gequ_box">
+					<p>你知道吗？生活不只是追去诗与远方，还有着眼于当下，着眼于自己。</p>
+					<p>有的人善于语言表达，有的人善于动作表达，有的人善于表情表达，于我而言，歌曲是我情感的寄托与表达的地方。</p>
+					<p>我们都知道世界上没有完全相同的两个人，我们每个人都是独一无二，当然也拥有着独一无二的孤独感，我们学着从大众的观念和情感中找到相同点，引起共鸣，让自己不再那么孤独；同时也学着保持自己的特点，不至于在大众之中所迷失。这就是矛盾又复杂的人生。</p>
+					<p>但是再怎么复杂的人生，它在当下又是简单重复的，有时候甚至无法察觉它的变化，所以与其去探索太多未知的可能，还不如过好眼下的这一秒。</p>
+					<p>闭上眼睛，深呼吸，呼气，吸气，活着，真好。</p>
+				</div>
+
+			</div>
+		</section>
+
+		<!--底部区域、填补网址2个-->
+		<footer class="footer">
+			&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
+		</footer>
+	</body>
+</html>
