@@ -498,6 +498,11 @@ input::-webkit-input-placeholder {
 	color: #333;
 }
 
+.new_con .box{
+	background-size: auto;
+}
+	
+
 .video_con .box {
 	background-size: contain;
 	cursor: pointer;
