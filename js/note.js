@@ -373,19 +373,25 @@ function btnDelNote(e) {
 function btnAddNote(node) {
 	var shuru = node.value;
 	var olist = [];
+	console.log("btnAddNote");
 	if (shuru != "") {
 		if (!localStorage.getItem("note")) {
-			olist[0] = shuru;
+			//  以前没有笔记存在内存中
+			localStorage.setItem("note", shuru);
+			console.log("以前没有数据");
 		} else {
 			var olistStr = localStorage.getItem("note");
-			if(/\,+/.test(olist)){
+			if(/\,+/.test(olistStr)){
 				olist = olistStr.split(',');
+			}else{
+				olist[0] = olistStr;
 			}
 			// olist[olist.length] = shuru;
 			olist.unshift(shuru);
-			// console.log(olist);
+			console.log("目前数组是"+olist);
+			olistS = olist.join(",");
+			localStorage.setItem("note", olistS);
 		}
-		localStorage.setItem("note", olist);
 		showNote();
 		document.getElementById("tipsOfChange").innerHTML = "笔记写入成功。";
 	} else {

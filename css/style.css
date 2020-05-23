@@ -15,6 +15,10 @@ a {
 
 video {
 	outline: none;
+	width: 800px;
+}
+section{
+	display: block;
 }
 
 body {
@@ -27,7 +31,6 @@ body {
 	background: pink;
 }
 
-
 .back {
 	width: 100%;
 	height: 100%;
@@ -36,7 +39,7 @@ body {
 	left: 0;
 	background: black;
 	opacity: 0.9;
-	z-index: 11;
+	z-index: 12;
 	display: none;
 }
 
@@ -49,7 +52,7 @@ body {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	z-index: 12;
+	z-index: 13;
 	display: none;
 	color: #ddd;
 }
@@ -72,7 +75,7 @@ body {
 	top:20px;
 	font-size: 26px;
 	background: black fixed;
-	z-index: 13;
+	z-index: 14;
 	cursor: pointer;
 	transition: 0.3s ease-in-out;
 }
@@ -83,13 +86,11 @@ body {
 	font-size: 28px;
 }
 
-video {
-	width: 800px;
-}
+
 
 .art_tankuang {
-	width: 1140px;
-	height: 800px;
+	width: 1000px;
+	height: 90%;
 }
 
 .hl_article{
@@ -97,7 +98,7 @@ video {
 	text-align: left;
 	width: 100%;
 	height: 100%;
-	padding: 30px;
+	padding: 60px 50px;
 	box-sizing: border-box;
 	line-height: 1.6em;
 	text-indent: 2em;
@@ -207,6 +208,7 @@ h3 {
 	float: right;
 	font-size: 12px;
 	color: #888;
+	margin-right: 22px;
 }
 
 .title a:hover {
@@ -226,7 +228,7 @@ h3 {
 	/* overflow: hidden; */
 	position: fixed;
 	top: 0;
-	z-index: 10;
+	z-index: 11;
 }
 
 .tishiwenben {
@@ -421,6 +423,8 @@ input::-webkit-input-placeholder {
 	box-shadow: 1px 2px 4px 0 #e1e1e1;
 	overflow: hidden;
 	display: none;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .banner img {
@@ -450,7 +454,8 @@ input::-webkit-input-placeholder {
 /*内容区域*/
 .title {
 	height: 42px;
-	padding-right: 20px;
+	/* padding-right: 20px; */
+	/* 这个title究竟作用于什么？ */
 	line-height: 42px;
 	border-bottom: 1px solid #f2f2f2;
 }
@@ -459,11 +464,15 @@ input::-webkit-input-placeholder {
 	float: right;
 	font-size: 12px;
 	color: #888;
+	margin-right: 22px;
 }
 
 .model_con {
 	overflow: hidden;
 	position: relative;
+	/* 为什么要定位？ */
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .model_con b {
@@ -488,14 +497,15 @@ input::-webkit-input-placeholder {
 
 .model_con .box {
 	display: block;
-	float: left;
+	/* float: left; */
 	width: 224px;
 	height: 126px;
 	background-repeat: no-repeat ;
 	background-position: center center;
-	background-size: contain;
-	margin: 10px 13px 26px;
+	background-size: cover;
+	margin-bottom:26px;
 	color: #333;
+	overflow: hidden;
 }
 
 .new_con .box{
@@ -531,7 +541,7 @@ input::-webkit-input-placeholder {
 }
 
 .song_con .gequ_box {
-	height: auto;
+	height: 180px;
 }
 
 .song_con .box {
@@ -553,7 +563,7 @@ input::-webkit-input-placeholder {
 }
 
 .box:hover .box_kuang {
-	top: 10px;
+	top: 0px;
 }
 
 /*      更改——调色*/
@@ -579,11 +589,13 @@ input::-webkit-input-placeholder {
 
 /*游戏页面 */
 .game_body {
-	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);
+	min-width: 1000px;
+	width: 100%;
+	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc) ;
 }
 
 .game_top {
-	width: 1170px;
+	width: 1000px;
 	height: 250px;
 	margin: 0 auto;
 }
@@ -634,7 +646,7 @@ input::-webkit-input-placeholder {
 
 /* background-image:url(../images/sentence/0000.jpg); */
 .games_con {
-	width: 1170px;
+	width: 1000px;
 	margin: 66px auto;
 	background: rgba(22, 22, 22, 0.4);
 	padding: 60px 0;
@@ -649,8 +661,8 @@ input::-webkit-input-placeholder {
 
 .games_con .game {
 	width: 1000px;
-	height: 260px;
-	margin: 10px auto;
+	height: 360px;
+	margin: 30px auto;
 }
 
 .game .game_pic {
@@ -659,7 +671,7 @@ input::-webkit-input-placeholder {
 	background-repeat: no-repeat;
 	position: relative;
 	top: 50%;
-	margin-top: -90px;
+	margin-top:-100px;
 	overflow: hidden;
 	transition: 0.5s;
 	background-size: contain;
@@ -667,32 +679,35 @@ input::-webkit-input-placeholder {
 }
 
 .game .game_word {
-	width: 560px;
-	height: 224px;
-	padding: 15px 28px;
+	width: 530px;
+	min-height:120px;
+	padding: 30px;
 	border-radius: 30px;
 	overflow: auto;
 	color: white;
 	transition: 0.5s ease-out;
+	font-size: 14px;
 }
 
 .games_con .game:nth-of-type(odd) .game_word {
 	float: right;
-	margin-left: 12px;
+	margin-right: 20px;
 }
 
 .games_con .game:nth-of-type(odd) .game_pic {
 	float: left;
+	margin-left: 30px;
 }
 
 .games_con .game:nth-of-type(even) .game_word {
 	float: left;
-	margin-right: 12px;
+	margin-left: 20px;
 	text-align: right;
 }
 
 .games_con .game:nth-of-type(even) .game_pic {
 	float: right;
+	margin-right: 30px;
 }
 
 .game .game_word h3 {
@@ -706,7 +721,7 @@ input::-webkit-input-placeholder {
 
 .game .game_word p {
 	font-size: 14px;
-	line-height: 1.6em;
+	line-height: 1.8em;
 	text-indent: 2em;
 	text-align: left;
 }
@@ -896,17 +911,27 @@ input::-webkit-input-placeholder {
 	position: relative;
 }
 
+.gushi .navOpenBtn,.gushi .navCloseBtn{
+	display: none;
+}
+
 .gushi .gs_text {
 	width: 706px;
 	height: 376px;
 	text-indent: 2em;
 	line-height: 1.6em;
 	margin: 32px;
-	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
 	float: left;
 	position: absolute;
 	display: none;
 	background: white;
+}
+
+.gushi .gs_text::-webkit-scrollbar{
+	width: 2px;
+	background-color: #EEEEEE;
 }
 
 .gushi .gs_text p {
@@ -952,6 +977,7 @@ input::-webkit-input-placeholder {
 }
 
 /*play-小歌单*/
+
 .play_con .gedan {
 	width: 300px;
 	height: 400px;
@@ -960,7 +986,11 @@ input::-webkit-input-placeholder {
 	color: white;
 	text-align: center;
 	border-radius: 33px;
-	background: #555;
+	background-color: #555;
+}
+
+.play_con .gedan:hover{
+	background-image: none;
 }
 
 .play_con .gedan h4 {
@@ -979,26 +1009,30 @@ input::-webkit-input-placeholder {
 	margin: 32px 0;
 }
 
+
 .play_con .gedan a {
 	color: white;
 	font-size: 14px;
 	padding: 10px 20px;
 	background: #666;
 	border-radius: 17px;
-	display: none;
 }
 
 .play_con .gedan a:hover {
 	background: #333;
 }
 
+
+
+
+
 /*play-小游戏*/
-.play_con .youxi {
+.play_con .youxi{
 	width: 1000px;
 	height: 508px;
 	overflow: hidden;
 	text-align: center;
-	background: url(../images/sentence/youxi.jpg);
+	background-image: url(../images/sentence/youxi.jpg);
 }
 
 .play_con .youxi b {
@@ -1016,7 +1050,7 @@ input::-webkit-input-placeholder {
 .youxi>div{
 	position: relative;
 	text-align: center;
-	background: #222;
+	background-color: #222;
 	border: 2px solid #91c0d4;
 	box-shadow: 1px 1px 3px 0 #91c0e4;
 	display: block;
@@ -1041,7 +1075,7 @@ input::-webkit-input-placeholder {
 	line-height: 20px;
 	padding: 2px 12px;
 	color: white;
-	background: #222;
+	background-color: #222;
 	border-width: 2px 2px 2px 0;
 	border-color: #91c0d4;
 	border-style: solid;
@@ -1104,9 +1138,16 @@ input::-webkit-input-placeholder {
 
 /* fiction页面 */
 .fic_body {
+	min-width: 1000px;
 	width: 100%;
-	height: 100%;
-	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc) fixed;
+	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);
+	
+}
+
+.fic_con{
+	width: 100%;
+	min-width: 1000px;
+	margin:0 auto;
 }
 
 .toc {
@@ -1158,17 +1199,19 @@ input::-webkit-input-placeholder {
 .route {
 	cursor: pointer;
 	font-size: 26px;
-	margin: 148px auto 0;
+	margin: 66px auto 0;
+	padding-top: 82px;
 	text-align: center;
 	color: white;
 }
 
 .all_article {
-	width: 1170px;
-	margin: 40px auto 0;
+	width: 1000px;
+	margin: 40px auto;
 }
 
 .article_toc {
+	width: 1000px;
 	height: 160px;
 	display: flex;
 	background-color: rgba(33, 33, 33, 0.5);
@@ -1284,8 +1327,9 @@ input::-webkit-input-placeholder {
 }
 
 
+
 .all_article .article {
-	width: 100%;
+	width: 1000px;
 	margin: 36px auto;
 	background: white;
 	font-size: 14px;
@@ -1318,17 +1362,21 @@ input::-webkit-input-placeholder {
 
 
 .article .con_out {
-	width: 1070px;
-	padding: 40px 50px 20px;
+	width: 1000px;
+	/* margin: 10px auto; */
+	height: 330px;
 	overflow: hidden;
-	height: 206px;
 }
 
 .article .con {
+	/* box-sizing: border-box; */
+	width: 900px;
+	padding: 40px 50px 20px;
 	height: 182px;
 	text-indent: 2em;
 	font-size: 14px;
 	line-height: 1.6em;
+	margin: 10px auto;
 }
 
 .article .con p {
@@ -1339,7 +1387,7 @@ input::-webkit-input-placeholder {
 	position: relative;
 	bottom: -8px;
 	width: 100%;
-	padding: 5px;
+	padding: 20px 0;
 	height: 26px;
 	text-align: center;
 	background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
@@ -1350,12 +1398,15 @@ input::-webkit-input-placeholder {
 
 /* heal治愈页面 */
 .heal_body {
-	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc) fixed;
+	width: 100%;
+	min-width: 1000px;
+	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);
 }
 
 .heal_out {
 	width: 1000px;
-	margin: 148px auto 0;
+	margin: 66px auto 0;
+	padding-top: 86px;
 	text-align: center;
 }
 
@@ -1493,3 +1544,6 @@ input::-webkit-input-placeholder {
 .footer a {
 	color: #666;
 }
+
+
+

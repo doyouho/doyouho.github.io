@@ -6,360 +6,385 @@
 		<link rel="icon" href="images/baobao.png" type="image/png">
 		<link rel="bookmark" href="images/baobao.png" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/othersize.css" />
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<style>
 			body::-webkit-scrollbar{
-				width:0px;
+				width:2px;
 				background-color: none;
+			}
+			section{
+				display: block;
 			}
 		</style>
 	</head>
-	<body class="fic_body">
-		<!--头部区域-->
-		<header class="header">
-			<div class="hd">
-				<!-- 189*51 -->
-				<h1><a href="./index.html" class="logo">意休</a></h1>
-				<div class="sousuokuang">
-					<form action="https://www.baidu.com/s" target="_blank">
-						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
-						<input class="search" type="image" src="images/sousuo.png"  />
-					</form>
-				</div>
-				<nav class="nav">
-					<ul>
-						<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
-						<li><a href="./fiction.html"><i style="color:pink;">Fiction</i><b>小说作品</b></a></li>
-						<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
-						<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-		
-		<script>
-			// 中英文切换导航条动画
-			$(".hd .nav li").hover(function() {
-				$(this).find("a").stop().animate({
-					top: -66
-				})
-			}, function() {
-				$(this).find("a").stop().animate({
-					top: 0
-				})
-			});
-			
-			//实现滚动到一定位置导航栏隐藏。
-			$(document).scroll(function(){
-				if($(document).scrollTop()>=300){
-					$(".header").slideUp(500);
-					// $(".header").css("display","none");
-				}else{
-					$(".header").slideDown(300);
-					// $(".header").css("display","block");
-				}
-			});
-			
-		</script>
-
-
-
-		<!--隐藏目录区域-->
-		<section>
-			<div class="toc" accesskey="c">
-				<p>(点击该区域任何一处关闭该窗口 / Alt+c )</p>
-				<div class="l_tu">
-					<span>自信</span>
-					<span>知识</span>
-					<span>初学者</span>
-					<span>专家</span>
-					<canvas id="huabu" width="266" height="186">Your browser does not support the canvas element.</canvas>
-				</div>
-			</div>
-		</section>
-
-		<!-- 路线点击区 -->
-		<div class="route" accesskey="m">点击获取学习路线(Alt+m)</div>
-		<script>
-			//学习路线的显示
-			// document.getElementsByClassName("route")[0].accessKey="m";  // 快捷键打开 alt+m (直接在HTML标签上写accessKey="m"属性也行)
-			$(".route").click(function(){
-				$(".toc").slideDown();
-			})
-			$(".toc").click(function(){
-				$(this).slideUp();
-			})
-			
-			//画布画图
-			var bi = document.getElementById("huabu").getContext("2d");
-			bi.lineWidth=2;
-			bi.strokeStyle="white";
-			bi.moveTo(4,1);
-			bi.lineTo(4,182);
-			bi.lineTo(265,182);
-			bi.stroke();
-			
-			//纵坐标箭头
-			bi.moveTo(4,1);
-			bi.lineTo(0,4);
-			bi.stroke();
-			
-			bi.moveTo(4,1);
-			bi.lineTo(8,4);
-			bi.stroke();
-			
-			//横坐标箭头
-			bi.moveTo(265,182);
-			bi.lineTo(262,178);
-			bi.stroke();
-			
-			bi.moveTo(265,182);
-			bi.lineTo(262,186);
-			bi.stroke();
-			
-			bi.moveTo(18, 170);
-			// bi.arcTo(-140,-3,18,26,70);
-			bi.quadraticCurveTo(16,42,32,26);
-			bi.quadraticCurveTo(16,156,128,150);
-			bi.quadraticCurveTo(216,146,252,66);
-			bi.stroke();
-		</script>
-
-		<!--文章目录区域  最近更新的在上面-->
-		<section>
-			<div class="all_article">
-				<div class="article_toc">
-					<div class="art_aside">
-						<p>小说列表</p>
-						<dl class="luxian">
-							<dd>《伪大神的成名之路》</dd>
-							<dd>《叨叨并不喜欢说》</dd>
-						</dl>
+	<body>
+		<div class="fic_body">
+			<!--头部区域-->
+			<header class="header">
+				<div class="hd">
+					<!-- 189*51 -->
+					<h1><a href="./index.html" class="logo">意休</a></h1>
+					<div class="sousuokuang">
+						<form action="https://www.baidu.com/s" target="_blank">
+							<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
+							<input class="search" type="image" src="images/sousuo.png" />
+						</form>
 					</div>
-
-					<div class="art_main">
-						
-						<ul class="mulu">
-							<li data-bgc="white"> 加载中……</li>
+					<nav class="nav">
+						<ul>
+							<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
+							<li><a href="./works.html"><i style="color:hotpink;">Works</i><b>个人作品</b></a></li>
+							<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
+							<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
 						</ul>
-						<div class="gundongtiao"><div id="gundong"></div></div>
+					</nav>
+				</div>
+			</header>
+
+			<script>
+				// 中英文切换导航条动画
+				$(".hd .nav li").hover(function() {
+					$(this).find("a").stop().animate({
+						top: -66
+					})
+				}, function() {
+					$(this).find("a").stop().animate({
+						top: 0
+					})
+				});
+
+				//实现滚动到一定位置导航栏隐藏。
+				$(document).scroll(function() {
+					if ($(document).scrollTop() >= 300) {
+						$(".header").slideUp(500);
+						// $(".header").css("display","none");
+					} else {
+						$(".header").slideDown(300);
+						// $(".header").css("display","block");
+					}
+				});
+			</script>
+
+
+
+			<!--隐藏目录区域-->
+			<section>
+				<div class="toc" accesskey="c">
+					<p>(点击该区域任何一处关闭该窗口 / Alt+c )</p>
+					<div class="l_tu">
+						<span>自信</span>
+						<span>知识</span>
+						<span>初学者</span>
+						<span>专家</span>
+						<canvas id="huabu" width="266" height="186">Your browser does not support the canvas element.</canvas>
 					</div>
 				</div>
+			</section>
 
-				<!-- 一篇文章的模板 -->
-				<article class="article">
-					<div class="fic_head">
-						<h1>暂无小说……</h1><span>更新时间：……</span>
-					</div>
-					<div class="key_w">加载……</div>
-					<div class="con_out">
-						<div class="con">
-							数据加载中……
+
+			<!-- 路线点击区 -->
+			<div class="route" accesskey="m">点击获取学习路线(Alt+m)</div>
+			<script> //学习路线的显示
+				
+				// document.getElementsByClassName("route")[0].accessKey="m";  // 快捷键打开 alt+m (直接在HTML标签上写accessKey="m"属性也行)
+				$(".route").click(function() {
+					$(".toc").slideDown();
+				})
+				$(".toc").click(function() {
+					$(this).slideUp();
+				})
+
+				//画布画图
+				var bi = document.getElementById("huabu").getContext("2d");
+				bi.lineWidth = 2;
+				bi.strokeStyle = "white";
+				bi.moveTo(4, 1);
+				bi.lineTo(4, 182);
+				bi.lineTo(265, 182);
+				bi.stroke();
+
+				//纵坐标箭头
+				bi.moveTo(4, 1);
+				bi.lineTo(0, 4);
+				bi.stroke();
+
+				bi.moveTo(4, 1);
+				bi.lineTo(8, 4);
+				bi.stroke();
+
+				//横坐标箭头
+				bi.moveTo(265, 182);
+				bi.lineTo(262, 178);
+				bi.stroke();
+
+				bi.moveTo(265, 182);
+				bi.lineTo(262, 186);
+				bi.stroke();
+
+				bi.moveTo(18, 170);
+				// bi.arcTo(-140,-3,18,26,70);
+				bi.quadraticCurveTo(16, 42, 32, 26);
+				bi.quadraticCurveTo(16, 156, 128, 150);
+				bi.quadraticCurveTo(216, 146, 252, 66);
+				bi.stroke();
+			</script>
+
+			<!--文章目录区域  最近更新的在上面-->
+			<section class="fic_con">
+				<div class="all_article">
+					<div class="article_toc">
+						<div class="art_aside">
+							<p>小说列表</p>
+							<dl class="luxian">
+								<dd>《伪大神的成名之路》</dd>
+								<dd>《叨叨并不喜欢说》</dd>
+							</dl>
 						</div>
-						<div class="more" value=0>展开全部</div>
+
+						<div class="art_main">
+
+							<ul class="mulu">
+								<li data-bgc="white"> 加载中……</li>
+							</ul>
+							<div class="gundongtiao">
+								<div id="gundong"></div>
+							</div>
+						</div>
 					</div>
-				</article>
 
-			
+					<!-- 一篇文章的模板 -->
+					<article class="article">
+						<div class="fic_head">
+							<h1>暂无小说……</h1><span>更新时间：……</span>
+						</div>
+						<div class="key_w">加载……</div>
+						<div class="con_out">
+							<div class="con">
+								数据加载中……
+							</div>
+							<div class="more" value=0>展开全部</div>
+						</div>
+					</article>
 
-				<!-- 一篇文章的模板 -->
-				<!-- <article class="article">
-					<h1>《标题》</h1><span>更新时间：2019年12月29日</span>
-					<div class="key_w">关键词：前端 入门 导向</div>
-					<div class="con_out"> 
-						<div class="con"></div>
-						<div class="more" value=0>查看更多</div>
-					</div>
-				</article> -->
 
-			</div>
-		</section>
 
-		<!--底部区域、填补网址2个-->
-		<footer class="footer">
-			&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
-		</footer>
-		
-		
-<script>
-			
-	$(function(){
-		
-		// 文本数据加载
-		var ficVar={
-			ddList:[],
-			liList:[],
-			timeList:[],
-			artitleList:[],
-			gengduo:1,
-			leftX:0,
-			linshishu:"0",
-			bianLi: function(cs,zhi){
-				var jieguo="";
-				for(var m=0; m<cs.length; m++){
-					if(zhi===1){
-						jieguo=jieguo+'<li  data-attr="white">'+cs[m]+'</li>';
-					}else if(zhi===2){
-						jieguo=jieguo+"<p>"+cs[m]+"</p>";
+					<!-- 一篇文章的模板 -->
+					<!-- <article class="article">
+							<h1>《标题》</h1><span>更新时间：2019年12月29日</span>
+							<div class="key_w">关键词：前端 入门 导向</div>
+							<div class="con_out"> 
+								<div class="con"></div>
+								<div class="more" value=0>查看更多</div>
+							</div>
+						</article> -->
+
+				</div>
+			</section>
+
+			<!--底部区域、填补网址2个-->
+			<footer class="footer">
+				&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
+			</footer>
+
+		</div>
+
+
+
+		<script>
+			$(function() {
+
+				// 文本数据加载
+				var ficVar = {
+					ddList: [],
+					liList: [],
+					timeList: [],
+					artitleList: [],
+					gengduo: 1,
+					leftX: 0,
+					linshishu: "0",
+					bianLi: function(cs, zhi) {
+						var jieguo = "";
+						for (var m = 0; m < cs.length; m++) {
+							if (zhi === 1) {
+								jieguo = jieguo + '<li  data-attr="white">' + cs[m] + '</li>';
+							} else if (zhi === 2) {
+								jieguo = jieguo + "<p>" + cs[m] + "</p>";
+							}
+						}
+						return jieguo;
+					}
+				};
+
+
+
+				// 遍历函数
+				$.ajax({
+					url: "data/fiction_data.json",
+					type: "get",
+					dataType: "json",
+					// beforeSend:function(){
+					// 	$("body").append('<div id="pload" style="position:fixed;top:50%;transform:translateY(-50%);color:white;text-align:center;vertical-align:center;padding:150px 0;background:rgba(33,33,33,0.5);width:100%;z-index:1200;">正在努力加载，请等待一下……</div>');
+					// },
+					complete: function() {
+						$("#pload").remove();
+					},
+					success: function(re) {
+						var gengxinTime = "";
+						ficVar.ddList = re.fiction_name;
+						ficVar.timeList = re.updateTime;
+						ficVar.liList = re.toc;
+						ficVar.artitleList = re.artitle;
+						// 获取更新时间 0表示第一本小说
+						gengxinTime = "更新时间：" + ficVar.timeList[0];
+						$(".fic_head span").html(gengxinTime);
+						// 获取小说名 0表示第一本小说
+						$(".fic_head h1").html(ficVar.ddList[0]);
+						// 小说目录 liList "0"表示第一本小说，1表示加li的遍历
+						$(".art_main ul").html(ficVar.bianLi(ficVar.liList["0"], 1));
+						$(".mulu li").eq(0).css("color", "pink"); // 第一次遍历数据的时候就把默认选中的章节标题变粉色。
+						// 小说内容上的标题 "0"表示第一本小说，0表示第一章
+						$(".key_w").html(ficVar.artitleList["0"]["title"][0]);
+						$(".con").html(ficVar.bianLi(ficVar.artitleList["0"]["content"][0], 2));
+					}
+
+				});
+
+
+				//  ajax出来的数据并不能用jquery实现事件点击？ 用html修改的不行。
+				// 下面实现显示相应目录
+				$(".luxian dd").eq(0).css({
+					color: "black",
+					backgroundColor: "white"
+				});
+				$(".luxian dd").click(function() {
+					var idx = $(this).index()
+					var idx_s = idx.toString();
+					ficVar.linshishu = idx_s;
+					var gengxinTime = "更新时间：" + ficVar.timeList[idx];
+					$(".fic_head span").html(gengxinTime);
+					$(".fic_head h1").html(ficVar.ddList[idx]);
+					$(".art_main ul").html(ficVar.bianLi(ficVar.liList[idx_s], 1));
+					// 小说内容上的标题 "0"/idx_s表示第一本小说，0表示第一章
+					$(".key_w").html(ficVar.artitleList[idx_s]["title"][0]);
+					$(".con").html(ficVar.bianLi(ficVar.artitleList[idx_s]["content"][0], 2));
+					// 点击之后背景高亮
+					$(this).css({
+						color: "black",
+						backgroundColor: "white"
+					}).siblings().css({
+						color: "white",
+						backgroundColor: "transparent"
+					});
+				});
+
+
+				// 实现小说标题和内容随着点击目录而变。（里面的数据，小说目录标题不可以多于实际章节内容的数量，否则多出的标题点击会出错。）
+				$(".mulu").on('click', 'li', function() {
+					var id = $(this).index();
+					// 小说内容上的标题 "0"/idx_s/ficVar.linshishu表示第一本小说，0/id表示第一章
+					$(".key_w").html(ficVar.artitleList[ficVar.linshishu]["title"][id]);
+					$(".con").html(ficVar.bianLi(ficVar.artitleList[ficVar.linshishu]["content"][id], 2));
+					$(this).css("color", "pink").siblings().css("color", "white");
+				});
+
+
+
+				// 做一个目录滑动效果(虽然没实现拖动事件，但是鼠标滑轮滚动和点击位置都OK，缺陷：不适合手机，同时无法控制单区域滚动)
+				// element.scrollLeft	返回元素左边缘与视图之间的距离。
+				// element.offsetLeft	返回元素的水平偏移位置。
+				// event.clientX  返回触发事件时鼠标的X坐标。
+
+				function yidongZhi() { // 限制边界的移动
+					if (ficVar.leftX < 0) {
+						ficVar.leftX = 0;
+					} else if (ficVar.leftX > 772) {
+						ficVar.leftX = 772;
+					}
+					$("#gundong").css("left", ficVar.leftX);
+					$(".mulu").css("right", ficVar.leftX);
+				}
+
+				function gundongtiao(zhi) { // 获取滚动数值并进行减半处理(为了不滚动那么快)，再调用限制边界的移动函数
+					var numX = zhi / 2;
+					ficVar.leftX = ficVar.leftX + numX;
+					yidongZhi();
+				}
+
+
+				$(".art_main").bind('mousewheel DOMMouseScroll', function(event) { //on也可以 bind监听
+					//Chorme
+					var wheel = event.originalEvent.wheelDelta;
+					var detal = event.originalEvent.detail;
+					if (event.originalEvent.wheelDelta) { //判断浏览器IE,谷歌滚轮事件               
+						gundongtiao(wheel);
+					} else if (event.originalEvent.detail) { //Firefox滚轮事件  
+						gundongtiao(detal);
+					}
+					$("body").css("overflowY", "hidden");
+				});
+				$(".art_main").mouseleave(function() {
+					$("body").css("overflowY", "auto");
+					console.log("现在可以滚动了");
+				});
+
+				var oGDT = document.getElementById("gundong");
+				var oGDK = document.getElementsByClassName("gundongtiao")[0];
+
+				function gDmove(ev) { // 点击位置移动
+					var e = ev || window.event;
+					var oGdOffsetX = document.getElementsByClassName("article_toc")[0].offsetLeft + 270; // 这里的270是导航条左边到整个目录框的左边的距离
+					ficVar.leftX = e.clientX - oGdOffsetX;
+					yidongZhi();
+				}
+
+				function tDmove(ev) { // 拖拽位置移动
+					var e = ev || window.event;
+					var offsetX = ev.clientX - oGDT.offsetLeft;
+					document.onmousemove = function(ev) {
+						var ev = ev || window.event;
+						ficVar.leftX = ev.clientX - offsetX;
+						yidongZhi();
+					}
+					document.onmouseup = function() { //绑定鼠标放开事件的可以是盒子，也可以是区域
+						document.onmousemove = null; // 但清除移动事件的必须是区域，如果是盒子的话，松开鼠标盒子也跟着移动。
 					}
 				}
-				return jieguo;
-			}
-		};
-				
-		
-				
-		// 遍历函数
-		$.ajax({
-			url: "data/fiction_data.json",
-			type: "get",
-			dataType:"json",
-			// beforeSend:function(){
-			// 	$("body").append('<div id="pload" style="position:fixed;top:50%;transform:translateY(-50%);color:white;text-align:center;vertical-align:center;padding:150px 0;background:rgba(33,33,33,0.5);width:100%;z-index:1200;">正在努力加载，请等待一下……</div>');
-			// },
-			complete:function(){
-				$("#pload").remove();
-			},
-			success: function(re){
-				var gengxinTime="";
-				ficVar.ddList = re.fiction_name;
-				ficVar.timeList = re.updateTime;
-				ficVar.liList = re.toc;
-				ficVar.artitleList = re.artitle;
-				// 获取更新时间 0表示第一本小说
-				gengxinTime="更新时间："+ficVar.timeList[0];
-				$(".fic_head span").html(gengxinTime);
-				// 获取小说名 0表示第一本小说
-				$(".fic_head h1").html(ficVar.ddList[0]);
-				// 小说目录 liList "0"表示第一本小说，1表示加li的遍历
-				$(".art_main ul").html(ficVar.bianLi(ficVar.liList["0"],1));
-				$(".mulu li").eq(0).css("color","pink"); // 第一次遍历数据的时候就把默认选中的章节标题变粉色。
-				// 小说内容上的标题 "0"表示第一本小说，0表示第一章
-				$(".key_w").html(ficVar.artitleList["0"]["title"][0]);
-				$(".con").html(ficVar.bianLi(ficVar.artitleList["0"]["content"][0],2));
-			   }
+				oGDK.addEventListener("mousedown", gDmove); // 事件侦听可以给同一个元素绑定多个事件函数
+				oGDK.addEventListener("mousedown", tDmove);
 
-		});
-		
-		
-		//  ajax出来的数据并不能用jquery实现事件点击？ 用html修改的不行。
-		// 下面实现显示相应目录
-		$(".luxian dd").eq(0).css({color:"black",backgroundColor:"white"});
-		$(".luxian dd").click(function(){
-			var idx=$(this).index()
-			var idx_s=idx.toString();
-			ficVar.linshishu=idx_s;
-			var gengxinTime="更新时间："+ficVar.timeList[idx];
-			$(".fic_head span").html(gengxinTime);
-			$(".fic_head h1").html(ficVar.ddList[idx]);
-			$(".art_main ul").html(ficVar.bianLi(ficVar.liList[idx_s],1));
-			// 小说内容上的标题 "0"/idx_s表示第一本小说，0表示第一章
-			$(".key_w").html(ficVar.artitleList[idx_s]["title"][0]);
-			$(".con").html(ficVar.bianLi(ficVar.artitleList[idx_s]["content"][0],2));
-			// 点击之后背景高亮
-			$(this).css({color:"black",backgroundColor:"white"}).siblings().css({color:"white",backgroundColor:"transparent"});
-		});
-		
-		
-		// 实现小说标题和内容随着点击目录而变。（里面的数据，小说目录标题不可以多于实际章节内容的数量，否则多出的标题点击会出错。）
-		$(".mulu").on('click','li',function(){
-			var id=$(this).index();
-			// 小说内容上的标题 "0"/idx_s/ficVar.linshishu表示第一本小说，0/id表示第一章
-			$(".key_w").html(ficVar.artitleList[ficVar.linshishu]["title"][id]);
-			$(".con").html(ficVar.bianLi(ficVar.artitleList[ficVar.linshishu]["content"][id],2));
-			$(this).css("color","pink").siblings().css("color","white");
-		});
-		
-		
-				
-		// 做一个目录滑动效果(虽然没实现拖动事件，但是鼠标滑轮滚动和点击位置都OK，缺陷：不适合手机，同时无法控制单区域滚动)
-		// element.scrollLeft	返回元素左边缘与视图之间的距离。
-		// element.offsetLeft	返回元素的水平偏移位置。
-		// event.clientX  返回触发事件时鼠标的X坐标。
-		
-		function yidongZhi(){   // 限制边界的移动
-			if(ficVar.leftX<0){
-				ficVar.leftX=0;
-			}else if(ficVar.leftX>772){
-				ficVar.leftX=772;
-			}
-			$("#gundong").css("left",ficVar.leftX);
-			$(".mulu").css("right",ficVar.leftX);
-		}
-		
-		function gundongtiao(zhi){  // 获取滚动数值并进行减半处理(为了不滚动那么快)，再调用限制边界的移动函数
-			var numX=zhi/2;
-			ficVar.leftX=ficVar.leftX+numX;
-			yidongZhi();
-		}
-		
-		
-		$(".art_main").bind('mousewheel DOMMouseScroll',function(event){ //on也可以 bind监听
-			//Chorme
-			var wheel = event.originalEvent.wheelDelta;
-			var detal = event.originalEvent.detail;
-			if (event.originalEvent.wheelDelta) { //判断浏览器IE,谷歌滚轮事件               
-				gundongtiao(wheel);
-			} else if (event.originalEvent.detail) {  //Firefox滚轮事件  
-				gundongtiao(detal); 
-			}  
-			$("body").css("overflowY","hidden");
-		});
-		$(".art_main").mouseleave(function(){
-			$("body").css("overflowY","auto");
-		});
-		
-		var oGDT=document.getElementById("gundong");
-		var oGDK=document.getElementsByClassName("gundongtiao")[0];
-		
-		function gDmove(ev){ // 点击位置移动
-			var e = ev || window.event;
-			var oGdOffsetX=document.getElementsByClassName("article_toc")[0].offsetLeft+270; // 这里的270是导航条左边到整个目录框的左边的距离
-			ficVar.leftX=e.clientX-oGdOffsetX;
-			yidongZhi();
-		}	
-		
-		function tDmove(ev){ // 拖拽位置移动
-			var e = ev || window.event;
-			var offsetX= ev.clientX-oGDT.offsetLeft;
-			document.onmousemove=function(ev){
-				var ev= ev || window.event;
-				ficVar.leftX=ev.clientX-offsetX;
-				yidongZhi();
-			}
-			document.onmouseup=function(){  //绑定鼠标放开事件的可以是盒子，也可以是区域
-				document.onmousemove=null;  // 但清除移动事件的必须是区域，如果是盒子的话，松开鼠标盒子也跟着移动。
-			}
-		}
-		oGDK.addEventListener("mousedown", gDmove);  // 事件侦听可以给同一个元素绑定多个事件函数
-		oGDK.addEventListener("mousedown", tDmove);  
-		
-		// 总结：目前这个拖拽的时候，文字会选中，文字禁选择样式还不完善(某些浏览器可能不支持文字禁选)，在.art_main .mulu上加了user-select:none。
-		
-		
-		
-					
-		//文章的展开
-		$(".more").click(function(){
-			ficVar.gengduo= $(this).attr("value");
-			
-			if(ficVar.gengduo==0){
-				$(this).parent(".con_out").css({overflow:"none",height:'auto'});
-				$(this).prev(".con").css("height","auto");
-				$(this).html("收起");
-				$(this).attr("value","1");
-				
-			}else{
-				$(this).parent(".con_out").css({overflow:"hiddden",height:"206px"});
-				$(this).prev(".con").css("height","182px");
-				$(this).html("展开全部");
-				$(this).attr("value","0");
-			}
-		})
-			
-				
-		
-	})	
-</script>
+				// 总结：目前这个拖拽的时候，文字会选中，文字禁选择样式还不完善(某些浏览器可能不支持文字禁选)，在.art_main .mulu上加了user-select:none。
+
+
+
+
+				//文章的展开
+				$(".more").click(function() {
+					ficVar.gengduo = $(this).attr("value");
+
+					if (ficVar.gengduo == 0) {
+						$(this).parent(".con_out").css({
+							overflow: "none",
+							height: 'auto'
+						});
+						$(this).prev(".con").css("height", "auto");
+						$(this).html("收起");
+						$(this).attr("value", "1");
+
+					} else {
+						$(this).parent(".con_out").css({
+							overflow: "hiddden",
+							height: "330px"
+						});
+						$(this).prev(".con").css("height", "182px");
+						$(this).html("展开全部");
+						$(this).attr("value", "0");
+					}
+				})
+
+
+
+			})
+		</script>
 	</body>
 </html>

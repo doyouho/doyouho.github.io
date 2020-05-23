@@ -3,432 +3,535 @@
 	<head>
 		<meta charset="utf-8">
 		<title>意休|精神满满地开始工作吧</title>
-		<link rel="stylesheet" href="css/note.css"  type="text/css" />
+		<link rel="stylesheet" href="css/note.css" type="text/css" />
 		<link rel="icon" href="images/baobao.png" type="image/png">
 		<link rel="bookmark" href="images/baobao.png" />
 		<script src="js/note.js"></script>
-	<style type="text/css">
-		/* * {
-			padding: 0;
-			margin: 0;
-		}
-		
-		ul {
-			list-style: none;
-		}
-		 */
-		a {
-			text-decoration: none;
-		}
-		body {
-			background-color: #aef8e8;
-			font-family: "微软雅黑", "黑体", "宋体";
-			color: #333;
-		}
-		
-		/*头部区域*/
-		.header {
-			width: 100%;
-			height: 66px;
-			background: white;
-			/* overflow: hidden; */
-			position: fixed;
-			top: 0;
-			z-index: 10;
-			border-bottom: 1px solid #f6f6f6;
-		}
-		
-		.tishiwenben {
-			position: absolute;
-			left: 50%;
-			top: 100%;
-			transform: translateX(-50%);
-			background-color: #333;
-			font-size: 14px;
-			display: inline-block;
-			padding: 5px 12px;
-			border-radius: 5px;
-			color: white;
-			visibility: hidden;
-		}
-		
-		.hd {
-			height: 66px;
-			width: 1000px;
-			margin: 0 auto;
-			overflow: hidden;
-		}
-		
-		
-		.hd .logo {
-			width: 300px;
-			height: 51px;
-			float: left;
-			position: relative;
-			left: -110px;
-			top: 0;
-			margin-top: 3px;
-			background-image: url(./images/logo.gif);
-			background-repeat: no-repeat;
-			background-position: right bottom;
-		}
-		
-		/* input框中placeholder的样式修改 */
-		input::-webkit-input-placeholder {
-			color: #bbb;
-			font-size: 14px;
-		}
-		
-		/*这里根据实际情况设置margin值，原图190*50*/
-		.hd .kuang {
-			float: left;
-			height: 24px;
-			width: 220px;
-			padding: 2px 8px;
-			margin: 18px 4px 18px 20px;
-			visibility: hidden;
-		}
-		
-		
-		.hd .search {
-			float: left;
-			width: 40px;
-			margin-top: 15px;
-			outline: none;
-		}
-		
-		.sousuokuang {
-			float: left;
-			overflow: hidden;
-			width: 320px;
-		}
-		
-		.sousuokuang:hover .kuang {
-			visibility: visible;
-		}
-		
-		.sousuokuang:hover .tishiwenben {
-			visibility: visible;
-		}
-		
-		.hd .nav {
-			float: right;
-			height: 66px;
-			overflow: hidden;
-		}
-		
-		.hd .nav a {
-			display: block;
-			position: relative;
-			top: 0;
-		}
-		
-		.hd .nav li {
-			float: left;
-		}
-		
-		.hd li i,
-		.hd li b {
-			display: block;
-			font-style: normal;
-			font-weight: 400;
-			padding: 0 18px;
-			height: 66px;
-			line-height: 66px;
-			font-size: 14px;
-			color: #333;
-			text-align: center;
-			box-sizing: border-box;
-		}
-		
-		.hd li b {
-			color: #666;
-			background-color: #f6f6f6;
-			border-radius: 0 0 18px 18px;
-			border-top: 2px solid pink;
-		}
-		
-		.nav .daka i{
-			color: white; 
-			font-weight: 700;
-			position: relative;
-			z-index: 1;
-		}
-		.nav .daka span{
-			position: absolute;
-			display: block;
-			width: 0;
-			height: 52px;
-			border-bottom: 14px solid white;
-			border-left: 32px solid pink;
-			border-right: 32px solid pink;
-			top:0;
-		}
-		
-		form.out:focus-within{
-			border-radius: 30px;
-			box-shadow: 0 6px 20px #f4a9c7;
-		}
-		
-		input[type="checkbox"]{
-			display: none;
-		}
-		.cbox{
-			display: inline-block;
-			width: 16px;
-			height: 16px;
-			border-radius: 8px;
-			cursor: pointer;
-			position: relative;
-			border:1px solid #dddddd;
-			top:4px;
-			margin-right: 6px;
-		}
-		
-		input:checked+.cbox{
-			border-color: transparent;
-		}
-		input:checked+.cbox::after{
-			display: inline-block;
-			content: "\2714";
-			position: absolute;
-			left: 1px;
-			top:-3px;
-			font-size: 16px;
-			color: pink;
-		} 
-		
-		.taskForWork{
-			text-align: center;
-			width: 1000px;
-			margin: 0 auto;
-		}
-		.taskForWork h1 {
-			margin: 120px auto 80px;
-		}
-		
-		.textTips a {
-			text-decoration: none;
-			color: deeppink;
-		}
+		<style type="text/css">
+			body {
+				background-color: #aef8e8;
+				font-family: "微软雅黑", "黑体", "宋体";
+				color: #333;
+			}
 
-		.taskContent {
-			width: 920px;
-			margin: 30px 0;
-			background-color: #fefefe;
-			padding: 70px 40px;
-			color: #888;
-			text-align: left;
-			border-radius: 30px;
-		}
-		
-		.taskType,
-		.taskSkill {
-			margin-left: 120px;
-			padding: 20px 0;
-			color: #555;
-		
-		}
-		
-	
-		.taskType  input,
-		.taskSkill input {
-			margin-right: 4px;
-			background-color: white;
-			cursor: pointer;
-		}
-		
-		.taskType label,
-		.taskSkill label{
-			margin-right: 12px;
-			cursor: pointer;
-			user-select: none;
-		}
-		
-		.singleLine>div{
-			margin-top: 30px; 
-			margin-left:120px;
-			color: #555;
-			z-index: 1;
-		}
-		
+			/*头部区域*/
+			.header {
+				width: 100%;
+				height: 66px;
+				background: white;
+				/* overflow: hidden; */
+				position: fixed;
+				top: 0;
+				z-index: 10;
+				border-bottom: 1px solid #f6f6f6;
+			}
 
-		.singleLine input {
-			display: inline-block;
-			width: 260px;
-			height: 26px;
-			/* border-radius: 10px; */
-			outline: none;
-			padding-left: 10px;
-			border: none;
-			border-bottom: 1px solid #333333;
-		}
-		
-		
-		.singleLine em {
-			margin-left: 20px;
-			font-style: normal;
-		}
-		
-		#allTaskData {
-			border-radius: 10px;
-			outline: none;
-			border: 1px solid #f0f0f0;
-			padding: 8px 8px 10px;
-			height: 120px;
-			width: 520px;
-			font-size: 14px;
-		}
-		
-		.btnLine{
-			text-align: center;
-		}
-		
-		.btnLine .dataSTNoteBtn {
-			display: inline-block;
-			width: 60px;
-			height: 40px;
-			line-height: 40px;
-			background-color: whitesmoke;
-			border-radius: 12px;
-			color: #555;
-			font-weight: 600;
-			cursor: pointer;
-			margin-left: 20px;
-		}
-		
-		.btnLine .dataSTNoteBtn:hover {
-			background-color: white;
-		}
-		
-		/*下面是打卡样式*/
-	.slideBox{
-		background-color: rgba(33,33,33,0.8);
-		display: none;
-		position: absolute;
-		left: 50%;
-		margin-left:-274px;
-		color:white;
-		border-radius:12px;
-	}
-	
-	.slideBox.active{
-		top:60px;
-		display: block;
-		transition: 3s;
-	}
-	
-	ul.dayCheck{ 
-		width:568px;
-		padding: 20px;
-		list-style: none;
-		border:1px solid #eee;
-	}
-		
-	
-	.dayCheck .writeIn{
-		padding-left:12px;
-		height: 22px;
-		width: 220px;
-		margin:2px 0 4px 40px;
-		visibility: hidden;
-		
-	}
-	.dayCheck li{
-		padding:4px;
-		width: 560px; /*+60*/
-	}
-	.dayCheck li:hover{
-		background-color: #fbfbfb;
-		color: #333333;
-	}
-	
-	.dayCheck li:hover b ,.dayCheck li:hover i{
-		display: inline-block;
-	}
-	.dayCheck li:hover .writeIn{
-		visibility: visible;
-	}
-	.dayCheck li span{
-		margin:4px 60px;
-		display: inline-block;
-		width: 82px;
-	}
-	.dayCheck li b,.dayCheck li i {
-		display: inline-block;
-		border:1px solid #666666;
-		font-weight: 400;
-		padding:2px 10px;
-		border-radius:14px;
-		cursor: pointer;
-		font-style: normal;
-		display: none;
-		margin-right: 10px;
-	}
-	.dayCheck li b:hover,.dayCheck li i:hover{
-		background-color: pink;
-		border-color: pink;
-	}
-	
-	
-	.dayCheck .addItemBtn, .dayCheck .saveChange{
-		border:1px solid #999999;
-		padding:4px 10px;
-		border-radius:14px;
-		margin: 12px;
-		/* width:72px; */
-		text-align: center;
-		cursor: pointer;
-	}
-	.addItemBtn:hover ,.saveChange:hover {
-		background-color: pink;
-		border-color: transparent;
-	}
-	
-	.scrollbar{
-		width:500px;
-		height: 8px;
-		background: black;
-		border-radius: 6px;
-		border:1px solid pink;
-		display:inline-block;
-		margin:0 30px 0 100px;
-		overflow: hidden;
-		border-spacing: white;
-	}
-	.scrollmove{
-		width:100%;
-		height:100%;
-		border-radius: 6px;
-		background-color: white;
-		animation-fill-mode: forwards ;
-	}
-	
-	.startBtn{
-		text-align: center;
-		display:inline-block;
-		padding:4px 12px;
-		width:176px;
-		border:1px solid pink;
-		border-radius: 20px;
-		cursor:pointer;
-		color: white;
-		background-color: pink;
-	}
-	@keyframes scrollTo{
-		0%{width:100%;}
-		100%{width:0%; }
-	}
-	@keyframes resetScroll{
-		0%{width:100%;}
-		100%{width:100%; }
-	}	
-		
-		/* 虽然后面这个动画是用作reset的，但是好像不写样式也OK */
-	</style>
+			.tishiwenben {
+				position: absolute;
+				left: 50%;
+				top: 100%;
+				transform: translateX(-50%);
+				background-color: #333;
+				font-size: 14px;
+				display: inline-block;
+				padding: 5px 12px;
+				border-radius: 5px;
+				color: white;
+				visibility: hidden;
+			}
+
+			.hd {
+				height: 66px;
+				width: 1000px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+
+
+			.hd .logo {
+				width: 300px;
+				height: 51px;
+				float: left;
+				position: relative;
+				left: -110px;
+				top: 0;
+				margin-top: 3px;
+				background-image: url(./images/logo.gif);
+				background-repeat: no-repeat;
+				background-position: right bottom;
+			}
+
+
+
+			/*这里根据实际情况设置margin值，原图190*50*/
+			.hd .kuang {
+				float: left;
+				height: 24px;
+				width: 220px;
+				padding: 2px 8px;
+				margin: 18px 4px 18px 20px;
+				visibility: hidden;
+			}
+
+
+			.hd .search {
+				float: left;
+				width: 40px;
+				margin-top: 15px;
+				outline: none;
+			}
+
+			.sousuokuang {
+				float: left;
+				overflow: hidden;
+				width: 320px;
+			}
+
+			.sousuokuang:hover .kuang {
+				visibility: visible;
+			}
+
+			.sousuokuang:hover .tishiwenben {
+				visibility: visible;
+			}
+
+			.hd .nav {
+				float: right;
+				height: 66px;
+				overflow: hidden;
+			}
+
+			.hd .nav a {
+				display: block;
+				position: relative;
+				top: 0;
+			}
+
+			.hd .nav li {
+				float: left;
+			}
+
+			.hd li i,
+			.hd li b {
+				display: block;
+				font-style: normal;
+				font-weight: 400;
+				padding: 0 18px;
+				height: 66px;
+				line-height: 66px;
+				font-size: 14px;
+				color: #333;
+				text-align: center;
+				box-sizing: border-box;
+			}
+
+			.hd li b {
+				color: #666;
+				background-color: #f6f6f6;
+				border-radius: 0 0 18px 18px;
+				border-top: 2px solid pink;
+			}
+
+			.nav .daka i {
+				color: white;
+				font-weight: 700;
+				position: relative;
+				z-index: 1;
+			}
+
+			.nav .daka span {
+				position: absolute;
+				display: block;
+				width: 0;
+				height: 52px;
+				border-bottom: 14px solid white;
+				border-left: 32px solid pink;
+				border-right: 32px solid pink;
+				top: 0;
+			}
+
+			form.out:focus-within {
+				border-radius: 30px;
+				box-shadow: 0 6px 20px #f4a9c7;
+			}
+
+			input[type="checkbox"] {
+				display: none;
+			}
+
+			.cbox {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				border-radius: 8px;
+				cursor: pointer;
+				position: relative;
+				border: 1px solid #dddddd;
+				top: 4px;
+				margin-right: 6px;
+			}
+
+			input:checked+.cbox {
+				border-color: transparent;
+			}
+
+			input:checked+.cbox::after {
+				display: inline-block;
+				content: "\2714";
+				position: absolute;
+				left: 1px;
+				top: -3px;
+				font-size: 16px;
+				color: pink;
+			}
+
+			.taskForWork {
+				text-align: center;
+				width: 1000px;
+				margin: 0 auto;
+			}
+
+			.taskForWork h1 {
+				margin: 120px auto 80px;
+			}
+
+			.textTips a {
+				text-decoration: none;
+				color: deeppink;
+			}
+
+			.taskContent {
+				width: 920px;
+				margin: 30px auto;
+				background-color: #fefefe;
+				padding: 70px 40px;
+				color: #888;
+				text-align: left;
+				border-radius: 30px;
+			}
+
+			.taskType,
+			.taskSkill {
+				margin-left: 120px;
+				padding: 20px 0;
+				color: #555;
+
+			}
+
+
+			.taskType input,
+			.taskSkill input {
+				margin-right: 4px;
+				background-color: white;
+				cursor: pointer;
+			}
+
+			.taskType label,
+			.taskSkill label {
+				margin-right: 12px;
+				cursor: pointer;
+				user-select: none;
+			}
+
+			.singleLine>div {
+				margin-top: 30px;
+				margin-left: 120px;
+				color: #555;
+				z-index: 1;
+			}
+
+
+			.singleLine input {
+				display: inline-block;
+				width: 260px;
+				height: 26px;
+				/* border-radius: 10px; */
+				outline: none;
+				padding-left: 10px;
+				border: none;
+				border-bottom: 1px solid #333333;
+			}
+
+
+			.singleLine em {
+				margin-left: 20px;
+				font-style: normal;
+			}
+
+			#allTaskData {
+				border-radius: 10px;
+				outline: none;
+				border: 1px solid #f0f0f0;
+				padding: 8px 8px 10px;
+				height: 120px;
+				width: 520px;
+				font-size: 14px;
+			}
+
+			.btnLine {
+				text-align: center;
+			}
+
+			.btnLine .dataSTNoteBtn {
+				display: inline-block;
+				width: 60px;
+				height: 40px;
+				line-height: 40px;
+				background-color: whitesmoke;
+				border-radius: 12px;
+				color: #555;
+				font-weight: 600;
+				cursor: pointer;
+				margin-left: 20px;
+			}
+
+			.btnLine .dataSTNoteBtn:hover {
+				background-color: white;
+			}
+
+			/*下面是打卡样式*/
+			.slideBox {
+				background-color: rgba(33, 33, 33, 0.8);
+				display: none;
+				position: absolute;
+				left: 50%;
+				margin-left: -274px;
+				color: white;
+				border-radius: 12px;
+			}
+
+			.slideBox.active {
+				top: 60px;
+				display: block;
+				transition: 3s;
+			}
+
+			ul.dayCheck {
+				width: 568px;
+				padding: 20px;
+				list-style: none;
+				border: 1px solid #eee;
+			}
+
+
+			.dayCheck .writeIn {
+				padding-left: 12px;
+				height: 22px;
+				width: 220px;
+				margin: 2px 0 4px 40px;
+				visibility: hidden;
+
+			}
+
+			.dayCheck li {
+				padding: 4px;
+				width: 560px;
+				/*+60*/
+			}
+
+			.dayCheck li:hover {
+				background-color: #fbfbfb;
+				color: #333333;
+			}
+
+			.dayCheck li:hover b,
+			.dayCheck li:hover i {
+				display: inline-block;
+			}
+
+			.dayCheck li:hover .writeIn {
+				visibility: visible;
+			}
+
+			.dayCheck li span {
+				margin: 4px 60px;
+				display: inline-block;
+				width: 82px;
+			}
+
+			.dayCheck li b,
+			.dayCheck li i {
+				display: inline-block;
+				border: 1px solid #666666;
+				font-weight: 400;
+				padding: 2px 10px;
+				border-radius: 14px;
+				cursor: pointer;
+				font-style: normal;
+				display: none;
+				margin-right: 10px;
+			}
+
+			.dayCheck li b:hover,
+			.dayCheck li i:hover {
+				background-color: pink;
+				border-color: pink;
+			}
+
+
+			.dayCheck .addItemBtn,
+			.dayCheck .saveChange {
+				border: 1px solid #999999;
+				padding: 4px 10px;
+				border-radius: 14px;
+				margin: 12px;
+				/* width:72px; */
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.addItemBtn:hover,
+			.saveChange:hover {
+				background-color: pink;
+				border-color: transparent;
+			}
+
+			.scrollbar {
+				width: 500px;
+				height: 8px;
+				background: black;
+				border-radius: 6px;
+				border: 1px solid pink;
+				display: inline-block;
+				margin: 0 30px 0 100px;
+				overflow: hidden;
+				border-spacing: white;
+			}
+
+			.scrollmove {
+				width: 100%;
+				height: 100%;
+				border-radius: 6px;
+				background-color: white;
+				animation-fill-mode: forwards;
+			}
+
+			.startBtn {
+				text-align: center;
+				display: inline-block;
+				padding: 4px 12px;
+				width: 176px;
+				border: 1px solid pink;
+				border-radius: 20px;
+				cursor: pointer;
+				color: white;
+				background-color: pink;
+			}
+
+			@keyframes scrollTo {
+				0% {
+					width: 100%;
+				}
+
+				100% {
+					width: 0%;
+				}
+			}
+
+			@keyframes resetScroll {
+				0% {
+					width: 100%;
+				}
+
+				100% {
+					width: 100%;
+				}
+			}
+
+			/* 虽然后面这个动画是用作reset的，但是好像不写样式也OK */
+				@media (max-width:1200px){
+					.hd,.taskForWork{
+						width: 970px;
+					}
+					
+					.taskContent {
+						width: 890px;
+					}
+					
+					.scrollbar {
+						width: 330px;
+						margin: 0 30px 0 160px;
+					}
+					
+					.taskType,
+					.taskSkill,
+					.singleLine>div {
+						margin-left: 160px;
+					}
+					.cards .bigger{
+						right: 4px;
+					}
+					.cards .left{
+						right: 66px;
+					}
+					
+					.doList ul li,.textTips{
+						font-size: 15px;
+					}
+					
+				}
+			
+			
+			/*当width<992px时  标准宽750px */
+			@media (max-width:992px) {
+				body {
+					max-width: 992px;
+					min-width: 768px;
+				}
+
+				.hd ,.taskForWork{
+					width: 750px;
+				}
+
+				.sousuokuang {
+					display: none;
+				}
+
+
+				.taskContent {
+					width: 670px;
+				}
+
+				.scrollbar {
+					width: 320px;
+					margin: 0 30px 0 54px;
+				}
+
+				.taskType,
+				.taskSkill,
+				.singleLine>div{
+					margin-left: 54px;
+				}
+
+				/* 字体处理 */
+				.hd li i,
+				.hd li b{
+					font-size: 18px;
+				}
+				#allTaskData{
+					font-size: 16px;
+				}
+				
+				/* 下面两个字设置的大小很奇怪，设16不管用，自动变20多 */
+				.taskType b,
+				.taskSkill b {
+					display: block;
+					font-size: 15px;
+				}
+				
+				.taskType label,
+				.taskSkill label {
+					font-size: 15px;
+				}
+				
+				 
+			}
+
+		</style>
 	</head>
-	
-	<body>
+
+	<body class="toWork">
+
 		<!--头部区域-->
 		<header class="header">
 			<div class="hd">
@@ -436,7 +539,7 @@
 				<div class="sousuokuang">
 					<form action="https://www.baidu.com/s" target="_blank">
 						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
-						<input class="search" type="image" src="images/sousuo.png"  />
+						<input class="search" type="image" src="images/sousuo.png" />
 					</form>
 					<span class="tishiwenben">+增加必备关键字 -排除关键字 双引号来限定整词 site intitle inurl filetype</span>
 				</div>
@@ -452,11 +555,13 @@
 		</header>
 		<div class="slideBox">
 			<ul class="dayCheck">
-				<li><input type="text" class="writeIn" placeholder="新项目需要点击保存才生效"/><span class="addItemBtn">增加项目</span><span class="saveChange">保存</span></li>
+				<li><input type="text" class="writeIn" placeholder="新项目需要点击保存才生效" /><span class="addItemBtn">增加项目</span><span class="saveChange">保存</span></li>
 				<li><span>学习项目</span><span>学习天数</span>once a day</li>
 			</ul>
 		</div>
+
 		<script>
+			// 页面计时的动画实现
 			var dakaState = false;
 			var oDaKa = document.getElementsByClassName("daka")[0];
 			oDaKa.onclick = function(){
@@ -471,14 +576,15 @@
 				
 			}
 		</script>
-		
-		
-		
+
+
+
 		<div class="taskForWork">
 			<h1>好的开始就成功了一大半</h1>
 			<section class="textTips">
-				<div>准备物资和环境：水 ，零食，梳子。打起精神状态：适合地做下准备运动，调整呼吸。</div>
-				<div>明确目标：啥条件，输入啥，想得啥，啥技能或工具能帮我们，最优的解决方案是啥。</div>
+				<div>准备物资和环境：水 ，零食，梳子。</div>
+				<div>打起精神状态：适合地做下准备运动，调整呼吸。</div>
+				<div>明确目标：由什么得什么，用什么技术或工具，最优解是什么。</div>
 				<div>提示：学习没必要全部都学，学适合自己学习的，学自己需要的。</div>
 				<div>最后，要不要来点音乐？
 					<a href="https://www.kugou.com/yy/special/single/1513086.html" target="_blank"> 《悠闲》 </a>
@@ -490,13 +596,13 @@
 
 			<section>
 				<form class="out">
-					<div class="taskContent">   
+					<div class="taskContent">
 						<div class="scrollbar">
 							<div class="scrollmove"></div>
 						</div>
 						<div class="startBtn">开始计时</div>
 						<!-- <p>（Tab键可以快速跳到下一个输入框）</p> -->
-						
+
 						<div class="taskType">
 							<b>做事的类型：</b>
 							<label><input type="checkbox" name="thingsType" value="旧领域" /><span class="cbox"></span>旧领域</label>
@@ -517,17 +623,17 @@
 							<label><input type="checkbox" name="vaSkills" value="讨论" /><span class="cbox"></span>讨论</label>
 							<label><input type="checkbox" name="vaSkills" value="故事" /><span class="cbox"></span>故事</label>
 						</div>
-	
+
 						<div class="singleLine">
 							<div><b>总任务：</b><input class="oData" id="taskAGoal" type="text" /><em>一天总任务是什么呢</em></div>
-							<div><b>优先解决：</b><input class="oData" id="taskGoal" type="text" /><em>写个具体的、你现在就能做的任务哦</em></div>
-							<div><b>计划用时：</b><input class="oData" id="taskPTime" type="number" /><em>用时最好控制在30分钟内</em></div>
-							<div><b>任务难度：</b><input class="oData" id="taskLevel" type="number" /><em>十颗星制，给个估值吧</em></div>
-							<div><b>开始时间：</b><input class="oData" id="taskSFTime" type="text" /><em>做事最好的时机，一是十年前，二是现在</em></div>
-							<div><b>任务实际用时：</b><input class="oData" id="taskFTime" type="number" /><em>单位分钟，没做完也没有关系哦</em></div>
+							<div><b>优先解决：</b><input class="oData" id="taskGoal" type="text" /><em>具体的、现在就能做的任务</em></div>
+							<div><b>计划用时：</b><input class="oData" id="taskPTime" type="number" /><em>Better in 30 minutes</em></div>
+							<div><b>任务难度：</b><input class="oData" id="taskLevel" type="number" /><em>10星</em></div>
+							<div><b>开始时间：</b><input class="oData" id="taskSFTime" type="text" /><em>now or never</em></div>
+							<div><b>任务实际用时：</b><input class="oData" id="taskFTime" type="number" /><em>单位分钟（Let it be）</em></div>
 							<div><b>任务完成度：</b><input class="oData" id="taskFStatus" type="number" /><em>%</em></div>
-							<div><b>困难或障碍在哪里：</b><input class="oData" id="taskDifficult" type="text" /><em>目标不明确？不专心？没头绪？搜不到？</em></div>
-							<div><b>接下来？：</b><input class="oData" id="taskContinue" type="text" /><em>接受自身不足，难的可以先放下，办法总比困难多</em></div>
+							<div><b>困难或障碍在哪里：</b><input class="oData" id="taskDifficult" type="text" /><em>What happened?</em></div>
+							<div><b>接下来？</b><input class="oData" id="taskContinue" type="text" /><em>Accept it, 办法总比困难多</em></div>
 							<div><b>生成的文本：</b><textarea id="allTaskData"></textarea></div>
 							<div class="btnLine">
 								<div class="dataSTNoteBtn">生成</div>
@@ -539,6 +645,7 @@
 			</section>
 		</div>
 		<script>
+			// 页面计时代码
 			var oStart = document.getElementsByClassName("startBtn")[0];
 			var oScr =  document.getElementsByClassName("scrollmove")[0];
 			oStart.onclick = function(){
@@ -571,7 +678,7 @@
 			}
 			
 		</script>
-	
+
 
 		<!-- 弹框内容 -->
 		<section>
@@ -589,7 +696,7 @@
 								<button>大框</button>
 								<textarea class="textarea" placeholder="[提示]这里做简单的事项输入,更多操作请在'项目卡片'通过右上角的'more'按钮打开一览表进行修改."></textarea>
 							</div>
-							<p  class="wrongTip">(每天进步一点点，可按enter键添加)</p>
+							<p class="wrongTip">(每天进步一点点，可按enter键添加)</p>
 							<ul class="todoList">
 								<div class="lists"></div>
 								<div class="tips">
@@ -604,7 +711,7 @@
 									<div class="btn">每日回顾</div>
 									<div class="btn">每周回顾</div>
 								</div>
-								
+
 								<div class="right">
 									<div class="btn">事件统筹</div>
 									<div class="btn">执行提示</div>
@@ -612,7 +719,7 @@
 								</div>
 							</nav>
 						</section>
-					
+
 						<section class="aside">
 							<!-- 栏目：技术醒脑 -->
 							<div class="knowing part">
@@ -620,7 +727,7 @@
 								<p>需要达到的目的：</p>
 								<p class="indent">a.记录下来，让大脑清空不混乱。</p>
 								<p class="indent">b.让自己随时都能明确知道，下一步该做什么。</p>
-							
+
 								<p>除机心（这里机心指机巧功利之心）：人类的聪明在于会工具，容易犯的错误是只会工具。别让工具玩了你。做计划是为了更好的实际效果，带有强目的性，不是为了计划而计划，是为了做事！</p>
 								<p>不去想做什么，该想不做什么。不要老想着做事情，而是享受自己的存在。</p>
 								<p>权衡利害关系。重点不一定是我得到了什么，因为得到什么有时候反而是非常明显的。更可能是因为会失去什么？我能否承受这种失去？比如纪念日？某个自己独处思考的时间？</p>
@@ -632,8 +739,8 @@
 								<p class="indent">② 依然把需要做的事情按照目标权重排序，然后有时间就做距离目标比较近的事情，做不完没关系，反正你也做不完所有事情；</p>
 								<p class="indent">③把所有需要做的事情做一个价值排序之后，只取排行榜上前面十件甚至五件，后面不管是什么，都不要再去管它们，时间会让你知道，不管你做没做其他事情，地球照样运转。</p>
 							</div>
-							
-							
+
+
 							<!-- 栏目：每日回顾 -->
 							<div class="part">
 								<h4>day回顾：起始 or 终结</h4>
@@ -643,9 +750,9 @@
 								<p>可能清单：要自己主动去思考，这件事可行性有多大。把思考这件事，也放进执行清单。</p>
 								<p class="indent">比如，学习编程是可能清单中的事情。那么 在执行清单中把考虑学习编程这件事也放进去。思考为什么学？什么时候学？怎么学？是否影响正常的目标和生活？</p>
 							</div>
-					
+
 							<!-- 栏目：每周回顾 -->
-							<div  class="part">
+							<div class="part">
 								<h4>week回顾：更想要 更喜欢 更应该</h4>
 								<p>目的：查漏补缺 + 检查科学性（私人订制）</p>
 								<p>注意点：</p>
@@ -665,7 +772,7 @@
 								<div class="resultTip">(处理结果显示区)</div>
 								<div>
 									<p>问题一：可行动吗？（若不可，请选择）</p>
-									<label><input type="radio" name="belong" value="4"  />可能清单</label>
+									<label><input type="radio" name="belong" value="4" />可能清单</label>
 									<label><input type="radio" name="belong" value="5" />参考资料</label>
 									<label><input type="radio" name="belong" value="6" />回收箱</label>
 									<p>问题二：能一步搞定吗？（若不可，请选择）</p>
@@ -683,8 +790,8 @@
 								<button class="solved">跳过</button>
 								<!-- <button class="solved">显示目前数据</button> -->
 							</div>
-						
-					
+
+
 							<!-- 栏目：执行提示 -->
 							<div class="part">
 								<h4>执行提示：万事开头难，害怕解决不了问题</h4>
@@ -701,7 +808,7 @@
 								<p>高效：一次只处理一件事情，定时，打破负罪感幻觉 </p>
 								<p>其他方法：要事第一 四象限法则</p>
 							</div>
-					
+
 							<!-- 栏目：项目卡片 -->
 							<div class="cards part">
 								<button class="bigger left">deleteAll</button>
@@ -723,7 +830,7 @@
 							</div>
 						</section>
 					</div>
-					
+
 				</section>
 				<!-- 弹框区域二、讨论区 -->
 				<div class="discussArea">
@@ -731,11 +838,11 @@
 					<!--1. 输入问题 -->
 					<form class="inputBox">
 						<textarea id="disWords" placeholder="想要问什么……"></textarea>
-						<button id="disSearchBtn" class="btn_box" type="button"  disabled="disabled">查找类似问题</button>
-						<input id="reSetBtn" class="btn_box"   type="reset" value="重置" />
-						<input id="disSubmitBtn" class="btn_box" type="button"  value="提问" />
-						<button id="disNoteBtn" class="btn_box" type="button" >做笔记</button>
-						<button id="turnNoteBtn" class="btn_box" type="button" >转到笔记区</button>
+						<button id="disSearchBtn" class="btn_box" type="button" disabled="disabled">查找类似问题</button>
+						<input id="reSetBtn" class="btn_box" type="reset" value="重置" />
+						<input id="disSubmitBtn" class="btn_box" type="button" value="提问" />
+						<button id="disNoteBtn" class="btn_box" type="button">做笔记</button>
+						<button id="turnNoteBtn" class="btn_box" type="button">转到笔记区</button>
 						<span class="wordsCanIn">还可以输入200字</span>
 					</form>
 					<!--2.关键字搜索 -->
@@ -766,16 +873,16 @@
 					<!--2. 已有笔记 -->
 					<ul id="existNoteList"></ul>
 				</div>
-				
+
 			</div>
 		</section>
-		
+
 		<!-- 弹框区内容 卡片-->
 		<section class="allCards">
 			<div class="menu">
 				<nav></nav>
 			</div>
-			
+
 			<div class="maincards">
 				<div></div>
 				<div></div>
@@ -799,80 +906,89 @@
 		</section>
 
 		<script>
+			// 统筹的实现
 			const doListState = {
 				val: '',
 				vals: '',
 				list: [],
-				show:3,
-				inshow:0,
-				index:-1,
-				sortList:[["执行清单--focus on one thing"],["日历事项--调好闹钟"],["等待清单--主动去拿结果"],["项目清单--项目太大，分解成可实现的任务吧"],["可能清单--现在时机成熟了吗？"],["参考资料--能找到的不存，有价值或稀罕的存"],["回收箱--有些事还真的不是事"]],
-				txtVal:'',
-				continueSort:true,
-				isSolvedAll:0,
-				newListStr:"",
-				firstSave:-1
+				show: 3,
+				inshow: 0,
+				index: -1,
+				sortList: [
+					["执行清单--focus on one thing"],
+					["日历事项--调好闹钟"],
+					["等待清单--主动去拿结果"],
+					["项目清单--项目太大，分解成可实现的任务吧"],
+					["可能清单--现在时机成熟了吗？"],
+					["参考资料--能找到的不存，有价值或稀罕的存"],
+					["回收箱--有些事还真的不是事"]
+				],
+				txtVal: '',
+				continueSort: true,
+				isSolvedAll: 0,
+				newListStr: "",
+				firstSave: -1
 			}
 			initial();
-			
+
 			const slides = document.querySelectorAll(".slide");
-			
-			function initial(){
+
+			function initial() {
 				const getBtn = document.getElementsByClassName("getBtn")[0];
-				getBtn.onclick = function(){
+				getBtn.onclick = function() {
 					const ul = document.getElementsByClassName("todoList")[0];
 					ul.classList.add("card");
 					const tipBtn = document.getElementsByClassName("tips")[0];
 					tipBtn.style.display = "block";
 					const list = doListState.sortList[0];
 					doListState.list = list;
-					showListData(list,1);
+					showListData(list, 1);
 					const num = document.querySelector(".tips b");
 					num.innerText = list.length; // 显示当前的项目数
 					const tip = document.getElementsByClassName("wrongTip")[0];
 					tip.innerText = "(目前状态：数据来自执行清单)";
 				}
-				
-				
-				
+
+
+
 				const bbtns = document.getElementsByClassName("bigger");
-				bbtns[0].onclick = function(){
+				bbtns[0].onclick = function() {
 					let val = prompt("确定删除所有数据吗？该操作无法挽回。\n若确定销毁，请输入密码123456");
-					if(val==="123456"){
+					if (val === "123456") {
 						clearData();
-						window.location.href="./towork.html";
+						window.location.href = "./towork.html";
 						alert("删除成功。");
-					}else{
+					} else {
 						alert("密码错误，删除失败。");
 					}
 				}
-				bbtns[1].onclick = function(){
+				bbtns[1].onclick = function() {
 					console.log("打开大框模式");
 				}
-				
+
 				const nextBtn = document.getElementsByClassName("solved");
 				nextBtn[0].onclick = solvedBox;
-				nextBtn[1].onclick = function(){ // 跳过
-					localStorage.setItem("collectIndex",doListState.index);  // 索引值的保存，初次保存的是-1
+				nextBtn[1].onclick = function() { // 跳过
+					localStorage.setItem("collectIndex", doListState.index); // 索引值的保存，初次保存的是-1
 					const tip = document.querySelector(".resultTip");
-					if(doListState.txtVal!==""){
+					if (doListState.txtVal !== "") {
 						tip.innerText = "（跳过成功!）";
-					}else{
+					} else {
 						tip.innerText = "（操作失败，没有数据，无法跳过。）";
 					}
 					readBox();
-					localStorage.setItem("collectIndex",doListState.index);  
+					localStorage.setItem("collectIndex", doListState.index);
 				};
 				// nextBtn[2].onclick = function(){ //显示数据
 				// 	console.log("index： "+doListState.index+";       continueSort： "+doListState.continueSort+";     isSolvedAll： "+doListState.isSolvedAll);
 				// 	console.log(doListState.sortList);
 				// }
-				
+
 				const pagebtns = document.querySelectorAll(".doListNav .btn");
 				const cards = document.querySelectorAll(".part");
-				getChannel(pagebtns,cards);
-				getChannel(); 
-				
+				getChannel(pagebtns, cards);
+				getChannel();
+
 				const tbtns = document.querySelectorAll(".tips button");
 				tbtns[0].onclick = function() { // 全部删除
 					const ul = document.getElementsByClassName("todoList")[0];
@@ -883,10 +999,10 @@
 					const lists = document.getElementsByClassName("lists")[0];
 					lists.innerText = "";
 				}
-				
+
 				tbtns[1].onclick = saveIn;
 				const btns = document.querySelectorAll(".head button");
-				
+
 				btns[0].onclick = handleAdd;
 				btns[1].onclick = function(event) { // 根据文字切换大框的隐藏情况
 					const tNode = document.querySelector(".textarea");
@@ -898,80 +1014,80 @@
 						tNode.style.display = "none";
 					}
 				};
-				
+
 				const inputSm = document.getElementsByClassName("smInput")[0];
 				const textarea = document.getElementsByClassName("textarea")[0];
-				
+
 				inputSm.addEventListener("change", handleInput, false);
 				inputSm.addEventListener("keyup", handleEnter, false);
 				textarea.addEventListener("change", handleInput, false);
-				
-			
+
+
 				readSortBox();
 				readBox();
 			}
-			
-			function readIndex(){ // 获取内存中上次保存的索引
-				if(localStorage.getItem("collectIndex")){ // 刚刷新网页或每次保存之后都执行
-					doListState.index = localStorage.getItem("collectIndex")*1; // 第一次保存之后是0 。易出错点：这里获取到的是字符串！
-					console.log("readIndex【此时内存中的index为】"+ doListState.index);
+
+			function readIndex() { // 获取内存中上次保存的索引
+				if (localStorage.getItem("collectIndex")) { // 刚刷新网页或每次保存之后都执行
+					doListState.index = localStorage.getItem("collectIndex") * 1; // 第一次保存之后是0 。易出错点：这里获取到的是字符串！
+					console.log("readIndex【此时内存中的index为】" + doListState.index);
 				}
-				if(localStorage.getItem("solvedAll")){
-					doListState.isSolvedAll = localStorage.getItem("solvedAll")*1; 
+				if (localStorage.getItem("solvedAll")) {
+					doListState.isSolvedAll = localStorage.getItem("solvedAll") * 1;
 				}
-				if(localStorage.getItem("notFirstSave")){ // 判断是不是第一次收集
+				if (localStorage.getItem("notFirstSave")) { // 判断是不是第一次收集
 					doListState.firstSave = 0;
-				}else{
+				} else {
 					doListState.firstSave = 1;
 				}
 			}
-			
-			function readBox(){ // 功能：获取一下内存索引，负责获取下一项索引，获取当前收集箱
+
+			function readBox() { // 功能：获取一下内存索引，负责获取下一项索引，获取当前收集箱
 				readIndex();
-				let index = doListState.index+1; // 已有的index
+				let index = doListState.index + 1; // 已有的index
 				let solvedAll = doListState.isSolvedAll;
 				const pageDealWith = document.querySelectorAll(".doListNav .btn")[3];
-				if(solvedAll===0){
+				if (solvedAll === 0) {
 					pageDealWith.classList.add("news");
-					pageDealWith.innerText="需要处理";
-				}else{
+					pageDealWith.innerText = "需要处理";
+				} else {
 					pageDealWith.classList.remove("news");
-					pageDealWith.innerText="事件统筹";
+					pageDealWith.innerText = "事件统筹";
 				}
-				
-				const showThing = document.getElementsByClassName("thing")[0]; 
-				if(localStorage.getItem("collectBox")){
+
+				const showThing = document.getElementsByClassName("thing")[0];
+				if (localStorage.getItem("collectBox")) {
 					let listStr = localStorage.getItem("collectBox");
-					let list=[];
-					if(/\$+/.test(listStr)){
+					let list = [];
+					if (/\$+/.test(listStr)) {
 						list = listStr.split("$");
-					}else{
+					} else {
 						list[0] = listStr;
 					}
-					if(index < list.length ){
-						console.log("readbox执行了显示文本，当前收集箱数据："+list+"数组长度："+list.length+"索引："+index);
+					if (index < list.length) {
+						console.log("readbox执行了显示文本，当前收集箱数据：" + list + "数组长度：" + list.length + "索引：" + index);
 						let item = list[index];
 						showThing.innerText = item; // 显示是没问题的
 						doListState.txtVal = item;
 						doListState.index = index; //这个index是用来记录当前处理到哪项的
-					}else{
+					} else {
 						showThing.innerText = "（提示：已全部处理完毕，没有下一条了）";
 						doListState.txtVal = "";
-						doListState.continueSort = false;  
+						doListState.continueSort = false;
 						doListState.isSolvedAll = 1;
 						// localStorage.setItem("collectBoxNew","null"); // 
-						localStorage.setItem("solvedAll","1");
+						localStorage.setItem("solvedAll", "1");
 					}
-				}else if(localStorage){
+				} else if (localStorage) {
 					showThing.innerText = "（提示：目前没有数据，请添加事项并存库）";
-				}else{
+				} else {
 					showThing.innerText = "（提示：该浏览器不支持本功能，请更新至浏览器最新版本或更换浏览器打开）";
 				}
-				
+
 			}
-			
-			function readSortBox(){ // 初始化或每次处理数据都执行
-			
+
+			function readSortBox() { // 初始化或每次处理数据都执行
+
 				//执行清单--focus on one thing$1~  slist[y]
 				// 日历事项--调好闹钟~
 				// 等待清单--主动去拿结果~
@@ -979,17 +1095,17 @@
 				// 可能清单--现在时机成熟了吗？~
 				// 参考资料--能找到的不存，有价值或稀罕的存~
 				// 回收箱--有些事还真的不是事
-				if(localStorage.getItem("collectSortBox")){
-					let sortListStr = localStorage.getItem("collectSortBox"); 
+				if (localStorage.getItem("collectSortBox")) {
+					let sortListStr = localStorage.getItem("collectSortBox");
 					// console.log("getitem得到的sortlist是"+sortListStr);
 					let slist = sortListStr.split("~"); //含有7项的数组
 					let sortList = [];
-					for(let y=0; y<slist.length;y++){
+					for (let y = 0; y < slist.length; y++) {
 						let sortListOne = [];
-						let slistOneStr = slist[y];  // 获取了分类--每一项的字符串（有可能有2项，有可能只有1项）
-						if(/\$+/.test(slistOneStr)){
+						let slistOneStr = slist[y]; // 获取了分类--每一项的字符串（有可能有2项，有可能只有1项）
+						if (/\$+/.test(slistOneStr)) {
 							sortList[y] = slistOneStr.split("$"); // 请不要这样写 sortListOne = slistOneStr.split("$"); sortList[y] = sortListOne; （循环过程中会受下面sortListOne[0]赋值的影响）
-						}else{
+						} else {
 							sortListOne[0] = slistOneStr; // 易错，这里必须保证sortList里面push的是数组
 							sortList[y] = sortListOne;
 						}
@@ -999,25 +1115,25 @@
 					// console.log("[最终sortlist]"+sortList);
 				}
 			}
-			
+
 			// solvedBox函数实现：点击下一项时，获取当前checked的值,之前存的文本doListState.txtVal, doListState.sortList是暂时存放分类的数组
-			function solvedBox(){ 
+			function solvedBox() {
 				// 分类存库了  --存进二维数组
 				const radio = document.querySelectorAll("[name='belong']");
 				const tip = document.querySelector(".resultTip");
 				let val = -1; // 作用是当没有选中项时，val为-1.
-				for(let j = 0;j<7;j++){
-					if(radio[j].checked){ 
-						val = radio[j].value*1;
+				for (let j = 0; j < 7; j++) {
+					if (radio[j].checked) {
+						val = radio[j].value * 1;
 						break;
 					}
 				}
-				let item = doListState.txtVal;  // 获取显示的文本
+				let item = doListState.txtVal; // 获取显示的文本
 				// console.log("【当前项目为第"+val+"个；【【当前的文本】】"+item);   // 为当前项或许选中的分类
-				if(val>=0 && item){ 
-					if(val===1){
+				if (val >= 0 && item) {
+					if (val === 1) {
 						const inputDate = document.querySelector("[type='date']").value;
-						item = item + "……[最后期限："+inputDate+"]" ;
+						item = item + "……[最后期限：" + inputDate + "]";
 					}
 					let sortlist = doListState.sortList;
 					let slist = sortlist[val]; // slist是 取出对应分类
@@ -1026,40 +1142,40 @@
 					doListState.sortList = sortlist;
 					// console.log("solvedBox分类存库，下一步就是保存数据了，目前sortbox的值"+sortlist); 
 					saveIn("分类");
-					localStorage.setItem("collectIndex",doListState.index); //不存会怎样？
+					localStorage.setItem("collectIndex", doListState.index); //不存会怎样？
 					tip.innerText = "（处理成功!）";
 					readBox();
-				}else{
+				} else {
 					tip.innerText = "（处理失败！当前没有事项或没有选择放置的位置）";
 					let solvedAll = doListState.isSolvedAll;
 					const pageDealWith = document.querySelectorAll(".doListNav .btn")[3];
-					if(solvedAll===0){
+					if (solvedAll === 0) {
 						pageDealWith.classList.add("news");
-						pageDealWith.innerText="需要处理";
-					}else{
+						pageDealWith.innerText = "需要处理";
+					} else {
 						pageDealWith.classList.remove("news");
-						pageDealWith.innerText="事件统筹";
+						pageDealWith.innerText = "事件统筹";
 					}
 				}
 			}
-					
-			
-			function addToDoList(){
+
+
+			function addToDoList() {
 				const val = doListState.txtVal;
-				
+
 			}
-			
-			function saveIn(giveaway="收集") { // 存库
+
+			function saveIn(giveaway = "收集") { // 存库
 				const tip = document.getElementsByClassName("wrongTip")[0];
-				if(giveaway==="分类"){
+				if (giveaway === "分类") {
 					// 事项的划分
 					const sortlist = doListState.sortList;
 					const nsort = [];
-					for(let a=0; a<7;a++){
+					for (let a = 0; a < 7; a++) {
 						let newlist = sortlist[a]; // 获取某个分类的数组
-						nsort.push(newlist.join("$"));  // 分类内容用$拼接起来，放在nosort数组中
+						nsort.push(newlist.join("$")); // 分类内容用$拼接起来，放在nosort数组中
 					}
-					const gwStr = nsort.join("~"); 
+					const gwStr = nsort.join("~");
 					// console.log(nsort,gwStr);
 					if (localStorage) {
 						localStorage.setItem("collectSortBox", gwStr);
@@ -1068,41 +1184,41 @@
 					} else {
 						tip.innerText = "！该浏览器不支持localStorage本地缓存功能，无法存库.";
 					}
-				}else{
+				} else {
 					// 添加式库collectBox  覆盖式库collectBoxNew
 					//  点击收集保存不应该改变index，除非是新处理的时候。
 					const list = doListState.list; // 获取当前列表栏目
 					let str = list.join("$"); // 用$拼凑成字符串
 					if (localStorage) {
-						if(doListState.newListStr === str){
+						if (doListState.newListStr === str) {
 							tip.innerText = "（请不要调皮收集两个一模一样的清单哦~）";
-						}else{
+						} else {
 							doListState.newListStr = str;
 							localStorage.setItem("collectBoxNew", str); // 把当前列表栏目存进新加项内
-							if(localStorage.getItem("collectBox")){  // 若是有旧的收集箱内容的话，则进行拼接，即收集箱新数据的追加
+							if (localStorage.getItem("collectBox")) { // 若是有旧的收集箱内容的话，则进行拼接，即收集箱新数据的追加
 								let oldStr = localStorage.getItem("collectBox").toString();
 								str = oldStr + "$" + str;
 							}
 							localStorage.setItem("collectBox", str);
 							// console.log(doListState.firstSave);
-							if(doListState.firstSave===1){ // 未处理分类事项及
+							if (doListState.firstSave === 1) { // 未处理分类事项及
 								console.log("第一次存数据，把数据显示出来，用readbox");
-								localStorage.setItem("notFirstSave","yes"); 
+								localStorage.setItem("notFirstSave", "yes");
 								readBox(); // 这个只能在无数据的时候执行一次。
 							}
-							
-							if(doListState.continueSort === false){ //// 之前处理完了之后再次存事件进收集箱时
+
+							if (doListState.continueSort === false) { //// 之前处理完了之后再次存事件进收集箱时
 								// console.log("处理完了之后再次存事件进收集箱时");
 								// 记录好当前的index值。
 								doListState.continueSort = true;
 								let index = doListState.index; // 获取当前的索引值
-								localStorage.setItem("collectIndex",index);  // 
+								localStorage.setItem("collectIndex", index); // 
 								doListState.isSolvedAll = 0;
-								localStorage.setItem("solvedAll","0"); 
+								localStorage.setItem("solvedAll", "0");
 								// localStorage.setItem("collectIndex",index); 
-								readBox();  // 去一下内存的index
+								readBox(); // 去一下内存的index
 							}
-							
+
 							// let index = doListState.index; // 获取当前的索引值
 							// localStorage.setItem("collectIndex",index);  // 索引值的保存，初次保存的是-1
 							// 显示事件统筹 
@@ -1111,30 +1227,30 @@
 							shows[show].style.display = "none";
 							shows[3].style.display = "block";
 							doListState.show = 3;
-							
+
 							tip.innerText = "(成功存入收集箱，请在右边进行事件统筹)";
 						}
-						
+
 					} else {
 						tip.innerText = "!该浏览器不支持localStorage本地缓存功能，无法存库";
 					}
-			
+
 				}
-				
+
 			}
-			
-			
-			
-			function clearData(){
-				const list = ["collectIndex" ,"collectBox","collectBoxNew","collectSortBox","solvedAll","notFirstSave"];
-				for(let i = 0; i<list.length; i++){
+
+
+
+			function clearData() {
+				const list = ["collectIndex", "collectBox", "collectBoxNew", "collectSortBox", "solvedAll", "notFirstSave"];
+				for (let i = 0; i < list.length; i++) {
 					localStorage.removeItem(list[i]);
 				}
 			}
-			
-			function showListData(list,num) {  // 渲染列表
+
+			function showListData(list, num) { // 渲染列表
 				let real = [];
-				if(num===1){
+				if (num === 1) {
 					list.map((item) => {
 						let li = '<li><label><input type="checkbox"/><span class="cbox"></span><b onclick="checkIt(event)">' + item +
 							'</b></label><button onclick="handleDelete(event)">×</button></li>';
@@ -1143,43 +1259,43 @@
 					let realStr = real.join("");
 					const listItem = document.querySelector(".lists");
 					listItem.innerHTML = realStr;
-				}else if(num===2){
+				} else if (num === 2) {
 					list.map((item) => {
-						let li = '<li>' + item +'</li>';
+						let li = '<li>' + item + '</li>';
 						real.push(li);
 					});
 					let realStr = real.join("");
 					const slideList = document.getElementsByClassName("listContent")[0];
 					slideList.innerHTML = realStr;
 				}
-				
+
 			}
-			
-			function getChannel(nodes,shows="undefined"){
-				if(shows==="undefined"){
+
+			function getChannel(nodes, shows = "undefined") {
+				if (shows === "undefined") {
 					const slides = document.querySelectorAll(".slide");
 					nodes = slides;
 				}
-				for(let part = 0; part<nodes.length;part++){
+				for (let part = 0; part < nodes.length; part++) {
 					let indexOfPart = part;
-					nodes[part].onclick = function(){
+					nodes[part].onclick = function() {
 						// console.log(indexOfPart);
-						if(shows==="undefined"){ // 第indexOfPart个slide
+						if (shows === "undefined") { // 第indexOfPart个slide
 							const show = doListState.inshow;
 							slides[indexOfPart].classList.add("choose");
 							slides[show].classList.remove("choose");
 							// 读取数据
-							if(doListState.sortList[indexOfPart]){
+							if (doListState.sortList[indexOfPart]) {
 								let list = doListState.sortList[indexOfPart];
-								
-								showListData(list,2)
-							}else{
+
+								showListData(list, 2)
+							} else {
 								const slideList = document.getElementsByClassName("listContent")[0];
 								slideList.innerText = "该项无数据";
 							}
 							doListState.inshow = indexOfPart;
-							
-						}else{
+
+						} else {
 							const show = doListState.show;
 							shows[show].style.display = "none";
 							shows[indexOfPart].style.display = "block";
@@ -1188,7 +1304,7 @@
 					};
 				}
 			}
-		
+
 			function handleInput(event) { // 输入值发生改变
 				let target = event.target || window.event.srcElement; //兼容写法
 				//console.log(target.tagName);  //得到的事大写的tagName 
@@ -1198,9 +1314,9 @@
 				} else {
 					doListState.val = event.target.value;
 				}
-		
+
 			}
-		
+
 			function handleEnter(event) {
 				let keyCode = event.keyCode || event.which;
 				//console.log(keyCode);  //enter对应的值是13
@@ -1209,7 +1325,7 @@
 					// console.log("触发了enter");
 				}
 			}
-		
+
 			function handleAdd() {
 				// console.log("触发了add");
 				let {
@@ -1219,8 +1335,8 @@
 				} = doListState;
 				val = val.trim();
 				vals = vals.trim();
-		
-		
+
+
 				if (val !== "" || vals !== "") { // 输入框有值时：
 					const ul = document.getElementsByClassName("todoList")[0];
 					let has = ul.classList.contains("card");
@@ -1234,14 +1350,14 @@
 						list.push(vals);
 						document.getElementsByClassName("textarea")[0].value = '';
 					}
-		
+
 					if (list.length === 1) {
 						const tip = document.getElementsByClassName("tips")[0];
 						tip.style.display = "block";
 					}
 					const tip = document.getElementsByClassName("wrongTip")[0];
 					tip.innerText = "";
-					
+
 					doListState.list = list;
 					doListState.val = ''; // 清空输入框
 					doListState.vals = ''; // 清空输入框
@@ -1251,12 +1367,12 @@
 						'</b></label><button onclick="handleDelete(event)">×</button>';
 					let listItem = document.querySelector(".lists");
 					listItem.appendChild(li);
-		
+
 					const num = document.querySelector(".tips b");
 					num.innerText = list.length; // 显示当前的项目数
 				}
 			}
-		
+
 			function checkIt(event) {
 				// event.stopPropagation(); // IE则是使用e.cancelBubble = true
 				// event.cancelBubble = true;
@@ -1267,7 +1383,7 @@
 					item.classList.add("finish");
 				}
 			}
-		
+
 			function handleDelete(e) { // 单项删除,这里的index用值比对的方式
 				const con = e.target.parentNode.querySelector("b").innerText;
 				let list = doListState.list;
@@ -1275,7 +1391,7 @@
 				console.log(con, index);
 				list.splice(index, 1);
 				// splice有增有减，返回删除值，作用在原数组。
-		
+
 				let listItem = document.querySelector(".lists");
 				listItem.removeChild(e.target.parentNode);
 				if (list.length === 0) {
@@ -1288,12 +1404,11 @@
 				const num = document.querySelector(".tips b");
 				num.innerText = list.length; // 显示当前的项目数
 			}
-		
-			
 		</script>
-		
+
 
 		<script>
+			// 评论区数据
 			const commentsData = [{
 					id: "us3444567800000023",
 					username: "超级自恋狂",
@@ -1345,14 +1460,16 @@
 			for (let item of commentsData) {
 				let oli = document.createElement("li");
 				let odts = [];
-				let content = '<div class="quesFront" data-id=' + item.id + ' ><img src="images/sentence/0.jpg" alt="提问者用户头像" /><h4>' +
+				let content = '<div class="quesFront" data-id=' + item.id +
+					' ><img src="images/sentence/0.jpg" alt="提问者用户头像" /><h4>' +
 					item.username + ': ' + item.comment + '</h4><span class="attentionBtn" data-id=' + item.id +
 					' data-click=0 data-type="atten" data-comment=' +
 					item.attentionNum + '>关注：' + item.attentionNum + '</span><b class="commentBtn" data-id=' + item.id +
 					' >添加评论</b></div>';
 				// 各个回复格式化 封装：传入评论数
 				for (let j = 0; j < item.answerList.length; j++) {
-					let comment = '<dt class="answerItem"><img src="images/sentence/1.jpg" alt="回答者用户头像" /><div class="comment"><p>用户： ' +
+					let comment =
+						'<dt class="answerItem"><img src="images/sentence/1.jpg" alt="回答者用户头像" /><div class="comment"><p>用户： ' +
 						item.answerList[j][1] + '</p>' + item.answerList[j][2] +
 						'</div><div class="praise"><span class="attentionBtn" data-id=' +
 						item.answerList[j][0] + ' data-click=0 data-type="praise" data-comment=' + item.answerList[j][3] +
@@ -1373,98 +1490,100 @@
 
 			noteOn(); // 定义了变量forNote
 		</script>
-		
+
 		<script>
+			// 每天打卡的实现
 			everyDayDaka();
-			function everyDayDaka(){
+
+			function everyDayDaka() {
 				// 1.每天只能点击一次 进行数据储存
 				// 2.数据显示，存的是对象的字符串
 				var odate = new Date(); //这时间获取的是本地的？
-				var nowDate = odate.getFullYear()+"/"+odate.getMonth()+"/"+odate.getDate();
-				if(window.localStorage){
-					if(localStorage.saveData){
+				var nowDate = odate.getFullYear() + "/" + odate.getMonth() + "/" + odate.getDate();
+				if (window.localStorage) {
+					if (localStorage.saveData) {
 						var dataDaka = localStorage.getItem("saveData");
 						var dakaData = JSON.parse(dataDaka);
 						var lastSave = localStorage.getItem("lastDaka");
-						if(lastSave!==nowDate){
+						if (lastSave !== nowDate) {
 							var everyDay = true;
-						}else{
+						} else {
 							var everyDay = false;
 						}
-					}else{
+					} else {
 						console.log("第一次初始化，数据还未存入浏览器中。");
 						var dakaData = {
-							"HTML":0,
-							"CSS":0,
-							"JavaScript":0,
-							"Git":0,
-							"Vue":0,
-							"Weex":0
+							"HTML": 0,
+							"CSS": 0,
+							"JavaScript": 0,
+							"Git": 0,
+							"Vue": 0,
+							"Weex": 0
 						}
 						var everyDay = true;
 					}
-				}else{
+				} else {
 					console.log("该浏览器不支持localStorage本地存储功能。");
 				}
-				
-				function localSave(obj,name){
+
+				function localSave(obj, name) {
 					var s = JSON.stringify(obj);
-					localStorage.setItem(name,s);
+					localStorage.setItem(name, s);
 				}
-				
+
 				var oulCheck = document.getElementsByClassName("dayCheck")[0];
-				for(let key in dakaData){
+				for (let key in dakaData) {
 					let oli = document.createElement("li");
-					oli.innerHTML ="<span>"+ key+"</span><span>"+dakaData[key]+"</span><b>打卡</b><i>删除</i>";
+					oli.innerHTML = "<span>" + key + "</span><span>" + dakaData[key] + "</span><b>打卡</b><i>删除</i>";
 					oulCheck.append(oli);
 				}
-				
-				function btnAchieve(){
+
+				function btnAchieve() {
 					var obDaka = document.querySelectorAll(".dayCheck b");
 					var obDel = document.querySelectorAll(".dayCheck i");
-					for (let i = 0; i<obDaka.length;i++){
-						obDaka[i].onclick = function(e){
-							if(everyDay){
+					for (let i = 0; i < obDaka.length; i++) {
+						obDaka[i].onclick = function(e) {
+							if (everyDay) {
 								var keyLi = e.target.parentNode.firstChild.innerText;
-								var newNum = dakaData[keyLi]+1;
-								dakaData[keyLi] = dakaData[keyLi]+1;
+								var newNum = dakaData[keyLi] + 1;
+								dakaData[keyLi] = dakaData[keyLi] + 1;
 								e.target.previousElementSibling.innerText = newNum;
 								everyDay = false;
-								localSave(dakaData,"saveData");
-								localStorage.setItem("lastDaka",nowDate);
+								localSave(dakaData, "saveData");
+								localStorage.setItem("lastDaka", nowDate);
 							}
 						};
-						obDel[i].onclick = function(e){
+						obDel[i].onclick = function(e) {
 							var keyLi = e.target.parentNode.firstChild.innerText;
-							var delVal = window.confirm("是否删除项目"+keyLi);
-							if(delVal){
+							var delVal = window.confirm("是否删除项目" + keyLi);
+							if (delVal) {
 								e.target.parentNode.remove();
 								delete dakaData[keyLi]; //为什么没有作用？不能用.来获取属性
-								localSave(dakaData,"saveData");
+								localSave(dakaData, "saveData");
 							}
 						};
 					}
 				}
-				
+
 				btnAchieve();
-				
+
 				var addBtn = document.getElementsByClassName("addItemBtn")[0];
-				addBtn.onclick = function(){
-					var oval =  document.getElementsByClassName("writeIn")[0];
+				addBtn.onclick = function() {
+					var oval = document.getElementsByClassName("writeIn")[0];
 					var val = oval.value.trim();
-					if(val!==""){
+					if (val !== "") {
 						let oli = document.createElement("li");
-						oli.innerHTML ="<span>"+ val+"</span><span>0</span><b>打卡</b><i>删除</i>";
+						oli.innerHTML = "<span>" + val + "</span><span>0</span><b>打卡</b><i>删除</i>";
 						oulCheck.append(oli);
-						dakaData[val]=0;
+						dakaData[val] = 0;
 						console.log(dakaData);
 						oval.value = "";
 					}
 				}
-				
-				var saveBtn =  document.getElementsByClassName("saveChange")[0];
-				saveBtn.onclick = function(){
-					localSave(dakaData,"saveData");
+
+				var saveBtn = document.getElementsByClassName("saveChange")[0];
+				saveBtn.onclick = function() {
+					localSave(dakaData, "saveData");
 					btnAchieve();
 				}
 			}

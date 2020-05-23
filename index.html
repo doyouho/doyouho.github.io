@@ -8,6 +8,7 @@
 		<link rel="icon" href="images/baobao.png" type="image/png">
 		<link rel="bookmark" href="images/baobao.png" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/othersize.css" />
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<style>
 			@keyframes typing {
@@ -113,12 +114,14 @@ $(".hd .nav li").hover(function(){
 	})
 
 //图片加载
-for(var i=1; i<5;i++){
-	var n_url="url(images/new/"+i+".jpg)"
-	$(".new_con .box").eq(i-1).css("background-image",n_url);
+for(let n=1; n<5;n++){
+	let n_url="url(images/new/"+n+".jpg)";
+	$(".new_con .box").eq(n-1).css("background-image",n_url);
 }
-for(var j=0; j<size; j++){
-	$("dl").append("<dt></dt>")
+for(let j=0; j<size; j++){
+	$("dl").append("<dt></dt>");
+	let j_url="url(images/pic"+(j+1)+".jpg)";
+	$(".banner li").eq(j-1).css("background-image",j_url);
 }
 $(".banner li").eq(0).show();
 $(".banner dt").eq(0).addClass("active");
@@ -163,25 +166,41 @@ $(".banner .btn2").click(function(){
 }) })
 		</script>
 		<style>
+			.banner>a>span{
+				display: block;
+				width: 0px;
+				height: 0px;
+				border-right:100px solid #ff7ec7;
+				/* border-top:0px solid red; */
+				/* border-left:0px solid green; */
+				border-bottom:100px solid transparent;
+				/* background-color: pink; */
+				position: absolute;
+				z-index: 8;
+				top:0px;
+				right: 0px;
+			}
+			
 			.toGithub{
-				position: fixed;
-				z-index: 99;
-				top:15px;
-				right: 16px;
+				position: absolute;
+				z-index: 9;
+				top:10px;
+				right: 10px;
+				transform: rotate(45deg);
+				background-color: white;
+				border-radius: 50%;
 			}
 		</style>
 	</head>
 	<body>
-		<a href="https://github.com/doyouho/doyouho.github.io" target="_blank" title="点击查看该网站项目">
-			<svg class="toGithub" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-		</a>
+
 		<!--头部区域-->
 		<header class="header">
 			<div class="hd">
 				<h1><a href="./index.html" class="logo">意休</a></h1>
 				<div class="sousuokuang">
 					<form action="https://www.baidu.com/s" target="_blank">
-						<input class="kuang" type="text" name="search" placeholder="搜索技能、应用、话题..." autocomplete="off" />
+						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
 						<input class="search" type="image" src="images/sousuo.png" />
 					</form>
 					<span class="tishiwenben">+增加必备关键字 -排除关键字 双引号来限定整词 site intitle inurl filetype</span>
@@ -200,15 +219,21 @@ $(".banner .btn2").click(function(){
 
 		<!--海报区域-->
 		<section class="banner">
+			<a href="https://github.com/doyouho/doyouho.github.io" target="_blank" title="点击查看该网站项目">
+				<span></span>
+				<svg class="toGithub" height="36" viewBox="0 0 16 16" version="1.1" width="36" aria-hidden="true">
+					<path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+				</svg>
+			</a>
 			<div class="btn btn1">&lt;</div>
 			<div class="btn btn2">&gt;</div>
 			<dl></dl>
 
 			<ul>
-				<li><a href="javascript:;"><img src="images/pic1.jpg" alt="图片1" /></a></li>
-				<li><a href="javascript:;"><img src="images/pic2.jpg" alt="图片2" /></a></li>
-				<li><a href="javascript:;"><img src="images/pic3.jpg" alt="图片3" /></a></li>
-				<li><a href="javascript:;"><img src="images/pic4.jpg" alt="图片4" /></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
 			</ul>
 
 			<div class="typeBox">
@@ -218,7 +243,7 @@ $(".banner .btn2").click(function(){
 				<h3 class="typeWords animaThir next"></h3>
 				<a class="towork" href="./towork.html">开始工作</a>
 			</div>
-			<script>
+			<script> // 打字效果的实现
 				var typeWords = document.getElementsByClassName("typeWords");
 				var dakaListStr = localStorage.getItem("saveData");
 				var dakaDays = 0;
@@ -261,27 +286,27 @@ $(".banner .btn2").click(function(){
 			</div>
 
 			<div class="new_con model_con">
-				<a class="box box2" href="./play.html">
-					<div class="box_kuang kuang2"><b>&gt;&gt;&nbsp;&nbsp;小记事&nbsp;&nbsp;&lt;&lt;</b>
+				<a class="box box1" href="./play.html">
+					<div class="box_kuang kuang1"><b>&gt;&gt;&nbsp;&nbsp;小记事&nbsp;&nbsp;&lt;&lt;</b>
 						<h2>资源更新</h2>
 						<p>更新：前端学习资源</p>
 					</div>
 				</a>
-				<a class="box box3" href="./share.html">
-					<div class="box_kuang kuang3"><b>&gt;&gt;&nbsp;&nbsp;分享&nbsp;&nbsp;&lt;&lt;</b>
+				<a class="box box2" href="./share.html">
+					<div class="box_kuang kuang2"><b>&gt;&gt;&nbsp;&nbsp;分享&nbsp;&nbsp;&lt;&lt;</b>
 						<h2>贴图软件-Snipaste</h2>
 						<p>超级好用的一个制作图笔记的软件，用在看视频做笔记最好了。</p>
 					</div>
 				</a>
-				<a class="box box4" href="./heal.html">
-					<div class="box_kuang kuang4"><b>&gt;&gt;&nbsp;&nbsp;思考&nbsp;&nbsp;&lt;&lt;</b>
+				<a class="box box3" href="./heal.html">
+					<div class="box_kuang kuang3"><b>&gt;&gt;&nbsp;&nbsp;思考&nbsp;&nbsp;&lt;&lt;</b>
 						<h2>《如何调整状态》</h2>
 						<p>四步讲述如何调整状态，给自己一点时间和耐心。</p>
 					</div>
 				</a>
 
-				<a class="box box1" href="./fiction.html">
-					<div class="box_kuang kuang1"><b>&gt;&gt;&nbsp;&nbsp;小说&nbsp;&nbsp;&lt;&lt;</b>
+				<a class="box box4" href="./fiction.html">
+					<div class="box_kuang kuang4"><b>&gt;&gt;&nbsp;&nbsp;小说&nbsp;&nbsp;&lt;&lt;</b>
 						<h2>《伪大神的成名之路》</h2>
 						<p>映射前端学习：讲述顾夕一个人如何带领人闯江湖。（更新第一章）</p>
 					</div>

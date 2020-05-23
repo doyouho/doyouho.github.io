@@ -3,7 +3,9 @@
 	margin: 0;
 }
 
-
+a {
+	text-decoration: none;
+}
 
 ul {
 	list-style: none;
@@ -17,7 +19,11 @@ button {
 	background: pink;
 }
 
-
+/* input框中placeholder的样式修改 */
+input::-webkit-input-placeholder {
+	color: #bbb;
+	font-size: 14px;
+}
 
 :root{
 	--keycolor:#aabbff;
@@ -25,6 +31,8 @@ button {
 	--n-fontcolor: #bbbbbb;
 	--btncolor:#5eb6ed;
 }
+
+
 
 .setThings>div{
 	margin-top: 50px;
@@ -485,8 +493,7 @@ ul.card::-webkit-scrollbar{
 
 .newWin {
 	position: fixed;
-	height: 100%;
-	width: 1200px;
+	width: 1170px;
 	background: rgba(0, 0, 0, 0.6);
 	left: 50%;
 	top: 0;
@@ -539,6 +546,8 @@ ul.card::-webkit-scrollbar{
 	background-color: white;
 	margin: 0 6px;
 	outline: none;
+	background-color: transparent;
+	color:white;
 }
 
 .btn_box:hover {
@@ -552,7 +561,7 @@ ul.card::-webkit-scrollbar{
 	color: #AAAAAA;
 	position: relative;
 	bottom: 0;
-	right: -160px;
+	right: -145px;
 	left: auto;
 }
 
@@ -588,7 +597,7 @@ ul.card::-webkit-scrollbar{
 	outline: none;
 	border-radius: 8px;
 	border: 2px solid transparent;
-	width:1070px;
+	width:1040px;
 }
 
 #disWords:focus, #noteWords:focus {
@@ -596,7 +605,7 @@ ul.card::-webkit-scrollbar{
 }
 
 .discussBox img {
-	vertical-align: middle;
+	vertical-align: text-top;
 	width: 42px;
 	height: 42px;
 	border-radius: 50%;
@@ -604,20 +613,19 @@ ul.card::-webkit-scrollbar{
 
 .quesFront {
 	margin-bottom: 20px;
-	position: relative;
+	/* position: relative; */
 }
 
 .quesFront h4 {
 	font-size: 22px;
 	display: inline-block;
 	padding: 10px 12px;
+	max-width: 750px;
+	vertical-align: text-top;
 }
 
 .quesFront .attentionBtn,
 .quesFront .commentBtn {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
 	border: 1px solid white;
 	border-radius: 16px;
 	padding: 6px 12px;
@@ -625,11 +633,14 @@ ul.card::-webkit-scrollbar{
 	font-size: 14px;
 	cursor: pointer;
 	font-weight: 400;
+	margin-right: 30px;
+	float: right;
+	margin-top: 8px;
 }
 
-.quesFront :nth-child(3) {
+/* .quesFront :nth-child(3) {
 	left: 76%;
-}
+} */
 
 .quesFront :nth-child(4) {
 	left: 86%;
@@ -720,8 +731,10 @@ ul.card::-webkit-scrollbar{
 
 #existNoteList li {
 	line-height: 1.6em;
+	box-sizing: border-box;
 	padding: 12px;
 	overflow: hidden;
+	border-radius: 12px;
 }
 
 #existNoteList li p {
@@ -754,4 +767,190 @@ ul.card::-webkit-scrollbar{
 
 #existNoteList li button:hover {
 	background-color: yellowgreen;
+}
+
+/*当992px<=width<=1200px时  设为970*/
+@media (max-width:1200px) {
+	.newWin {
+		margin-top: 7%;
+		height: 90%;
+		width: 970px;
+		margin-bottom: 3%;
+	}
+	.winBack{
+		text-align: center;
+	}
+	.doList .main{
+		min-width: 490px;
+		margin-left: 10px;
+	}
+	.doList .aside{
+		padding:60px 20px 40px 60px;
+	}
+	.doList input[type="date"]{
+		width: 160px;
+		height: 16px;
+		margin-left: 16px;
+	}
+	
+	#disWords ,  #noteWords {
+		width:850px;
+	}
+	.wordsCanIn{
+		right:-40px;
+	}
+	.discussBox .answerList{
+		width: 836px;
+	}
+	.answerList .comment{
+		width:650px;
+	}
+	.discussBox, #existNoteList{
+		height: 86%;
+	}
+	.setThings, .discussArea, .noteArea{
+		height: 80%;
+	}
+		
+}
+
+/*当768px<=width<=992px时  设为750*/
+@media (max-width:992px){
+	
+	.ybtn_box{
+		font-size: 16px;
+		width: 80px;
+	}
+	.winBack{
+		max-width: 992px;
+		min-width: 750px;
+	}
+		
+	.newWin {
+		width: 750px;
+		/* font-size: 16px; */
+		overflow: hidden;
+	}
+	
+	/* 左边输入修改 */
+	.doList .main{
+		position: absolute;
+		min-width: 650px;
+		min-height: 240px;
+		background-color: #000000;
+	}
+	.doListNav{
+		top:260px;
+	}
+	
+	.doListNav .left{
+		left:unset;
+		right:-50px;
+		top:210px;
+	}
+	
+	input.smInput{
+		width: 310px;
+		height: 36px;
+		font-size: 18px;
+	}
+	.doList button{
+		height: 36px;
+		font-size: 16px;
+	}
+	.doList textarea{
+		width: 440px;
+		font-size: 18px;
+	}
+	ul.card{
+		width:380px;
+		max-height: 50vh;
+	}
+	
+	.doList ul li{
+		font-size: 18px;
+		max-width: 420px;
+	}
+	.tips button {
+		margin-left: 32px;
+	}
+	
+	/* 右边显示框 */
+	.doList .aside{
+		position: absolute;
+		right:unset;
+		top:300px;
+		left:10px;
+		padding:60px 70px 40px 60px;
+		height: 56vh;
+		max-height: 720px;
+		overflow: hidden;
+	}
+	.aside .part{
+		padding-bottom: 30px;
+		height: 56vh;
+	}
+	.doList p {
+		font-size:18px;
+		margin-bottom: 18px;
+	}
+	.doList h4{
+		font-size:22px;
+	}
+	.collect div{
+		font-size:18px;
+		/* margin-bottom: 10px; */
+	}
+	.doList input[type="date"]{
+		height: 24px;
+	}
+	
+	
+	#disWords ,  #noteWords {
+		width:650px;
+		font-size: 18px;
+	}
+	.wordsCanIn{
+		right:-10px;
+	}
+	.hotSearch span{
+		padding:4px 10px;
+	}
+	.discussBox .answerList{
+		width: 626px;
+	}
+
+	.quesFront h4 {
+		max-width: 420px;
+	}
+	.quesFront .commentBtn{
+		clear:left;
+		margin-right: 10px;
+	}
+	.quesFront .attentionBtn{
+		clear:right;
+		margin-right: 10px;
+	}
+	.answerList .comment{
+		width:440px;
+		font-size: 18px;
+	}
+	
+	.btn_box{
+		padding: 10px;
+		font-size: 16px;
+	}
+	
+}
+
+/*当width<768px时 */
+@media (max-width:768px){
+	.discussBox, #existNoteList{
+		height: 84%;
+	}
+	
+	
+	.setThings, .discussArea, .noteArea{
+		height: 88%;
+	}
 }

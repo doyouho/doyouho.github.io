@@ -6,12 +6,13 @@
 		<link rel="icon" href="images/baobao.png" type="image/png">
 		<link rel="bookmark" href="images/baobao.png" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/othersize.css" />
 		<script src="js/jquery-1.11.3.min.js"></script>
 	</head>
 	<script type="text/javascript">
 		$(function() {
-			
-			var art_List=[];
+
+			var art_List = [];
 			// 文件加载（数据加载）
 			$.ajax({
 				url: "data/heal.txt",
@@ -36,154 +37,154 @@
 
 		})
 	</script>
-	<body class="heal_body">
+	<body>
+		<div class="heal_body">
 
-
-		<!-- 文章弹框 -->
-		<section class="article_kuang">
-			<div class="back"></div>
-			<div class="tan_kuang art_tankuang">
-				<div class="close_kuang">×</div>
-				<article class="hl_article">
-					<!-- 模板
+			<!-- 文章弹框 -->
+			<section class="article_kuang">
+				<div class="back"></div>
+				<div class="tan_kuang art_tankuang">
+					<div class="close_kuang">×</div>
+					<article class="hl_article">
+						<!-- 模板
 					<title class="hl_title">如何调节状态？</title>
 					<div class="article_con"></div> -->
-				</article>
-				
-				
-			</div>
-		</section>
+					</article>
 
-
-		<!--头部区域-->
-		<header class="header">
-			<div class="hd">
-				<h1><a href="./index.html" class="logo">意休</a></h1>
-				<div class="sousuokuang">
-					<form action="https://www.baidu.com/s" target="_blank">
-						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
-						<input class="search" type="image" src="images/sousuo.png"  />
-					</form>
-				</div>
-				<nav class="nav">
-					<ul>
-						<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
-						<li><a href="./heal.html"><i style="color:pink;">Heal</i><b>治愈天地</b></a></li>
-						<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
-						<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-		<script>
-			// 中英文切换导航条动画
-			$(".hd .nav li").hover(function() {
-				$(this).find("a").stop().animate({
-					top: -66
-				})
-			}, function() {
-				$(this).find("a").stop().animate({
-					top: 0
-				})
-			})
-		</script>
-
-		<!-- 主体内容 -->
-		<section class="heal_out">
-			<span class="hl_title">选择困难症请用“必要·合适·愉快”来决定事情的优先顺序</span>
-
-			<!-- 过去到现在-固 -->
-			<div class="hl_box">
-				<span>固</span>
-				<div class="box_in">
-					<div>主旨：选择比努力更重要。</div>
-					<p>(1) 认清状态-记录及感受</p>
-					<p>(2) 调节状态-分析并解决</p>
-					<p>(3) 明确方向-认清及规划</p>
-				</div>
-			</div>
-
-			<!-- 现在到未来-展 -->
-			<div class="hl_box">
-				<span>展</span>
-				<div class="box_in">
-					<div>主旨：为生活做加法。</div>
-					<p>(1) 培养-想做的事</p>
-					<p>(2) 责任-需要做的</p>
-					<p>(3) 可控-能做的事</p>
 
 				</div>
-			</div>
+			</section>
 
-			<!-- 通用技能-法 -->
-			<div class="hl_box">
-				<span>法</span>
-				<div class="box_in">
-					<div>主旨：为生活做减法。</div>
-					<p>(1) 知识要分类-学习观</p>
-					<p>(2) 磨刀不误工-工具论</p>
-					<p>(3) 思维的训练-抽象体</p>
+
+			<!--头部区域-->
+			<header class="header">
+				<div class="hd">
+					<h1><a href="./index.html" class="logo">意休</a></h1>
+					<div class="sousuokuang">
+						<form action="https://www.baidu.com/s" target="_blank">
+							<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
+							<input class="search" type="image" src="images/sousuo.png" />
+						</form>
+					</div>
+					<nav class="nav">
+						<ul>
+							<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
+							<li><a href="./works.html"><i style="color:hotpink;">Works</i><b>个人作品</b></a></li>
+							<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
+							<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
+						</ul>
+					</nav>
 				</div>
-			</div>
-			<p class="tishi_words">(鼠标滑过上面项目-下面显示提示文字)</p>
-
-
-			<div class="tishi_box">
-				<p>①身体连结-呼/伸/水/养；②情绪臣服-感/认/拿/放；③思想检视-real?why?how about取反；④身份认同-是也不是，勿过分注重得失。</p>
-				<p>（吃饱，运动，放松，休息，解决问题（分析问题要素，联系，因果，关键点，逆向取反，实践），坦然接受，平静心态，断舍离）</p>
-				<p>（自我定位：认清世界，世界发展和联系 ，多听多看，时常做计划并记录实际情况）</p>
-				<p>（清单：事项，渴望值，迫切度，根源，分类）</p>
-				<p>（自身，社会，家庭，他人）什么身份做什么事</p>
-				<p>（学习轨迹和逻辑）</p>
-				<p>（文）选择比努力更重要--不要舍本逐末</p>
-				<p>（文）好的开始就成功了一半--学习前的准备，好工具的使用</p>
-				<p>（文）学习是个技术活--如何接受新知识，如何解决问题，常见的几种思维方法</p>
-
-			</div>
-
-
-			<script type="text/javascript">
-				$(".box_in p").mouseover(function() {
-					$(this).addClass("active").siblings().removeClass("active");
-					var o = $(".box_in p").index($(this)); //很有用的一个查找当前p在所有".box_in p"下的索引值
-					$(".tishi_box p").eq(o).addClass("active").siblings().removeClass("active");
-				})
-				$(".box_in p").mouseout(function() {
-					$(this).removeClass("active");
+			</header>
+			<script>
+				// 中英文切换导航条动画
+				$(".hd .nav li").hover(function() {
+					$(this).find("a").stop().animate({
+						top: -66
+					})
+				}, function() {
+					$(this).find("a").stop().animate({
+						top: 0
+					})
 				})
 			</script>
 
-		</section>
+			<!-- 主体内容 -->
+			<section class="heal_out">
+				<span class="hl_title">选择困难症请用“必要·合适·愉快”来决定事情的优先顺序</span>
 
-		<section class="zhiyuwen">
-			<div class="zhiyuwen_title title"><i class="jiantou"></i>
-				<h3>点击阅读</h3>
-			</div>
-			<div class="zhiyuwen_con">
-				<span>《好的状态表述》</span>
-				<span>《如何调节状态》</span>
-				<span>《如何明确方向》</span>
-				<span>《想做事件清单》</span>
-				<span>《不要舍本逐末》</span>
-				<span>《学习前的准备》</span>
-				<span>《好工具的使用》</span>
-				<span>《如何学新知识》</span>
-				<span>《如何解决问题》</span>
-				<span>《常见的几种思维方法》</span>
-				<span>《作者寄语》</span>
-				<span>《简言简语》</span>
-				<span>《一些特别的事》</span>
-			</div>
-		</section>
+				<!-- 过去到现在-固 -->
+				<div class="hl_box">
+					<span>固</span>
+					<div class="box_in">
+						<div>主旨：选择比努力更重要。</div>
+						<p>(1) 认清状态-记录及感受</p>
+						<p>(2) 调节状态-分析并解决</p>
+						<p>(3) 明确方向-认清及规划</p>
+					</div>
+				</div>
+
+				<!-- 现在到未来-展 -->
+				<div class="hl_box">
+					<span>展</span>
+					<div class="box_in">
+						<div>主旨：为生活做加法。</div>
+						<p>(1) 培养-想做的事</p>
+						<p>(2) 责任-需要做的</p>
+						<p>(3) 可控-能做的事</p>
+
+					</div>
+				</div>
+
+				<!-- 通用技能-法 -->
+				<div class="hl_box">
+					<span>法</span>
+					<div class="box_in">
+						<div>主旨：为生活做减法。</div>
+						<p>(1) 知识要分类-学习观</p>
+						<p>(2) 磨刀不误工-工具论</p>
+						<p>(3) 思维的训练-抽象体</p>
+					</div>
+				</div>
+				<p class="tishi_words">(鼠标滑过上面项目-下面显示提示文字)</p>
+
+
+				<div class="tishi_box">
+					<p>①身体连结-呼/伸/水/养；②情绪臣服-感/认/拿/放；③思想检视-real?why?how about取反；④身份认同-是也不是，勿过分注重得失。</p>
+					<p>（吃饱，运动，放松，休息，解决问题（分析问题要素，联系，因果，关键点，逆向取反，实践），坦然接受，平静心态，断舍离）</p>
+					<p>（自我定位：认清世界，世界发展和联系 ，多听多看，时常做计划并记录实际情况）</p>
+					<p>（清单：事项，渴望值，迫切度，根源，分类）</p>
+					<p>（自身，社会，家庭，他人）什么身份做什么事</p>
+					<p>（学习轨迹和逻辑）</p>
+					<p>（文）选择比努力更重要--不要舍本逐末</p>
+					<p>（文）好的开始就成功了一半--学习前的准备，好工具的使用</p>
+					<p>（文）学习是个技术活--如何接受新知识，如何解决问题，常见的几种思维方法</p>
+
+				</div>
+
+
+				<script type="text/javascript">
+					$(".box_in p").mouseover(function() {
+						$(this).addClass("active").siblings().removeClass("active");
+						var o = $(".box_in p").index($(this)); //很有用的一个查找当前p在所有".box_in p"下的索引值
+						$(".tishi_box p").eq(o).addClass("active").siblings().removeClass("active");
+					})
+					$(".box_in p").mouseout(function() {
+						$(this).removeClass("active");
+					})
+				</script>
+
+			</section>
+
+			<section class="zhiyuwen">
+				<div class="zhiyuwen_title title"><i class="jiantou"></i>
+					<h3>点击阅读</h3>
+				</div>
+				<div class="zhiyuwen_con">
+					<span>《好的状态表述》</span>
+					<span>《如何调节状态》</span>
+					<span>《如何明确方向》</span>
+					<span>《想做事件清单》</span>
+					<span>《不要舍本逐末》</span>
+					<span>《学习前的准备》</span>
+					<span>《好工具的使用》</span>
+					<span>《如何学新知识》</span>
+					<span>《如何解决问题》</span>
+					<span>《常见的几种思维方法》</span>
+					<span>《作者寄语》</span>
+					<span>《简言简语》</span>
+					<span>《一些特别的事》</span>
+				</div>
+			</section>
 
 
 
 
 
-		<!--底部区域、填补网址2个-->
-		<footer class="footer">
-			&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
-		</footer>
-
+			<!--底部区域、填补网址2个-->
+			<footer class="footer">
+				&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
+			</footer>
+		</div>
 	</body>
 </html>
