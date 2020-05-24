@@ -19,85 +19,535 @@ button {
 	background: pink;
 }
 
+
 /* input框中placeholder的样式修改 */
 input::-webkit-input-placeholder {
 	color: #bbb;
 	font-size: 14px;
 }
 
-:root{
-	--keycolor:#aabbff;
-	--lightcolor:#aaaaaa;
+:root {
+	--keycolor: #aabbff;
+	--lightcolor: #aaaaaa;
 	--n-fontcolor: #bbbbbb;
-	--btncolor:#5eb6ed;
+	--btncolor: #5eb6ed;
+}
+
+
+/* 非弹框的样式 */
+
+body {
+	background-color: #aef8e8;
+	font-family: "微软雅黑", "黑体", "宋体";
+	color: #333;
+}
+
+/*头部区域*/
+.header {
+	width: 100%;
+	height: 66px;
+	background: white;
+	/* overflow: hidden; */
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	border-bottom: 1px solid #f6f6f6;
+}
+
+.tishiwenben {
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translateX(-50%);
+	background-color: #333;
+	font-size: 14px;
+	display: inline-block;
+	padding: 5px 12px;
+	border-radius: 5px;
+	color: white;
+	visibility: hidden;
+}
+
+.hd {
+	height: 66px;
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+
+.hd .logo {
+	width: 300px;
+	height: 51px;
+	float: left;
+	position: relative;
+	left: -110px;
+	top: 0;
+	margin-top: 3px;
+	background-image: url(../images/logo.gif);
+	background-repeat: no-repeat;
+	background-position: right bottom;
 }
 
 
 
-.setThings>div{
+/*这里根据实际情况设置margin值，原图190*50*/
+.hd .kuang {
+	float: left;
+	height: 24px;
+	width: 220px;
+	padding: 2px 8px;
+	margin: 18px 4px 18px 160px;
+	visibility: hidden;
+}
+
+
+.hd .search {
+	float: left;
+	width: 40px;
+	margin-top: 15px;
+	outline: none;
+}
+
+.sousuokuang {
+	float: left;
+	overflow: hidden;
+	width: 460px;
+}
+
+.sousuokuang:hover .kuang {
+	visibility: visible;
+}
+
+.sousuokuang:hover .tishiwenben {
+	visibility: visible;
+}
+
+.hd .nav {
+	float: right;
+	height: 66px;
+	overflow: hidden;
+}
+
+.hd .nav a {
+	display: block;
+	position: relative;
+	top: 0;
+}
+
+.hd .nav li {
+	float: left;
+}
+
+.hd li i,
+.hd li b {
+	display: block;
+	font-style: normal;
+	font-weight: 400;
+	padding: 0 18px;
+	height: 66px;
+	line-height: 66px;
+	font-size: 14px;
+	color: #333;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.hd li b {
+	color: #666;
+	background-color: #f6f6f6;
+	border-radius: 0 0 18px 18px;
+	border-top: 2px solid pink;
+}
+
+.nav .daka i {
+	color: white;
+	font-weight: 700;
+	position: relative;
+	z-index: 1;
+}
+
+.nav .daka span {
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 52px;
+	border-bottom: 14px solid white;
+	border-left: 32px solid pink;
+	border-right: 32px solid pink;
+	top: 0;
+}
+
+form.out:focus-within {
+	border-radius: 30px;
+	box-shadow: 0 6px 20px #f4a9c7;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+.cbox {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	cursor: pointer;
+	position: relative;
+	border: 1px solid #dddddd;
+	top: 4px;
+	margin-right: 6px;
+}
+
+input:checked+.cbox {
+	border-color: transparent;
+}
+
+input:checked+.cbox::after {
+	display: inline-block;
+	content: "\2714";
+	position: absolute;
+	left: 1px;
+	top: -3px;
+	font-size: 16px;
+	color: pink;
+}
+
+.taskForWork {
+	text-align: center;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.taskForWork h1 {
+	margin: 120px auto 80px;
+}
+
+.textTips a {
+	text-decoration: none;
+	color: deeppink;
+}
+
+.taskContent {
+	width: 920px;
+	margin: 30px auto;
+	background-color: #fefefe;
+	padding: 70px 40px;
+	color: #888;
+	text-align: left;
+	border-radius: 30px;
+}
+
+.taskType,
+.taskSkill {
+	margin-left: 120px;
+	padding: 20px 0;
+	color: #555;
+
+}
+
+
+.taskType input,
+.taskSkill input {
+	margin-right: 4px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.taskType label,
+.taskSkill label {
+	margin-right: 12px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.singleLine>div {
+	margin-top: 30px;
+	margin-left: 120px;
+	color: #555;
+	z-index: 1;
+}
+
+
+.singleLine input {
+	display: inline-block;
+	width: 260px;
+	height: 26px;
+	/* border-radius: 10px; */
+	outline: none;
+	padding-left: 10px;
+	border: none;
+	border-bottom: 1px solid #333333;
+}
+
+
+.singleLine em {
+	margin-left: 20px;
+	font-style: normal;
+}
+
+#allTaskData {
+	border-radius: 10px;
+	outline: none;
+	border: 1px solid #f0f0f0;
+	padding: 8px 8px 10px;
+	height: 120px;
+	width: 520px;
+	font-size: 14px;
+}
+
+.btnLine {
+	text-align: center;
+}
+
+.btnLine .dataSTNoteBtn {
+	display: inline-block;
+	width: 60px;
+	height: 40px;
+	line-height: 40px;
+	background-color: whitesmoke;
+	border-radius: 12px;
+	color: #555;
+	font-weight: 600;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
+.btnLine .dataSTNoteBtn:hover {
+	background-color: white;
+}
+
+/*下面是打卡样式*/
+.slideBox {
+	background-color: rgba(33, 33, 33, 0.8);
+	display: none;
+	position: absolute;
+	left: 50%;
+	margin-left: -274px;
+	color: white;
+	border-radius: 12px;
+	z-index: 10;
+}
+
+.slideBox.active {
+	top: 60px;
+	display: block;
+	transition: 3s;
+}
+
+ul.dayCheck {
+	width: 568px;
+	padding: 20px;
+	list-style: none;
+	border: 1px solid #eee;
+}
+
+
+.dayCheck .writeIn {
+	padding-left: 12px;
+	height: 22px;
+	width: 220px;
+	margin: 2px 0 4px 40px;
+	visibility: hidden;
+
+}
+
+.dayCheck li {
+	padding: 4px;
+	width: 560px;
+	/*+60*/
+}
+
+.dayCheck li:hover {
+	background-color: #fbfbfb;
+	color: #333333;
+}
+
+.dayCheck li:hover b,
+.dayCheck li:hover i {
+	display: inline-block;
+}
+
+.dayCheck li:hover .writeIn {
+	visibility: visible;
+}
+
+.dayCheck li span {
+	margin: 4px 60px;
+	display: inline-block;
+	width: 82px;
+}
+
+.dayCheck li b,
+.dayCheck li i {
+	display: inline-block;
+	border: 1px solid #666666;
+	font-weight: 400;
+	padding: 2px 10px;
+	border-radius: 14px;
+	cursor: pointer;
+	font-style: normal;
+	display: none;
+	margin-right: 10px;
+}
+
+.dayCheck li b:hover,
+.dayCheck li i:hover {
+	background-color: pink;
+	border-color: pink;
+}
+
+
+.dayCheck .addItemBtn,
+.dayCheck .saveChange {
+	border: 1px solid #999999;
+	padding: 4px 10px;
+	border-radius: 14px;
+	margin: 12px;
+	/* width:72px; */
+	text-align: center;
+	cursor: pointer;
+}
+
+.addItemBtn:hover,
+.saveChange:hover {
+	background-color: pink;
+	border-color: transparent;
+}
+
+.scrollbar {
+	width: 500px;
+	height: 8px;
+	background: black;
+	border-radius: 6px;
+	border: 1px solid pink;
+	display: inline-block;
+	margin: 0 30px 0 100px;
+	overflow: hidden;
+	border-spacing: white;
+}
+
+.scrollmove {
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+	background-color: white;
+	animation-fill-mode: forwards;
+}
+
+.startBtn {
+	text-align: center;
+	display: inline-block;
+	padding: 4px 12px;
+	width: 176px;
+	border: 1px solid pink;
+	border-radius: 20px;
+	cursor: pointer;
+	color: white;
+	background-color: pink;
+}
+
+@keyframes scrollTo {
+	0% {
+		width: 100%;
+	}
+
+	100% {
+		width: 0%;
+	}
+}
+
+@keyframes resetScroll {
+	0% {
+		width: 100%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+
+/* 虽然后面这个动画是用作reset的，但是好像不写样式也OK */
+
+
+.setThings>div {
 	margin-top: 50px;
 }
 
-.setThings>div a{
-	color:hotpink;
+.setThings>div a {
+	color: hotpink;
 }
 
-.setThings .doList{
+.setThings .doList {
 	margin: 32px auto;
-	max-width: 1220px;
+	max-width: 1260px;
 	/* position: relative; */
 	display: flex;
-	color:var(--n-fontcolor);
+	color: var(--n-fontcolor);
 }
-.doList::after{
+
+.doList::after {
 	content: "";
 	display: block;
 	clear: both;
 }
+.btnClose{
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	padding: 6px 20px;
+	background-color: var(--btncolor);
+	color: white;
+	display: none;
+}
 
-.doList .main{
-	border:1px solid var(--keycolor);
+.doList .main {
+	border: 1px solid var(--keycolor);
 	min-width: 520px;
 	min-height: 464px;
 	position: relative;
-	margin-left:50px;
-	z-index:3;
+	margin-left: 50px;
+	z-index: 3;
 	text-align: center;
+	width: 40%;
 }
 
 
 
-.btn{
+.btn {
 	cursor: pointer;
 	color: var(--keycolor);
 	background-color: white;
-	border:1px solid var(--keycolor);
-	padding:4px 12px;
+	border: 1px solid var(--keycolor);
+	padding: 4px 12px;
 	border-radius: 30px;
 }
 
-.btn:hover{
+.btn:hover {
 	background-color: var(--keycolor);
 	color: white;
 	border-color: var(--keycolor);
 }
-.getBtn{
+
+.getBtn {
 	display: inline-block;
 }
 
 
-p.wrongTip{
+p.wrongTip {
 	margin-top: 12px;
 	text-align: center;
 	font-size: 14px;
-	color:var(--keycolor);
+	color: var(--keycolor);
 }
-.doList h1{
-    color: var(--keycolor);
-	padding:50px;
+
+.doList h1 {
+	color: var(--keycolor);
+	padding: 50px;
 	font-size: 24px;
-  }
-input.smInput{
+}
+
+input.smInput {
 	height: 32px;
 	width: 220px;
 	padding: 0 8px;
@@ -106,29 +556,29 @@ input.smInput{
 }
 
 
-.doList button{
+.doList button {
 	outline: none;
 	border: none;
-	color:white;
+	color: white;
 	height: 32px;
 	margin-left: 8px;
-	padding:0 10px;
+	padding: 0 10px;
 	background-color: var(--btncolor);
 	cursor: pointer;
 }
 
-.doList textarea{
+.doList textarea {
 	display: block;
 	width: 360px;
-	height:72px;
-	margin:30px auto 10px;
+	height: 72px;
+	margin: 30px auto 10px;
 	outline: none;
 	border: 1px solid var(--lightcolor);
-	display:none;
+	display: none;
 	padding: 6px;
 }
 
-ul.card{
+ul.card {
 	margin: 40px auto;
 	width: 300px;
 	list-style: none;
@@ -140,113 +590,124 @@ ul.card{
 	overflow: auto;
 	max-height: 40vh;
 }
-ul.card::-webkit-scrollbar{
+
+ul.card::-webkit-scrollbar {
 	width: 0px;
 	background: none;
 }
-.doList ul li{
+
+.doList ul li {
 	overflow: hidden;
 	max-width: 300px;
-	text-align:left;
+	text-align: left;
 	padding: 6px 24px 6px 32px;
 	position: relative;
 	margin-bottom: 20px;
-	border-bottom:  1px dashed #999999;
+	border-bottom: 1px dashed #999999;
 	/* color: #25b6bd; */
-	color:#6cbbff;
+	color: #6cbbff;
 }
-.lists b{
+
+.lists b {
 	cursor: pointer;
 	font-weight: 400;
 }
-.lists b.finish{
-	color:#dddddd;
+
+.lists b.finish {
+	color: #dddddd;
 	text-decoration: line-through;
 }
 
-.doList ul li:hover{
+.doList ul li:hover {
 	border-bottom: 1px solid pink;
 	color: pink;
 }
-.doList li button{
+
+.doList li button {
 	width: 42px;
 	height: 42px;
 	text-align: center;
 	line-height: 42px;
 	display: none;
 	position: absolute;
-	right:-8px;
-	top:-2px;
+	right: -8px;
+	top: -2px;
 	background-color: transparent;
 }
-.doList li:hover button{
+
+.doList li:hover button {
 	display: block;
 	font-size: 32px;
-	color:pink;
+	color: pink;
 	border-radius: 20px;
 	transition: 0.3s;
 }
-.doList li:hover .cbox{
+
+.doList li:hover .cbox {
 	border-color: pink;
 }
 
-.doList li button:hover{
+.doList li button:hover {
 	transform: translate(2px, -4px) rotate(90deg);
 }
 
-.doList input[type="checkbox"]{
+.doList input[type="checkbox"] {
 	display: none;
 }
 
-.doList input[type="date"]{
-	border:1px solid var(--keycolor);
+.doList input[type="date"] {
+	border: 1px solid var(--keycolor);
 	border-radius: 30px;
 	outline: none;
 }
-.doList .cbox{
+
+.doList .cbox {
 	display: inline-block;
 	width: 16px;
 	height: 16px;
 	border-radius: 8px;
 	cursor: pointer;
 	position: absolute;
-	border:1px solid #dddddd;
-	top:8px;
-	left:0;
+	border: 1px solid #dddddd;
+	top: 8px;
+	left: 0;
 	/* margin-right: 6px; */
 }
 
-.doList input:checked+.cbox{
+.doList input:checked+.cbox {
 	border-color: transparent;
 }
-.doList input:checked+.cbox::after{
+
+.doList input:checked+.cbox::after {
 	display: inline-block;
 	content: "☆";
 	position: absolute;
 	left: 3px;
-	top:-3px;
+	top: -3px;
 	font-size: 16px;
 	color: pink;
-} 
-.tips{
-	display: none;
-	text-align: center;
-	color:var(--lightcolor);
 }
 
-.tips button{
+.tips {
+	display: none;
+	text-align: center;
+	color: var(--lightcolor);
+}
+
+.tips button {
 	margin-left: 12px;
-	padding:6px;
+	padding: 6px;
 	background-color: transparent;
-	color:var(--lightcolor);
+	color: var(--lightcolor);
 	font-size: 14px;
 	border: 1px solid transparent;
 }
-.tips button:hover{
+
+.tips button:hover {
 	border-color: var(--lightcolor);
 }
 
-.doListNav{
+.doListNav {
 	position: absolute;
 	width: 100%;
 	top: 200px;
@@ -254,213 +715,263 @@ ul.card::-webkit-scrollbar{
 	font-weight: 700;
 }
 
-.doListNav>div{
+.doListNav>div {
 	position: absolute;
 }
-.doListNav .left{
-	left:-50px;
-}
-.left div, .right div{
-	margin-top: 36px;
-}
-.doListNav .right{
-	right:-50px;
+
+.doListNav .left {
+	left: -50px;
 }
 
-.doList .aside{
+.left div,
+.right div {
+	margin-top: 36px;
+}
+
+.doListNav .right {
+	right: -50px;
+}
+
+.doList .aside {
 	position: relative;
 	top: 0;
 	right: 0;
-	border:1px solid var(--keycolor);
-	max-width: 520px;
-	min-height: 424px;
-	padding: 60px 70px 40px 80px;
-	z-index:2;
+	border: 1px solid var(--keycolor);
+	/* max-width: 520px; */
+	min-height: 644px;
+	padding: 60px 40px 40px 80px;
+	z-index: 2;
 	line-height: 1.4em;
+	overflow: hidden;
+	width: 48%;
+}
+.aside .allparts{
+	position: absolute;
+	top:60px;
+	width: 76%;
 }
 
-.part::-webkit-scrollbar{
+.part::-webkit-scrollbar {
 	width: 2px;
 	background: none;
 }
-.part div{
+
+.part div {
 	text-align: left;
 }
 
-.doList h4{
+.doList h4 {
 	padding-bottom: 30px;
-	color:var(--keycolor);
+	color: var(--keycolor);
 }
-.aside p{
+
+.aside p {
 	text-align: left;
 	font-size: 14px;
-	color:var(--n-fontcolor);
+	color: var(--n-fontcolor);
 	margin-top: 20px;
 }
 
-.aside .indent{
+.aside .indent {
 	text-indent: 2em;
 	margin-top: 8px;
 }
 
-.aside p:first-letter{
+.aside p:first-letter {
 	font-size: 18px;
-	color:pink;
+	color: pink;
 }
 
-.aside .indent:first-letter{
+.aside .indent:first-letter {
 	text-indent: 2em;
 	font-size: 14px;
-	color:var(--n-fontcolor);
+	color: var(--n-fontcolor);
 }
 
-.collect .thing{
-	border:1px solid #666666;
-	padding:12px 20px;
-	margin:20px 6px;
+.collect .thing {
+	border: 1px solid #666666;
+	padding: 12px 20px;
+	margin: 20px 6px;
 }
-.collect p{
-	margin-top:24px;
+
+.collect p {
+	margin-top: 24px;
 }
-.collect div{
+
+.collect div {
 	font-size: 14px;
 }
-.collect label{
-	margin-left:20px;
+
+.collect label {
+	margin-left: 20px;
 	cursor: pointer;
 }
-.collect input{
+
+.collect input {
 	display: inline-block;
-	margin-right:6px;
+	margin-right: 6px;
 	padding: 2px 8px;
 }
-.line{
-	border:1px dotted var(--keycolor);
-	margin:20px 0;
+
+.line {
+	border: 1px dotted var(--keycolor);
+	margin: 20px 0;
 }
 
-.aside .part{
+.aside .part {
 	display: none;
 	overflow: auto;
 	height: 70vh;
 }
 
-.aside .cards{
+.aside .cards {
 	overflow: unset;
 }
 
-.aside .part:nth-child(4){
+.aside .part:nth-child(4) {
 	display: block;
 }
-.cards{
+
+.cards {
 	position: relative;
 }
-.cards nav button{
+
+.cards nav button {
 	margin-left: 0;
 	background-color: transparent;
-	color:var(--keycolor);
+	color: var(--keycolor);
 	border-bottom: 1px solid transparent;
 }
-.cards nav button.choose{
+
+.cards nav button.choose {
 	border-color: var(--btncolor);
 }
-.cards .bigger{
+
+.cards .bigger {
 	position: absolute;
-	right:-16px;
-	top:-56px;
+	right: -16px;
+	top: -56px;
 }
-.cards .left{
-	right:46px;
+
+.cards .left {
+	right: 46px;
 }
-.cards nav{
+
+.cards nav {
 	margin-top: 50px;
 }
-.cards .listContent{
+
+.cards .listContent {
 	/* border-left:1px solid  var(--keycolor); */
 	max-height: 58vh;
-	min-height:360px;
-	margin:30px 12px;
+	min-height: 360px;
+	margin: 30px 12px;
 	overflow: auto;
 }
-.listContent::-webkit-scrollbar{
+
+.listContent::-webkit-scrollbar {
 	width: 2px;
 	background: none;
 }
 
-.listContent li{
+.listContent li {
 	border-color: transparent;
-	margin-bottom:0;
+	margin-bottom: 0;
 	max-width: 360px;
 }
 
-.listContent li::before{
+.listContent li::before {
 	content: "";
 	display: block;
-	width:12px;
-	height:12px;
+	width: 12px;
+	height: 12px;
 	border-radius: 6px;
 	background-color: var(--keycolor);
 	position: absolute;
-	top:10px;
-	left:0px;
+	top: 10px;
+	left: 0px;
 }
-.listContent li:hover::before{
+
+.listContent li:hover::before {
 	background-color: pink;
 }
 
-.resultTip{
+.resultTip {
 	margin: 20px 10px;
-	color:pink;
+	color: pink;
 }
 
-.btn.news{
+.btn.news {
 	border-color: pink;
-	color:pink;
+	color: pink;
 	position: relative;
 	overflow: hidden;
 }
-.btn.news::after{
-	width:120px;
+
+.btn.news::after {
+	width: 120px;
 	height: 14px;
 	background-color: var(--keycolor);
 	content: "";
 	position: absolute;
 	left: -10px;
-	bottom:-4px;
+	bottom: -4px;
 	animation: wave1 4s linear infinite;
 }
-.btn.news::before{
-	width:72px;
+
+.btn.news::before {
+	width: 72px;
 	height: 72px;
 	border-radius: 50%;
 	background-color: var(--keycolor);
 	content: "";
 	position: absolute;
 	left: -20px;
-	top:16px;
+	top: 16px;
 	animation: wave2 4s linear infinite;
 }
-@keyframes wave1{
-	0%{ bottom:-4px;}
-	40%{ bottom:-5px; }
-	100%{ bottom:-3px; }
+
+@keyframes wave1 {
+	0% {
+		bottom: -4px;
+	}
+
+	40% {
+		bottom: -5px;
+	}
+
+	100% {
+		bottom: -3px;
+	}
 }
 
-@keyframes wave2{
-	0%{ left:-20px; transform: scale(1.0);}
-	30%{ left:30px;  transform: scale(0.9);}
-	100%{ left:90px;  transform: scale(1.2);}
+@keyframes wave2 {
+	0% {
+		left: -20px;
+		transform: scale(1.0);
+	}
+
+	30% {
+		left: 30px;
+		transform: scale(0.9);
+	}
+
+	100% {
+		left: 90px;
+		transform: scale(1.2);
+	}
 }
-.btn.news:hover{
+
+.btn.news:hover {
 	color: white;
 	background-color: pink;
 }
 
 .toFixed {
 	position: fixed;
-	width:67px;
+	width: 67px;
 	right: 16px;
-	left:0;
+	left: 0;
 	top: 50%;
 	transform: translateY(-50%);
 	z-index: 5;
@@ -493,7 +1004,7 @@ ul.card::-webkit-scrollbar{
 
 .newWin {
 	position: fixed;
-	width: 1170px;
+	width: 1180px;
 	background: rgba(0, 0, 0, 0.6);
 	left: 50%;
 	top: 0;
@@ -517,6 +1028,7 @@ ul.card::-webkit-scrollbar{
 	width: 92%;
 	margin: 2% 4%;
 	z-index: 13;
+	max-height: 92%;
 }
 
 .inputBox,
@@ -547,7 +1059,7 @@ ul.card::-webkit-scrollbar{
 	margin: 0 6px;
 	outline: none;
 	background-color: transparent;
-	color:white;
+	color: white;
 }
 
 .btn_box:hover {
@@ -561,7 +1073,7 @@ ul.card::-webkit-scrollbar{
 	color: #AAAAAA;
 	position: relative;
 	bottom: 0;
-	right: -145px;
+	right: -105px;
 	left: auto;
 }
 
@@ -584,23 +1096,32 @@ ul.card::-webkit-scrollbar{
 #existNoteList {
 	color: white;
 	text-align: left;
-	height: 540px;
-	overflow: auto;
+	height: 52%;
+	overflow-y: auto;
 }
 
+#existList{
+	width: 92%;
+	margin-left: 4%;
+	max-width: 1040px;
+}
 
 #existList li {
 	min-height: 220px;
 }
 
-#disWords ,  #noteWords {
+#disWords,
+#noteWords {
 	outline: none;
 	border-radius: 8px;
 	border: 2px solid transparent;
-	width:1040px;
+	max-width: 1040px;
+	width: 90%;
+	margin-left: 4%;
 }
 
-#disWords:focus, #noteWords:focus {
+#disWords:focus,
+#noteWords:focus {
 	border: 2px solid #ff557f;
 }
 
@@ -647,8 +1168,8 @@ ul.card::-webkit-scrollbar{
 }
 
 .discussBox .answerList {
-	margin: 10px 0 30px 40px;
-	width: 990px;
+	margin: 10px 0 30px 4%;
+	width: 96%;
 
 }
 
@@ -672,7 +1193,7 @@ ul.card::-webkit-scrollbar{
 
 .answerList .comment {
 	float: left;
-	width: 810px;
+	width: 760px;
 	color: #efefef;
 }
 
@@ -721,8 +1242,10 @@ ul.card::-webkit-scrollbar{
 }
 
 #tipsOfChange {
+	width:88%;
 	border: 2px dotted #aaa;
-	padding: 14px;
+	padding: 2%;
+	margin-left: 4%;
 	margin-top: 26px;
 	color: yellowgreen;
 }
@@ -732,15 +1255,16 @@ ul.card::-webkit-scrollbar{
 #existNoteList li {
 	line-height: 1.6em;
 	box-sizing: border-box;
-	padding: 12px;
+	margin: 20px 5%;
 	overflow: hidden;
 	border-radius: 12px;
 }
 
 #existNoteList li p {
-	width: 90%;
-	padding: 12px;
+	width: 88%;
+	padding: 16px 30px;
 	float: left;
+	font-size: 16px;
 }
 
 #existNoteList li button {
@@ -769,188 +1293,395 @@ ul.card::-webkit-scrollbar{
 	background-color: yellowgreen;
 }
 
-/*当992px<=width<=1200px时  设为970*/
-@media (max-width:1200px) {
-	.newWin {
-		margin-top: 7%;
-		height: 90%;
-		width: 970px;
-		margin-bottom: 3%;
+/*当992px<=width<=1199px时  设为970*/
+@media (max-width:1199px) {
+	/* 非弹框样式 */
+	.hd .kuang {
+		margin: 18px 4px 18px 20px;
 	}
-	.winBack{
+	.sousuokuang {
+		width: 320px;
+	}
+
+	.hd,.taskForWork{
+		width: 970px;
+	}
+	
+	.taskContent {
+		width: 890px;
+	}
+	
+	.scrollbar {
+		width: 330px;
+		margin: 0 30px 0 160px;
+	}
+	
+	.taskType,
+	.taskSkill,
+	.singleLine>div {
+		margin-left: 160px;
+	}
+	.cards .bigger{
+		right: 4px;
+	}
+	.cards .left{
+		right: 66px;
+	}
+	
+	.doList ul li,.textTips{
+		font-size: 15px;
+		max-height: 999999px;
+		max-width: 100%;
+	}
+	
+	#existNoteList li p{
+		font-size: 16px;
+		max-height: 999999px;
+	}
+	
+	
+	/* 弹框内的样式 */
+	.newWin {
+		margin-top: 6%;
+		height: 92%;
+		min-width: 970px;
+		margin-bottom: 2%;
+		
+	}
+
+	.winBack {
 		text-align: center;
 	}
-	.doList .main{
+
+	.doList .main {
 		min-width: 490px;
-		margin-left: 10px;
+		margin-left: 0px;
 	}
-	.doList .aside{
-		padding:60px 20px 40px 60px;
+
+	.doList .aside {
+		padding: 60px 50px 40px 70px;
+		min-height: 554px;
 	}
-	.doList input[type="date"]{
+
+	.doListNav {
+		top: 100px;
+	}
+	
+	.doListNav .left {
+		left: unset;
+		right: -50px;
+		top: 210px;
+	}
+	.doList input[type="date"] {
 		width: 160px;
 		height: 16px;
 		margin-left: 16px;
 	}
 	
-	#disWords ,  #noteWords {
-		width:850px;
+	.aside .part{
+		height: 60vh;
 	}
-	.wordsCanIn{
-		right:-40px;
-	}
-	.discussBox .answerList{
-		width: 836px;
-	}
-	.answerList .comment{
-		width:650px;
-	}
-	.discussBox, #existNoteList{
-		height: 86%;
-	}
-	.setThings, .discussArea, .noteArea{
-		height: 80%;
-	}
-		
-}
-
-/*当768px<=width<=992px时  设为750*/
-@media (max-width:992px){
-	
-	.ybtn_box{
-		font-size: 16px;
-		width: 80px;
-	}
-	.winBack{
-		max-width: 992px;
-		min-width: 750px;
-	}
-		
-	.newWin {
-		width: 750px;
-		/* font-size: 16px; */
-		overflow: hidden;
-	}
-	
-	/* 左边输入修改 */
-	.doList .main{
-		position: absolute;
-		min-width: 650px;
-		min-height: 240px;
-		background-color: #000000;
-	}
-	.doListNav{
-		top:260px;
-	}
-	
-	.doListNav .left{
-		left:unset;
-		right:-50px;
-		top:210px;
-	}
-	
-	input.smInput{
-		width: 310px;
-		height: 36px;
-		font-size: 18px;
-	}
-	.doList button{
-		height: 36px;
-		font-size: 16px;
-	}
-	.doList textarea{
-		width: 440px;
-		font-size: 18px;
-	}
-	ul.card{
-		width:380px;
+	.cards .listContent{
+		margin-bottom: 40px;
 		max-height: 50vh;
 	}
 	
-	.doList ul li{
-		font-size: 18px;
-		max-width: 420px;
+	/* .aside .allparts {
+	    min-width: 64%;
+		max-width: 76%;
+	} */
+	
+	/* 评论区和笔记区 */
+	#disWords,
+	#noteWords {
+		max-width: unset;
+		width: 86%;
+		margin-left: 6%;
 	}
+	
+	#existList{
+		width: 88%;
+		margin-left: 6%;
+	}
+
+	.wordsCanIn {
+		right: -60px;
+	}
+
+	.answerList .comment {
+		width: 726px;
+	}
+	
+	.discussBox,
+	#existNoteList {
+		height: 56%;
+	}
+
+
+}
+@media (max-width:1020px) {
+	.doList .aside {
+		padding: 60px 90px 40px 70px;
+	}
+}
+
+
+
+
+/*当768px<=width<=991px时  设为750*/
+@media (max-width:991px) {
+	/* 非弹框内样式 */
+	body {
+		max-width: 992px;
+		min-width: 768px;
+	}
+	
+	.hd ,.taskForWork{
+		width: 750px;
+	}
+	
+	.sousuokuang {
+		display: none;
+	}
+	
+	
+	.taskContent {
+		width: 670px;
+	}
+	
+	.scrollbar {
+		width: 320px;
+		margin: 0 30px 0 54px;
+	}
+	
+	.taskType,
+	.taskSkill,
+	.singleLine>div{
+		margin-left: 54px;
+	}
+	
+	/* 字体处理 */
+	.hd li i,
+	.hd li b{
+		font-size: 18px;
+		max-height: 999999px;
+	}
+	#allTaskData,
+	.gs_text h5 {
+		font-size: 16px;
+		max-height: 999999px;
+	}
+	
+	/* 下面两个字设置的大小很奇怪，设16不管用，自动变20多 */
+	.taskType b,
+	.taskSkill b {
+		display: block;
+		font-size: 15px;
+		max-height: 999999px;
+	}
+	
+	.taskType label,
+	.taskSkill label {
+		font-size: 15px;
+		max-height: 999999px;
+	}
+	.cards .left {
+	    right: 86px;
+	}
+	
+	.dayCheck li{
+		padding:10px 4px;
+	}
+	.dayCheck li b, .dayCheck li i{
+		margin-right: 1.5rem;
+		padding: 0.375rem 0.625rem;
+	}
+	
+	/* 弹框内样式 */
+	.btnClose{
+		display: block;
+		left: 36px;
+	}
+	.ybtn_box {
+		font-size: 16px;
+		width: 80px;
+	}
+
+	.winBack {
+		max-width: 992px;
+		min-width: 750px;
+	}
+
+	.newWin {
+		max-width: 992px;
+		min-width: 750px;
+		overflow: hidden;
+	}
+
+	/* 左边输入修改 */
+	.doList .main {
+		position: absolute;
+		width: 92%;
+		margin:0 4%;
+		min-width: 750px;
+		min-height: 240px;
+		background-color: #000000;
+	}
+
+	.doListNav {
+		top: 220px;
+	}
+
+	input.smInput {
+		width: 310px;
+		height: 36px;
+		font-size: 18px;
+		max-height: 999999px;
+	}
+
+	.doList button {
+		height: 36px;
+		font-size: 16px;
+		max-height: 999999px;
+	}
+
+	.doList textarea {
+		width: 440px;
+		font-size: 18px;
+		max-height: 999999px;
+	}
+
+	ul.card {
+		width: 380px;
+		max-height: 50vh;
+	}
+
+	.doList ul li {
+		font-size: 18px;
+		max-height: 999999px;
+	}
+
 	.tips button {
 		margin-left: 32px;
 	}
-	
+
 	/* 右边显示框 */
-	.doList .aside{
+	.doList .aside {
+		width: 77.8%;
+		margin: 0 4%;
 		position: absolute;
-		right:unset;
-		top:300px;
-		left:10px;
-		padding:60px 70px 40px 60px;
-		height: 56vh;
-		max-height: 720px;
-		overflow: hidden;
+		right: unset;
+		top: 300px;
+		left: 0px;
+		padding: 60px 70px 40px 60px;
+		height:54%;
+		overflow: auto;
 	}
-	.aside .part{
+	
+	.aside .allparts {
+	    width: 80%;
+	}
+	.aside .part {
 		padding-bottom: 30px;
-		height: 56vh;
+		height: 96%;
 	}
+
+	.aside .cards {
+		padding: 0 10px;
+	}
+
 	.doList p {
-		font-size:18px;
+		font-size: 18px;
 		margin-bottom: 18px;
+		max-height: 999999px;
 	}
-	.doList h4{
-		font-size:22px;
+
+	.doList h4 {
+		font-size: 22px;
+		max-height: 999999px;
 	}
-	.collect div{
-		font-size:18px;
+
+	.collect div {
+		font-size: 18px;
+		max-height: 999999px;
 		/* margin-bottom: 10px; */
 	}
-	.doList input[type="date"]{
+
+	.doList input[type="date"] {
 		height: 24px;
 	}
-	
-	
-	#disWords ,  #noteWords {
-		width:650px;
+	/* .cards .listContent{
+		max-height: 35vh;
+	} */
+
+	/* 讨论区和笔记区 */
+	#disWords,
+	#noteWords {
 		font-size: 18px;
+		max-height: 999999px;
 	}
-	.wordsCanIn{
-		right:-10px;
+
+	.btn_box {
+		padding: 10px;
+		font-size: 16px;
+		max-height: 999999px;
 	}
-	.hotSearch span{
-		padding:4px 10px;
+	
+	.hotSearch span {
+		padding: 4px 10px;
 	}
-	.discussBox .answerList{
-		width: 626px;
-	}
+	
 
 	.quesFront h4 {
 		max-width: 420px;
 	}
-	.quesFront .commentBtn{
-		clear:left;
+
+	.quesFront .commentBtn {
+		clear: left;
 		margin-right: 10px;
 	}
-	.quesFront .attentionBtn{
-		clear:right;
+
+	.quesFront .attentionBtn {
+		clear: right;
 		margin-right: 10px;
 	}
-	.answerList .comment{
-		width:440px;
+
+	.answerList .comment {
+		max-width: 700px;
+		width:unset;
+		min-width: 580px;
 		font-size: 18px;
+		max-height: 999999px;
+	}
+
+
+	.discussBox,
+	#existNoteList {
+		height:66%;
+	}
+	.aside.openState{
+		top:300px;
+		height:unset;
 	}
 	
-	.btn_box{
-		padding: 10px;
-		font-size: 16px;
+	.aside.closeState{
+		top:90px;
+		min-height:74%;
+		height: 80%;
+		max-height: 100%;
 	}
-	
 }
 
-/*当width<768px时 */
-@media (max-width:768px){
-	.discussBox, #existNoteList{
-		height: 84%;
+/* @media (min-width:800px) and (max-width:991px) {
+	.cards .listContent{
+		max-height: 35vh;
+		height: 300px;
 	}
-	
-	
-	.setThings, .discussArea, .noteArea{
-		height: 88%;
+} */
+
+@media (max-width:768px) {
+	.aside.closeState{
+		height: 100%;
 	}
 }
+
