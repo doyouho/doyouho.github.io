@@ -13,7 +13,9 @@
 	.model_con .gequ_box{
 		margin:3% 2%;
 	}
-	
+	.song_con .box{
+		margin: 60px 10px 30px 20px;
+	}
 	/* share页面盒子调整 */
 	.share_box {
 		width: 296px;
@@ -170,6 +172,7 @@
 		top:23.75rem;
 	}
 	
+	
 	.box_kuang.kuang1,.box_kuang.kuang2{
 		top: -11.25rem;
 	}
@@ -187,7 +190,7 @@
 	}
 	.share_box{
 		width: 21.25rem;
-		height: 15rem;
+		height: 18.75rem;
 		display: none;
 	}
 	.kapian .share_box:nth-child(1){

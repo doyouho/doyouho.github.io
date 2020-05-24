@@ -747,7 +747,7 @@ ul.card::-webkit-scrollbar {
 }
 .aside .allparts{
 	position: absolute;
-	top:60px;
+	top:72px;
 	width: 76%;
 }
 
@@ -1574,7 +1574,7 @@ ul.card::-webkit-scrollbar {
 		top: 300px;
 		left: 0px;
 		padding: 60px 70px 40px 60px;
-		height:54%;
+		height:108%;
 		overflow: auto;
 	}
 	
@@ -1657,31 +1657,16 @@ ul.card::-webkit-scrollbar {
 
 	.discussBox,
 	#existNoteList {
-		height:66%;
+		height:112%;
 	}
 	.aside.openState{
 		top:300px;
-		height:unset;
+		/* height:unset; */
 	}
 	
 	.aside.closeState{
 		top:90px;
-		min-height:74%;
-		height: 80%;
-		max-height: 100%;
 	}
 }
 
-/* @media (min-width:800px) and (max-width:991px) {
-	.cards .listContent{
-		max-height: 35vh;
-		height: 300px;
-	}
-} */
-
-@media (max-width:768px) {
-	.aside.closeState{
-		height: 100%;
-	}
-}
 
