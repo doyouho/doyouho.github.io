@@ -1,135 +1,44 @@
-/*当992px<=width<=1199px时  设为970*/
-@media (max-width:1199px){
-	/* 导航栏调整 */
-	.hd .kuang {
-		margin: 18px 4px 18px 10px;
-		width: 200px;
+/*当宽不足1200px时  设为970 */
+@media (max-width:1200px){
+	.hd,.banner,.banner li,.banner img,.words,.new,.games,.videos,.songs,.fictions,.share_con,.play,.play_con li,.play_con .youxi,.art_tankuang,.game_body,.game_top,.games_con,.games_con .game,.share_con,.play_title,.fic_con,.all_article ,.article_toc,.all_article .article,.article .con_out,.heal_out,.zhiyuwen{
+	     width: 970px;
 	}
-	.sousuokuang {
-		width: 280px;
-	}
-	
-	/* works小盒子的调整 */
-	.model_con .gequ_box{
-		margin:3% 2%;
-	}
-	
-	/* share页面盒子调整 */
-	.share_box {
-		width: 296px;
-		margin: 12px;
-		height: 280px;
-	}
-	.share_box p {
-		padding: 2px 16px;
-	}
-	
-	/* play页面框调整 */
-	.play{
-		height: 600px;
-	}
-	.play_con .youxi,.play_con li{
-		height:558px;
-	}
-	.play_con .out_kuang{
-		height:100px;
-	}
-	.gushi .gs_text{
-		height:448px;
-	}
-	.gushi .gs_con,.gushi .gs_nav{
-		height:500px;
-	}
-
-	.play_con .gedan:nth-child(2){
-		margin:56px 20px;
-	}
-	.suiji_choose dd{
-		margin: 20px 18px 0;
-	}
-	
-	/* game页面 */
-	.game .game_word{
-		width: 52%;
-	}
-	
-	/* heal页面 */
-	.heal_out .tishi_box{
-		width: 960px;
-	}
-	.zhiyuwen .zhiyuwen_con{
-		width: 930px;
-	}
-	/* fiction页面 */
-	.fic_body .header{
+	.heal_body ,.fic_body,.game_body{
+		width: 100%;
 		min-width: 970px;
 	}
 	.article .con{
 		width: 870px;
 	}
-	.art_aside{
-		flex:2;
+	.heal_out .hl_box{
+		width: 260px;
 	}
-	
-	/* 综合调整 */
-	
-	.hd,.banner,.banner li,.banner img,.words,.new,.games,.videos,.songs,.fictions,.share_con,.play,.play_con li,.play_con .youxi,.art_tankuang,.game_body,.game_top,.games_con,.games_con .game,.share_con,.play_title,.fic_con,.all_article ,.article_toc,.all_article .article,.article .con_out,.heal_out,.zhiyuwen{
-	     width: 970px;
+	.heal_out .tishi_box{
+		width: 960px;
 	}
-	.heal_body ,.fic_body,.game_body,.fic_con{
-		min-width: 970px;
+	.share_box{
+		width: 288px;
+		height: 232px;
 	}
-	.play_title a,.title a,.new_title span{
-		margin-right: 42px;
+	.out_kuang .wen_kuang{
+		width: 728px;
 	}
-	
-	/* 字体修改 */
-	.article_toc li,
-	.art_aside dd,
-	.art_aside p {
-		font-size:18px;
-		max-height: 999999px;
+	.play_con .gedan{
+		width: 290px;
 	}
-	.hd li i,
-	.hd li b,
-	.words p,
-	.share_box p,
-	.back_doit,
-	.gushi .gs_nav h4,
-	.article .key_w,
-	.game .game_word p,
-	.gushi .gs_text p,
-	.play_con .gushi,
-	.toc p,
-	.toc span{
-		font-size:16px;
-		max-height: 999999px;
+	.suiji_choose dd{
+		margin: 20px 18px 0;
 	}
-	
-	
-	.play_title h3,
-	.gs_text h5,
-	.article .con p,
-	.heal_out .tishi_box p,
-	.out_kuang .wen_kuang p,
-	.zhiyuwen .zhiyuwen_con span{
-		font-size: 15px ;
-		max-height: 999999px;
+	.play_con .gushi{
+		margin:32px 16px;
 	}
-	.model_con p,
-	.title a,
-	.new_title span,
-	.fic_head span,
-	.footer ,
-	.footer h1,
-	.heal_out .tishi_words{
-		font-size: 14px;
-		max-height: 999999px;
+	.play_title a{
+		margin-right: 52px;
 	}
 }
 
-//*当768px<=width<=991px时  设为750*/
-@media (max-width:991px){
+/*当768px<=width<=992px时  设为750 */
+@media (max-width:992px){
 	html{
 		font-size: 16px;
 	}
@@ -141,8 +50,41 @@
 		display: none;
 	}
 	
+	/* 字体修改 */
+	.hd li i,
+	.hd li b,
+	.article_toc li,
+	.art_aside dd,
+	.art_aside p {
+		font-size: 1.125rem;
+	}
+	.words p,
+	.share_box p,
+	.back_doit,
+	.gushi .gs_nav h4,
+	.article .key_w,
+	.game .game_word p{
+		font-size: 1rem;
+	}
 	.zhiyuwen .zhiyuwen_con span{
 		font-weight: 700;
+	}
+	.gushi .gs_text p,
+	.play_title h3,
+	.gs_text h5,
+	.article .con p,
+	.heal_out .tishi_box p{
+		font-size: 0.9375rem;
+	}
+	.model_con p,
+	.title a,
+	.new_title span,
+	.fic_head span,
+	.footer ,
+	.footer h1,
+	.out_kuang .wen_kuang p,
+	.heal_out .tishi_words{
+		font-size: 0.875rem;
 	}
 	
 	.banner img{
@@ -302,7 +244,6 @@
 	
 	.play_con .gedan p{
 		font-size: 0.9375rem;
-		max-height: 999999px;
 		padding: 0.125rem 4.375rem;
 		margin-left: 9.375rem;
 		
@@ -374,3 +315,8 @@
 	
 }
 
+/*当width<768px时 */
+@media (max-width:768px){
+	
+	
+}
