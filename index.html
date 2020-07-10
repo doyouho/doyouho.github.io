@@ -102,6 +102,8 @@ $.ajax({
 			}
 		}
 	});
+
+
 // 初始化
 var i=0;
 var size=$(".banner li").length;
@@ -243,7 +245,8 @@ $(".banner .btn2").click(function(){
 				<h3 class="typeWords animaThir next"></h3>
 				<a class="towork" href="./towork.html">开始工作</a>
 			</div>
-			<script> // 打字效果的实现
+			<script>
+				// 打字效果的实现
 				var typeWords = document.getElementsByClassName("typeWords");
 				var dakaListStr = localStorage.getItem("saveData");
 				var dakaDays = 0;

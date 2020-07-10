@@ -173,8 +173,8 @@ body {
 	width: 0;
 	height: 52px;
 	border-bottom: 14px solid white;
-	border-left: 32px solid pink;
-	border-right: 32px solid pink;
+	border-left: 32px solid #fca5d3;
+	border-right: 32px solid #fca5d3;
 	top: 0;
 }
 
@@ -220,9 +220,19 @@ input:checked+.cbox::after {
 }
 
 .taskForWork h1 {
-	margin: 120px auto 80px;
+	margin: 120px auto 40px;
 }
-
+.taskForWork>a{
+	margin-bottom: 30px;
+	padding: 8px 24px;
+	display: inline-block;
+	border-radius: 20px;
+	font-weight: 700;
+}
+.pinkbtn{
+	background-color: rgb(247, 101, 179);
+	color: white;
+}
 .textTips a {
 	text-decoration: none;
 	color: deeppink;
@@ -440,11 +450,11 @@ ul.dayCheck {
 	display: inline-block;
 	padding: 4px 12px;
 	width: 176px;
-	border: 1px solid pink;
+	border: 1px solid #fca5d3;
 	border-radius: 20px;
 	cursor: pointer;
 	color: white;
-	background-color: pink;
+	background-color: #fca5d3;
 }
 
 @keyframes scrollTo {
@@ -986,7 +996,8 @@ ul.card::-webkit-scrollbar {
 }
 
 .ybtn_box:hover {
-	background-color: pink;
+	background-color: #fca5d3;
+	color: white;
 }
 
 .winBack {

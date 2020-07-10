@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
+		<meta name="keywords" content="高效学习,如何学习,自我检录, 前端开发,CSS,HTML,JavaScript" />
+		<title>意休 | 思维导图</title>
+		<link rel="icon" href="images/baobao.png" type="image/png">
+		<link rel="bookmark" href="images/baobao.png" />
+		<script type="text/javascript" src="./jsmind/js/jsmind.js"></script>
+		<script type="text/javascript" src="./jsmind/js/jsmind.draggable.js"></script>
+		<script type="text/javascript" src="./jsmind/js/jsmind.screenshot.js"></script>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			:root {
+				--bgcolor: #6b9fa2;
+				--fontcolor: #ffffff;
+				--bghover: #354f51;
+				--selectbg: #fffa65;
+				--selectfont: #225c88;
+			}
+
+			button{
+				background-color: #7d7d7d;
+				color: white;
+				outline: none;
+				border: none;
+				padding:4px 10px;
+				border-radius: 20px;
+				cursor: pointer;
+			}
+			button:hover{
+				background-color: #000000;
+			}
+			.inputFile{
+				width: 100%;
+				height: 36px;
+			}
+			.inputFile .out{
+				position: absolute;
+				/* width: 58px;
+				height: 18px; */
+				left:38px;
+				top: -2px;
+				background-color: #7d7d7d;
+				color: white;
+				padding:4px 10px;
+				border-radius: 20px;
+				cursor: pointer;
+				z-index: 3;
+			}
+			#file_input{
+				width: 60px;
+				height: 100%;
+				cursor: pointer;
+				filter:alpha(opacity=0);
+				opacity: 0;
+				outline: none;
+				border: none;
+				position: relative;
+				z-index: 4;
+			}
+			
+			.container {
+				width: 100%;
+				display: flex;
+				height: 100%;
+				overflow: auto;
+			}
+			.menuToggle{
+				position: fixed;
+				right: 20px;
+				top:4px;
+				background-color: #414141;
+				z-index: 4;
+			}
+			.menuToggle:hover{
+				right: 4px;
+			}
+
+			.jsmind_body {
+				border: 1px solid #f3f3f3;
+				flex: 20;
+				min-height: 100vh;
+				max-width: 70%;
+			}
+			
+			.jsmind_body.big{
+				max-width: 100%;
+			}
+
+			.colorBar {
+				flex: 1;
+				max-width: 20px;
+				background-color: #000000;
+			}
+
+			.colorBar dt {
+				width: 100%;
+				height: 12px;
+				margin-bottom: 1px;
+				cursor: pointer;
+			}
+
+			.jsmind_menu {
+				flex: 8;
+				font-size: 14px;
+				padding: 12px;
+			}
+
+			.jsmind_menu .oneline {
+				display: block;
+				margin-top: 6px;
+				margin-bottom: 12px;
+			}
+
+			.oneline.files{
+				position: relative;
+			}
+
+			.inputColor {
+				width: 60px;
+			}
+
+			.copyData {
+				opacity: 0;
+				height: 2px;
+
+			}
+
+			.editBox {
+				background-color: #f1f1f1;
+				padding: 6px;
+			}
+
+			.textContent {
+				background-color: #efefef;
+				min-height: 68vh;
+				padding: 6px;
+			}
+
+
+			.consoleTips {
+				background-color: #000000;
+				position: fixed;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 40px;
+				text-align: center;
+				display: none;
+				line-height: 40px;
+				color: #ff0099;
+			}
+
+			.configBoard {
+				width: 600px;
+				height: 360px;
+				padding: 10px;
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				background-color: rgba(33, 33, 33, 0.8);
+				z-index: 3;
+				color: white;
+				font-size: 14px;
+				display: none;
+			}
+
+			.configBoard .onePart {
+				margin: 20px;
+				padding:8px;
+				border: 1px solid #ffffff;
+			}
+
+			.onePart label{
+				margin-left: 80px;
+			}
+			.onePart button:nth-of-type(1) {
+				margin-left: 80px;
+			}
+			.onePart p{
+				margin-bottom: 6px;
+			}
+			.configBoard .closeConfig{
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				width: 32px;
+				height: 32px;
+				background-color: white;
+				color: #000000;
+				font-size: 24px;
+				line-height: 32px;
+				text-align: center;
+				cursor: pointer;
+			}
+		</style>
+		<link type="text/css" rel="stylesheet" href="./jsmind/style/jsmind.css" />
+	</head>
+	<body>
+		<!-- 本页面的思维导图基于 张志刚 <hizzgdev@163.com>的jsmind实现，github分享地址为 https://github.com/hizzgdev/jsmind -->
+		<div class="container">
+			<button class="menuToggle" onclick="toggleMenu();">&gt;&gt;收起</button>
+			<div class="jsmind_body">
+				<div id="jsmind_container"></div>
+				<p class="consoleTips"></p>
+			</div>
+			<div class="colorBar"></div>
+			<div class="jsmind_menu">
+				<div class="oneline">
+					<p>默认主题样式：</p>
+					<select class="selectTheme" onchange="changeTheme()"></select>
+					<button type="button" onclick="openConfig();">配置</button>
+					<button type="button" onclick="templateShow();">模板T</button>
+					<button type="button" onclick="templateSave();">存到模板T</button>
+					<!-- 要想实现，必须用js书写style标签 -->
+				</div>
+				<div class="oneline">
+					<p>整体配色-优先级比主题颜色高：</p>
+					<button type="button" onclick="colorTemplate('colorful');">彩色</button>
+					<button type="button" onclick="colorTemplate('linear');">渐变</button>
+					<button type="button" onclick="colorTemplate('black');">黑字体</button>
+					<button type="button" onclick="colorTemplate('white');">白字体</button>
+					<button type="button" onclick="colorTemplate('multi');" class="hasSetColor">默认配色</button>
+					<button type="button" onclick="openConfig();">配置</button>
+				</div>
+				<label class="oneline">
+					颜色卡设置：#
+					<input type="text" class="inputColor" placeholder="ff0000" />
+					<button type="button" onclick="addColor();">添加颜色值</button>
+					<button type="button" onclick="colorBarCreate('clear');">重置</button>
+					
+				</label>
+				<div class="oneline">
+					改背景/字体颜色：
+					<span class="colorModeText">改背景颜色[当前]</span>
+					<button type="button" onclick="changeColorMode();">切换</button>
+				</div>
+				<hr />
+				<div class="oneline files">
+					<div class="inputFile">导入：<input type="file" id="file_input" /><div class="out">选择文件</div></div>
+					<button type="button" onclick="open_file();">打开文件</button>(仅支持md，jm格式)
+				</div>
+				<div class="oneline">
+					导出：
+					<button type="button" onclick="screen_shot();">下载图.png</button>
+					<button type="button" onclick="getDataText('jm');">下载文件.jm</button>
+				</div>
+				<div class="oneline">
+					纯内容导出：
+					<button type="button" onclick="getDataText('html');">下载.html</button>
+					<button type="button" onclick="getDataText('md');">下载.md</button>
+					<button type="button" onclick="getDataText('txt');">下载.txt</button>
+				</div>
+				<hr />
+				<p class="oneline">操作提醒：双击/F2修改，Enter插入同级，Ctrl+Enter插入下级，Delete删除选中，空格键展开或收起下级，箭头键切换主题块。</p>
+				<div class="editBox">
+					<div>
+						<button type="button" onclick="showDataText();">大纲</button>
+						<button type="button" class="editBtn" onclick="editTable();">编辑</button>
+						<button type="button" onclick="jsmDataCopy();">数据复制到md</button>
+						<textarea class="copyData"></textarea>
+					</div>
+					<div class="textContent">
+						<p>（提示：编辑模式保存后会重新用主题样式渲染，已设置的颜色样式会消失。）</p>
+						<br />
+						<p>注意点：</p>
+						<p>1. 重点内容请用文字符号标识出来；</p>
+						<p>2. 只能修改大纲原主题，删除或增加已有同级的主题，回车键新增的是同级同父级的主题。</p>
+						<p>3. 上面复制md数据的按钮复制的该区域显示的大纲数据。</p>
+						<p>4. 编辑时添加 @重 @急 @过 任一个标志在主题文本的开头，即可保存获得对应的颜色显示。</p>
+						<br />
+						<p>md文件导入失败原因：</p>
+						<p>1. 仅能有一个总主题；</p>
+						<p>2. 仅支持采用tab键缩进的无序列表（- * + 表示层级关系）；</p>
+						<p>3. 内容中使用不建议符号而引起的错误，请尽量不要使用符号$|&^~*-。</p>
+						<br />
+						<p>附：默认模板内容来自费程的抖音分享</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="configBoard">
+			<div class="closeConfig" onclick="closeConfig();">×</div>
+			<div class="onePart">
+				<p>自定义默认主题：</p>
+				<p>
+					<label>文字背景：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<label>文字颜色：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+				</p>
+				<p>
+					<label>划过背景：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<label>选中背景：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+				</p>
+				<p>
+					<label>选中文字：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<button type="button" onclick="setColorTheme();">保存主题</button>（选择主题mytheme）
+				</p>
+			</div>
+			<div class="onePart">
+				<p>自定义配色：</p>
+				<p>
+					<label>第一层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<label>第二层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+				</p>
+				<p>
+					<label>第三层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<label>第四层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+				</p>
+				<p>
+					<label>第五层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<label>第六层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+				</p>
+				<p>
+					<label>第七层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<label>默认颜色：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+				</p>
+				<p>
+					<label>字体颜色：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<button type="button" onclick="setColorTemplate();">保存并应用配色</button>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+
+			var colorsInBar = [ '4df13a','ff6699','e1e1e1','ffffff',
+				'ff3300', 'ff9900', 'ffbb33', 'eedd66', 'ccdd99', 'aabb99', '99ccaa',
+				'66dd66', '88f388', '33ff99', '99f0fa', 'aa99fe', '6699ff', '22aadd', '4488aa',
+				'6699cc', '9999dd', 'aa66dd', 'aa22cc', 'cc66aa', 'cc66cc', 'cc33ff', 'dd00ff', 'ee22ff', 'ff33ff', 'ff44ee',
+				'ee44aa', 'ffffff', 'f3f3f3', 'dfdfdf', 'ccbbcc', '999999', '666666', '333333', '000000'
+			];
+			var colorChangeMode = "bg";
+			var oTips = document.getElementsByClassName("consoleTips")[0];
+			var userJSMindData = {
+				//  个人设置数据记得存好
+				colorChange: false,
+				colorCollect: [],
+				themeSet: false,
+				mytheme: [],
+				chooseTheme: "",
+				hasSetColors:false,
+				setColors : [],
+				notSurport:false,
+				hasSetTemp:false
+			}
+
+			// 可以设置记录当前主题，作为下次访问时的默认主题
+			// 遍历数组mind.data，得到一个个数据对象，访问id 来比对topic
+
+			var mind = {
+				// 3 data formats were supported ...
+				// see Documents for more information
+				"meta": {
+					"name": "demo"
+				},
+				"format": "node_array",
+				"data": [{
+					"id": "root",
+					"topic": "治“懒”妙方",
+					"expanded": true,
+					"isroot": true,
+					"background-color": "#ee44aa",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "sub1",
+					"topic": "1. 控制输入--接触",
+					"expanded": true,
+					"parentid": "root",
+					"direction": "right",
+					"background-color": "#ff9900",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "sub11",
+					"topic": "（目标只求少而精）",
+					"expanded": true,
+					"parentid": "sub1",
+					"background-color": "#22aadd",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "sub12",
+					"topic": "制作时间",
+					"expanded": true,
+					"parentid": "sub1",
+					"background-color": "#22aadd",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "sub13",
+					"topic": "与人交流时间",
+					"expanded": true,
+					"parentid": "sub1",
+					"background-color": "#22aadd",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "2d5fd3a070c252d3",
+					"topic": "读书及碎片阅读时间",
+					"expanded": true,
+					"parentid": "sub1",
+					"background-color": "#22aadd",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "2d5fd6a21d2c9b55",
+					"topic": "工作学习时间",
+					"expanded": true,
+					"parentid": "sub1",
+					"background-color": "#22aadd",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "sub2",
+					"topic": "2. 收集感兴趣的--筛选",
+					"expanded": true,
+					"parentid": "root",
+					"direction": "right",
+					"background-color": "#ff9900",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "sub21",
+					"topic": "途径：备忘录，相机，便签，云同步",
+					"expanded": true,
+					"parentid": "sub2",
+					"background-color": "#22aadd",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "sub3",
+					"topic": "3. 建立体系，分类与总结",
+					"expanded": true,
+					"parentid": "root",
+					"direction": "right",
+					"background-color": "#ff9900",
+					"foreground-color": "#ffffff"
+				}, {
+					"id": "2d600110b4369873",
+					"topic": "我感兴趣的是什么？",
+					"expanded": true,
+					"parentid": "sub3",
+					"background-color": "#22aadd"
+				}, {
+					"id": "2d60042d9660849e",
+					"topic": "我适合或不适合做什么?",
+					"expanded": true,
+					"parentid": "sub3",
+					"background-color": "#22aadd"
+				}, {
+					"id": "2d60095bc896e895",
+					"topic": "别人是怎么做的，我该怎么做？",
+					"expanded": true,
+					"parentid": "sub3",
+					"background-color": "#22aadd"
+				}, {
+					"id": "2d6053634174d89f",
+					"topic": "4. 内化输出",
+					"expanded": true,
+					"parentid": "root",
+					"direction": "left",
+					"background-color": "#ff9900"
+				}, {
+					"id": "2d6056988a12d3a7",
+					"topic": "找出最感兴趣的内容",
+					"expanded": true,
+					"parentid": "2d6053634174d89f",
+					"background-color": "#22aadd"
+				}, {
+					"id": "2d60669b51e15a15",
+					"topic": "写出短文或作为讨论的话题",
+					"expanded": true,
+					"parentid": "2d6053634174d89f",
+					"background-color": "#22aadd"
+				}, {
+					"id": "2d606942250c861d",
+					"topic": "把结论打卡到自己笔记或做成视频 ",
+					"expanded": true,
+					"parentid": "2d6053634174d89f",
+					"background-color": "#22aadd"
+				}]
+				
+			};
+
+			var jm = null;
+			var options = {
+				container: 'jsmind_container',
+				theme: 'mytheme',
+				editable: true,
+				mode:'side',
+				shortcut: {
+					mapping: { // 这里是修改快捷键的，下面把添加子主题的快捷键设置成了ctrl+enter
+						addchild: jsMind.key.ctrl + 13
+					}
+				},
+			};
+			jm = new jsMind(options);
+			jm.show(mind);
+
+
+			// theme选择的生成和切换主题的实现
+			var oTheme = document.getElementsByClassName("selectTheme")[0];
+			var oMind = document.getElementById("jsmind_container");
+			var themeList = ['mytheme', 'default', 'primary', 'warning', 'danger', 'success', 'info', 'greensea', 'nephrite',
+				'belizehole', 'wisteria', 'asphalt', 'orange', 'pumpkin', 'pomegranate', 'clouds', 'asbestos'
+			];
+			var oOptions = '<option>请选择主题</option>';
+			for (let item = 0; item < themeList.length; item++) {
+				oOptions += '<option>' + themeList[item] + '</option>'
+			}
+			oTheme.innerHTML = oOptions;
+
+			var fileHasSave = false;
+			var oTextContent = document.getElementsByClassName("textContent")[0];
+			var copyMd = "";
+			var finalColorArr=[]; // 保存配色
+			var oIndexForColor ={};
+			var tempModeStr = "";
+			colorBarCreate("init");
+			
+			function initData(){
+				if(!localStorage){
+					tipsShow("该浏览器不支持localStorage存储，故数据会在刷新时失效。");
+					userJSMindData.notSurport = true;
+				}else if(localStorage.getItem('userJSMindData')){
+					// 内存中有数据，取数据
+					var str =  localStorage.getItem('userJSMindData');
+					userJSMindData = JSON.parse(str);
+					if(userJSMindData.hasSetTemp){
+						tempModeStr = localStorage.getItem('userJSMindDataTemp');
+					}
+				}else{
+					console.log("内存中并无数据");
+				}
+			}
+			
+			function setLocalStorage(name,value){
+				if(userJSMindData.notSurport){
+					console.log("该浏览器不支持localStorage存储，故数据会在刷新时失效。");
+				}else{
+					localStorage.setItem(name,value);
+					console.log("保存了数据");
+				}
+			}
+			
+			function changeTheme() {
+				var theme_name = oTheme.value;
+				jm.set_theme(theme_name);
+				userJSMindData.chooseTheme = theme_name;
+				var dataStr = JSON.stringify(userJSMindData);
+				setLocalStorage('userJSMindData',dataStr);
+				console.log("保存成功？");
+			}
+
+			//  实现颜色条重新生成
+			function colorBarCreate(colorArr) {
+				var oColorBar = document.getElementsByClassName("colorBar")[0];
+				var oDl = document.createElement("dl");
+				var content = "";
+				var currentColorArr = [];
+				oColorBar.innerHTML = "";
+				if (colorArr==="init") {
+					currentColorArr = colorsInBar;
+				}else if(colorArr==="clear"){
+					currentColorArr = colorsInBar;
+					userJSMindData.colorCollect = [];
+					userJSMindData.colorChange = false;
+					setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
+					console.log("重置完成");
+					console.log(userJSMindData);
+				}else if(colorArr) {
+					currentColorArr = colorsInBar.concat(colorArr);
+				}
+				// console.log(currentColorArr.length);
+				for (var i = 0; i < currentColorArr.length; i++) {
+					content += '<dt style="background-color: #' + currentColorArr[i] + ';" data-color="#' + currentColorArr[i] +
+						'" onclick="changeColor(this);"></dt>';
+				}
+				oDl.innerHTML = content;
+				oColorBar.appendChild(oDl);
+			}
+
+			window.onload = function(){
+				// 获取localStorage数据
+				initData();
+				
+				// 自定义配色的加载
+				var oSetColorBtn = document.getElementsByClassName("hasSetColor")[0];
+				if(userJSMindData.hasSetColors){
+					oSetColorBtn.innerText = "my配色";
+					finalColorArr = userJSMindData.setColors;
+					// console.log("测试finalColorArr："+finalColorArr);
+				}else{
+					oSetColorBtn.innerText = "默认配色";
+				}
+				// 颜色条的加载
+				if(userJSMindData.colorChange){
+					var colorsFreshArr = userJSMindData.colorCollect;
+					colorBarCreate(colorsFreshArr);
+					// console.log("颜色条的加载成功");
+				}
+				// 主题的加载
+				if(userJSMindData.themeSet){
+					var themeName = userJSMindData.chooseTheme;
+					// 主题的应用 -- 用名字
+					jm.set_theme('mytheme');
+					//  mytheme主题颜色的配置
+					oIndexForColor =  userJSMindData.mytheme[0];
+					for(let key in oIndexForColor ){
+						let valnum = oIndexForColor[key];
+						let val = "#"+ valnum;
+						showSetedTheme(key,val);
+					}
+				}
+				
+			}
+			// 色条卡颜色块的增加
+			function addColor() {
+				var oValue = document.getElementsByClassName("inputColor")[0].value;
+				if (/[0-9a-f]{6}/i.test(oValue)) {
+					// console.log(oValue);
+					var len = userJSMindData.colorCollect.length;
+					userJSMindData.colorCollect[len] = oValue;
+					userJSMindData.colorChange = true;
+					setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
+					var newColorArr = userJSMindData.colorCollect;
+					colorBarCreate(newColorArr);
+				} else {
+					tipsShow("输入有误，请输入6位的十六进制数作为颜色值，如ff9900。");
+				}
+			}
+
+			function tipsShow(data) {
+				oTips.style.display = "block";
+				oTips.innerText = data;
+				setTimeout(function() {
+					oTips.style.display = "none";
+				}, 4000);
+			}
+
+			function changeColorMode() {
+				var oText = document.getElementsByClassName("colorModeText")[0];
+				var val = oText.innerText;
+				if (val === "改背景颜色[当前]") {
+					colorChangeMode = "ft";
+					oText.innerText = "改字体颜色[当前]";
+
+				} else {
+					colorChangeMode = "bg";
+					oText.innerText = "改背景颜色[当前]";
+				}
+			}
+
+			function changeColor(e) {
+				var element = e || e.target;
+				var colorMode = colorChangeMode;
+				var color = element.getAttributeNode("data-color").value;
+				// console.log(element,color);
+				var selected_id = get_selected_nodeid();
+				console.log(selected_id);
+				if (!selected_id) {
+					tipsShow("你还没有选中一个节点呢，上色失败。");
+					return;
+				}
+				// 遍历数组mind.data，得到一个个数据对象，访问id 来比对topic
+				function modifyTopic(id,addCon,color){
+					let dataList = mind.data;
+					for(let t = 0; t<dataList.length;t++){
+						let oDidVal =dataList[t].id;
+						if(oDidVal===id){
+							dataList[t].topic = addCon + dataList[t].topic;
+							dataList[t]["background-color"] = color;
+							jm.show(mind);
+							fileHasSave = false;
+							return; 
+						}
+					}
+				}
+				// 4df13a
+				if (colorMode === "bg") {
+					if(color==="#4df13a"){
+						modifyTopic(selected_id,'@重',"#4df13a");
+					}else if(color==="#ff6699"){
+						modifyTopic(selected_id,'@急',"#ff6699");
+					}else if(color==="#e1e1e1"){
+						modifyTopic(selected_id,'@过',"#e1e1e1");
+					}else{
+						jm.set_node_color(selected_id, color, null);
+					}
+					
+					console.log(mind.data);
+				} else {
+					jm.set_node_color(selected_id, null, color);
+				}
+			}
+
+			function get_selected_nodeid() {
+				var selected_node = jm.get_selected_node();
+				if (!!selected_node) {
+					return selected_node.id;
+				} else {
+					return null;
+				}
+			}
+
+			//打开jm文件没问题,md打开失败，应该是没配置好数据
+
+			function open_file() {
+				// 支持的文件类型是？jm? 写个支持md的
+				var file_input = document.getElementById('file_input');
+				var files = file_input.files;
+				// console.log(files);
+				if (files.length > 0) {
+					var justOpen = false;
+					if (!fileHasSave) {
+						var justOpen = confirm("打开新文件会覆盖旧数据，检测到有数据未保存，确定要覆盖吗？");
+					}
+					if (fileHasSave || justOpen) {
+						var file_data = files[0];
+						if ( /\.md$/.test(file_data.name)) {
+							// 获取文件的内容
+							// 使用 FileReader 来读取文件
+							let reader = new FileReader();
+							// 读取纯文本文件,且编码格式为 utf-8
+							reader.readAsText(file_data, 'UTF-8');
+							// 读取文件,会触发 onload 异步事件,可使用回调函数 来获取最终的值.
+							reader.onload = function(e) {
+								let fileContent = e.target.result;
+								var jsmind_data = changeToMind(fileContent);
+								//  var mind = jsMind.util.json.string2json(jsmind_data);
+								mind = jsMind.util.json.string2json(jsmind_data);
+								if (!!mind) {
+									jm.show(mind);
+									fileHasSave = false;
+								} else {
+									tipsShow('md打不开提醒：仅能有一个总主题，采用tab键缩进，若非必要，内容部分请尽量不要使用$|&^~*-这些符号，避免出现错误。');
+									console.log('md打不开提醒：仅能有一个总主题，采用tab键缩进，除了md格式需求外，内容部分请尽量不要使用$|&^~*-这些符号，避免出现错误。');
+								}
+
+							}
+						} else if (/\.jm$/.test(file_data.name)) {
+							jsMind.util.file.read(file_data, function(jsmind_data, jsmind_name) {
+								// var mind = jsMind.util.json.string2json(jsmind_data);
+								mind = jsMind.util.json.string2json(jsmind_data);
+								if (!!mind) {
+									jm.show(mind);
+									fileHasSave = false;
+								} else {
+									tipsShow('该jm文件无法打开，请选择合适格式的文件打开。');
+								}
+							});
+						} else {
+							tipsShow('现只支持jm和md格式文件，请选择合适格式的文件打开。');
+						}
+					}
+				} else {
+					tipsShow('请先选择一个文件。');
+				}
+
+			}
+
+			//  把md数据转为jsMind，考虑把\t计算出来作为层数
+			function changeToMind(mdData) {
+
+				if (/\n\t{7,20}[\+\*\-]/g.test(mdData)) {
+					tipsShow('注意只支持7级主题，多出的层级主题会被裁掉。');
+				}
+				//  [未解决] 有些md传进来的时候不是制表符，而是2个空格或4个空格，怎么办？
+				mdData = mdData.replace(/\n\t{7}[\+\*\-]/g, '-');
+				mdData = mdData.replace(/\n\t{6}[\+\*\-]/g, '$');
+				mdData = mdData.replace(/\n\t{5}[\+\*\-]/g, '|');
+				mdData = mdData.replace(/\n\t{4}[\+\*\-]/g, '&');
+				mdData = mdData.replace(/\n\t{3}[\+\*\-]/g, '^');
+				mdData = mdData.replace(/\n\t{2}[\+\*\-]/g, '~');
+				mdData = mdData.replace(/\n\t{1}[\+\*\-]/g, '*');
+				//   '4df13a','ff6699','e1e1e1'
+				function addTap(content){
+					var tap = "";
+					if(/^\@重/.test(content)){
+						tap = '"background-color":"#4df13a"';
+					}else if(/^\@急/.test(content)){
+						tap = '"background-color":"#ff6699"';
+					}else  if(/^\@过/.test(content)){
+						console.log("guozichenggong");
+						tap = '"background-color":"#e1e1e1"';
+					}else{
+						tap='"foreground-color":"#ffffff"';
+					}
+					return tap;
+				}
+				
+				let firstArr = mdData.split("*");
+				let firstItem = firstArr[0];
+				let rootCon = firstItem.trim().substr(2);
+				// console.log(rootCon); // 得到根主题
+				let rootTap = addTap(rootCon);
+				let topic = '{"id":"root", "isroot":true, "topic":"' + rootCon + '", '+ rootTap + '},';
+				let dataChange = '';
+				for (let i = 1; i < firstArr.length; i++) {
+					let secondArr = firstArr[i].split("\~");
+					let firstCon = secondArr[0].trim();
+					// console.log(firstCon); // 得到一级主题
+					let firTap = addTap(firstCon);
+					dataChange += '{"id":"' + rootCon + i + '", "parentid":"root", "expanded":true,"topic":"' + firstCon + '", ' + firTap +'},';
+					for (let j = 1; j < secondArr.length; j++) {
+						let thirdArr = secondArr[j].split("\^");
+						let secondCon = thirdArr[0].trim();
+						// console.log(secondCon); // 得到二级主题 (把3级的带上来了)
+						let secTap = addTap(secondCon);
+						dataChange += '{"id":"' + rootCon + i + j + '", "parentid":"' + rootCon + i + '", "expanded":true,"topic":"' +
+							secondCon + '", ' + secTap + '},';
+
+						for (let k = 1; k < thirdArr.length; k++) {
+							let fourthArr = thirdArr[k].split("\&");
+							let thirdCon = fourthArr[0].trim();
+							// console.log(thirdCon); // 得到三级主题
+							let thiTap = addTap(thirdCon);
+							dataChange += '{"id":"' + rootCon + i + j + k + '", "parentid":"' + rootCon + i + j +
+								'","expanded":true, "topic":"' + thirdCon + '", ' + thiTap + '},';
+							for (let m = 1; m < fourthArr.length; m++) {
+								let fifthArr = fourthArr[m].split("\|");
+								let fourthCon = fifthArr[0].trim();
+								// console.log(fourthCon); // 得到四级主题
+								let fouTap = addTap(fourthCon);
+								dataChange += '{"id":"' + rootCon + i + j + k + m + '", "parentid":"' + rootCon + i + j + k +
+									'","expanded":true, "topic":"' + fourthCon + '", ' + fouTap +'},';
+								for (let n = 1; n < fifthArr.length; n++) {
+									let sixthArr = fifthArr[n].split("\$");
+									let fifthCon = sixthArr[0].trim();
+									// console.log(fifthCon); // 得到五级主题
+									let fifTap = addTap(fifthCon);
+									dataChange += '{"id":"' + rootCon + i + j + k + m + n + '", "parentid":"' + rootCon + i + j + k + m +
+										'","expanded":true, "topic":"' + fifthCon + '", ' + fifTap + '},';
+									for (let l = 1; l < sixthArr.length; l++) {
+										let seventhArr = sixthArr[l].split("\-");
+										let sixthCon = seventhArr[0].trim();
+										// console.log(sixthCon); // 得到六级主题
+										let sixTap = addTap(sixthCon);
+										dataChange += '{"id":"' + rootCon + i + j + k + m + n + l + '", "parentid":"' + rootCon + i + j + k + m + n +
+											'","expanded":true, "topic":"' + sixthCon + '", ' + sixTap +'},';
+									}
+								}
+							}
+						}
+					}
+				}
+				dataChange = dataChange.substring(0, dataChange.length - 1);
+				// stringObject.substr(start,length)
+				// stringObject.substring(start,stop) 取非负
+				// 省略部分 ,"author":"hizzgdev@163.com","version":"0.2"
+				let file_data =
+					'{"meta":{"name":"demo"},"format":"node_array","data":[' +
+					topic + dataChange + ']}';
+				// console.log(file_data);
+				// let fileData = JSON.parse(file_data);
+				// console.log(fileData);
+				return file_data;
+			}
+
+
+			function screen_shot() {
+				jm.screenshot.shootDownload();
+			}
+
+			function forEachMindData() {
+				var mind_data = jm.get_data('node_array');
+				var dataList = mind_data.data;
+				var id = "";
+				var parentid = "";
+				var content = "";
+				var idForContent = new Map(); // 一个对应一个值
+				var idForParentid = new Map();
+				var idForLevel = new Map();
+				var idLevel = {};
+				var ids = new Set();
+
+				for (var i = 0; i < dataList.length; i++) {
+					id = dataList[i].id;
+					ids.add(id);
+					parentid = dataList[i].parentid;
+					content = dataList[i].topic;
+					idLevel[parentid] = idLevel[parentid] || [];
+					idLevel[parentid].push(id);
+					idForContent.set(id, content);
+					idForParentid.set(id, parentid);
+				}
+				// 取得每个主题的缩进等级
+				var tempArr = [];
+				for (let item in idLevel) {
+					// 给每个id添加等级，或者说缩进的次数 root为0 
+					tempArr = idLevel[item];
+					for (let index = 0; index < tempArr.length; index++) {
+						let value = tempArr[index];
+						let num = 0;
+						// console.log(value);
+						if (value !== "root") {
+							num = idForLevel.get(item) + 1;
+						}
+						idForLevel.set(value, num);
+					}
+					// console.log(idForLevel);
+				}
+
+				// console.log(ids); // ids决定了书写的顺序
+				// console.log(idForContent);
+				// console.log(idLevel);
+				return {
+					ids,
+					idLevel,
+					idForLevel,
+					idForContent,
+					idForParentid,
+					dataList
+				};
+			}
+
+			function showDataText() {
+				var {
+					ids,
+					idLevel,
+					idForLevel,
+					idForContent,
+					idForParentid
+				} = forEachMindData();
+				var textNote = "";
+				var textNoteForMd = "";
+				var textNoteForTxt = "";
+
+
+				//  遍历并进行排版（idForLevel「Map由id找缩进」，ids「Set由id顺序排列」，idForContent「Map由id找值」，idForParentid[Map由id找父级id] ）
+				ids.forEach(function(element) {
+					let indent = idForLevel.get(element);
+					let themeCon = idForContent.get(element);
+					let parentId = idForParentid.get(element);
+					textNote += '<p data-id="' + element + '" data-parentid="' + parentId + '" data-suojin="' + indent +
+						'" style="text-indent:' + indent * 2 + 'em;">' + themeCon + '</p>';
+					if (indent === 0) {
+						textNoteForTxt += themeCon + '\r\n';
+						textNoteForMd += '\- ' + themeCon + '\r\n';
+					} else if (indent === 1) {
+						textNoteForTxt += '\t' + themeCon + '\r\n';
+						textNoteForMd += '\t\* ' + themeCon + '\r\n';
+					} else if (indent === 2) {
+						textNoteForTxt += '\t\t' + themeCon + '\r\n';
+						textNoteForMd += '\t\t\+ ' + themeCon + '\r\n';
+					} else if (indent === 3) {
+						textNoteForTxt += '\t\t\t' + themeCon + '\r\n';
+						textNoteForMd += '\t\t\t\+ ' + themeCon + '\r\n';
+					} else if (indent === 4) {
+						textNoteForTxt += '\t\t\t\t' + themeCon + '\r\n';
+						textNoteForMd += '\t\t\t\t\+ ' + themeCon + '\r\n';
+					} else if (indent === 5) {
+						textNoteForTxt += '\t\t\t\t\t' + themeCon + '\r\n';
+						textNoteForMd += '\t\t\t\t\t\+ ' + themeCon + '\r\n';
+					} else if (indent === 6) {
+						textNoteForTxt += '\t\t\t\t\t\t' + themeCon + '\r\n';
+						textNoteForMd += '\t\t\t\t\t\t\+ ' + themeCon + '\r\n';
+					}
+
+					// 文本文件的换行符根据操作系统不同而写法不同。（上面只做了windows处理）
+					// 1、windows，所以行尾符是CR LF——对应的正则表达式是\r\n。
+					// 2、mac系统是CR——对应的正则表达式是\r。
+					// 3、unix系统是LF——对应的正则表达式是\n
+				});
+				copyMd = textNoteForMd;
+				oTextContent.innerHTML = textNote;
+				var fileName = idForContent.get("root");
+				return {
+					textNote,
+					fileName,
+					textNoteForMd,
+					textNoteForTxt
+				};
+			}
+
+			function editTable() {
+				var oEditBtn = document.getElementsByClassName("editBtn")[0];
+				if (oEditBtn.innerText === "编辑") {
+					showDataText();
+					oTextContent.setAttribute("contenteditable", "true");
+					tipsShow("编辑时请注意：只能修改大纲原主题，删除或增加已有同级的主题。");
+					oEditBtn.innerText = "保存文字修改";
+				} else {
+					oTextContent.setAttribute("contenteditable", "false");
+					oEditBtn.innerText = "编辑";
+					editToMind();
+				}
+
+			}
+
+			function jsmDataCopy() {
+				console.log(copyMd);
+				var oTextarea = document.getElementsByClassName("copyData")[0];
+				oTextarea.value = copyMd;
+				oTextarea.select(); // 这种复制只支持文本框和文本域innput textarea (注意后者才支持换行符)
+				document.execCommand("Copy"); // 执行浏览器复制命令
+				tipsShow("内容已复制好，可贴粘。");
+			}
+
+			function editToMind() {
+				var oPs = oTextContent.getElementsByTagName("p");
+				var val = '';
+				var indent = 0;
+				var textNoteForMd = "";
+				var themeCon = "";
+				for (let p = 0; p < oPs.length; p++) {
+					// console.log(oPs[p].innerText);
+					themeCon = oPs[p].innerText;
+					indent = oPs[p].getAttribute("data-suojin") * 1;
+					if (indent === 0) {
+						textNoteForMd += '\- ' + themeCon + '\n';
+					} else if (indent === 1) {
+						textNoteForMd += '\t\* ' + themeCon + '\n';
+					} else if (indent === 2) {
+						textNoteForMd += '\t\t\+ ' + themeCon + '\n';
+					} else if (indent === 3) {
+						textNoteForMd += '\t\t\t\+ ' + themeCon + '\n';
+					} else if (indent === 4) {
+						textNoteForMd += '\t\t\t\t\+ ' + themeCon + '\n';
+					} else if (indent === 5) {
+						textNoteForMd += '\t\t\t\t\t\+ ' + themeCon + '\n';
+					} else if (indent === 6) {
+						textNoteForMd += '\t\t\t\t\t\t\+ ' + themeCon + '\n';
+					}
+				}
+				copyMd = textNoteForMd;
+				// 这里编辑模式是把数据组织成md格式，再用之前导入md的方法显示
+				var jsmind_data = changeToMind(textNoteForMd);
+				// var mind = jsMind.util.json.string2json(jsmind_data);
+				mind = jsMind.util.json.string2json(jsmind_data);
+				if (!!mind) {
+					jm.show(mind);
+					fileHasSave = false;
+				} else {
+					tipsShow("抱歉，数据处理失败。");
+				}
+
+			}
+
+			function getDataText(type) {
+				var {
+					textNote,
+					fileName,
+					textNoteForMd,
+					textNoteForTxt
+				} = showDataText();
+				// 这里获取showDataText的textNote是带着标签的innerHTML的字符串
+				var mind_str = "";
+				if (type === "jm") {
+					var mind_data = null;
+					// 处理的是当前的mind对象中的数据，使其变JSON
+					if (mind.format === 'node_array') {
+						mind_data = jm.get_data('node_array');
+					} else {
+						mind_data = jm.get_data();
+					}
+					mind_str = jsMind.util.json.json2string(mind_data); // JSON变string
+					jsMind.util.file.save(mind_str, 'text/jsmind', fileName + '.jm');
+
+				} else if (type === "html") {
+					mind_str = textNote;
+					jsMind.util.file.save(mind_str, 'text/html', fileName + '.html');
+					// 复制html代码
+				} else if (type === "md") {
+					mind_str = textNoteForMd;
+					jsMind.util.file.save(mind_str, 'text/markdown', fileName + '.md');
+				} else if (type === "txt") {
+					mind_str = textNoteForTxt;
+					jsMind.util.file.save(mind_str, 'text/txt', fileName + '.txt');
+				}
+				fileHasSave = true;
+			}
+
+			function colorTemplate(type, arr) {
+				//理论上， 遍历对象mind的data属性，给它加各颜色值(需要知道缩进程度，加值操作)
+				var {
+					ids,
+					idLevel,
+					idForLevel,
+					idForContent,
+					idForParentid,
+					dataList
+				} = forEachMindData();
+				if (type === "colorful") {
+					colorTempAdd(['ff2200', 'ffbb33', 'dddd66', '66ff00', '33ff99', '99f0fa', '66aaff', 'cc00ff']);
+				} else if (type === "linear") {
+					colorTempAdd(['ee44aa', 'ee22ff', 'cc00ff', 'aa66dd', 'aa22cc', '6699cc', '4488aa', '6b9fa2']);
+				} else if (type === "white") {
+					colorTempAdd("#ffffff");
+				} else if (type === "black") {
+					colorTempAdd("#333333");
+				}else if(type === "multi"){
+					if(arr){
+						var arrData = arr;
+						var defaultColor = "";
+						if(arrData[8]!=="undefined" && arrData[8]!=="error"){
+							colorTempAdd(arrData[8]);
+						}
+						if(arrData[7]!=="undefined" && arrData[7]!=="error"){
+							defaultColor = arrData[7];
+						}
+						for(let i =0; i<7;i++){
+							if(arrData[i]!=="undefined" && arrData[i]!=="error"){
+								finalColorArr[i] = arrData[i];
+							}else if(defaultColor){
+								finalColorArr[i] = defaultColor;
+							}else if(i>=1 && finalColorArr[i-1]){
+								finalColorArr[i] = finalColorArr[i-1];
+							}else{
+								finalColorArr[i] = "6b9fa2";
+								// 能否改成--bgcolor的颜色
+							}
+						}
+					}
+					colorTempAdd(finalColorArr);
+				}
+				
+
+				function colorTempAdd(arrOrStr) {
+					for (let j = 0; j < dataList.length; j++) {
+						if ((typeof arrOrStr) === "string") {
+							dataList[j]['foreground-color'] = arrOrStr;
+						} else {
+							let element = dataList[j].id;
+							let indent = idForLevel.get(element);
+							if (indent === 0) {
+								dataList[j]['background-color'] = '#' + arrOrStr[0];
+							} else if (indent === 1) {
+								dataList[j]['background-color'] = '#' + arrOrStr[1];
+							} else if (indent === 2) {
+								dataList[j]['background-color'] = '#' + arrOrStr[2];
+							} else if (indent === 3) {
+								dataList[j]['background-color'] = '#' + arrOrStr[3];
+							} else if (indent === 4) {
+								dataList[j]['background-color'] = '#' + arrOrStr[4];
+							} else if (indent === 5) {
+								dataList[j]['background-color'] = '#' + arrOrStr[5];
+							} else if (indent === 6) {
+								dataList[j]['background-color'] = '#' + arrOrStr[6];
+							} else {
+								dataList[j]['background-color'] = '#' + arrOrStr[7];
+							}
+						}
+					}
+
+					mind.data = dataList;
+					jm.show(mind);
+					fileHasSave = false;
+				}
+			}
+
+			function closeConfig(){
+				var oPlat = document.getElementsByClassName("configBoard")[0];
+				oPlat.style.display = 'none';
+			}
+			
+			function openConfig(){
+				var oPlat = document.getElementsByClassName("configBoard")[0];
+				oPlat.style.display = 'block';
+			}
+			
+			function setColorTheme(){
+				var colorArr = getColorArr(1);
+				// var indexs = new Set();
+				// var finalThemeArr = [];
+				var indexForColor = new Map();
+				for(let i =0; i<5;i++){
+					if(colorArr[i]!=="undefined" && colorArr[i]!=="error"){
+						// finalThemeArr[i] = colorArr[i];
+						indexForColor.set(i,colorArr[i]);
+						oIndexForColor[i.toString()] = colorArr[i];
+						// indexs.add(i);
+					}
+				}
+				console.log(oIndexForColor);
+				
+				indexForColor.forEach(function(value,key){
+					let valnum = indexForColor.get(key);
+					let val = '#'+valnum;
+					showSetedTheme(key,val);
+				});
+				userJSMindData.themeSet = true;
+				userJSMindData.mytheme[0] = oIndexForColor;
+				console.log(userJSMindData);
+				setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
+				initData();
+			}
+			
+			function showSetedTheme(key,val){
+				// console.log(val);
+				if(key==0){
+					document.documentElement.style.setProperty("--bgcolor",val);
+				}else if(key==1){
+					document.documentElement.style.setProperty("--fontcolor",val);
+				}else if(key==2){
+					document.documentElement.style.setProperty("--bghover",val);
+				}else if(key==3){
+					document.documentElement.style.setProperty("--selectbg",val);
+				}else if(key==4){
+					document.documentElement.style.setProperty("--selectfont",val);
+				}
+			}
+			 
+			function setColorTemplate(){
+				var colorArr = getColorArr(2);
+				colorTemplate('multi', colorArr);
+				var oBtn = document.getElementsByClassName("hasSetColor")[0];
+				oBtn.innerText = "my配色";
+				userJSMindData.hasSetColors = true;
+				userJSMindData.setColors = finalColorArr;
+				setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
+			}
+			
+			function getColorArr(num){
+				// 获取输入值，只有3种结果  颜色值 undefined error
+				var oOneParts = document.getElementsByClassName("onePart");
+				var index = num*1-1; // 参数值传入来的数值是字符串类型
+				var oColors = oOneParts[index].getElementsByTagName("input");
+				var colorArr = [];
+				for(let i =0; i<oColors.length;i++){
+					if(/[0-9a-f]{6}/i.test(oColors[i].value)){
+						colorArr[i] = oColors[i].value;
+					}else if(oColors[i].value === ""){
+						colorArr[i] = "undefined";
+					}else{
+						colorArr[i] = "error";
+					}
+				}
+				return colorArr;
+			}
+
+			function toggleMenu(){
+				var oToggleBtn = document.getElementsByClassName("menuToggle")[0];
+				var oColorBar = document.getElementsByClassName("colorBar")[0]; 
+				var oMenu = document.getElementsByClassName("jsmind_menu")[0];
+				var oMindBody = document.getElementsByClassName("jsmind_body")[0];
+				if(oToggleBtn.innerHTML==="&gt;&gt;收起"){
+					oColorBar.style.display="none";
+					oMenu.style.display="none";
+					oToggleBtn.innerHTML = "展开&lt;&lt;";
+					oMindBody.classList.add("big");
+				}else{
+					console.log("展开生效");
+					oColorBar.style.display="block";
+					oMenu.style.display="block";
+					oToggleBtn.innerHTML = "&gt;&gt;收起";
+					oMindBody.classList.remove("big");
+				}
+				
+			}
+			
+			function templateSave(){
+				var oMindData = mind.data;
+				userJSMindData.hasSetTemp = true;
+				setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
+				setLocalStorage('userJSMindDataTemp',JSON.stringify(oMindData));
+				tipsShow("操作成功，已把当前思维导图存入模板T中，下次点击>>模板T<<可以直接使用。")
+			}
+			
+			function templateShow(){
+				// 模板的加载
+				if(userJSMindData.hasSetTemp){
+					var mindStr = '{"meta":{"name":"demo"},"format":"node_array","data":' +
+					tempModeStr  + '}';
+					mind = JSON.parse(mindStr);
+					if (!!mind) {
+						jm.show(mind);
+						fileHasSave = false;
+					} else {
+						tipsShow("抱歉，数据处理失败。");
+					}
+				}else{
+					tipsShow("你还没有保存过自己的模板。");
+				}
+			}
+		
+		</script>
+	</body>
+</html>

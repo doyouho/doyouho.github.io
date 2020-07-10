@@ -63,6 +63,7 @@
 
 		<div class="taskForWork">
 			<h1>好的开始就成功了一大半</h1>
+			<a class="pinkbtn" href="./mind.html" target="_blank">使用思维导图</a>
 			<section class="textTips">
 				<div>准备物资和环境：水 ，零食，梳子。</div>
 				<div>打起精神状态：适合地做下准备运动，调整呼吸。</div>
@@ -312,7 +313,7 @@
 										<li>(2)“deleteAll”按钮删除的是所有数据，请慎重选择。</li>
 									</ul>
 								</div>
-
+								
 							</div>
 						</section>
 					</div>
@@ -450,6 +451,7 @@
 				}
 				bbtns[1].onclick = function() {
 					console.log("打开大框模式");
+					window.location.href = "./toreview.html";
 				}
 
 				const nextBtn = document.getElementsByClassName("solved");
@@ -690,13 +692,15 @@
 					// console.log(nsort,gwStr);
 					if (localStorage) {
 						localStorage.setItem("collectSortBox", gwStr);
-						// console.log("readsortbox前的数据"+gwStr);
+						console.log("readsortbox前的数据"+gwStr);
 						readSortBox();
 					} else {
 						tip.innerText = "！该浏览器不支持localStorage本地缓存功能，无法存库.";
 					}
 				} else {
-					// 添加式库collectBox  覆盖式库collectBoxNew
+					// 添加式库collectBox($分隔符，)  覆盖式库collectBoxNew
+					// notFirstSave collectIndex solvedAll  分类库collectSortBox（先~后$划分）
+					// （lastDaka saveData 打卡数据）
 					//  点击收集保存不应该改变index，除非是新处理的时候。
 					const list = doListState.list; // 获取当前列表栏目
 					let str = list.join("$"); // 用$拼凑成字符串

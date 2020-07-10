@@ -213,8 +213,8 @@ function showNote() {
 		outputList_s = '暂无笔记，赶快留下你感兴趣的内容或感悟和想法吧~';
 	} else {
 		outputListStr = localStorage.getItem("note");
-		if(/\,+/.test(outputListStr)){
-			outputList = outputListStr.split(','); // 若内存有值，则取出转成数组赋值。
+		if(/\^+/.test(outputListStr)){
+			outputList = outputListStr.split('^'); // 若内存有值，则取出转成数组赋值。
 			for (let i =0; i <outputList.length ; i++) {
 				outputList[i] = "<li><p>" + outputList[i] +
 					"</p><button onclick='btnModNote(this)'>改</button><button onclick='btnDelNote(this)'>删</button></li>";
@@ -237,16 +237,16 @@ function spanInitial(node){
 	}else{
 		if(localStorage.getItem("praiseData")&&(localStorage.getItem("praiseData")!=="")){
 			let praiseL= localStorage.getItem("praiseData");
-			if(/\,+/.test(praiseL)){
-				forNote.praiseList=praiseL.split(",");
+			if(/\^+/.test(praiseL)){
+				forNote.praiseList=praiseL.split("^");
 			}else{
 				forNote.praiseList[0]=praiseL;
 			}
 		}
 		if(localStorage.getItem("discussData")&&(localStorage.getItem("discussData")!=="")){
 			let discussL= localStorage.getItem("discussData");
-			if(/\,+/.test(discussL)){
-				forNote.discussList=discussL.split(",");
+			if(/\^+/.test(discussL)){
+				forNote.discussList=discussL.split("^");
 			}else{
 				forNote.discussList[0]=discussL;
 			}
@@ -355,7 +355,7 @@ function btnModNote(e) {
 	var shuru = document.getElementById("noteWords").value;
 	if (shuru != "") {
 		e.parentNode.firstChild.innerText = shuru;
-		document.getElementById("tipsOfChange").innerHTML = "修改成功,点击'保存修改'才最后生效哦~";
+		document.getElementById("tipsOfChange").innerHTML = "修改成功，点击'保存当前修改'才最后生效哦~";
 	} else {
 		document.getElementById("tipsOfChange").innerHTML = "修改内容不允许为空，请在上面输入框输入内容后再点击修改。";
 	}
@@ -381,15 +381,15 @@ function btnAddNote(node) {
 			console.log("以前没有数据");
 		} else {
 			var olistStr = localStorage.getItem("note");
-			if(/\,+/.test(olistStr)){
-				olist = olistStr.split(',');
+			if(/\^+/.test(olistStr)){
+				olist = olistStr.split('^');
 			}else{
 				olist[0] = olistStr;
 			}
 			// olist[olist.length] = shuru;
 			olist.unshift(shuru);
 			console.log("目前数组是"+olist);
-			olistS = olist.join(",");
+			olistS = olist.join("^");
 			localStorage.setItem("note", olistS);
 		}
 		showNote();

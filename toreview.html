@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
+		<meta name="keywords" content="高效学习,如何学习,自我检录, 前端开发,CSS,HTML,JavaScript" />
+		<title>意休 | 你的高效之友</title>
+		<link rel="icon" href="images/baobao.png" type="image/png">
+		<link rel="bookmark" href="images/baobao.png" />
+		<link rel="stylesheet" type="text/css" href="css/review.css" />
+	</head>
+
+	<div class="menu">
+		<span class="circlebtn">折叠</span>
+		<span class="circlebtn">展开</span>
+		<span class="circlebtn">隐藏参考卡</span>
+		<span class="circlebtn">书写总结</span>
+		<span class="circlebtn">总结面板</span>
+	</div>
+
+	<!-- 书写框 -->
+	<div class="write">
+		<textarea class="writebox" placeholder="示例:#执行#能做的事情先去做,别想太多"></textarea>
+		<div><span class="circlebtn">重置</span><span class="circlebtn">提交</span></div>
+	</div>
+
+	<div class="main">
+		<div class="content">
+			<!-- 执行清单 -->
+			<header class="header">
+				<h3>执行清单<span class="arrowbtn">></span></h3>
+			</header>
+			<section class="part">
+				<div class="controlers">
+					<label>
+						<input type="checkbox" value="" />反选
+					</label>
+					<span class="circlebtn solvedBtn">处理</span>
+				</div>
+				<div class="list">
+					<p class="tips">提示：共有 <span class="thingsNum">0</span> 件事待做 （完成事件以打勾为标准）</p>
+					<ul class="detail tmpDolist"></ul>
+				</div>
+			</section>
+
+			<!-- 日历 -->
+			<header class="header">
+				<h3>日历清单<span class="arrowbtn">></span></h3>
+			</header>
+			<section class="part">
+				<div class="controlers">
+					<label>
+						<input type="checkbox" name="" id="" value="" />反选
+					</label>
+					<span class="circlebtn solvedBtn">处理</span>
+				</div>
+
+				<div class="list">
+					<p class="tips">提示：今天有<span class="thingsNum"></span>件事待做 （完成事件以打勾为标准）</p>
+					<ul class="detail tmpDaylist"></ul>
+
+				</div>
+				<div class="analyze">
+
+				</div>
+			</section>
+
+			<!-- 等待清单 -->
+			<header class="header">
+				<h3>等待清单-确否<span class="arrowbtn">></span></h3>
+			</header>
+			<section class="part">
+				<div class="controlers">
+					<label>
+						<input type="checkbox" name="" id="" value="" />反选
+					</label>
+					<span class="circlebtn solvedBtn">处理</span>
+				</div>
+				<div class="list">
+					<p class="tips">提示：不该我做的事，下一步是什么？主动拿结果，并且确保事情顺利被完成。（笔记：人与人之间交流需要注意什么）</p>
+					<ul class="detail tmpWaitlist">
+					</ul>
+				</div>
+			</section>
+
+			<!-- 项目清单 -->
+			<header class="header">
+				<h3>项目清单-拆否<span class="arrowbtn">></span></h3>
+			</header>
+			<section class="part">
+				<div class="controlers">
+					<a class="circlebtn solvedBtn" href="./mind.html" target="_blank">思维导图</a>
+					<span class="writebtn" onclick="ableToEdit(-3);"></span>
+				</div>
+				<div class="list">
+					<p class="tips">提示：做得怎么样了？下一步是什么？时机成熟了吗？可行性有多大？（推荐用思维导图拆分）</p>
+					<div class="detail tmpProject"></div>
+				</div>
+			</section>
+
+			<!-- 可能清单 -->
+			<header class="header">
+				<h3>可能清单-变否<span class="arrowbtn">></span></h3>
+			</header>
+			<section class="part">
+				<div class="controlers">
+					<span class="writebtn" onclick="ableToEdit(-2);"></span>
+				</div>
+				<div class="list">
+					<p class="tips">提示：时机？可能性？为什么做？什么时候做？怎么做？是否影响正常的目标和生活？（阐述想要做的原因和预期效果 难度 影响力）</p>
+					<div class="detail tmpMaylist"></div>
+				</div>
+			</section>
+		</div>
+
+		<!-- 参考卡 -->
+		<section class="aside">
+			<header class="header">
+				<h3>参考卡<span class="writebtn" onclick="ableToEdit(-1);"></span></h3>
+				<span class="circlebtn clearall">清空</span>
+			</header>
+			<div class="controlers">
+				<label>
+					<input type="radio" checked="true" name="card" value="参考资料" />参考资料
+				</label>
+				<label>
+					<input type="radio" name="card" value="回收箱" />回收箱
+				</label>
+			</div>
+			<div class="list">
+				<p class="tips">提示：能找到的不存，有价值或稀罕的存</p>
+				<div class="detail tmpReference"></div>
+			</div>
+			<div class="list hidden">
+				<p class="tips">提示：删除的事项都放在回收箱里</p>
+				<div class="detail tmpRecycle"></div>
+			</div>
+
+		</section>
+	</div>
+
+	<!-- 总结层 -->
+	<section class="upfloor">
+		<header>
+			<h3>验收阶段<small class="small">——暂不提供修改功能</small></h3>
+			<div class="controlers">
+				<label>
+					<input type="checkbox" checked="true" name="" id="" value="" />检查卡
+				</label>
+				<label>
+					<input type="checkbox" checked="true" name="" id="" value="" />完成卡
+				</label>
+				<label>
+					<input type="checkbox" checked="true" name="" id="" value="" />分析卡
+				</label>
+			</div>
+		</header>
+		<div class="analyzeCon">
+			<div class="list">
+				<h4>检查卡
+					<span class="writebtn" onclick="ableToEdit(0);"></span>
+					<span class="finishbtn">存</span>
+				</h4>
+				<div class="detail"></div>
+			</div>
+			<div class="list">
+				<h4>完成卡<span class="writebtn" onclick="ableToEdit(1);"></span></h4>
+				<div class="detail"></div>
+			</div>
+			<div class="list">
+				<h4>分析卡
+					<span class="writebtn" onclick="ableToEdit(2);"></span>
+					<span class="finishbtn">存</span>
+				</h4>
+				<div class="detail"></div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		var beforeData = {
+			sortList: [],
+			tmpRecycle: [],
+			tmpReference: [],
+			tmpMaylist: [],
+			tmpProject: [],
+			tmpWaitlist: [],
+			tmpDaylist: [],
+			tmpDolist: []
+		}
+		var recycle = document.getElementsByClassName("tmpRecycle")[0];
+		var reference = document.getElementsByClassName("tmpReference")[0];
+		var maylist = document.getElementsByClassName("tmpMaylist")[0];
+		var project = document.getElementsByClassName("tmpProject")[0];
+		var waitlist = document.getElementsByClassName("tmpWaitlist")[0];
+		var daylist = document.getElementsByClassName("tmpDaylist")[0];
+		var dolist = document.getElementsByClassName("tmpDolist")[0];
+		var thingsNums = document.getElementsByClassName("thingsNum");
+		// 数据更新
+		// 添加式库collectBox($分隔符，)  覆盖式库collectBoxNew
+		// notFirstSave collectIndex solvedAll  分类库collectSortBox（先~后$划分）
+		var sortBoxStr = localStorage.getItem("collectSortBox");
+		if (sortBoxStr) {
+			var sortBoxArr = sortBoxStr.split("~");
+			for (let b = 0; b < sortBoxArr.length; b++) {
+				if (/\$+/.test(sortBoxArr[b])) {
+					let arr = sortBoxArr[b].split("$");
+					arr.shift();
+					beforeData.sortList[b] = arr;
+				} else {
+					beforeData.sortList[b] = [];
+					// beforeData.sortList[b].push(sortBoxArr[b]);
+				}
+			}
+			beforeData.tmpDolist = beforeData.sortList[0];
+			beforeData.tmpDaylist = beforeData.sortList[1];
+			beforeData.tmpWaitlist = beforeData.sortList[2];
+			beforeData.tmpProject = beforeData.sortList[3];
+			beforeData.tmpMaylist = beforeData.sortList[4];
+			beforeData.tmpReference = beforeData.sortList[5];
+			beforeData.tmpRecycle = beforeData.sortList[6];
+
+			origin();
+			// console.log(beforeData.sortList);
+		} else {
+			console.log("内存中暂时没有数据");
+		}
+
+		function origin() {
+			datasolve(beforeData.sortList[0], dolist);
+			var num = beforeData.sortList[0].length;
+			thingsNums[0].innerText = num;
+			datasolve(beforeData.sortList[1], daylist);
+			var tmplist = beforeData.sortList[1];
+			if (tmplist.length) {
+				for (let i = 0; i < tmplist.length; i++) {
+					tmplist[i]
+				}
+			}
+
+			thingsNums[1].innerText = num;
+			datasolve(beforeData.sortList[2], waitlist);
+			datashow(beforeData.sortList[3], project);
+			datashow(beforeData.sortList[4], maylist);
+			datashow(beforeData.sortList[5], reference);
+			datashow(beforeData.sortList[6], recycle);
+		}
+
+		function datashow(list, obj) {
+			let str = '';
+			for (let a = 0; a < list.length; a++) {
+				str = str + '<p>' + list[a] + '</p>';
+			}
+			obj.innerHTML = str;
+		}
+
+		function datasolve(list, obj) {
+			let real = [];
+			list.map((item) => {
+				let li = '<li><label><input type="checkbox"/><span class="cbox"></span><b onclick="checkIt(event)">' + item +
+					'</b></label></li>';
+				real.push(li);
+			});
+			let realStr = real.join("");
+			obj.innerHTML = realStr;
+		}
+
+		function checkIt(event) {
+			// event.stopPropagation(); // IE则是使用e.cancelBubble = true
+			// event.cancelBubble = true;
+			const item = event.target;
+			if (item.classList.contains("finish")) {
+				item.classList.remove("finish");
+			} else {
+				item.classList.add("finish");
+			}
+		}
+
+		// function handleDelete(e) { // 单项删除,这里的index用值比对的方式
+		// 	const con = e.target.parentNode.querySelector("b").innerText;
+		// 	let list = doListState.list;
+		// 	const index = list.lastIndexOf(con);
+		// 	console.log(con, index);
+		// 	list.splice(index, 1);
+		// 	// splice有增有减，返回删除值，作用在原数组。
+
+		// 	let listItem = document.querySelector(".lists");
+		// 	listItem.removeChild(e.target.parentNode);
+		// 	if (list.length === 0) {
+		// 		const ul = document.getElementsByClassName("todoList")[0];
+		// 		ul.classList.remove("card");
+		// 		const tip = document.getElementsByClassName("tips")[0];
+		// 		tip.style.display = "none";
+		// 	}
+		// 	doListState.list = list;
+		// 	const num = document.querySelector(".tips b");
+		// 	num.innerText = list.length; // 显示当前的项目数
+		// }
+
+		function ableToEdit(num) {
+			if (num === -1) {
+				var details = document.querySelectorAll(".aside .detail");
+				details[0].contentEditable = true;
+				details[1].contentEditable = true;
+			} else if (num === -2) {
+				maylist.contentEditable = true;
+			} else if (num === -3) {
+				project.contentEditable = true;
+			} else {
+				var details = document.querySelectorAll(".analyzeCon .detail");
+				details[num].contentEditable = true;
+			}
+		}
+	</script>
+
+	<script>
+		var solvedbtns = document.getElementsByClassName("solvedBtn");
+		solvedbtns[0].onclick = function() {
+			// 已处理事项：时间+事项  删除的项目将放在回收箱里
+		}
+		solvedbtns[1].onclick = function() {
+			// 每一项有状态（等待事项 已解决事项 逾期事项） 删除的项目将放在回收箱和逾期里面
+			// * 已完成的项目将放在已解决事项中 	处理感想（完成事项数量+逾期事项数量+感悟）
+		}
+		solvedbtns[2].onclick = function() {
+
+		}
+		var nowCollect = 0;
+		var clearall = document.getElementsByClassName("clearall")[0];
+		clearall.onclick = function() {
+			if (nowCollect) {
+				// nowCollect 为1，清空回收箱
+				beforeData.sortList[6] = [];
+				datashow(beforeData.sortList[6], recycle);
+			} else {
+				// nowCollect 为0，清空参考资料表
+				beforeData.sortList[5] = [];
+				datashow(beforeData.sortList[5], reference);
+			}
+			// 储存sortList
+
+		}
+		var asideTogs = document.querySelectorAll(".aside input");
+		var collect = document.querySelectorAll(".aside .list");
+
+		asideTogs[0].onclick = function() {
+			if (asideTogs[0].checked) {
+				collect[0].style.display = "block";
+				collect[1].style.display = "none";
+				nowCollect = 0;
+			} else {
+				collect[0].style.display = "none";
+				collect[1].style.display = "block";
+				nowCollect = 1;
+			}
+		}
+		asideTogs[1].onclick = function() {
+			if (!asideTogs[1].checked) {
+				collect[0].style.display = "block";
+				collect[1].style.display = "none";
+				nowCollect = 0;
+			} else {
+				collect[0].style.display = "none";
+				collect[1].style.display = "block";
+				nowCollect = 1;
+			}
+		}
+	</script>
+	<script>
+		var sumaryList = [];
+		var places = document.querySelectorAll(".analyzeCon .detail");
+		var arrowBtns = document.getElementsByClassName("arrowbtn");
+		var parts = document.getElementsByClassName("part");
+		for (let i = 0; i < arrowBtns.length; i++) {
+			arrowBtns[i].onclick = function() {
+				if (arrowBtns[i].innerText === "<") {
+					parts[i].style.display = "block";
+					arrowBtns[i].innerText = ">";
+				} else {
+					parts[i].style.display = "none";
+					arrowBtns[i].innerText = "<";
+				}
+			}
+		}
+		// 首行menu的按钮 +笔记button
+		var menuBtns = document.getElementsByClassName("circlebtn");
+		menuBtns[0].onclick = function() {
+			for (let i = 0; i < arrowBtns.length; i++) {
+				parts[i].style.display = "none";
+				arrowBtns[i].innerText = "<";
+			}
+		}
+		menuBtns[1].onclick = function() {
+			for (let i = 0; i < arrowBtns.length; i++) {
+				parts[i].style.display = "block";
+				arrowBtns[i].innerText = ">";
+			}
+		}
+		menuBtns[2].onclick = function() {
+			var aside = document.getElementsByClassName("aside")[0];
+			if (menuBtns[2].innerText === "隐藏参考卡") {
+				aside.style.display = "none";
+				menuBtns[2].innerText = "显示参考卡";
+			} else {
+				menuBtns[2].innerText = "隐藏参考卡";
+				aside.style.display = "block";
+			}
+		}
+		menuBtns[3].onclick = function() {
+			var write = document.getElementsByClassName("write")[0];
+			if (menuBtns[3].innerText === "书写总结") {
+				write.style.display = "block";
+				menuBtns[3].innerText = "隐藏书写";
+			} else {
+				menuBtns[3].innerText = "书写总结";
+				write.style.display = "none";
+			}
+		}
+
+		var floor = document.getElementsByClassName("upfloor")[0];
+		menuBtns[4].onclick = function() {
+			if (menuBtns[4].innerText === "总结面板") {
+				floor.style.display = "block";
+				menuBtns[4].innerText = "关闭面板";
+			} else {
+				menuBtns[4].innerText = "总结面板";
+				floor.style.display = "none";
+			}
+		}
+		var flcheckeds = floor.querySelectorAll("input");
+		var fllists = document.querySelectorAll(".analyzeCon .list");
+		for (let j = 0; j < flcheckeds.length; j++) {
+			flcheckeds[j].onclick = function() {
+				if (flcheckeds[j].checked) {
+					fllists[j].style.display = "block";
+				} else {
+					fllists[j].style.display = "none";
+				}
+			}
+		}
+		// 反向 全选
+		var concheckeds = document.querySelectorAll(".content .controlers input");
+		for (let j = 0; j < concheckeds.length; j++) {
+			concheckeds[j].onclick = function() {
+				if (concheckeds[j].checked) {
+					if (j === 0) {
+						selectReverse(dolist);
+					} else if (j === 1) {
+						selectReverse(daylist);
+					} else if (j === 2) {
+						selectReverse(waitlist);
+					}
+				}
+			}
+		}
+			function selectReverse(obj) {
+				var items = obj.querySelectorAll("b");
+				for (let t = 0; t < items.length; t++) {
+					if (items[t].classList.contains("finish")) {
+						items[t].classList.remove("finish");
+					} else {
+						items[t].classList.add("finish");
+					}
+				}
+			}
+
+			var textArea = document.getElementsByClassName("writebox")[0];
+			menuBtns[5].onclick = function() {
+				textArea.value = "";
+			}
+			menuBtns[6].onclick = function() {
+				var val = textArea.value;
+				if (val.trim()) {
+					sumaryList[sumaryList.length] = val.trim();
+					textArea.value = "";
+					datashow(sumaryList, places[2]);
+				}
+			}
+	</script>
+	</body>
+</html>
