@@ -27,10 +27,10 @@
 				</div>
 				<nav class="nav">
 					<ul>
-						<li class="daka"><a href="javascript:;"><i>打卡</i><b>打卡</b><span></span></a></li>
-						<li><a href="./works.html"><i>Works</i><b>个人作品</b></a></li>
-						<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
-						<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
+						<li class="daka"><a href="javascript:;"><i>打卡</i><span></span></a></li>
+						<li><a href="./works.html"><i>Works</i></a></li>
+						<li><a href="./share.html"><i>Share</i></a></li>
+						<li><a href="./play.html"><i>Play</i></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -386,7 +386,7 @@
 		<section>
 			<div class="toFixed">
 				<button type="button" id="nBtnSetThings" class="ybtn_box">统筹</button>
-				<button type="button" id="nBtnAsk" class="ybtn_box">提问</button>
+				<button type="button" id="nBtnAsk" class="ybtn_box" ><a href="./toreview.html">处理</a></button>
 				<button type="button" id="nBtnDiscuss" class="ybtn_box">评论</button>
 				<button type="button" id="nBtnNote" class="ybtn_box">本子</button>
 			</div>
@@ -600,14 +600,6 @@
 			}
 
 			function readSortBox() { // 初始化或每次处理数据都执行
-
-				//执行清单--focus on one thing$1~  slist[y]
-				// 日历事项--调好闹钟~
-				// 等待清单--主动去拿结果~
-				//项目清单--项目太大，分解成可实现的任务吧~
-				// 可能清单--现在时机成熟了吗？~
-				// 参考资料--能找到的不存，有价值或稀罕的存~
-				// 回收箱--有些事还真的不是事
 				if (localStorage.getItem("collectSortBox")) {
 					let sortListStr = localStorage.getItem("collectSortBox");
 					// console.log("getitem得到的sortlist是"+sortListStr);
@@ -646,7 +638,7 @@
 				if (val >= 0 && item) {
 					if (val === 1) {
 						const inputDate = document.querySelector("[type='date']").value;
-						item = item + "……[最后期限：" + inputDate + "]";
+						item = item + "……最后期限：" + inputDate ;
 					}
 					let sortlist = doListState.sortList;
 					let slist = sortlist[val]; // slist是 取出对应分类

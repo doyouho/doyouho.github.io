@@ -98,11 +98,13 @@ function noteOn() {
 	
 				
 	// 事件 ---提问（实现：获取选区的文本，并显示在提问框中。特别：需要对提问的文本内容进行整合？）
-	document.getElementById("nBtnAsk").onclick = function() {
-		getSelectionText();
-		openTlq();
-		document.getElementById("disWords").value = forNote.seltxt;
-	}
+	// document.getElementById("nBtnAsk").onclick = function() { // 之前是提问
+	// 	// getSelectionText();
+	// 	// openTlq();
+	// 	// document.getElementById("disWords").value = forNote.seltxt;
+	// }
+	
+	
 	
 }
 
@@ -140,15 +142,15 @@ function generateFormData() {
 };
 
 // 函数2. getSelectionText() ---获取选中文本的操作  用 forNote.seltxt 存选中的文字
-function getSelectionText() {
-	if (window.getSelection) {
-		forNote.seltxt = window.getSelection().toString();
-	} else if (document.getSelection) {
-		forNote.seltxt = document.getSelection().toString();
-	} else if (document.selection) {
-		forNote.seltxt = document.selection.createRange().text;
-	}
-}
+// function getSelectionText() {
+// 	if (window.getSelection) {
+// 		forNote.seltxt = window.getSelection().toString();
+// 	} else if (document.getSelection) {
+// 		forNote.seltxt = document.getSelection().toString();
+// 	} else if (document.selection) {
+// 		forNote.seltxt = document.selection.createRange().text;
+// 	}
+// }
 
 function openTcq() {
 	document.getElementsByClassName("winBack")[0].style.display = "block";
