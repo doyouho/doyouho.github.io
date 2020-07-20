@@ -88,7 +88,7 @@ $.ajax({
 		url:"./data/sentence.txt",
 		dataType:"text",
 		success:function(re){
-			var da_senList=re.split("+");
+			var da_senList=re.split("~");
 			var da_home=da_senList[0].split(";");
 			var num = da_home.length;
 			var index_suji=0;

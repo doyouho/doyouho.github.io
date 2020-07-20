@@ -21,7 +21,7 @@ $.ajax({
 		data:"",
 		dataType:"text",
 		success:function(re_s){
-			var s_senList=re_s.split("+");
+			var s_senList=re_s.split("~");
 			var da_share=s_senList[2].split(";");
 			var num_s = da_share.length;
 			var share_suji=0;

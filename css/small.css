@@ -1,0 +1,259 @@
+/*当768px<=width<=991px时  设为750 -- 未完修改*/
+@media (max-width:991px){
+	html{
+		font-size: 16px;
+	}
+	.hd,.banner,.banner li,.words,.new,.games,.videos,.songs,.fictions,.share_con,.play,.play_con li,.play_con .youxi,.art_tankuang,.game_body,.game_top,.games_con,.games_con .game,.share_con,.play_title,.fic_con,.all_article ,.article_toc,.all_article .article,.article .con_out,.heal_out,.zhiyuwen{
+		width: 46.875rem;
+	}
+
+	.sousuokuang {
+		display: none;
+	}
+	
+	.zhiyuwen .zhiyuwen_con span{
+		font-weight: 700;
+	}
+	
+	.banner img{
+		width:  46.875rem;
+	}
+	.model_con {
+		flex-wrap: wrap;
+	}
+	.model_con .box{
+		overflow: hidden;
+	}
+	.title{
+		margin-bottom: 1.25rem;
+	}
+	.title.play_title{
+		margin-bottom: 0px;
+	}
+	.model_con .box,.model_con .box_kuang{
+		width: 18.75rem;
+		height: 10rem;
+		margin-bottom: 1.875rem;
+	}
+	
+	.model_con .box_kuang{
+		top:23.75rem;
+	}
+	
+	
+	.box_kuang.kuang1,.box_kuang.kuang2{
+		top: -11.25rem;
+	}
+	.box3:hover .kuang3,.box4:hover .kuang4{
+		top: 11.875rem;
+	}
+	
+	.fic_box,.song_con .gequ_box{
+		margin-bottom:3.75rem;
+	}
+	
+	.heal_body ,.fic_body,.game_body,.share_body{
+		width: 100%;
+		min-width: 46.875rem;
+	}
+	.share_box{
+		width: 21.25rem;
+		height: 18.75rem;
+		display: none;
+	}
+	.kapian .share_box:nth-child(1){
+		display: block;
+	}
+	.kapian .share_box:nth-child(2){
+		display: block;
+	}
+	
+	/* play页面 */
+	.play{
+		min-height: 34.375rem;
+		position: relative;
+		height: auto;
+	}
+	
+	.play_con li{
+		min-height: 31.75rem;
+		height: auto;
+	}
+	.play_title a{
+		margin-right: 3.25rem;
+	}
+	.play_title h3{
+		padding:0 2.25rem;
+	}
+	
+	.play_con .out_kuang {
+		height: auto;
+	}
+	
+	.out_kuang .wen_kuang{
+		width: 32rem;
+	}
+	
+	.out_kuang .wen_kuang p{
+		padding:0px 0.5rem;
+	}
+	 
+	
+	.play_con .gushi{
+		margin:2rem 1rem;
+		width: 44.875rem;
+		position: relative;
+		height: 62.5rem;
+	}
+	.gushi .gs_con{
+		width: 44.875rem;
+		height: 62.5rem;
+	}
+	.gushi .navOpenBtn{
+		display: block;
+		position: absolute;
+		right: 1.25rem;
+		top:28.5rem;
+		font-size: 3.75rem;
+		color:#BBBBBB ;
+		cursor: pointer;
+	}
+	.gushi .navOpenBtn:hover{
+		color: #666666;
+	}
+	.gushi .navCloseBtn{
+		width: 3.75rem;
+		height:2.5rem;
+		position: absolute;
+		right: 0rem;
+		top:1.125rem;
+		font-size:1.75rem;
+		text-align: center;
+		vertical-align: text-top;
+		color:#98f1f1;
+		cursor: pointer;
+		z-index:8;
+		font-weight: 700;
+		transform: rotate(330deg);
+		transition: 0.3s;
+	}
+	.gushi .navCloseBtn:hover{
+		transform: unset;
+	}
+	.gushi .gs_text{
+		width: 38.75rem;
+		height: 60rem;
+	}
+	.gushi .gs_nav{
+		position: absolute;
+		right:-1rem;
+		top:0;
+		display: none;
+	}
+	
+	
+	.play_con .gedan{
+		width:40.625rem;
+		height: 330px;
+		margin: 1rem 3.125rem;
+		background-repeat: no-repeat;
+		background-size: contain;
+		position: relative;
+		display: block;
+		text-align: left;
+		padding:0px 0 30px;
+	}
+	.play_con li:nth-child(3){
+		flex-direction: column;
+	}
+	.play_con .gedan:nth-child(2) {
+		margin: 1rem 3.125rem;
+	}
+	
+	.play_con .gedan h4{
+		margin-top: 1.875rem;
+		margin-left: 17.5rem;
+	}
+	.play_con .gedan h4:hover{
+		display: none;
+	}
+	
+	.play_con .gedan p{
+		font-size: 0.9375rem;
+		max-height: 999999px;
+		padding: 0.125rem 4.375rem;
+		margin-left: 9.375rem;
+		
+	}
+	
+	.play_con .gedan img{
+		margin: 0px 20.6875rem;
+	}
+	
+	.play_con .gedan a{
+		position: absolute;
+		top:6.5rem;
+		left:6.25rem;
+		width: 1.125rem;
+		padding: 0.625rem;
+		font-size:1rem;
+	}
+	.play_con .gedan .lyrics{
+		height: 72%;
+		width: 100%;
+		position: absolute;
+		overflow:auto ;
+		bottom:5px;
+		left: 0px;
+		
+	}
+	.back_doit{
+		padding:1.25rem 2.5rem;
+		width: 80%;
+	}
+	
+	.suiji_choose dd{
+		width: 96%;
+		margin: 1.25rem 0.875rem 1.875rem;
+		box-shadow: 0 0 2px #eee;
+	}
+	.suiji_choose dd:hover{
+		background-size: 11%;
+	}
+	
+	.art_aside{
+		flex:2;
+	}
+	
+	.article .con{
+		width:40.625rem;
+	}
+	
+	
+	.heal_out .hl_box{
+		width: 15rem;
+		padding: 0.5rem;
+	}
+	
+	.heal_out .hl_box:nth-of-type(2){
+		margin:0 -0.5625rem;
+	}
+	.heal_out .tishi_box{
+		width: 46.875rem;
+	}
+	
+	.zhiyuwen .zhiyuwen_con{
+		width: 44.375rem;
+	}
+	.game .game_pic{
+		width: 15rem;
+		height: 8.375rem;
+		background-size: cover;
+	}
+		
+	.game .game_word{
+		width: 25.375rem;
+	}
+	
+	
+}
