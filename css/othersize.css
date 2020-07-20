@@ -127,10 +127,11 @@
 	.heal_out .tishi_words{
 		font-size: 14px;
 		max-height: 999999px;
+		
 	}
 }
 
-//*当768px<=width<=991px时  设为750*/
+/*当768px<=width<=991px时  设为750*/
 @media (max-width:991px){
 	html{
 		font-size: 16px;

@@ -1128,7 +1128,7 @@ input::-webkit-input-placeholder {
 	background-color: white;
 	background-image: url(../images/sentence/suiji.jpg);
 	background-repeat: no-repeat;
-	background-size: 16%;
+	background-size: 14%;
 	background-position: 42px bottom;
 	color: #fdaaa6;
 }
@@ -1473,7 +1473,6 @@ input::-webkit-input-placeholder {
 
 .heal_out .tishi_words {
 	margin-top: 32px;
-	float: left;
 	display: inline-block;
 	width: 100%;
 	font-size: 12px;
@@ -1548,13 +1547,13 @@ input::-webkit-input-placeholder {
 .heal_body ,.fic_body,.game_body{
 	min-width: 1200px;
 	width: 100%;
-	/* 如果低版本浏览器不支持可以使用css filter(滤镜)属性兼容。 */
-	background: -webkit-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Firefox 3.6 - 15 */
-	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);/* 标准的语法（必须放在最后） */
 	background-repeat: no-repeat;
 	background-color: #1CEFFF ;
+	/* 如果低版本浏览器不支持可以使用css filter(滤镜)属性兼容。 */
+	background: -webkit-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Firefox 3.6 - 15 */
+	background:linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);/* 标准的语法（必须放在最后） */
 }
 
 
