@@ -143,11 +143,16 @@
 	.hd,.banner,.banner li,.words,.new,.games,.videos,.songs,.fictions,.share_con,.play,.play_con li,.play_con .youxi,.art_tankuang,.game_body,.game_top,.games_con,.games_con .game,.share_con,.play_title,.fic_con,.all_article ,.article_toc,.all_article .article,.article .con_out,.heal_out,.zhiyuwen{
 		width: 46.875rem;
 	}
+	.article_toc{
+		height: 9.460737rem;
+	}
 
 	.sousuokuang {
 		display: none;
 	}
-	
+	.article h1,.article .con_out .more{
+		font-size: 1rem;
+	}
 	
 	/* 字体修改 */
 	.article_toc li,
@@ -160,19 +165,22 @@
 	.hd li b,
 	.words p,
 	.share_box p,
-	.back_doit,
-	.gushi .gs_nav h4,
-	.article .key_w,
-	.game .game_word p,
-	.gushi .gs_text p,
-	.play_con .gushi,
-	.toc p,
-	.toc span{
+	.back_doit{
 		font-size:1rem;
 		max-height: 999999px;
 	}
 		
-	
+	/* .play_con .gushi, */
+	.gushi .gs_nav h4,
+	.gushi .gs_text p,
+	.article .key_w,
+	.game .game_word p,
+	.game_word a,
+	.toc p,
+	.toc span{
+		font-size:1.15rem;
+		max-height: 999999px;
+	}
 	
 	.play_title h3,
 	.gs_text h5,
@@ -217,6 +225,10 @@
 	}
 	.model_con {
 		flex-wrap: wrap;
+		
+	}
+	.song_con{
+		padding-bottom: 2rem;
 	}
 	.model_con .box{
 		overflow: hidden;
@@ -260,7 +272,7 @@
 	}
 	.share_box{
 		width: 21.5rem;
-		height: 18.75rem;
+		height: 20rem;
 	} 
 	.share_box p{
 		font-size: 1.1rem;
@@ -428,10 +440,7 @@
 	.suiji_choose dd:hover{
 		background-size: 11%;
 	}
-	
-	.art_aside{
-		flex:2;
-	}
+
 	
 	.article .con{
 		width:40.625rem;
