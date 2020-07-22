@@ -148,9 +148,65 @@
 		display: none;
 	}
 	
+	
+	/* 字体修改 */
+	.article_toc li,
+	.art_aside dd,
+	.art_aside p {
+		font-size:1.1rem;
+		max-height: 999999px;
+	}
+	.hd li i,
+	.hd li b,
+	.words p,
+	.share_box p,
+	.back_doit,
+	.gushi .gs_nav h4,
+	.article .key_w,
+	.game .game_word p,
+	.gushi .gs_text p,
+	.play_con .gushi,
+	.toc p,
+	.toc span{
+		font-size:1rem;
+		max-height: 999999px;
+	}
+		
+	
+	
+	.play_title h3,
+	.gs_text h5,
+	.article .con p,
+	.heal_out .tishi_box p,
 	.zhiyuwen .zhiyuwen_con span{
+		font-size: 1.15rem ;
+		max-height: 999999px;
+	}
+	.model_con p,
+	.title a,
+	.new_title span,
+	.fic_head span,
+	.footer ,
+	.footer h1,
+	.heal_out .tishi_words{
+		font-size:  0.9rem;
+		max-height: 999999px;
+		
+	}
+	
+		
+	.article .con p{
+		line-height: 1.6rem;
+	}
+	.article_kuang p{
+		font-size: 1.15rem;
+	}
+	.zhiyuwen .zhiyuwen_con span{
+		font-size: 1.05rem;
 		font-weight: 700;
 	}
+	
+	
 	
 	.banner img{
 		width:  46.875rem;
@@ -168,8 +224,9 @@
 	.title{
 		margin-bottom: 1.25rem;
 	}
-	.title.play_title{
-		margin-bottom: 0px;
+	.play_title{
+		height: 2.365184rem;
+		margin-bottom: unset;
 	}
 	.model_con .box,.model_con .box_kuang{
 		width: 21rem;
@@ -206,7 +263,7 @@
 		height: 18.75rem;
 	} 
 	.share_box p{
-		font-size: 1.040681rem;
+		font-size: 1.1rem;
 	}
 	.share_con{
 		justify-content: space-around;
@@ -232,7 +289,7 @@
 		margin-right: 3.25rem;
 	}
 	.play_title h3{
-		padding:0 2.25rem;
+		padding:0.2rem 2.25rem;
 	}
 	
 	.play_con .out_kuang {
@@ -245,6 +302,8 @@
 	
 	.out_kuang .wen_kuang p{
 		padding:0px 0.5rem;
+		line-height: 1.4rem;
+		font-size: 1.1rem;
 	}
 	 
 	
@@ -393,6 +452,7 @@
 	
 	.zhiyuwen .zhiyuwen_con{
 		width: 44.375rem;
+		height: auto;
 	}
 	.game .game_pic{
 		width: 15rem;
@@ -403,6 +463,8 @@
 	.game .game_word{
 		width: 25.375rem;
 	}	
-	
+	.words p{
+		font-size: 1.02rem;
+	}
 }
 

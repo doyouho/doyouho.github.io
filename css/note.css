@@ -1462,6 +1462,9 @@ ul.card::-webkit-scrollbar {
 		min-width: 768px;
 	}
 	
+	html{
+		font-size: 18px;
+	}
 	.hd ,.taskForWork{
 		width: 750px;
 	}
@@ -1576,12 +1579,13 @@ ul.card::-webkit-scrollbar {
 		max-height: 999999px;
 	}
 
+
 	ul.card {
 		width: 380px;
 		max-height: 50vh;
 	}
 
-	.doList ul li {
+	.doList ul li, .textTips {
 		font-size: 18px;
 		max-height: 999999px;
 	}
@@ -1589,6 +1593,8 @@ ul.card::-webkit-scrollbar {
 	.tips button {
 		margin-left: 32px;
 	}
+	
+	
 
 	/* 右边显示框 */
 	.doList .aside {
