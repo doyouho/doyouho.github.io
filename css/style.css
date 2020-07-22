@@ -757,9 +757,10 @@ input::-webkit-input-placeholder {
 
 .share_box {
 	width: 365px;
-	border: 1px solid #e1e1e1;
 	margin: 16px;
 	height: 240px;
+	box-shadow: 0 0 0 1px #e1e1e1,
+	0 0 0 6px #ffffff;
 }
 
 .share_box a {
@@ -776,9 +777,14 @@ input::-webkit-input-placeholder {
 }
 
 .share_box:hover {
-	background-color: #cee8f8;
-	
+	background-color: #fffae8;
+	box-shadow: 0 0 2px 1px #38caad,
+	0 0 0 16px #ffffff,
+	-18px -18px #FF0099,
+	18px 18px #FF0099;
 }
+
+
 
 .share_box h4 {
 	padding: 12px 14px;
@@ -795,7 +801,6 @@ input::-webkit-input-placeholder {
 .play_back {
 	width: 100%;
 	height: 620px;
-	background: url(../images/sentence/0000.jpg) center bottom no-repeat;
 }
 
 .play {

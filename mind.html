@@ -200,6 +200,15 @@
 				text-align: center;
 				cursor: pointer;
 			}
+			@media (max-width:1199px){
+				.jsmind_menu{
+					width: 18.75rem;
+					flex: 15;
+				}
+				.jsmind_body{
+					max-width: 60%;
+				}
+			}
 		</style>
 		<link type="text/css" rel="stylesheet" href="./jsmind/style/jsmind.css" />
 	</head>
@@ -225,8 +234,8 @@
 					<p>整体配色-优先级比主题颜色高：</p>
 					<button type="button" onclick="colorTemplate('colorful');">彩色</button>
 					<button type="button" onclick="colorTemplate('linear');">渐变</button>
-					<button type="button" onclick="colorTemplate('black');">黑字体</button>
-					<button type="button" onclick="colorTemplate('white');">白字体</button>
+					<button type="button" onclick="colorTemplate('black');">黑字</button>
+					<button type="button" onclick="colorTemplate('white');">白字</button>
 					<button type="button" onclick="colorTemplate('multi');" class="hasSetColor">默认配色</button>
 					<button type="button" onclick="openConfig();">配置</button>
 				</div>

@@ -22,14 +22,14 @@ input{
 	padding:4px 16px;
 	display: inline-block;
 	border-radius: 16px;
-	margin:0px 8px;
+	margin:10px 8px 0px;
 	cursor: pointer;
 	font-size: 14px;
 	background-color: white;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-appearance: none;
 }
-.circlebtn.focus{
+.circlebtn.orange{
 	background-color: #ff4f1a;
 	color: white;
 }
@@ -46,8 +46,7 @@ input{
 
 .menu{
 	text-align: right;
-	height: 42px;
-	padding-top: 10px;
+	height: 52px;
 	background-color: #1ABC9C ;
 	position: fixed;
 	left: 0;
@@ -120,7 +119,7 @@ input{
 .clearall{
 	position: absolute;
 	right: 0;
-	top: 2px;
+	top: -8px;
 	color: #000000;
 }
 /* write */
@@ -132,7 +131,7 @@ input{
 	position: fixed;
 	left: 0;
 	top:52px;
-	height: 30%;
+	height: 36%;
 	display: none;
 }
 .write textarea{
@@ -148,7 +147,7 @@ input{
 
 .write .btns{
 	text-align: center;
-	margin-top: 10px;
+	margin-bottom: 10px;
 	position: relative;
 }
 

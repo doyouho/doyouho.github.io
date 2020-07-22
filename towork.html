@@ -36,6 +36,7 @@
 			</div>
 		</header>
 		<div class="slideBox">
+			<span class="closebtn">×</span>
 			<ul class="dayCheck">
 				<li><input type="text" class="writeIn" placeholder="新项目需要点击保存才生效" /><span class="addItemBtn">增加项目</span><span class="saveChange">保存</span></li>
 				<li><span>学习项目</span><span>学习天数</span>once a day</li>
@@ -46,7 +47,10 @@
 			// 页面计时的动画实现
 			var dakaState = false;
 			var oDaKa = document.getElementsByClassName("daka")[0];
-			oDaKa.onclick = function(){
+			var oClose = document.getElementsByClassName("closebtn")[0];
+			oClose.onclick = toggleDaka;
+			oDaKa.onclick = toggleDaka;
+			function toggleDaka(){
 				var oSliBox = document.getElementsByClassName("slideBox")[0];
 				if(dakaState){
 					oSliBox.classList.remove("active");
@@ -386,7 +390,7 @@
 		<section>
 			<div class="toFixed">
 				<button type="button" id="nBtnSetThings" class="ybtn_box">统筹</button>
-				<button type="button" id="nBtnAsk" class="ybtn_box" ><a href="./toreview.html">处理</a></button>
+				<button type="button" id="nBtnAsk" class="ybtn_box" ><a href="./toreview.html" target="_blank">处理</a></button>
 				<button type="button" id="nBtnDiscuss" class="ybtn_box">评论</button>
 				<button type="button" id="nBtnNote" class="ybtn_box">本子</button>
 			</div>
