@@ -135,7 +135,7 @@
 /*当768px<=width<=991px时  设为750 */
 @media (max-width:991px){
 	html{
-		font-size: 16px;
+		font-size: 21.14px;
 	}
 	.hd,.banner,.banner li,.words,.new,.games,.videos,.songs,.fictions,.share_con,.play,.play_con li,.play_con .youxi,.art_tankuang,.game_body,.game_top,.games_con,.games_con .game,.share_con,.play_title,.fic_con,.all_article ,.article_toc,.all_article .article,.article .con_out,.heal_out,.zhiyuwen{
 		width: 46.875rem;
@@ -151,6 +151,10 @@
 	
 	.banner img{
 		width:  46.875rem;
+	}
+		
+	.new_con .box{
+		background-size: cover;
 	}
 	.model_con {
 		flex-wrap: wrap;
@@ -198,11 +202,13 @@
 		width: 21.5rem;
 		height: 18.75rem;
 	} 
-
+	.share_con{
+		justify-content: space-around;
+	}
 	
 	/* play页面 */
 	.play{
-		min-height: 34.375rem;
+		min-height: 33.375rem;
 		position: relative;
 		height: auto;
 	}
@@ -286,13 +292,13 @@
 	
 	.play_con .gedan{
 		width:40.625rem;
-		min-height: 330px;
+		min-height: 16.083254rem;
 		margin: 1rem 3.125rem;
 		background-repeat: no-repeat;
 		background-size: contain;
 		position: relative;
 		display: block;
-		text-align: left;
+		text-align: center;
 		padding:0px 0 30px;
 	}
 	.play_con li:nth-child(3){
@@ -306,9 +312,7 @@
 		margin-top: 1.875rem;
 		margin-left: 18.5rem;
 	}
-	.play_con .gedan h4:hover{
-		display: none;
-	}
+	
 	
 	.play_con .gedan p{
 		font-size: 0.9375rem;
@@ -319,7 +323,8 @@
 	}
 	
 	.play_con .gedan img{
-		margin: 0px 20.6875rem;
+		margin-top: 1.875rem;
+		margin-left: 18.5rem;
 	}
 	
 	.play_con .gedan a{
@@ -346,8 +351,9 @@
 	
 	.suiji_choose dd{
 		width: 96%;
-		margin: 1.25rem 0.875rem 1.875rem;
+		margin: 0.75rem 0.875rem ;
 		box-shadow: 0 0 2px #eee;
+		height:8.041627rem;
 	}
 	.suiji_choose dd:hover{
 		background-size: 11%;
@@ -370,7 +376,7 @@
 	.heal_out .hl_box:nth-of-type(2){
 		margin:0 -0.5625rem;
 	}
-	.heal_out .tishi_box{
+	.heal_out .tishi_box{		
 		width: 46.875rem;
 	}
 	
@@ -388,3 +394,4 @@
 	}	
 	
 }
+
