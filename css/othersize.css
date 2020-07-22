@@ -105,10 +105,13 @@
 	.play_con .gushi,
 	.toc p,
 	.toc span{
-		font-size:16px;
+		font-size:0.9rem;
 		max-height: 999999px;
 	}
-	
+		
+	.gushi .gs_text p{
+		margin-bottom: 12px;
+	}
 	
 	.play_title h3,
 	.gs_text h5,
@@ -116,7 +119,7 @@
 	.heal_out .tishi_box p,
 	.out_kuang .wen_kuang p,
 	.zhiyuwen .zhiyuwen_con span{
-		font-size: 15px ;
+		font-size: 0.8rem ;
 		max-height: 999999px;
 	}
 	.model_con p,
@@ -126,7 +129,7 @@
 	.footer ,
 	.footer h1,
 	.heal_out .tishi_words{
-		font-size: 14px;
+		font-size: 0.72rem;
 		max-height: 999999px;
 		
 	}
@@ -169,7 +172,7 @@
 		margin-bottom: 0px;
 	}
 	.model_con .box,.model_con .box_kuang{
-		width: 18.75rem;
+		width: 21rem;
 		height: 10rem;
 		margin-bottom: 1.875rem;
 	}
@@ -202,6 +205,9 @@
 		width: 21.5rem;
 		height: 18.75rem;
 	} 
+	.share_box p{
+		font-size: 1.040681rem;
+	}
 	.share_con{
 		justify-content: space-around;
 	}
@@ -344,7 +350,7 @@
 		height: 72%;
 		width: 100%;
 		position: absolute;
-		overflow:hidden;
+		overflow:auto;
 		bottom:5px;
 		left: 0px;
 		

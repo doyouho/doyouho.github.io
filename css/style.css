@@ -779,9 +779,9 @@ input::-webkit-input-placeholder {
 .share_box:hover {
 	background-color: #fffae8;
 	box-shadow: 0 0 2px 1px #38caad,
-	0 0 0 16px #ffffff,
-	-18px -18px #FF0099,
-	18px 18px #FF0099;
+	0 0 0 12px #ffffff,
+	-14px -14px #FF0099,
+	14px 14px #FF0099;
 }
 
 
