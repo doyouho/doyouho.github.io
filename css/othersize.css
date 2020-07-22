@@ -150,11 +150,12 @@
 	.sousuokuang {
 		display: none;
 	}
+	/* 字体修改 */
 	.article h1,.article .con_out .more{
 		font-size: 1rem;
 	}
-	
-	/* 字体修改 */
+		
+
 	.article_toc li,
 	.art_aside dd,
 	.art_aside p {
@@ -163,6 +164,8 @@
 	}
 	.hd li i,
 	.hd li b,
+	.model_con b,
+	.model_con h2,
 	.words p,
 	.share_box p,
 	.back_doit{

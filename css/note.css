@@ -155,7 +155,7 @@ body {
 	display: block;
 	font-style: normal;
 	font-weight: 400;
-	padding: 0 18px;
+	padding: 0 27px;
 	height: 66px;
 	line-height: 66px;
 	font-size: 14px;
@@ -187,6 +187,7 @@ body {
 	border-left: 32px solid #fca5d3;
 	border-right: 32px solid #fca5d3;
 	top: 0;
+	left: 10px;
 }
 
 form.out:focus-within {
@@ -1326,7 +1327,7 @@ ul.card::-webkit-scrollbar {
 		margin: 18px 4px 18px 20px;
 	}
 	.sousuokuang {
-		width: 320px;
+		width: 280px;
 	}
 
 	.hd,.taskForWork{
@@ -1463,10 +1464,10 @@ ul.card::-webkit-scrollbar {
 	}
 	
 	html{
-		font-size: 18px;
+		font-size: 21.14px;
 	}
-	.hd ,.taskForWork{
-		width: 750px;
+	.hd,.taskForWork{
+		width: 46.875rem;
 	}
 	
 	.sousuokuang {
@@ -1475,7 +1476,7 @@ ul.card::-webkit-scrollbar {
 	
 	
 	.taskContent {
-		width: 670px;
+		width: 35.477767rem;
 	}
 	
 	.scrollbar {
@@ -1491,8 +1492,9 @@ ul.card::-webkit-scrollbar {
 	
 	/* 字体处理 */
 	.hd li i,
-	.hd li b{
-		font-size: 18px;
+	.hd li b,
+	#existNoteList li p{
+		font-size: 1rem;
 		max-height: 999999px;
 	}
 	#allTaskData,
@@ -1501,6 +1503,9 @@ ul.card::-webkit-scrollbar {
 		max-height: 999999px;
 	}
 	
+	.nav .daka span {
+		left: 16px;
+	}
 	/* 下面两个字设置的大小很奇怪，设16不管用，自动变20多 */
 	.taskType b,
 	.taskSkill b {

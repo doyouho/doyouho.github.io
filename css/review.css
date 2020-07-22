@@ -377,3 +377,11 @@ li:hover .cbox {
 .isEdit .detail .deletebtn{
 	display: none;
 }
+@media (max-width:991px) {
+	.detail{
+		font-size: 18px;
+	}
+	.circlebtn{
+		max-width: 94px;
+	}
+}
