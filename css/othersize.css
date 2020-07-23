@@ -76,7 +76,7 @@
 	
 	/* 综合调整 */
 	
-	.hd,.banner,.banner li,.banner img,.words,.new,.games,.videos,.songs,.fictions,.share_con,.play,.play_con li,.play_con .youxi,.art_tankuang,.game_body,.game_top,.games_con,.games_con .game,.share_con,.play_title,.fic_con,.all_article ,.article_toc,.all_article .article,.article .con_out,.heal_out,.zhiyuwen{
+	.hd,.banner,.banner li,.banner img,.words,.new,.games,.videos,.songs,.fictions,.share_con,.play,.play_con li,.play_con .youxi,.art_tankuang,.game_top,.games_con,.games_con .game,.share_con,.play_title,.fic_con,.all_article ,.article_toc,.all_article .article,.article .con_out,.heal_out,.zhiyuwen{
 	     width: 970px;
 	}
 	.heal_body ,.fic_body,.game_body,.fic_con{
@@ -139,6 +139,9 @@
 @media (max-width:991px){
 	html{
 		font-size: 21.14px;
+	}
+	.fic_body,.heal_body{
+		height: 100vh;
 	}
 	.hd,.banner,.banner li,.words,.new,.games,.videos,.songs,.fictions,.share_con,.play,.play_con li,.play_con .youxi,.art_tankuang,.game_body,.game_top,.games_con,.games_con .game,.share_con,.play_title,.fic_con,.all_article ,.article_toc,.all_article .article,.article .con_out,.heal_out,.zhiyuwen{
 		width: 46.875rem;
@@ -212,12 +215,22 @@
 	.article_kuang p{
 		font-size: 1.15rem;
 	}
+	.heal_out .hl_title{
+		margin: 2rem auto 3rem;
+		font-size: 28px;
+	}
 	.zhiyuwen .zhiyuwen_con span{
 		font-size: 1.05rem;
-		font-weight: 700;
+		padding: 0.8rem;
+		
 	}
-	
-	
+	.zhiyuwen{
+		margin-top: 2rem;
+	}
+	.route{
+		padding-top: 120px;
+		padding-bottom:40px ;
+	}
 	
 	.banner img{
 		width:  46.875rem;
@@ -466,6 +479,9 @@
 		width: 44.375rem;
 		height: auto;
 	}
+	.games_con .game{
+		min-height: 32rem;
+	}
 	.game .game_pic{
 		width: 15rem;
 		height: 8.375rem;
@@ -474,6 +490,7 @@
 		
 	.game .game_word{
 		width: 25.375rem;
+		min-height: 16.5rem;
 	}	
 	.words p{
 		font-size: 1.02rem;

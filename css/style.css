@@ -1255,10 +1255,8 @@ input::-webkit-input-placeholder {
 	text-align: left;
 	margin: 12px 60px;
 	flex: 4;
-	overflow-x: scroll;
+	overflow: hidden;
 	position: relative;
-	scrollbar-width: 1px;
-	scrollbar-color: transparent;
 }
 
 .art_main .mulu {
@@ -1513,7 +1511,7 @@ input::-webkit-input-placeholder {
 }
 
 .zhiyuwen .zhiyuwen_con {
-	padding: 20px;
+	padding: 0px 20px 20px;
 	width: 960px;
 	height: 88px;
 	overflow: auto;
