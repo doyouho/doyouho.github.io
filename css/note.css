@@ -1510,7 +1510,7 @@ ul.card::-webkit-scrollbar {
 	.taskType b,
 	.taskSkill b {
 		display: block;
-		font-size: 15px;
+		font-size: 1rem;
 		max-height: 999999px;
 	}
 	

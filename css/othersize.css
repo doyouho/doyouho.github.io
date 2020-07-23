@@ -495,5 +495,19 @@
 	.words p{
 		font-size: 1.02rem;
 	}
+	.toc .l_tu span:nth-of-type(2){
+		top: 256px;
+	}
+	.toc .l_tu span:nth-of-type(3){
+		top: 280px;
+		left: -36px;
+	}
+	.toc .l_tu span:nth-of-type(4){
+		top: 280px;
+		left: 76px;
+	}
+	.toc .l_tu #huabu{
+		margin: 60px;
+	}
 }
 

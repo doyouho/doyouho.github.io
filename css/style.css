@@ -12,7 +12,8 @@ ul {
 a {
 	text-decoration: none;
 }
-h5{
+
+h5 {
 	font-size: 16px;
 }
 
@@ -20,7 +21,8 @@ video {
 	outline: none;
 	width: 800px;
 }
-section{
+
+section {
 	display: block;
 }
 
@@ -75,7 +77,7 @@ body {
 	height: 40px;
 	position: absolute;
 	right: 30px;
-	top:20px;
+	top: 20px;
 	font-size: 30px;
 	background: black fixed;
 	z-index: 14;
@@ -83,7 +85,7 @@ body {
 	transition: 0.3s ease-in-out;
 }
 
-.close_kuang:hover{
+.close_kuang:hover {
 	transform: rotate(90deg);
 	color: pink;
 	font-size: 28px;
@@ -96,7 +98,7 @@ body {
 	height: 90%;
 }
 
-.hl_article{
+.hl_article {
 	overflow: auto;
 	text-align: left;
 	width: 100%;
@@ -109,7 +111,8 @@ body {
 	background: #f9f5e9;
 
 }
-.hl_article::-webkit-scrollbar{
+
+.hl_article::-webkit-scrollbar {
 	width: 0px;
 	background: none;
 }
@@ -503,23 +506,24 @@ input::-webkit-input-placeholder {
 	/* float: left; */
 	width: 24%;
 	height: 136px;
-	background-repeat: no-repeat ;
+	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	margin-bottom:26px;
+	margin-bottom: 26px;
 	color: #333;
 	overflow: hidden;
 }
 
-.new_con .box{
+.new_con .box {
 	background-size: auto;
 }
-	
+
 
 .video_con .box {
 	background-size: contain;
 	cursor: pointer;
 }
+
 .video_con .box:hover {
 	background-size: 110%;
 	box-shadow: 0 4px 16px #6a6a6a;
@@ -671,7 +675,7 @@ input::-webkit-input-placeholder {
 	background-repeat: no-repeat;
 	position: relative;
 	top: 50%;
-	margin-top:-100px;
+	margin-top: -100px;
 	overflow: hidden;
 	transition: 0.5s;
 	background-size: contain;
@@ -680,7 +684,7 @@ input::-webkit-input-placeholder {
 
 .game .game_word {
 	width: 62%;
-	min-height:120px;
+	min-height: 120px;
 	padding: 30px;
 	border-radius: 30px;
 	overflow: auto;
@@ -760,7 +764,7 @@ input::-webkit-input-placeholder {
 	margin: 16px;
 	height: 240px;
 	box-shadow: 0 0 0 1px #e1e1e1,
-	0 0 0 6px #ffffff;
+		0 0 0 6px #ffffff;
 }
 
 .share_box a {
@@ -779,9 +783,9 @@ input::-webkit-input-placeholder {
 .share_box:hover {
 	background-color: #fffae8;
 	box-shadow: 0 0 2px 1px #38caad,
-	0 0 0 12px #ffffff,
-	-14px -14px #FF0099,
-	14px 14px #FF0099;
+		0 0 0 12px #ffffff,
+		-14px -14px #FF0099,
+		14px 14px #FF0099;
 }
 
 
@@ -916,7 +920,8 @@ input::-webkit-input-placeholder {
 	position: relative;
 }
 
-.gushi .navOpenBtn,.gushi .navCloseBtn{
+.gushi .navOpenBtn,
+.gushi .navCloseBtn {
 	display: none;
 }
 
@@ -934,7 +939,7 @@ input::-webkit-input-placeholder {
 	background: white;
 }
 
-.gushi .gs_text::-webkit-scrollbar{
+.gushi .gs_text::-webkit-scrollbar {
 	width: 2px;
 	background-color: #EEEEEE;
 }
@@ -982,15 +987,16 @@ input::-webkit-input-placeholder {
 }
 
 /*play-小歌单*/
-.play_con li{
+.play_con li {
 	display: flex;
 	justify-content: space-around;
 }
+
 .play_con .gedan {
 	width: 30%;
-	flex:1;
+	flex: 1;
 	height: 420px;
-	margin:56px 0;
+	margin: 56px 0;
 	float: left;
 	color: white;
 	text-align: center;
@@ -998,11 +1004,12 @@ input::-webkit-input-placeholder {
 	background-color: #555;
 	background-size: cover;
 }
-.play_con .gedan:nth-child(2){
-	margin:56px 32px;
+
+.play_con .gedan:nth-child(2) {
+	margin: 56px 32px;
 }
 
-.play_con .gedan:hover{
+.play_con .gedan:hover {
 	background-image: none;
 }
 
@@ -1040,7 +1047,7 @@ input::-webkit-input-placeholder {
 
 
 /*play-小游戏*/
-.play_con .youxi{
+.play_con .youxi {
 	width: 1200px;
 	height: 508px;
 	overflow: hidden;
@@ -1060,7 +1067,7 @@ input::-webkit-input-placeholder {
 	box-shadow: 1px 1px 3px 0 #91c0e4; */
 }
 
-.youxi>div{
+.youxi>div {
 	position: relative;
 	text-align: center;
 	background-color: #222;
@@ -1075,7 +1082,7 @@ input::-webkit-input-placeholder {
 	left: 88%;
 	display: none;
 	transition: 1s ease-out;
-/* 	margin-right: -72%;
+	/* 	margin-right: -72%;
 	margin-top: 30%; */
 }
 
@@ -1153,10 +1160,10 @@ input::-webkit-input-placeholder {
 /* fiction页面 */
 
 
-.fic_con{
+.fic_con {
 	width: 100%;
 	min-width: 1200px;
-	margin:0 auto;
+	margin: 0 auto;
 }
 
 .toc {
@@ -1258,6 +1265,7 @@ input::-webkit-input-placeholder {
 	overflow: hidden;
 	position: relative;
 }
+
 
 .art_main .mulu {
 	position: relative;
@@ -1548,16 +1556,20 @@ input::-webkit-input-placeholder {
 	color: #666;
 }
 
-.heal_body ,.fic_body,.game_body{
+.heal_body,
+.fic_body,
+.game_body {
 	min-width: 1200px;
 	width: 100%;
 	background-repeat: no-repeat;
-	background-color: #1CEFFF ;
+	background-color: #1CEFFF;
 	/* 如果低版本浏览器不支持可以使用css filter(滤镜)属性兼容。 */
-	background: -webkit-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Safari 5.1 - 6.0 */
-	background: -o-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Opera 11.1 - 12.0 */
-	background: -moz-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc); /* Firefox 3.6 - 15 */
-	background:linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);/* 标准的语法（必须放在最后） */
+	background: -webkit-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);
+	/* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);
+	/* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);
+	/* Firefox 3.6 - 15 */
+	background: linear-gradient(66deg, #eecc99, #99ffcc, #cc99ff, #ffee99, #99eecc);
+	/* 标准的语法（必须放在最后） */
 }
-
-

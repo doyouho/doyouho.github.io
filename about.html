@@ -2,16 +2,81 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
-		<meta name="keywords" content="高效学习,如何学习,自我检录, 前端开发,CSS,HTML,JavaScript" />
 		<title>意休 | 帮助及联系我</title>
+		<link rel="icon" href="images/baobao.png" type="image/png">
+		<link rel="bookmark" href="images/baobao.png" />
+		<style>
+			.jsmind-inner{
+				position:relative;
+				overflow:hidden;
+				width:100%;
+				height:100%;
+			}
+			.jsmind-inner{
+			    moz-user-select:-moz-none;
+			    -moz-user-select:none;
+			    -o-user-select:none;
+			    -khtml-user-select:none;
+			    -webkit-user-select:none;
+			    -ms-user-select:none;
+			    user-select:none;
+			}
+					
+			/* z-index:1 */
+			svg.jsmind{
+				position:absolute;
+				z-index:6;
+			}
+			canvas.jsmind{
+				position:absolute;
+				z-index:6;
+			}
+			
+			/* z-index:2 */
+			jmnodes{
+				position:absolute;
+				z-index:7;
+				background-color:rgba(0,0,0,0);
+			}/*background color is necessary*/
+			jmnode{
+				position:absolute;
+				cursor:default;
+				max-width:400px;
+				white-space:nowrap;
+				overflow:hidden;
+				text-overflow:ellipsis;
+			}
+			jmexpander{
+				position:absolute;
+				width:11px;
+				height:11px;
+				display:block;
+				overflow:hidden;
+				line-height:12px;
+				font-size:12px;
+				text-align:center;
+				border-radius:6px;
+				border-width:1px;
+				border-style:solid;
+				cursor:pointer;
+			}
+			@media screen and (max-device-width: 1024px) {
+			    jmnode{padding:5px;border-radius:3px;font-size:14px;}
+			    jmnode.root{font-size:21px;}
+			}
+			jmnode{padding:10px;color:white;border-radius:5px;box-shadow:1px 1px 1px #666;font:16px/1.125 Verdana,Arial,Helvetica,sans-serif;}
+			jmnode.root{font-size:24px;}
+			jmnode:hover{box-shadow:2px 2px 8px #000;background-color:black;}
+			jmexpander{border-color:gray;}
+			jmexpander:hover{border-color:#000;}
+		</style>
 		<style>
 			h4,p{ font-size: 14px; font-style: normal; }
 			a {color: #666;text-decoration: none;}
 			.about{ width: 100%;}
-			.about_main{ display: flex; height: 700px; width: 100%; margin: 66px auto 0; }
-			.left{ flex:4; margin-right: 30px;  padding: 0 30px; }
-			.right{ flex:9; background-color: #D3D3D3; padding: 30px; overflow: auto;}
+			.about_main{ display: flex; height: 880px; width: 100%; margin: 66px auto 0; }
+			.left{ flex:8;   padding:30px; overflow: hidden;}
+			.right{ flex:5; background-color:#b4a5fe; padding: 30px; overflow: auto;}
 			.right::-webkit-scrollbar{
 				background: none;
 				width: 2px;
@@ -19,226 +84,223 @@
 			/*底部区域*/
 			.footer {width: 100%;text-align: center;padding: 28px 0 18px;font-size: 12px;color: #666;}
 			.footer h1 {font-weight: 400;font-size: 12px;display: inline;}
+			
+			#jsmindWebsite{
+				height: 100%;
+			}
+			
+			
 		</style>
 	</head>
-	
 	<body>
 		<div class="about">
-		<div class="about_main">
-			<div class="left">
-				
-				<svg xmlns:xlink="http://www.w3.org/1999/xlink" ed:vspacing="30" preserveaspectradio="xMinYMin meet" width="386" viewBox="0 0 386 651" ed:name="Page-1" id="page1" ed:hspacing="30" height="681" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/">
-				    <style type="text/css">
-				g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
-				g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
-				svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
-				.st6 {fill:#333333}
-				.st4 {fill:#454545;font-family:微软雅黑;font-size:10pt;font-weight:bold}
-				.st5 {fill:#835555;font-family:微软雅黑;font-size:10pt;font-weight:bold}
-				</style>
-				    <defs>
-				        <linearGradient y1="0%" id="lg2" y2="100%" x1="0%" x2="0%">
-				            <stop stop-color="#ffffff" offset="0"></stop>
-				            <stop stop-color="#f0f5f0" offset="0.25"></stop>
-				            <stop stop-color="#e1ebe1" offset="0.75"></stop>
-				            <stop stop-color="#c8d7c8" offset="1"></stop>
-				        </linearGradient>
-				    </defs>
-				    <rect y="0" width="386" height="681" x="0" fill="#ffffff"></rect>
-				    <path ed:tosuperid="102" stroke-linecap="round" stroke-linejoin="round" ed:parentid="101" id="103" stroke="#fed6e5" stroke-width="1.33333" d="M-20.8,98.8L7.2,98.8L7.2,-92.8C7.2,-96.1,9.9,-98.8,13.2,-98.8L42.2,-98.8" fill="none" transform="matrix(1,0,0,1,85,209)"></path>
-				    <path ed:tosuperid="104" stroke-linecap="round" stroke-linejoin="round" ed:parentid="101" id="105" stroke="#fed6e5" stroke-width="1.33333" d="M-20.8,18.6L7.2,18.6L7.2,-12.6C7.2,-15.9,9.9,-18.6,13.2,-18.6L42.2,-18.6" fill="none" transform="matrix(1,0,0,1,85,289)"></path>
-				    <path ed:tosuperid="106" stroke-linecap="round" stroke-linejoin="round" ed:parentid="101" id="107" stroke="#fed6e5" stroke-width="1.33333" d="M-20.8,-40.9L7.2,-40.9L7.2,34.9C7.2,38.2,9.9,40.9,13.2,40.9L42.2,40.9" fill="none" transform="matrix(1,0,0,1,85,349)"></path>
-				    <path ed:tosuperid="108" stroke-linecap="round" stroke-linejoin="round" ed:parentid="101" id="109" stroke="#fed6e5" stroke-width="1.33333" d="M-20.8,-80.2L7.2,-80.2L7.2,74.2C7.2,77.5,9.9,80.2,13.2,80.2L42.2,80.2" fill="none" transform="matrix(1,0,0,1,85,388)"></path>
-				    <path ed:tosuperid="110" stroke-linecap="round" stroke-linejoin="round" ed:parentid="102" id="111" stroke="#fed6e5" stroke-width="1.33333" d="M-13.5,17.2L3.7,17.2L3.7,-11.2C3.7,-14.5,6.4,-17.2,9.7,-17.2L13.5,-17.2" fill="none" transform="matrix(1,0,0,1,218,93)"></path>
-				    <path ed:tosuperid="112" stroke-linecap="round" stroke-linejoin="round" ed:parentid="102" id="113" stroke="#fed6e5" stroke-width="1.33333" d="M3.7,1.6C3.7,-0.2,6.4,-1.6,9.7,-1.6L13.5,-1.6" fill="none" transform="matrix(1,0,0,1,218,109)"></path>
-				    <path ed:tosuperid="114" stroke-linecap="round" stroke-linejoin="round" ed:parentid="102" id="115" stroke="#fed6e5" stroke-width="1.33333" d="M3.7,-13.9L3.7,7.9C3.7,11.2,6.4,13.9,9.7,13.9L13.5,13.9" fill="none" transform="matrix(1,0,0,1,218,124)"></path>
-				    <path ed:tosuperid="116" stroke-linecap="round" stroke-linejoin="round" ed:parentid="102" id="117" stroke="#fed6e5" stroke-width="1.33333" d="M3.7,-29.5L3.7,23.5C3.7,26.8,6.4,29.5,9.7,29.5L13.5,29.5" fill="none" transform="matrix(1,0,0,1,218,140)"></path>
-				    <path ed:tosuperid="118" stroke-linecap="round" stroke-linejoin="round" ed:parentid="104" id="119" stroke="#fed6e5" stroke-width="1.33333" d="M-13.5,21.9L3.7,21.9L3.7,-15.9C3.7,-19.2,6.4,-21.9,9.7,-21.9L13.5,-21.9" fill="none" transform="matrix(1,0,0,1,220,249)"></path>
-				    <path ed:tosuperid="120" stroke-linecap="round" stroke-linejoin="round" ed:parentid="101" id="121" stroke="#fed6e5" stroke-width="1.33333" d="M-20.8,-119.4L7.2,-119.4L7.2,113.4C7.2,116.7,9.9,119.4,13.2,119.4L42.2,119.4" fill="none" transform="matrix(1,0,0,1,85,427)"></path>
-				    <path ed:tosuperid="122" stroke-linecap="round" stroke-linejoin="round" ed:parentid="104" id="123" stroke="#fed6e5" stroke-width="1.33333" d="M3.7,6.4L3.7,-0.4C3.7,-3.7,6.4,-6.4,9.7,-6.4L13.5,-6.4" fill="none" transform="matrix(1,0,0,1,220,264)"></path>
-				    <path ed:tosuperid="124" stroke-linecap="round" stroke-linejoin="round" ed:parentid="104" id="125" stroke="#fed6e5" stroke-width="1.33333" d="M3.7,-13.9L3.7,7.9C3.7,11.2,6.4,13.9,9.7,13.9L13.5,13.9" fill="none" transform="matrix(1,0,0,1,220,285)"></path>
-				    <path ed:tosuperid="126" stroke-linecap="round" stroke-linejoin="round" ed:parentid="104" id="127" stroke="#fed6e5" stroke-width="1.33333" d="M3.7,-34.2L3.7,28.2C3.7,31.5,6.4,34.2,9.7,34.2L13.5,34.2" fill="none" transform="matrix(1,0,0,1,220,305)"></path>
-				    <path ed:tosuperid="128" stroke-linecap="round" stroke-linejoin="round" ed:parentid="124" id="129" stroke="#fed6e5" stroke-width="1.33333" d="M-13.5,-4.8L3.7,-4.8L3.7,-1.3C3.7,2.1,6.4,4.8,9.7,4.8L13.5,4.8" fill="none" transform="matrix(1,0,0,1,303,303)"></path>
-				    <path ed:tosuperid="132" stroke-linecap="round" stroke-linejoin="round" ed:parentid="108" id="133" stroke="#fed6e5" stroke-width="1.33333" d="M-13.5,1.6L3.7,1.6C3.7,-0.2,6.4,-1.6,9.7,-1.6L13.5,-1.6" fill="none" transform="matrix(1,0,0,1,208,467)"></path>
-				    <path ed:tosuperid="134" stroke-linecap="round" stroke-linejoin="round" ed:parentid="108" id="135" stroke="#fed6e5" stroke-width="1.33333" d="M3.7,-13.9L3.7,7.9C3.7,11.2,6.4,13.9,9.7,13.9L13.5,13.9" fill="none" transform="matrix(1,0,0,1,208,482)"></path>
-				    <g id="101" ed:height="33.83333337306976" ed:layout="rightmap" ed:width="42.83333337306976" ed:topictype="mainidea" transform="matrix(1,0,0,1,21,291)">
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M4,0L38.8,0C41.5,0,42.8,1.3,42.8,4L42.8,29.8C42.8,32.5,41.5,33.8,38.8,33.8L4,33.8C1.3,33.8,0,32.5,0,29.8L0,4C0,1.3,1.3,0,4,0z" fill="#fed6e5"></path>
-				    </g>
-				    <g ed:parentid="101" id="102" ed:height="35.33333337306976" ed:width="77.33333337306976" transform="matrix(1,0,0,1,127,93)">
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M4,0L73.3,0C76,0,77.3,1.3,77.3,4L77.3,31.3C77.3,34,76,35.3,73.3,35.3L4,35.3C1.3,35.3,0,34,0,31.3L0,4C0,1.3,1.3,0,4,0z" fill="#f6f6f6"></path>
-				        <text class="st4">
-				            <tspan y="21.6" style="white-space:pre" x="18">home</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="101" id="104" ed:height="35.33333337306976" ed:width="79.33333337306976" transform="matrix(1,0,0,1,127,253)">
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M4,0L75.3,0C78,0,79.3,1.3,79.3,4L79.3,31.3C79.3,34,78,35.3,75.3,35.3L4,35.3C1.3,35.3,0,34,0,31.3L0,4C0,1.3,1.3,0,4,0z" fill="#f6f6f6"></path>
-				        <text class="st4">
-				            <tspan y="21.6" style="white-space:pre" x="18">works</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="101" id="106" ed:height="35.33333337306976" ed:width="75.33333337306976" transform="matrix(1,0,0,1,127,372)">
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M4,0L71.3,0C74,0,75.3,1.3,75.3,4L75.3,31.3C75.3,34,74,35.3,71.3,35.3L4,35.3C1.3,35.3,0,34,0,31.3L0,4C0,1.3,1.3,0,4,0z" fill="#fcf384"></path>
-				        <text class="st4">
-				            <tspan y="21.6" style="white-space:pre" x="18">share</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="101" id="108" ed:height="35.33333337306976" ed:width="67.33333337306976" transform="matrix(1,0,0,1,127,451)">
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M4,0L63.3,0C66,0,67.3,1.3,67.3,4L67.3,31.3C67.3,34,66,35.3,63.3,35.3L4,35.3C1.3,35.3,0,34,0,31.3L0,4C0,1.3,1.3,0,4,0z" fill="#fde1e7"></path>
-				        <text class="st4">
-				            <tspan y="21.6" style="white-space:pre" x="18">play</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="102" id="110" ed:height="24.58333334326744" ed:width="60" transform="matrix(1,0,0,1,232,51)">
-				        <path d="M0,0L60,0L60,24.6L0,24.6L0,0z" fill="#cfebf6"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L60,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">fiction</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="102" id="112" ed:height="24.58333334326744" ed:width="46" transform="matrix(1,0,0,1,232,82)">
-				        <path d="M0,0L46,0L46,24.6L0,24.6L0,0z" fill="#fde1e7"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L46,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">play</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="102" id="114" ed:height="24.58333334326744" ed:width="54" transform="matrix(1,0,0,1,232,114)">
-				        <path d="M0,0L54,0L54,24.6L0,24.6L0,0z" fill="#fcf384"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L54,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">share</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="102" id="116" ed:height="24.58333334326744" ed:width="46" transform="matrix(1,0,0,1,232,145)">
-				        <path d="M0,0L46,0L46,24.6L0,24.6L0,0z" fill="#fdb933"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L46,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">heal</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="104" id="118" ed:height="24.58333334326744" ed:width="84" transform="matrix(1,0,0,1,234,202)">
-				        <path d="M0,0L84,0L84,24.6L0,24.6L0,0z" fill="#deb887"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L84,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">youku视频</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="101" id="120" ed:height="35.33333337306976" ed:width="78.33333337306976" transform="matrix(1,0,0,1,127,529)">
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M4,0L74.3,0C77,0,78.3,1.3,78.3,4L78.3,31.3C78.3,34,77,35.3,74.3,35.3L4,35.3C1.3,35.3,0,34,0,31.3L0,4C0,1.3,1.3,0,4,0z" fill="#f6f6f6"></path>
-				        <text class="st4">
-				            <tspan y="21.6" style="white-space:pre" x="18">about</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="104" id="122" ed:height="24.58333334326744" ed:width="60" transform="matrix(1,0,0,1,234,233)">
-				        <path d="M0,0L60,0L60,24.6L0,24.6L0,0z" fill="#cfebf6"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L60,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">fiction</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="104" id="124" ed:height="24.58333334326744" ed:width="56" transform="matrix(1,0,0,1,234,274)">
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L56,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">game</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="104" id="126" ed:height="24.58333334326744" ed:width="46" transform="matrix(1,0,0,1,234,314)">
-				        <path d="M0,0L46,0L46,24.6L0,24.6L0,0z" fill="#fdb933"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L46,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">heal</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="124" id="128" ed:height="43.58333334326744" ed:width="47.75" transform="matrix(1,0,0,1,317,264)">
-				        <path d="M0,0L47.8,0L47.8,43.6L0,43.6L0,0z" fill="#deb887"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,43.6L47.8,43.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">橙光</tspan>
-				            <tspan y="35.1" style="white-space:pre" x="8">游戏</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="108" id="132" ed:height="24.58333334326744" ed:width="83" transform="matrix(1,0,0,1,222,440)">
-				        <path d="M0,0L83,0L83,24.6L0,24.6L0,0z" fill="#deb887"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L83,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">小游戏网站</tspan>
-				        </text>
-				    </g>
-				    <g ed:parentid="108" id="134" ed:height="24.58333334326744" ed:width="70" transform="matrix(1,0,0,1,222,471)">
-				        <path d="M0,0L70,0L70,24.6L0,24.6L0,0z" fill="#deb887"></path>
-				        <path stroke-linejoin="round" stroke="#fed6e5" stroke-width="1.33333" d="M0,24.6L70,24.6" fill="none"></path>
-				        <text class="st4">
-				            <tspan y="16.1" style="white-space:pre" x="8">酷狗歌单</tspan>
-				        </text>
-				    </g>
-				    <g id="144" ed:height="35" ed:layout="rightmap" ed:width="273" ed:topictype="floating" transform="matrix(1,0,0,1,63,625)">
-				        <path stroke-linejoin="round" stroke="#ffffff" stroke-width="0.333333" d="M4,0L269,0C271.7,0,273,1.3,273,4L273,31C273,33.7,271.7,35,269,35L4,35C1.3,35,0,33.7,0,31L0,4C0,1.3,1.3,0,4,0z" fill="#fed6e5"></path>
-				        <text class="st5">
-				            <tspan y="21.5" class="st6" style="white-space:pre" x="18">注：同色为同一网页，网站外链为</tspan>
-				            <tspan style="white-space:pre">棕色</tspan>
-				            <tspan class="st6" style="white-space:pre">。</tspan>
-				        </text>
-				    </g>
-				    <symbol id="plus">
-				        <path d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6z" fill="url(#lg2)"></path>
-				        <path stroke="#46a000" stroke-width="0.7" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6zM3,6L9,6M6,3L6,9" fill="none"></path>
-				    </symbol>
-				    <symbol id="minus">
-				        <path d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6z" fill="url(#lg2)"></path>
-				        <path stroke="#46a000" stroke-width="0.7" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6zM3,6L9,6" fill="none"></path>
-				    </symbol>
-				    <g ed:togtopicid="101" transform="translate(65,302)">
-				        <use xlink:href="#minus"></use>
-				    </g>
-				    <g ed:togtopicid="102" transform="translate(206,104)">
-				        <use xlink:href="#minus"></use>
-				    </g>
-				    <g ed:togtopicid="104" transform="translate(208,265)">
-				        <use xlink:href="#minus"></use>
-				    </g>
-				    <g ed:togtopicid="108" transform="translate(196,462)">
-				        <use xlink:href="#minus"></use>
-				    </g>
-				    <g ed:togtopicid="124" transform="translate(291,280)">
-				        <use xlink:href="#minus"></use>
-				    </g>
-				    
-				</svg>
-			</div>
-			<div class="right">
-				<section>
-					<h4>不知道意休网站怎么玩？看这里</h4>
-					<p>【无聊时——play game fiction】这里你可以丰富生活：看视频，看小说，听歌，各种小事项和游戏。</p>
-					<p>【焦躁/迷茫时——heal】这里有些技巧和分析来协助你找到适合自己的方向。</p>
-					<p>【探索前端——fiction】这里的小说《伪大神的成名之路》不容错过。</p>
-					<p>【探索好物——share】若你什么都不缺，心态也很好，那就看看share分享，这是作者精心挑选的，希望能让你找到惊喜。</p>
-					<p>【记录灵感——play】这里的[小记事]就是本作者不成熟的零散积累吧，还有若是你突然有了灵感，不妨试试做个笔记，本网站支持哦~~</p>
-					<p>【学习前——towork】总是看着电脑或者手机屏幕就忘了要做什么？事太多忙不过来？那么这里有个地方供你理清做事思路，帮你好好专注做事。</p>
-					<p>更多好玩的，等着你去发现哦~</p>
-					<br />
-				</section>
-				
-				<address>
-					<h4>关于我</h4>
-					<p>偶是个爱思考，爱想象，爱唱歌的小姑娘，目前在学习前端开发的路上砥砺前行。</p>
-					<p>刚踏出社会，懵懵懂懂地感觉到了另一个不同的世界，在这里分享自己的一点体会，也记录一下自己的前端进程。</p>
-				
-					<p>娱乐号：优酷[曲子云]，微博[颖小音_]，橙光游戏[花雅雅]，哔哩哔哩[看看外星人]</p>
-					<p>CSDN博客[youhoa]：<a href="https://blog.csdn.net/youhoa/" target="_blank">https://blog.csdn.net/youhoa/</a></p>
-					<p>博客园[youho]：<a href="https://www.cnblogs.com/youho/" target="_blank">https://www.cnblogs.com/youho/</a></p>
-					<p>Github账号[doyouho]：<a href="https://github.com/doyouho/" target="_blank">https://github.com/doyouho/</a></p>
-					<p>公众号与小程序同名：意休</p>
-					<br />
-					<p>若你还有什么想说的或好建议，麻烦请写在调查问卷上哦~<a href="https://www.wjx.cn/jq/65259218.aspx" target="_blank">（调查问卷）</a></p>
-					<br />
-					<p>嗯……若是你点开发现内容很空，那么一定是你眼睛没看错。抱歉能力有限，也无法兼顾太多，毕竟还是小白，学习要紧，哪天真正投入了的话会跟大家说。</p>
-				</address>
+			<div class="about_main">
+				<div class="left">
+					<div id="jsmindWebsite"></div>
+				</div>
+				<div class="right">
+					<section>
+						<h4>不知道意休网站怎么玩？看这里</h4>
+						<p>【无聊时——play game fiction】这里你可以丰富生活：看视频，看小说，听歌，各种小事项和游戏。</p>
+						<p>【焦躁/迷茫时——heal】这里有些技巧和分析来协助你找到适合自己的方向。</p>
+						<p>【探索前端——fiction】这里的小说《伪大神的成名之路》不容错过。</p>
+						<p>【探索好物——share】若你什么都不缺，心态也很好，那就看看share分享，这是作者精心挑选的，希望能让你找到惊喜。</p>
+						<p>【记录灵感——play】这里的[小记事]就是本作者不成熟的零散积累吧，还有若是你突然有了灵感，不妨试试做个笔记，本网站支持哦~~</p>
+						<p>【学习前——towork】总是看着电脑或者手机屏幕就忘了要做什么？事太多忙不过来？那么这里有个地方供你理清做事思路，帮你好好专注做事。</p>
+						<p>更多好玩的，等着你去发现哦~</p>
+						<br />
+					</section>
+
+					<address>
+						<h4>关于我</h4>
+						<p>偶是个爱思考，爱想象，爱唱歌的小姑娘，目前在学习前端开发的路上砥砺前行。</p>
+						<p>刚踏出社会，懵懵懂懂地感觉到了另一个不同的世界，在这里分享自己的一点体会，也记录一下自己的前端进程。</p>
+
+						<p>娱乐号：优酷[曲子云]，微博[颖小音_]，橙光游戏[花雅雅]，哔哩哔哩[看看外星人]</p>
+						<p>CSDN博客[youhoa]：<a href="https://blog.csdn.net/youhoa/" target="_blank">https://blog.csdn.net/youhoa/</a></p>
+						<p>博客园[youho]：<a href="https://www.cnblogs.com/youho/" target="_blank">https://www.cnblogs.com/youho/</a></p>
+						<p>Github账号[doyouho]：<a href="https://github.com/doyouho/" target="_blank">https://github.com/doyouho/</a></p>
+						<p>公众号与小程序同名：意休</p>
+						<br />
+						<p>若你还有什么想说的或好建议，麻烦请写在调查问卷上哦~<a href="https://www.wjx.cn/jq/65259218.aspx" target="_blank">（调查问卷）</a></p>
+						<br />
+						<p>嗯……若是你点开发现内容很空，那么一定是你眼睛没看错。抱歉能力有限，也无法兼顾太多，毕竟还是小白，学习要紧，哪天真正投入了的话会跟大家说。</p>
+					</address>
+				</div>
 			</div>
 		</div>
-		</div>
-		<footer  class="footer">
+		<footer class="footer">
 			&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./index.html">回到首页</a>
 		</footer>
-		
+		<script type="text/javascript" src="./jsmind/js/jsmind.js"></script>
+		<script>
+			var mindpic = {
+				"meta": {
+					"name": "demo"
+				},
+				"format": "node_array",
+				"data": [{
+						"id": "root",
+						"topic": "意休",
+						"expanded": true,
+						"isroot": true,
+						"background-color": "#333333"
+					},
+					{
+						"id": "sub1",
+						"topic": "index",
+						"expanded": true,
+						"parentid": "root",
+						"direction": "right",
+						"background-color": "#ff9900"
+					},
+					{
+						"id": "sub12",
+						"topic": "play",
+						"expanded": true,
+						"parentid": "sub1",
+						"background-color": "#ee44aa"
+					},
+					{
+						"id": "sub13",
+						"topic": "share",
+						"expanded": true,
+						"parentid": "sub1",
+						"background-color": "#33ff99"
+					},
+					{
+						"id": "2d5fd3a070c252d3",
+						"topic": "heal",
+						"expanded": true,
+						"parentid": "sub1",
+						"background-color": "#22aadd"
+					},
+					{
+						"id": "sub11",
+						"topic": "fiction",
+						"expanded": true,
+						"parentid": "sub1",
+						"background-color": "#aa99fe"					},
+					{
+						"id": "2d5fd6a21d2c9b55",
+						"topic": "towork",
+						"expanded": true,
+						"parentid": "sub1",
+						"background-color": "#cc66aa"
+					},
+					{
+						"id": "37a0df4f0da4a5ba",
+						"topic": "mind",
+						"expanded": true,
+						"parentid": "2d5fd6a21d2c9b55",
+						"background-color": "#aa66dd",
+						"foreground-color": "#ffffff"
+					},
+					{
+						"id": "37a0e174492071d5",
+						"topic": "toreview",
+						"expanded": true,
+						"parentid": "2d5fd6a21d2c9b55",
+						"background-color": "#aa66dd"
+					},
+					{
+						"id": "sub2",
+						"topic": "works",
+						"expanded": true,
+						"parentid": "root",
+						"direction": "right",
+						"background-color": "#ff9900"
+					},
+					{
+						"id": "sub21",
+						"topic": "（youku视频）",
+						"expanded": true,
+						"parentid": "sub2",
+						"background-color": "#666666"
+					},
+					{
+						"id": "2d600110b4369873",
+						"topic": "fiction",
+						"expanded": true,
+						"parentid": "sub2",
+						"background-color": "#aa99fe"
+					},
+					{
+						"id": "2d60095bc896e895",
+						"topic": "heal",
+						"expanded": true,
+						"parentid": "sub2",
+						"background-color": "#22aadd"
+					},
+					{
+						"id": "2d60042d9660849e",
+						"topic": "game",
+						"expanded": true,
+						"parentid": "sub2",
+						"background-color": "#cc33ff"
+					},
+					{
+						"id": "37a0dc7eee180208",
+						"topic": "（橙光游戏）",
+						"expanded": true,
+						"parentid": "2d60042d9660849e",
+						"background-color": "#666666"
+					},
+					{
+						"id": "sub3",
+						"topic": "share",
+						"expanded": true,
+						"parentid": "root",
+						"direction": "right",
+						"background-color": "#33ff99"
+					},
+					{
+						"id": "37a0d19abeb0a661",
+						"topic": "（各种分享网站）",
+						"expanded": true,
+						"parentid": "sub3",
+						"background-color": "#666666"
+					},
+					{
+						"id": "2d6053634174d89f",
+						"topic": "play",
+						"expanded": true,
+						"parentid": "root",
+						"direction": "left",
+						"background-color": "#ee44aa"
+					},
+					{
+						"id": "2d6056988a12d3a7",
+						"topic": "（小游戏网站）",
+						"expanded": true,
+						"parentid": "2d6053634174d89f",
+						"background-color": "#666666"
+					},
+					{
+						"id": "2d60669b51e15a15",
+						"topic": "（酷狗歌单）",
+						"expanded": true,
+						"parentid": "2d6053634174d89f",
+						"background-color": "#666666"
+					},
+					{
+						"id": "37a0af4044a80427",
+						"topic": "about/本页",
+						"expanded": true,
+						"parentid": "root",
+						"direction": "left",
+						"background-color": "#66dd66"
+					}
+				]
+			};
+			var jm = null;
+			var options = {
+				container: 'jsmindWebsite',
+				editable: false,
+				mode: 'side'
+			};
+			jm = new jsMind(options);
+			jm.show(mindpic);
+		</script>
 	</body>
 </html>
