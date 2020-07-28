@@ -15,11 +15,28 @@
 			var art_List = [];
 			// 文件加载（数据加载）
 			$.ajax({
-				url: "data/heal.txt",
-				data: "",
-				dataType: "text",
-				success: function(heal_w) {
-					art_List = heal_w.split(",");
+				url: "data/heal.json",
+				dataType: "json",
+				success: function(res) {
+					var arr = res;
+					for (let i = 0; i < arr.length; i++) {
+						var head = '<title class="hl_title  title">' + arr[i].title +'</title><div class="article_con">';
+						var con = arr[i].content ;
+						var body = '';
+						for (let j= 0; j< con.length; j++) {
+							if(/^[\-]+/.test(con[j])){
+								body += '<p class="suojin">'+ con[j].substring(1)+ '</p>';
+							}else if(/^[\=]+/.test(con[j])){
+								body += '<h4 class="lvkuang">'+ con[j].substring(1)+ '</h4>';
+							}else{
+								body += '<p>'+ con[j]+ '</p>';
+							}
+						}
+						var whole = head + body + "</div>";
+						art_List[i] = whole;
+					}
+					
+					
 				}
 			});
 
@@ -164,7 +181,6 @@
 					<span>《好的状态表述》</span>
 					<span>《如何调节状态》</span>
 					<span>《如何明确方向》</span>
-					<span>《想做事件清单》</span>
 					<span>《不要舍本逐末》</span>
 					<span>《学习前的准备》</span>
 					<span>《好工具的使用》</span>
@@ -172,7 +188,6 @@
 					<span>《如何解决问题》</span>
 					<span>《常见的几种思维方法》</span>
 					<span>《作者寄语》</span>
-					<span>《简言简语》</span>
 					<span>《一些特别的事》</span>
 				</div>
 			</section>

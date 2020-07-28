@@ -16,24 +16,21 @@
 	
 // 用js配合jquery的ajax来访问文件数据
 $.ajax({
-		url:"data/sentence.txt",
-		data:"",
-		dataType:"text",
-		success:function(re_s){
-			var s_senList=re_s.split("~");
-			var da_share=s_senList[2].split(";");
-			var num_s = da_share.length;
-			var share_suji=0;
-			while(num_s){
-				var share_suji=Math.ceil(Math.random()*10)-1;
-				if (share_suji<num_s){
-					var zq = da_share[share_suji];
-					$(".words").append(zq);
-					return 0;
-				}
+	url:"data/sentence.json",
+	dataType:"json",
+	success:function(res){	
+		var arr=res["share"];
+		var len = arr.length;
+		while(len){
+			var num=Math.ceil(Math.random()*10)-1;
+			if (num<len){
+				var sentence = "<p>"+ arr[num] + "</p>";
+				$(".words").append(sentence);
+				return 0;
 			}
 		}
-	});
+	}
+});
 	
 $(".hd .nav li").hover(function(){
 		$(this).find("a").stop().animate({top:-66})

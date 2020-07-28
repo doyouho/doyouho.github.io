@@ -49,19 +49,16 @@
 
 	// 用js配合jquery的ajax来访问文件数据
 	$.ajax({
-			url:"data/sentence.txt",
-			data:"",
-			dataType:"text",
-			success:function(re_w){
-				var w_senList=re_w.split("~");
-				var da_works=w_senList[1].split(";");
-				var num_w = da_works.length;
-				var w_suji=0;
-				while(num_w){
-					var w_suji=Math.ceil(Math.random()*10)-1;
-					if (w_suji<num_w){
-						var zh = da_works[w_suji];
-						$(".words").append(zh);
+			url:"data/sentence.json",
+			dataType:"json",
+			success:function(res){
+				var arr=res["works"];
+				var len = arr.length;
+				while(len){
+					var num=Math.ceil(Math.random()*10)-1;
+					if (num<len){
+						var sentence = "<p>"+ arr[num] + "</p>";
+						$(".words").append(sentence);
 						return 0;
 					}
 				}

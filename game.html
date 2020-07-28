@@ -1,82 +1,88 @@
 <!doctype html>
 <html>
-	<head>
-		<title>意休 | 游戏</title>
-		<meta charset="utf-8" />
-		<link rel="icon" href="images/baobao.png" type="image/png">
-		<link rel="bookmark" href="images/baobao.png" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/othersize.css" />
-		<script src="js/jquery-1.11.3.min.js"></script>
-		<script>
-	$(function(){
-	
-//导航栏特效
-	$(".hd .nav li").hover(function(){
-		$(this).find("a").stop().animate({top:-66})
-	},function(){
-		$(this).find("a").stop().animate({top:0})
-	})
-	
-	
-//游戏图片,文字加载	(采用该网站)			
-	$.ajax({
-		url:"data/games_introduce.txt",
-		data:"",
-		dataType:"text",
-		success:function(res){
-			var da_List=res.split(",");
-			for(var i=1; i<6;i++){
-				var gs_url="url(images/game/00"+i+".jpg)";   
-				$(".games_con").append('<div class="game"><div class="game_pic"></div><div class="game_word">'+da_List[i-1]+'</div></div>');
-				$(".game .game_pic").eq(i-1).css("background-image",gs_url);
-			}
-		}
-	})
+
+<head>
+	<title>意休 | 游戏</title>
+	<meta charset="utf-8" />
+	<link rel="icon" href="images/baobao.png" type="image/png">
+	<link rel="bookmark" href="images/baobao.png" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/othersize.css" />
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function () {
+
+			//导航栏特效
+			$(".hd .nav li").hover(function () {
+				$(this).find("a").stop().animate({ top: -66 })
+			}, function () {
+				$(this).find("a").stop().animate({ top: 0 })
+			})
 
 
-})
-</script>
-	</head>
+			//游戏图片,文字加载	(采用该网站)			
+			$.ajax({
+				url: "data/games_introduce.json",
+				dataType: "json",
+				success: function (res) {
+					for (let i = 1; i < 6; i++) {
+						let url = res[i-1].url;
+						let title = res[i-1].title;
+						let conArr = res[i-1].content;
+						let content = conArr.map(item => {
+							return "<p>" + item + "</p>";
+						});
+						let con = '<h3><a href="' + url + '" target="_blank">' + title + '</a></h3><br />' + content.join("");
+						var gs_url = "url(images/game/00" + i + ".jpg)";
+						$(".games_con").append('<div class="game"><div class="game_pic"></div><div class="game_word">' + con + '</div></div>');
+						$(".game .game_pic").eq(i - 1).css("background-image", gs_url);
+					}
+				}
+			})
 
-	<body>
-		<div class="game_body">
-			<!--头部区域-->
-			<header class="header">
-				<div class="hd">
-					<h1><a href="./index.html" class="logo">意休</a></h1>
-					<div class="sousuokuang">
-						<form action="https://www.baidu.com/s" target="_blank">
-							<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
-							<input class="search" type="image" src="images/sousuo.png"  />
-						</form>
-					</div>
-					<div class="nav">
-						<ul>
-							<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
-							<li><a href="./works.html"><i style="color:hotpink;">Works</i><b>个人作品</b></a></li>
-							<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
-							<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
-						</ul>
-					</div>
+
+		})
+	</script>
+</head>
+
+<body>
+	<div class="game_body">
+		<!--头部区域-->
+		<header class="header">
+			<div class="hd">
+				<h1><a href="./index.html" class="logo">意休</a></h1>
+				<div class="sousuokuang">
+					<form action="https://www.baidu.com/s" target="_blank">
+						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
+						<input class="search" type="image" src="images/sousuo.png" />
+					</form>
 				</div>
-			</header>
-
-
-
-			<!--头像-->
-			<section class="game_top">
-				<div class="game_writer">
-					<div class="author_word"> <br /> <br />【游戏交流Q群】<br /><br />369442933</div>
-					<div class="author_img"></div>
+				<div class="nav">
+					<ul>
+						<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
+						<li><a href="./works.html"><i style="color:hotpink;">Works</i><b>个人作品</b></a></li>
+						<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
+						<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
+					</ul>
 				</div>
-			</section>
+			</div>
+		</header>
 
-			<!--游戏内容-->
-			<section class="all_games">
-				<div class="games_con">
 
-					<!-- <div class="game">
+
+		<!--头像-->
+		<section class="game_top">
+			<div class="game_writer">
+				<div class="author_word"> <br /> <br />【游戏交流Q群】<br /><br />369442933</div>
+				<div class="author_img"></div>
+			</div>
+		</section>
+
+		<!--游戏内容-->
+		<section class="all_games">
+			<div class="games_con">
+
+				<!-- <div class="game">
 						<div class="game_pic"></div>
 						<div class="game_word">
 							<h3>【完结】《“家有”书签》</h3>
@@ -89,16 +95,18 @@
 							<p>咦？貌似还挺好用的，称为超能复习器也不为过，高考什么的放马过来吧……</p>
 						</div>
 					</div> -->
-					
-					
-					
-				</div>
-			</section>
 
-			<!--底部区域、填补网址2个-->
-			<footer class="footer">
-				&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
-			</footer>
-		</div>
-	</body>
+
+
+			</div>
+		</section>
+
+		<!--底部区域、填补网址2个-->
+		<footer class="footer">
+			&gt;&nbsp;<h1>意休——让生活更简单一点，更高效一点</h1>&nbsp;&lt;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我
+				| 网站帮助</a>
+		</footer>
+	</div>
+</body>
+
 </html>

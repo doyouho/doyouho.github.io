@@ -85,18 +85,16 @@
 			$(function(){
 // 用js配合jquery的ajax来访问文件数据
 $.ajax({
-		url:"./data/sentence.txt",
-		dataType:"text",
-		success:function(re){
-			var da_senList=re.split("~");
-			var da_home=da_senList[0].split(";");
-			var num = da_home.length;
-			var index_suji=0;
-			while(num){
-				var index_suji=Math.ceil(Math.random()*10);
-				if (index_suji<num){
-					var lz = da_home[index_suji];
-					$(".words").append(lz);
+		url:"./data/sentence.json",
+		dataType:"json",
+		success:function(res){
+			var arr=res["index"];
+			var len = arr.length;
+			while(len){
+				var num=Math.ceil(Math.random()*10)-1;
+				if (num<len){
+					var sentence = "<p>"+ arr[num] + "</p>";
+					$(".words").append(sentence);
 					return 0;
 				}
 			}

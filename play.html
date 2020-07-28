@@ -20,63 +20,67 @@
 
 			var randomChData = [];
 			// 用js配合jquery的ajax来访问文件数据
-			function playAjax(p_url, x, choo) {
+			function playAjax(p_url, choo) {
 				$.ajax({
 					url: p_url,
-					data: "",
-					dataType: "text",
-					success: function (re_p) {
-						var p_senList = re_p.split("~");
-
-						if (choo == "juzi") {
-							var da_play = p_senList[x].split(";");
-							var num_p = da_play.length;
-							this.suiji_juzi(da_play, num_p);
-						}
-						if (choo == "gushi") {
-							this.gushi(p_senList);
-						}
-						if (choo == "suijixuanze") {
-							randomChData = p_senList;
-						}
-					},
-					suiji_juzi: function (list, y) {
-						var play_suji = 0;
-						while (y) {
-							play_suji = Math.ceil(Math.random() * y);
-							if (play_suji < y) {
-								var dd = list[play_suji];
-								$(".words").append(dd);
-								return 0;
+					dataType: "json",
+					success: function (res) {
+						var arr = res[choo];
+						
+						if (choo == "play") {
+							var len = arr.length;
+							while(len){
+								var num=Math.ceil(Math.random()*10)-1;
+								if (num<len){
+									var sentence = "<p>"+ arr[num] + "</p>";
+									$(".words").append(sentence);
+									return 0;
+								}
 							}
 						}
-					},
-					gushi: function (a_list) {
-						var lanmu = a_list.length;
-						for (var j = 0; j < lanmu; j++) {
-							var lanmu_con = a_list[j];
-							$(".gushi .gs_con").append('<div class="gs_lanmu">' + lanmu_con + '</div>');
+						if (choo == "gushi") {
+							this.gushi(res);
 						}
-
+						if (choo == "randomThings") {
+							randomChData = res;
+						}
+					},
+					
+					gushi: function (obj) {
+						var lanmu_con = '';
+						for (let i = 0; i < 7; i++) {
+							let arr = obj[i];
+							var lanmu = arr.length;
+							for (var j = 0; j < lanmu; j++) {
+								var oLanmu = arr[j];
+								var title = oLanmu.title;
+								var content = oLanmu.content;
+								var con = content.map(item=>'<p>'+item+'</p>');
+								lanmu_con += '<div class="gs_text"><h5>'+title+'</h5>'+con.join("")+'</div>';
+							}
+							$(".gushi .gs_con").append('<div class="gs_lanmu">' + lanmu_con + '</div>');
+							lanmu_con = "";
+						}
 					}
 				});
 			}
-			playAjax("data/sentence.txt", 3, 'juzi');
-			playAjax("data/play_data.txt", 0, 'gushi');
-			playAjax("data/play_random_things.txt", 0, 'suijixuanze');
+			
+			playAjax("data/sentence.json", "play");
+			playAjax("data/play_data.json",'gushi');
+			playAjax("data/play_random_things.json",'randomThings');
 
-			function chooseTest(x) {
-				$(".back_doit").eq(x).html("");
-				var sjxzList = randomChData[x].split(";");
+			function chooseTest(index) {
+				$(".back_doit").eq(index).html("");
+				var sjxzList = randomChData[index];
 				var num_length = sjxzList.length;
 				var suji_num = 0;
 				suji_num = Math.ceil(Math.random() * num_length) - 1;
 				var sj_one = sjxzList[suji_num];
-				$(".back_doit").eq(x).append(sj_one);
+				$(".back_doit").eq(index).append(sj_one);
 			}
 
 			$(".suiji_choose dd").click(function () {
-				var ind = $(this).index();
+				var ind = $(this).index().toString();
 				chooseTest(ind);
 			})
 

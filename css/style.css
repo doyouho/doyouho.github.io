@@ -105,9 +105,10 @@ body {
 	height: 100%;
 	padding: 60px 50px;
 	box-sizing: border-box;
-	line-height: 1.6em;
+	line-height: 1.8em;
+	font-size: 16px;
 	text-indent: 2em;
-	color: #333;
+	color: #222;
 	background: #f9f5e9;
 
 }
@@ -135,6 +136,7 @@ body {
 }
 
 .article_con .lvkuang {
+	margin: 22px auto 12px;
 	background: #a8f6c3;
 	display: inline-block;
 	color: black;
@@ -1520,7 +1522,7 @@ input::-webkit-input-placeholder {
 
 .zhiyuwen .zhiyuwen_con {
 	padding: 0px 20px 20px;
-	width: 960px;
+	/* width: 960px; */
 	height: 88px;
 	overflow: auto;
 }
