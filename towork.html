@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 	<head>
 		<meta charset="utf-8">
-		<title>意休 | 工作</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<meta name="keywords" content="高效学习,记录学习,学习打卡,思维导图" />
+		<title>意休 | 工作</title>
 		<link rel="stylesheet" href="css/note.css" type="text/css" />
 		<link rel="icon" href="images/baobao.png" type="image/png">
 		<link rel="bookmark" href="images/baobao.png" />
 		<script src="js/note.js"></script>
 		<!-- <meta name="viewport" content="width=750px,initial-scale=1" /> -->
 		<!-- ,minimum-scale=1,maximum-scale=1,user-scalable=no -->
-
+    <style>
+      .footer {
+      	width: 100%;
+      	text-align: center;
+      	padding: 28px 0 18px;
+      	font-size: 12px;
+      	color: #666;
+      }
+      
+      .footer h1 {
+      	font-weight: 400;
+      	font-size: 12px;
+      	display: inline;
+      }
+      
+      .footer a {
+      	color: #666;
+      }
+    </style>
 	</head>
 
 	<body class="toWork">
@@ -396,6 +415,10 @@
 				<button type="button" id="nBtnNote" class="ybtn_box">本子</button>
 			</div>
 		</section>
+    
+    <footer class="footer">
+    	&nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
+    </footer>
 
 		<script>
 			// 统筹的实现
@@ -643,7 +666,7 @@
 				if (val >= 0 && item) {
 					if (val === 1) {
 						const inputDate = document.querySelector("[type='date']").value;
-						item = item + "……最后期限：" + inputDate ;
+						item = item + " " + inputDate ;
 					}
 					let sortlist = doListState.sortList;
 					let slist = sortlist[val]; // slist是 取出对应分类

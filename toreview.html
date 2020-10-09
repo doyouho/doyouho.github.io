@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 	<head>
 		<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<meta name="keywords" content="清单处理,清单记录,自我回顾" />
 		<title>意休 | 任务回顾</title>
 		<link rel="icon" href="images/baobao.png" type="image/png">
@@ -11,6 +12,7 @@
 	<body>
 	
 		<div class="menu">
+      <h1 style="font-size: 14px; position: absolute; left: 30px; top: 14px; color: white;"><a style="font-size: 24px; color: white; cursor: pointer;" target="_blank" href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点</h1>
 			<span class="circlebtn orange" >保存所有处理</span>
 			<span class="circlebtn">折叠</span>
 			<span class="circlebtn">隐藏参考卡</span>
@@ -35,14 +37,14 @@
 			<div class="content">
 				<!-- 执行清单 -->
 				<header class="header">
-					<h3>执行清单<span class="arrowbtn">></span></h3>
+					<h3>执行清单-专一<span class="arrowbtn">></span></h3>
 				</header>
 				<section class="part  isEdit">
 					<div class="controlers">
 						<label>
 							<input type="checkbox" value="" />反选
 						</label>
-						<span class="circlebtn addBtn">添加</span>
+						<span class="circlebtn addBtn">新增</span>
 						<span class="circlebtn solvedBtn">处理</span>
 						<span class="writebtn" onclick="ableToEdit(event,-3);"></span>
 					</div>
@@ -54,7 +56,7 @@
 		
 				<!-- 日历 -->
 				<header class="header">
-					<h3>日历清单<span class="arrowbtn">></span></h3>
+					<h3>日历清单-闹钟<span class="arrowbtn">></span></h3>
 				</header>
 				<section class="part  isEdit">
 					<div class="controlers">
@@ -62,7 +64,7 @@
 							<input type="checkbox" name="" id="" value="" />反选
 						</label>
 						<span  class="circlebtn sortBtn" onclick="sortIt()">升序</span>
-						<span class="circlebtn addBtn">添加</span>
+						<span class="circlebtn addBtn">新增</span>
 						<span class="circlebtn solvedBtn">处理</span>
 						<span class="circlebtn overTime" onclick="outOfTime()" >逾期</span>
 						<span class="writebtn" onclick="ableToEdit(event,-3);"></span>
@@ -87,7 +89,7 @@
 						<label>
 							<input type="checkbox" name="" id="" value="" />反选
 						</label>
-						<span class="circlebtn addBtn">添加</span>
+						<span class="circlebtn addBtn">新增</span>
 						<span class="circlebtn solvedBtn">处理</span>
 						<span class="writebtn" onclick="ableToEdit(event,-3);"></span>
 					</div>

@@ -578,19 +578,19 @@ input::-webkit-input-placeholder {
 
 /*      更改——调色*/
 .model_con .kuang1 {
-	background: rgba(243, 180, 88, 0.9);
+	background: rgba(255, 153, 0, 0.8);
 }
 
-.model_con .kuang2 {
-	background: rgba(123, 180, 222, 0.9);
+.model_con .kuang2 { 
+	background: rgba(34, 170, 221, 0.8);
 }
 
 .model_con .kuang3 {
-	background: rgba(230, 160, 222, 0.9);
+	background: rgba(238, 68, 170, 0.8);
 }
 
-.model_con .kuang4 {
-	background: rgba(132, 230, 132, 0.9);
+.model_con .kuang4 { 
+	background: rgba(77, 241, 58, 0.8);
 }
 
 .model_con .box4 {
