@@ -2,19 +2,20 @@
 <html lang="zh">
 	<head>
 		<meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>意休 | 治愈</title>
 		<link rel="icon" href="images/baobao.png" type="image/png">
 		<link rel="bookmark" href="images/baobao.png" />
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/othersize.css" />
 		<!-- <script src="js/jquery-1.11.3.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	</head>
 	<script type="text/javascript">
 		$(function() {
 
 			var art_List = [];
+			var art_choose  = 0;
 			// 文件加载（数据加载）
 			$.ajax({
 				url: "data/heal.json",
@@ -22,38 +23,52 @@
 				success: function(res) {
 					var arr = res;
 					for (let i = 0; i < arr.length; i++) {
-						var head = '<title class="hl_title  title">' + arr[i].title +'</title><div class="article_con">';
-						var con = arr[i].content ;
+						var head = '<title class="hl_title  title">' + arr[i].title + '</title><div class="article_con">';
+						var con = arr[i].content;
 						var body = '';
-						for (let j= 0; j< con.length; j++) {
-							if(/^[\-]+/.test(con[j])){
-								body += '<p class="suojin">'+ con[j].substring(1)+ '</p>';
-							}else if(/^[\=]+/.test(con[j])){
-								body += '<h4 class="lvkuang">'+ con[j].substring(1)+ '</h4>';
-							}else{
-								body += '<p>'+ con[j]+ '</p>';
+						for (let j = 0; j < con.length; j++) {
+							if (/^[\-]+/.test(con[j])) {
+								body += '<p class="suojin">' + con[j].substring(1) + '</p>';
+							} else if (/^[\=]+/.test(con[j])) {
+								body += '<h4 class="lvkuang">' + con[j].substring(1) + '</h4>';
+							} else {
+								body += '<p>' + con[j] + '</p>';
 							}
 						}
 						var whole = head + body + "</div>";
 						art_List[i] = whole;
 					}
-					
-					
+
+
 				}
 			});
 
 			// 文章弹框的点击开启与关闭
 			$(".zhiyuwen_con span").click(function() {
 				$(".tan_kuang,.back").css("display", "block");
-				var art_choose = $(this).index();
+				art_choose = $(this).index();
 				$(".article_kuang .hl_article").html(art_List[art_choose]);
 			})
 			$(".tan_kuang .close_kuang").click(function() {
 				$(".tan_kuang,.back").css("display", "none");
 				$(".article_kuang .hl_article").html("");
 			})
-
-
+			
+			$(".tan_kuang .prePage").click(function() {
+				if(art_choose>0){
+					art_choose--;
+					$(".article_kuang .hl_article").html(art_List[art_choose]);
+				}
+			})
+			$(".tan_kuang .nextPage").click(function() {
+				if(art_choose<art_List.length-1){
+					art_choose++;
+					$(".article_kuang .hl_article").html(art_List[art_choose]);
+				}
+			})
+			$(".tan_kuang .toTop").click(function() {
+				 $('.hl_article').animate({scrollTop:'0'},300);
+			})
 		})
 	</script>
 	<body>
@@ -63,14 +78,17 @@
 			<section class="article_kuang">
 				<div class="back"></div>
 				<div class="tan_kuang art_tankuang">
-					<div class="close_kuang">×</div>
+					<div class="menuBtns none-txtchosen">
+						<span class="prePage">上一篇</span>
+						<span class="toTop">回顶部</span>
+						<span class="nextPage">下一篇</span>
+						<span class="close_kuang">×</span>
+					</div>
 					<article class="hl_article">
 						<!-- 模板
 					<title class="hl_title">如何调节状态？</title>
 					<div class="article_con"></div> -->
 					</article>
-
-
 				</div>
 			</section>
 
@@ -190,12 +208,9 @@
 					<span>《如何解决问题》</span>
 					<span>《常见的几种思维方法》</span>
 					<span>《作者寄语》</span>
-					<span>《一些特别的事》</span>
+					<span>《这里有一封信未查收》</span>
 				</div>
 			</section>
-
-
-
 
 
 			<!--底部区域、填补网址2个-->

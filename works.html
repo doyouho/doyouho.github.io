@@ -8,90 +8,6 @@
 		<link rel="bookmark" href="images/baobao.png" />
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/othersize.css" />
-		<!-- <script src="js/jquery-1.11.3.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script>
-			$(function(){	
-//video_src=$(".tan_kuang video").attr("src");
-	$(".video_con .box").click(function(){
-		var video_src1=$(this).attr("rel1");
-		// 判断视频文件是否存在，若存在就加载，若不存在添加提示文字
-		/* 有人说：js是用来处理前端业务的，对于处理文件，它没有这样的功能，因为他是客户端脚本！无法操作到服务器上的资源！
-		不过你可以通过其他的服务端脚本或者编程语言来判断文件是否存在，再用AJAX技术来判断服务端返回的数据来确定是否存在该文件！ */
-		// var video_source=$.ajax({
-		// 	url:video_src1,   //这个能生效吗？
-		// 	success:function(){    //无法访问的返回值是undefined？
-		// 		video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
-		// 		alert(123);
-		// 		return video_source;
-		// 	}
-		// });
-		
-		// 用了try catch还是没资源的时候不显示  失败操作
-		$(".tan_kuang,.back").css("display","block");
-		try{
-			var video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
-			$(".tan_kuang").append(video_source);
-		}catch(e){
-			var video_null='<p class="unfind">糟糕视频不见了，可以尝试通过优酷观看。</p>';
-			$(".tan_kuang").append(video_null);
-		}
-		
-		
-		
-		
-		$(".back").click(function(){
-			// alert($(".tan_kuang video").currentTime);
-			$(".tan_kuang video").remove();
-			$(".tan_kuang,.back").css("display","none");
-			$(".tan_kuang p").remove();
-		}) 
-	})
-	
-
-	// 用js配合jquery的ajax来访问文件数据
-	$.ajax({
-			url:"data/sentence.json",
-			dataType:"json",
-			success:function(res){
-				var arr=res["works"];
-				var len = arr.length;
-				while(len){
-					var num=Math.ceil(Math.random()*10)-1;
-					if (num<len){
-						var sentence = "<p>"+ arr[num] + "</p>";
-						$(".words").append(sentence);
-						return 0;
-					}
-				}
-			}
-		});
-		
-	
-
-
-	$(".hd .nav li").hover(function(){
-		$(this).find("a").stop().animate({top:-66})
-	},function(){
-		$(this).find("a").stop().animate({top:0})
-	})
-
-
-   for(var i=1; i<5;i++){
-	var v_url="url(images/video/"+i+".jpg)"
-	$(".video_con .box").eq(i-1).css("background-image",v_url);
- 	var g_url="url(images/game/00"+i+".jpg)"
-	$(".game_con .box").eq(i-1).css("background-image",g_url);
-	// var f_url="url(images/fiction/"+i+".jpg)"
-	// $(".fiction_con .box").eq(i-1).css("background-image",f_url);
-	// var s_url="url(images/song/"+i+".jpg)"
-	// $(".song_con .box").eq(i-1).css("background-image",s_url);
-}
-
-})
-</script>
-
-
 	</head>
 
 	<body>
@@ -117,8 +33,6 @@
 				</nav>
 			</div>
 		</header>
-
-
 
 		<!--弹出框-->
 		<div class="back"></div>
@@ -232,5 +146,87 @@
 		<footer class="footer">
 			&nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
 		</footer>
+		
+		
+		<!-- <script src="js/jquery-1.11.3.min.js"></script> -->
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
+		<script>
+					$(function(){	
+		//video_src=$(".tan_kuang video").attr("src");
+			$(".video_con .box").click(function(){
+				var video_src1=$(this).attr("rel1");
+				// 判断视频文件是否存在，若存在就加载，若不存在添加提示文字
+				/* 有人说：js是用来处理前端业务的，对于处理文件，它没有这样的功能，因为他是客户端脚本！无法操作到服务器上的资源！
+				不过你可以通过其他的服务端脚本或者编程语言来判断文件是否存在，再用AJAX技术来判断服务端返回的数据来确定是否存在该文件！ */
+				// var video_source=$.ajax({
+				// 	url:video_src1,   //这个能生效吗？
+				// 	success:function(){    //无法访问的返回值是undefined？
+				// 		video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
+				// 		alert(123);
+				// 		return video_source;
+				// 	}
+				// });
+				
+				// 用了try catch还是没资源的时候不显示  失败操作
+				$(".tan_kuang,.back").css("display","block");
+				try{
+					var video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
+					$(".tan_kuang").append(video_source);
+				}catch(e){
+					var video_null='<p class="unfind">糟糕视频不见了，可以尝试通过优酷观看。</p>';
+					$(".tan_kuang").append(video_null);
+				}
+		
+				
+				$(".back").click(function(){
+					// alert($(".tan_kuang video").currentTime);
+					$(".tan_kuang video").remove();
+					$(".tan_kuang,.back").css("display","none");
+					$(".tan_kuang p").remove();
+				}) 
+			})
+			
+		
+			// 用js配合jquery的ajax来访问文件数据
+			$.ajax({
+					url:"data/sentence.json",
+					dataType:"json",
+					success:function(res){
+						var arr=res["works"];
+						var len = arr.length;
+						while(len){
+							var num=Math.ceil(Math.random()*10)-1;
+							if (num<len){
+								var sentence = "<p>"+ arr[num] + "</p>";
+								$(".words").append(sentence);
+								return 0;
+							}
+						}
+					}
+				});
+				
+			
+		
+			$(".hd .nav li").hover(function(){
+				$(this).find("a").stop().animate({top:-66})
+			},function(){
+				$(this).find("a").stop().animate({top:0})
+			})
+		
+		
+		   for(var i=1; i<5;i++){
+			var v_url="url(images/video/"+i+".jpg)"
+			$(".video_con .box").eq(i-1).css("background-image",v_url);
+		 	var g_url="url(images/game/00"+i+".jpg)"
+			$(".game_con .box").eq(i-1).css("background-image",g_url);
+			// var f_url="url(images/fiction/"+i+".jpg)"
+			// $(".fiction_con .box").eq(i-1).css("background-image",f_url);
+			// var s_url="url(images/song/"+i+".jpg)"
+			// $(".song_con .box").eq(i-1).css("background-image",s_url);
+		}
+		
+		})
+		</script>
 	</body>
 </html>

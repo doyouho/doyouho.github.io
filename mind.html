@@ -15,6 +15,9 @@
 				padding: 0;
 				margin: 0;
 			}
+			a{
+				text-decoration: none;
+			}
 
 			:root {
 				--bgcolor: #6b9fa2;
@@ -24,6 +27,18 @@
 				--selectfont: #225c88;
 			}
 
+			.header{
+				text-align: right;
+				height: 52px;
+				background-color: #1ABC9C ;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				z-index: 99;
+			}
+			
+			.jumpbtn,
 			button{
 				background-color: #7d7d7d;
 				color: white;
@@ -33,6 +48,7 @@
 				border-radius: 20px;
 				cursor: pointer;
 			}
+			.jumpbtn:hover,
 			button:hover{
 				background-color: #000000;
 			}
@@ -73,16 +89,17 @@
 			}
 			.menuToggle{
 				position: fixed;
-				right: 20px;
-				top:4px;
+				right: 36px;
+				top:14px;
 				background-color: #414141;
 				z-index: 4;
 			}
 			.menuToggle:hover{
-				right: 4px;
+				right: 24px;
 			}
 
 			.jsmind_body {
+				margin-top: 52px;
 				border: 1px solid #f3f3f3;
 				flex: 20;
 				min-height: 100vh;
@@ -94,6 +111,7 @@
 			}
 
 			.colorBar {
+				margin-top: 52px;
 				flex: 1;
 				max-width: 20px;
 				background-color: #000000;
@@ -110,6 +128,7 @@
 				flex: 8;
 				font-size: 14px;
 				padding: 12px;
+        margin-top: 52px;
 			}
 
 			.jsmind_menu .oneline {
@@ -150,11 +169,11 @@
 				left: 0;
 				bottom: 0;
 				width: 100%;
-				height: 40px;
+				height: 66px;
 				text-align: center;
 				display: none;
-				line-height: 40px;
-				color: #ff0099;
+				line-height: 66px;
+				color: white;
         z-index:10;
 			}
 
@@ -209,14 +228,34 @@
 				.jsmind_body{
 					max-width: 60%;
 				}
+        .consoleTips {
+          font-size: 20px;
+        	background-color: rgba(0,0,0,.8);
+        	bottom: 80%;
+          left:50%;
+          width: 60vw;
+          transform: translate(-50%);
+        	height: 2.4rem;
+        	line-height:2.4rem;
+        }
 			}
 		</style>
 		<link type="text/css" rel="stylesheet" href="./jsmind/style/jsmind.css" />
 	</head>
 	<body>
+		<div class="header">
+		  <h1 style="font-size: 14px; position: absolute; left: 30px; top: 10px; color: white;">
+				<a style="font-size: 24px; color: white; cursor: pointer;"
+		      target="_blank" href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点 &nbsp;
+				<a class="jumpbtn" href="./toreview.html">处理</a> &nbsp;
+				<a class="jumpbtn" href="./share.html">资</a> &nbsp;
+				<a class="jumpbtn" href="./towork.html">启</a>
+			</h1>		
+			<button class="menuToggle" onclick="toggleMenu();">&gt;&gt;收起</button>
+		</div>
+
 		<!-- 本页面的思维导图基于 张志刚 <hizzgdev@163.com>的jsmind实现，github分享地址为 https://github.com/hizzgdev/jsmind -->
 		<div class="container">
-			<button class="menuToggle" onclick="toggleMenu();">&gt;&gt;收起</button>
 			<div class="jsmind_body">
 				<div id="jsmind_container"></div>
 				<p class="consoleTips"></p>
@@ -342,14 +381,14 @@
 		<script type="text/javascript">
     
 			var colorsInBar = [ '4df13a','ff6699','e1e1e1','ffffff',
-				'ff3300', '71252f','ab5256','7f124c', 'a26382',
-        'ff9900', 'ffbb33', 'b28541', 'fba56a', 'fac369','ffd38a','aabb99', '99ccaa',
-        '6a8782','aac3c0','a9a693','cec2b2','e5e1b2','e5e6e1',
-				'66dd66', '88f388', '33ff99', '99f0fa', 'aa99fe', '6699ff', '22aadd', '4488aa',
-        '436d5f','547a65','8eab8f','c2dac4',
-        '086c6a','1a8b89','20afab','a5e1e1','adc8f7',
-				'88a4cb','6699cc',  'aa66dd', 'aa22cc', 'cc66aa', 'cc66cc', 'cc33ff','ee22ff', 
-				'ee44aa', 'ffffff', 'f3f3f3', 'dfdfdf', 'ccbbcc', '999999', '666666', '333333', '000000'
+				'ff3300', '71252f', '6D214F','7f124c','B33771', 'ab5256', 'a26382', 'b28541', 'EAB543',
+        'ffbb33', 'ff9900','fd9644', 'fac369', 'fba56a', 'F97F51', 'FD7272', 'fc5c65', 'FC427B',
+				'ee44aa', 'cc66aa', 'cc33ff', 'aa66dd','82589F','D6A2E8', 
+				'2C3A47', '436d5f','086c6a', '1a8b89', '20afab','58B19F','55E6C1','25CCF7','1B9CFC',
+				'182C61', '3B3B98','4488aa','6699ff', 
+				'66dd66', '88f388', '26de81', '99f0fa', 'aa99fe', '88a4cb','6699cc', 
+        '6a8782', '8eab8f','a9a693','cec2b2','aac3c0','adc8f7','99ccaa','BDC581',
+				'F8EFBA', 'f3f3f3', 'dfdfdf', 'ccbbcc', '999999', '666666', '444444','333333', '000000'
 			];
 			var colorChangeMode = "bg";
 			var oTips = document.getElementsByClassName("consoleTips")[0];
@@ -381,7 +420,7 @@
 					"topic": "治“懒”妙方",
 					"expanded": true,
 					"isroot": true,
-					"background-color": "#ee44aa",
+					"background-color": "#82589f",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "sub1",
@@ -389,42 +428,42 @@
 					"expanded": true,
 					"parentid": "root",
 					"direction": "right",
-					"background-color": "#ff9900",
+					"background-color": "#fd7272",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "sub11",
 					"topic": "（目标只求少而精）",
 					"expanded": true,
 					"parentid": "sub1",
-					"background-color": "#22aadd",
+					"background-color": "#cc66aa",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "sub12",
 					"topic": "制作时间",
 					"expanded": true,
 					"parentid": "sub1",
-					"background-color": "#22aadd",
+					"background-color": "#f97f51",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "sub13",
 					"topic": "与人交流时间",
 					"expanded": true,
 					"parentid": "sub1",
-					"background-color": "#22aadd",
+					"background-color": "#f97f51",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "2d5fd3a070c252d3",
 					"topic": "读书及碎片阅读时间",
 					"expanded": true,
 					"parentid": "sub1",
-					"background-color": "#22aadd",
+					"background-color": "#f97f51",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "2d5fd6a21d2c9b55",
 					"topic": "工作学习时间",
 					"expanded": true,
 					"parentid": "sub1",
-					"background-color": "#22aadd",
+					"background-color": "#f97f51",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "sub2",
@@ -432,14 +471,14 @@
 					"expanded": true,
 					"parentid": "root",
 					"direction": "right",
-					"background-color": "#ff9900",
+					"background-color": "#26de81",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "sub21",
 					"topic": "途径：备忘录，相机，便签，云同步",
 					"expanded": true,
 					"parentid": "sub2",
-					"background-color": "#22aadd",
+					"background-color": "#66dd66",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "sub3",
@@ -447,51 +486,51 @@
 					"expanded": true,
 					"parentid": "root",
 					"direction": "right",
-					"background-color": "#ff9900",
+					"background-color": "#fd9644",
 					"foreground-color": "#ffffff"
 				}, {
 					"id": "2d600110b4369873",
 					"topic": "我感兴趣的是什么？",
 					"expanded": true,
 					"parentid": "sub3",
-					"background-color": "#22aadd"
+					"background-color": "#b28541"
 				}, {
 					"id": "2d60042d9660849e",
 					"topic": "我适合或不适合做什么?",
 					"expanded": true,
 					"parentid": "sub3",
-					"background-color": "#22aadd"
+					"background-color": "#b28541"
 				}, {
 					"id": "2d60095bc896e895",
 					"topic": "别人是怎么做的，我该怎么做？",
 					"expanded": true,
 					"parentid": "sub3",
-					"background-color": "#22aadd"
+					"background-color": "#b28541"
 				}, {
 					"id": "2d6053634174d89f",
 					"topic": "4. 内化输出",
 					"expanded": true,
 					"parentid": "root",
 					"direction": "left",
-					"background-color": "#ff9900"
+					"background-color": "#1a8b89"
 				}, {
 					"id": "2d6056988a12d3a7",
 					"topic": "找出最感兴趣的内容",
 					"expanded": true,
 					"parentid": "2d6053634174d89f",
-					"background-color": "#22aadd"
+					"background-color": "#58b19f"
 				}, {
 					"id": "2d60669b51e15a15",
 					"topic": "写出短文或作为讨论的话题",
 					"expanded": true,
 					"parentid": "2d6053634174d89f",
-					"background-color": "#22aadd"
+					"background-color": "#58b19f"
 				}, {
 					"id": "2d606942250c861d",
 					"topic": "把结论打卡到自己笔记或做成视频 ",
 					"expanded": true,
 					"parentid": "2d6053634174d89f",
-					"background-color": "#22aadd"
+					"background-color": "#58b19f"
 				}]
 				
 			};
@@ -671,7 +710,7 @@
 				var color = element.getAttributeNode("data-color").value;
 				// console.log(element,color);
 				var selected_id = get_selected_nodeid();
-				console.log(selected_id);
+				// console.log(selected_id);
 				if (!selected_id) {
 					tipsShow("你还没有选中一个节点呢，上色失败。");
 					return;
@@ -701,8 +740,7 @@
 					}else{
 						jm.set_node_color(selected_id, color, null);
 					}
-					
-					console.log(mind.data);
+					// console.log(mind.data);
 				} else {
 					jm.set_node_color(selected_id, null, color);
 				}
@@ -1004,7 +1042,7 @@
 			}
 
 			function jsmDataCopy() {
-				console.log(copyMd);
+				// console.log(copyMd);
 				var oTextarea = document.getElementsByClassName("copyData")[0];
 				oTextarea.value = copyMd;
 				oTextarea.select(); // 这种复制只支持文本框和文本域innput textarea (注意后者才支持换行符)
@@ -1255,7 +1293,7 @@
 					oToggleBtn.innerHTML = "展开&lt;&lt;";
 					oMindBody.classList.add("big");
 				}else{
-					console.log("展开生效");
+					// console.log("展开生效");
 					oColorBar.style.display="block";
 					oMenu.style.display="block";
 					oToggleBtn.innerHTML = "&gt;&gt;收起";

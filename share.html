@@ -8,11 +8,117 @@
 		<link rel="bookmark" href="images/baobao.png" />
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/othersize.css" />
+		<style>
+		  .words p.slim{
+		    padding-bottom: 0px;
+		  }
+		  .words p a{ 
+		    padding: 0 4px;
+		    color: #999;
+		  }
+			.addUrl{
+				height: 200px;
+				width: 320px;
+				position: absolute;
+				top: -158px;
+				left: 440px;
+				background-color: rgba(255,255,255,.8);
+				text-align: right;
+				box-shadow:  1px 2px 3px #EEEEEE;
+				display: none;
+			}
+			.addUrl::after{
+				display: block;
+				content: "";
+				position: absolute;
+				left: 30px;
+				bottom: -8px;
+				width: 20px;
+				height: 20px;
+				transform: rotate(45deg);
+				background-color: rgba(255,255,255,.8);
+				box-shadow:  1px 2px 3px #EEEEEE;
+				/* border: 12px solid transparent;
+				border-right-color: rgba(255,255,255,.8); */
+			}
+			.addUrl.active{
+				display: block;
+			}
+			.addUrl input{
+				padding: 2px 6px;
+				display: block;
+				width: 244px;
+				height: 24px;
+				line-height: 24px;
+				margin: 30px;
+			}
+			.addUrl .certainBtn{
+				display: inline-block;
+				cursor:pointer;
+				padding: 6px 12px;
+				background-color: #14A387;
+				font-size: 16px;
+				color:white;
+				margin-right:30px;
+				z-index: 2;
+			}
+			.addUrl .tips{
+				font-size: 14px;
+			}
+			.addCollectUrlBtn{
+				cursor: pointer;
+				font-size: 20px;
+				width: 20px;
+				height: 20px;
+				line-height: 18px;
+				position: absolute;
+				left: 20px;
+				top: 53px;
+				text-align: center;
+				color: #a8a8a8;
+				display: inline-block;
+				border: 1px solid #a8a8a8;
+				border-radius: 50%;
+				transition: .8s;
+				transform-origin: 11px 11px;
+			}
+
+			.addCollectUrlBtn.active{
+				transform: rotate(135deg);
+				background-color: #767676;
+			}
+	
+			/* #newAddUrl{
+				display: inline-block;
+			} */
+			#newAddUrl a{
+				margin-right: 12px;
+				position: relative;
+				/* display: inline-block; */
+			}
+			#newAddUrl b{
+				display: none;
+			}
+			#newAddUrl.active b{
+				display: inline-block;
+				position: absolute;
+				right: -10px;
+				top: -12px;
+				font-size: 16px;
+				text-align: center;
+				text-indent: 0px;
+				width: 16px;
+				height: 16px;
+				line-height: 14px;
+				border-radius: 50%;
+				color: #ffffff;
+				background-color: #ea493d;
+				cursor: pointer;
+			}
+		</style>
 		<!-- <script src="js/jquery-1.11.3.min.js"></script> -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>
-
-
 
 			$(function(){
 	
@@ -27,32 +133,20 @@ $.ajax({
 			var num=Math.ceil(Math.random()*10)-1;
 			if (num<len){
 				var sentence = "<p>"+ arr[num] + "</p>";
-				$(".words").append(sentence);
+				$(".words_top").append(sentence);
 				return 0;
 			}
 		}
 	}
 });
 	
-$(".hd .nav li").hover(function(){
-		$(this).find("a").stop().animate({top:-66})
-	},function(){
-		$(this).find("a").stop().animate({top:0})
+	$(".hd .nav li").hover(function(){
+			$(this).find("a").stop().animate({top:-66})
+		},function(){
+			$(this).find("a").stop().animate({top:0})
+		})
+
 	})
-
-//图片的加载
-//    for(var i=1; i<5;i++){
-// 	var t_url="url(images/tool/"+i+".jpg)"
-// 	$(".tool_con .box").eq(i-1).css("background-image",t_url);
-//  	var w_url="url(images/website/"+i+".jpg)"
-// 	$(".website_con .box").eq(i-1).css("background-image",w_url);
-// 	var l_url="url(images/life/"+i+".jpg)"
-// 	$(".life_con .box").eq(i-1).css("background-image",l_url);
-// 	var sp_url="url(images/spirit/"+i+".jpg)"
-// 	$(".spirit_con .box").eq(i-1).css("background-image",sp_url);
-// }
-
-})
 </script>
 	</head>
 
@@ -89,29 +183,153 @@ $(".hd .nav li").hover(function(){
 			// 	document.getElementsByClassName("tishiwenben")[0].style.visibility="hidden";
 			// }
 		</script>
-
-
+		<!-- <script src="https://togetherjs.com/togetherjs-min.js"></script> -->
 
 		<!--美句区域   修改文字！！-->
 		<section class="words words_top">
+			<!-- <button onclick="TogetherJS(this); return false;">Start TogetherJS</button> -->
 			<div class="word_title title"><i class="jiantou"></i>
 				<h3>作者劝语</h3>
 			</div>
 		</section>
 
+    <section class="words" style="position: relative;">
+      <div class="word_title title"><i class="jiantou" style="border-left-color: ;"></i>
+      	<h3>制作需要 &nbsp;&nbsp;<a href="https://www.yuque.com/nibaobao-youho/yixiu/wiow1c" target="_blank">我要反馈</a><span class="addCollectUrlBtn">+</span></h3>
+      </div>
+			<section class="addUrl">
+				<input type="text" class="urlName" placeholder="输入名称"/>
+				<input type="text"  class="urlLink" placeholder="输入链接"/>
+				<span class="tips">（提示区）</span>
+				<span class="certainBtn none-txtchosen" onclick="toAddUrl()">添加</span>
+			</section>
+			
+			
+			<script>
+				var nowlist = [];
+				window.onload = function(){
+					if(localStorage.getItem("hotlink")){
+						var list = localStorage.getItem("hotlink").split("^");
+						showCustomize(list);
+						nowlist = list;
+					}
+					var oaddBtn = document.getElementsByClassName("addCollectUrlBtn")[0];
+					oaddBtn.onclick = function(){
+						var oaddUrl = document.getElementsByClassName("addUrl")[0];
+						oaddUrl.classList.toggle("active");
+						oaddBtn.classList.toggle("active");
+						document.getElementById("newAddUrl").classList.toggle("active");
+					}
+				}
+			
+				function toAddUrl(){
+					var oname = document.getElementsByClassName("urlName")[0];
+					var ourl = document.getElementsByClassName("urlLink")[0];
+					const ospan = document.getElementsByClassName("tips")[0];
+					if(oname.value && /^[http|https|\.]+:\/\/[\S]+/.test(ourl.value)){
+						var str = "<a href='"+ ourl.value + "' target='_blank'>" + oname.value + "</a>";
+						var list = [];
+						if(localStorage.getItem("hotlink")){
+							list = localStorage.getItem("hotlink").split("^");
+							list.push(str);
+							localStorage.setItem("hotlink",list.join("^"));
+						}else{
+							localStorage.setItem("hotlink",str);
+							list[0] = str;
+						}
+						showCustomize(list);
+						nowlist = list;
+						ospan.innerText = "添加成功";
+						oname.value = "";
+						ourl.value = "";
+					}else{
+						ospan.innerText = "数据错误，添加失败";
+					}
+				}
+				function showCustomize(list){
+					var onew = document.getElementById("newAddUrl");
+					let allStr = "";
+					for (let i = 0; i < list.length; i++) {
+						let temp = list[i].replace("</a>","<b data-index='" + i +"' onclick='delectOne(this)'>-</b></a>");
+						allStr += temp;
+						// console.log(list[i]);
+					}
+					onew.innerHTML = allStr;
+				}
+				
+				function delectOne(e){
+					event.preventDefault();
+					// console.log(e.getAttribute("data-index"));
+					nowlist.splice(e.getAttribute("data-index"),1);
+					showCustomize(nowlist);
+					localStorage.setItem("hotlink",nowlist.join("^"));
+				}
+			</script>
+			<p class="slim">自定义：
+				<span id="newAddUrl"></span>
+			</p>
+      <p class="slim">联系类：
+      	<a target="_blank" href="https://wx.qq.com/">微信网页版</a>
+      	<a target="_blank" href="https://mail.sina.com.cn/">新邮</a>
+      	<a target="_blank" href="https://mail.qq.com/">Q邮</a>
+      	<a target="_blank" href="https://mail.163.com/">易邮</a>
+      	<a target="_blank" href="https://pan.baidu.com/">百度云盘</a>
+      	<a target="_blank" href="https://cli.im/">草料二维码</a>
+      	<a target="_blank" href="https://www.wjx.cn/">问卷星</a>
+        <br />
+      </p>
+      <p class="slim">平台类：
+				<a target="_blank" href="./towork.html"><b>开始工作</b></a>
+        <a target="_blank" href="https://www.yuque.com/">语雀</a>
+        <a target="_blank" href="https://www.kdocs.cn/">金山文档</a>
+        <a target="_blank" href="https://trello.com/">Trello</a>
+        <a target="_blank" href="https://mp.weixin.qq.com/">微信公众平台-小程序/公众号</a>
+        <a target="_blank" href="https://www.365editor.com/">365编辑器</a>
+        <a target="_blank" href="https://github.com/doyouho/">Github</a>
+        <a target="_blank" href="https://gitee.com/">Gitee</a>
+        <a target="_blank" href="http://www.66rpg.com/friend/23755826">橙光游戏</a>
+        <a target="_blank" href="https://i.youku.com/u/UMzk2MDYyMTg0?spm=a2h0k.11417342.soresults.dnameX">优酷</a>
+        <a target="_blank" href="https://space.bilibili.com/101977006/favlist?fid=835945706&ftype=create">B站</a>
+        <a target="_blank" href="https://codepen.io/">在线编辑codepen, </a>
+        <a target="_blank" href="https://jsbin.com/?html,js">jsbin</a>
+      </p>
+      <p class="slim">资源类：
+        <a target="_blank" href="https://www.bookmarkearth.com/">书签地球</a>
+				<a href="http://www.fenby.com/" target="_blank">初学者互动编程平台</a>
+				<a href="https://www.bookstack.cn/" target="_blank">书栈网</a>
+				<a href="https://docschina.org/" target="_blank">印记中文</a>
+				<a href="http://shouce.jb51.net/" target="_blank">脚本手册</a>
+				<a href="http://codingdict.com/tutorials" target="_blank">编程字典</a>
+				<a href="https://www.gushiwen.cn/" target="_blank">古诗文</a>
+				<a href="https://www.xungushici.com/" target="_blank">寻古诗词</a>
+				<a href="https://www.90lrc.cn/" target="_blank">歌词</a>
+      </p>
+      <p>巧利用：
+      	<a href="https://ask.dcloud.net.cn/docs/" target="_blank">Dcloud文档</a>
+      	<a href="https://code.visualstudio.com/docs#vscode/" target="_blank">Visual Studio</a>
+        <a target="_blank" href="https://blog.csdn.net/csl125/article/details/82891571">windows常用命令行命令</a>
+        <a target="_blank" href="https://www.w3school.com.cn/r.asp">w3c参考手册</a>
+        <a target="_blank" href="http://css.doyoe.com/">css3参考手册</a>
+        <a target="_blank" href="https://blog.csdn.net/youhoa/article/details/103589504">HB编辑器快捷键</a>
+				<a target="_blank" href="https://www.w3.org/TR/CSS/">CSS</a>
+				<a target="_blank" href="https://html.spec.whatwg.org/multipage/">HTML</a>
+				
+      </p>
+    </section>
 
 		<section class="share_con">
 
 			<div class="kapian">
 				<div class="share_box">
 					<h4>工具类（效率帮助--线上工具）</h4>
-					<p>综合：
-						<a target="_blank" href="https://www.toolnb.com/">爱资源 </a>
-						<!-- <a target="_blank" href="http://www.nicetool.net/">Nicetool </a> -->
-						<a target="_blank" href="http://www.toolfk.com/">工具1 </a>
-						<a target="_blank" href="https://tool.lu/">工具2 </a>
-						<a target="_blank" href="https://tool.oschina.net/">工具3 </a>
-						<a target="_blank" href="http://tool.cc/123/">工具导航</a>
+					<p>工具：
+						<a target="_blank" href="https://c.runoob.com/">菜鸟工具 </a>
+						<a target="_blank" href="https://www.toolnb.com/">集1 </a>
+						<a target="_blank" href="http://www.toolfk.com/">集2 </a>
+						<a target="_blank" href="https://tool.lu/">集3 </a>
+						<a target="_blank" href="https://tool.oschina.net/">集4 </a>
+            <a target="_blank" href="http://tool.chinaz.com/">站长</a>
+            <a target="_blank" href="http://tools.jb51.net/">脚本</a>
 					</p>
 					<p>配色：
 						<a target="_blank" href="https://flatuicolors.com/">flatuicolors</a>
@@ -121,188 +339,165 @@ $(".hd .nav li").hover(function(){
 						<a target="_blank" href="https://www.iconfont.cn/">iconfont</a>
 						<a target="_blank" href="http://www.fontawesome.com.cn/faicons/">fontawesome</a>
 					</p>
-					<p>插件：
-						<a target="_blank" href="http://www.jq22.com/">插件jq</a>
-						<a target="_blank" href="http://www.aigei.com/">爱给</a>
-						<a target="_blank" href="https://css-tricks.com/">css特效</a>
-						<a target="_blank" href="https://www.html.cn/texiao/">特效</a>
-						<a target="_blank" href="https://ext.dcloud.net.cn/">插件</a>
-
-
-					</p>
-					<p>其他：
-						<a target="_blank" href="https://images.ac.cn/">土豆图床-图上传</a>
-						<a target="_blank" href="https://codepen.io/">在线编辑器</a>
-						<a target="_blank" href="https://tool.oschina.net/regex/">正则测试</a>
-						<a target="_blank" href="https://caniuse.com/">兼容caniuse</a>
-						<a target="_blank" href="https://www.sojson.com/">JSON解析</a>
-						<a target="_blank" href="#">图转css</a>
-						<a target="_blank" href="https://blog.csdn.net/csl125/article/details/82891571">windows常用命令行命令</a>
-						<a target="_blank" href="https://www.w3school.com.cn/r.asp">w3c参考手册</a>
-            <a target="_blank" href="http://tool.chinaz.com/">站长工具</a>
-            <a target="_blank" href="https://www.bootcdn.cn/">BootCDN</a>
-					</p>
-				</div>
-
-				<div class="share_box">
-					<h4>整合类（探索好物--导航网站）</h4>
-					<p>>>设计导航<<</p> <p>
-							<a target="_blank" href="http://ilxdh.com/">龙轩导航 </a> &nbsp;
-							<a target="_blank" href="http://hao.wangchongbuluo.com/">网虫部落 </a>&nbsp;
-							<a target="_blank" href="http://www.haoyonghaowan.com/"> 好用好玩导航 </a></p>
-					<p>
-						<a target="_blank" href="http://www.ziliao6.com/"> 牛导航 </a> &nbsp;
-						<a target="_blank" href="https://search.chongbuluo.com/">快搜 </a>&nbsp;
-						<a target="_blank" href="http://www.xiaolvji.com/"> 效率集</a></p>
-					<p>>>程序员导航<< </p> <p>
-							<a target="_blank" href="http://www.qingnian8.com/">青年帮 </a> &nbsp;
-							<a target="_blank" href="https://www.jikedaohang.com/"> 极客导航 </a></p>
-					<p>
-						<a target="_blank" href="http://code.giffox.com/"> 程序员导航 </a> &nbsp;
-						<a target="_blank" href="https://www.daohangwan.com/board/ax9b">导航湾 </a>&nbsp;
-						<a target="_blank" href="https://www.cnblogs.com/qianguyihao/p/10701923.html">导航资源收集</a>
-					</p>
-				</div>
-				
-				<div class="share_box">
-					<h4>专业与社区类（系统学习--对口网站）</h4>
-					<p>视频类：
-						<a href="https://space.bilibili.com/101977006/favlist?fid=835945706&ftype=create" target="_blank">哔哩哔哩-收藏</a>
-						<a href="https://ke.qq.com/user/index/index.html#/plan/cid=152997&term_id=100174752" target="_blank">腾讯课堂</a>
-						<a href="https://study.163.com/category/480000003120007" target="_blank">网易云课堂</a>
-						<a href="https://ke.jikexueyuan.com/zhiye/web/" target="_blank">极客学院</a>
-						<a href="https://www.html.cn/js/javascript/" target="_blank">HTML中文网-JS</a>
-						<a target="_blank" href="https://www.imooc.com/"> 慕课网 </a>
-						<a target="_blank" href="http://yun.itheima.com/course"> 黑马程序员 </a>
-					</p>
-					<p> 文档类（会搜）：
-						<a href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN</a>
-						<a href="https://www.w3school.com.cn/" target="_blank">W3C</a>
-						<a href="https://www.runoob.com/" target="_blank">菜鸟教程</a>
-						<a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1031549578462080" target="_blank">廖-JS</a>
-						<a href="https://wangdoc.com/javascript/types/function.html" target="_blank">阮-JS</a>
-						<a href="https://es6.ruanyifeng.com/" target="_blank">阮-ES6</a>
-					</p>
-					<p>扩展（官网）：
-						<a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>
-						<a href="https://www.sass.hk/" target="_blank">Sass</a>
-						<a href="http://lesscss.cn/" target="_blank">Less</a>
-						<a href="https://www.gulpjs.com.cn/" target="_blank">Gulp</a>
-						<a href="https://www.webpackjs.com/" target="_blank">Webpack</a>
-						<a href="http://nodejs.cn/api/" target="_blank">Nodejs</a>
-						<a href="https://jquery.com/" target="_blank">jQuery</a>
-						<a href="https://www.bootcss.com/" target="_blank">BootStrap</a>
-						<a href="https://www.electronjs.org/" target="_blank">Eletron</a>
-						<a href="https://ant.design/index-cn" target="_blank">Antd</a>
-						<a href="https://element.faas.ele.me/#/zh-CN" target="_blank">Element UI</a>
-						<a href="http://nodejs.cn/api/" target="_blank">Antd</a>
-						<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/" target="_blank">微信开放文档</a>
-						<a href="https://zh.snipaste.com/" target="_blank">Snipaste</a>
-						<a href="https://docs.emmet.io/" target="_blank">Emmet</a>
-
-					</p>
-					<p>提速：
-						<a href="https://docs.snipaste.com/zh-cn/" target="_blank">Snipaste</a>
-						<a href="https://ask.dcloud.net.cn/docs/" target="_blank">Dcloud文档</a>
-						<a href="https://code.visualstudio.com/docs#vscode/" target="_blank">Visual Studio</a>
-					</p>
-				</div>
-			</div>
-
-			<div class="kapian">
-				<div class="share_box">
-					<h4>日常需要</h4>
-					<p>视频播放器 Potplayer&nbsp;&nbsp;[体积小且加载快，变速、加字幕等可操作度高]</p>
-					<p>
-						<a target="_blank" href="https://wx.qq.com/">微网版</a>
-						<a target="_blank" href="https://mail.sina.com.cn/">新邮</a>
-						<a target="_blank" href="https://mail.qq.com/">Q邮</a>
-						<a target="_blank" href="https://mail.163.com/">易邮</a>
-						<a target="_blank" href="https://pan.baidu.com/">百度云盘</a></p>
-					<p>
-						<a href="https://zxuqian.cn/front-end-learning-path" target="_blank">峰华-路线1</a>
-						<a href="https://objtube.github.io/front-end-roadmap/#/" target="_blank">路线2</a>
-						大牛博客：
-						<a target="_blank" href="http://www.ruanyifeng.com/blog/">阮一峰</a>
-						<a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰</a>
-					</p>
-					<p>零散-查：
+					<p>搜索：
 						<a href="https://36kr.com/" target="_blank">36氪</a>
 						<a href="https://segmentfault.com/channel/frontend" target="_blank">思否</a>
 						<a href="https://www.csdn.net/nav/web" target="_blank">CSDN</a>
 						<a href="https://segmentfault.com/channel/frontend" target="_blank">掘金</a>
 						<a href="https://www.cnblogs.com/cate/108703/" target="_blank">博客园</a>
-						<a href="https://www.zhihu.com/" target="_blank">知乎</a>
+						<a href="https://www.zhihu.com/people/ni-bao-bao-8-35" target="_blank">知乎</a>
 						<a href="https://www.jianshu.com/nb/30927651" target="_blank">简书-题</a>
 						<a href="https://weixin.sogou.com/" target="_blank">微信文</a>
-						<a href="https://stackoverflow.com/" target="_blank">stackoverflow</a>
+						<a href="https://stackoverflow.com/" target="_blank">Stackoverflow</a>
 						<a href="https://github.com/search?o=desc&q=%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0+in%3Adescription&s=&type=Repositories"
-						 target="_blank">github</a>
+						 target="_blank">Github前端</a>
+					</p>
+					<p>其他：
+						<a target="_blank" href="http://imgdh.com/">图床</a>
+						<a target="_blank" href="https://tool.oschina.net/regex/">正则1</a>
+						<a href="https://c.runoob.com/front-end/854" target="_blank">正则2</a>
+						<a href="https://c.runoob.com/more/shapefly-diagram/#" target="_blank">画图</a>
+						<a href="https://c.runoob.com/more/svgeditor/" target="_blank">SVG</a>
+						<a target="_blank" href="https://caniuse.com/">caniuse兼容</a>
+						<a target="_blank" href="https://www.sojson.com/">JSON解析</a>
+            <a target="_blank" href="https://www.bootcdn.cn/">BootCDN加速</a>
+						css hat 
+					</p>
+				</div>
+
+				<div class="share_box">
+					<h4>整合类（探索好物--导航网站）</h4>
+					<p>>>综合导航或搜索<<</p> <p>
+							<a target="_blank" href="https://www.xue8nav.com/"> 学吧导航</a> &nbsp;
+							<a target="_blank" href="https://www.a.cool/">阿酷导航</a> &nbsp;
+							<a target="_blank" href="http://ilxdh.com/">龙轩导航</a> &nbsp;
+							<a target="_blank" href="http://hao.wangchongbuluo.com/">网虫部落</a>
+					</p>
+					<p>
+						<a target="_blank" href="http://www.sixia.xyz/"> 小众导航 </a> &nbsp;
+						<a target="_blank" href="http://www.xiaolvji.com/"> 效率集</a>&nbsp;
+						<a target="_blank" href="http://www.haoyonghaowan.com/"> 好用好玩 </a>&nbsp;
+						<a target="_blank" href="https://search.chongbuluo.com/">快搜 </a>&nbsp;
+						<a target="_blank" href="https://site.sciping.com/">科塔学术</a> 
+					</p>
+					<p>>>程序员导航<< </p>
+					 <p>
+						 
+							<a target="_blank" href="https://www.daqianduan.com/nav">前端导航 </a> &nbsp;
+							<a target="_blank" href="http://www.qingnian8.com/">青年帮 </a> &nbsp;
+							<a target="_blank" href="https://www.jikedaohang.com/"> 极客导航 </a></p>
+					<p>
+						<a target="_blank" href="http://code.giffox.com/"> 程序员导航 </a> &nbsp;
+						<a target="_blank" href="https://www.daohangwan.com/board/ax9b">导航湾 </a>&nbsp;
+            <a target="_blank" href="http://tool.cc/123/">工具导航</a>&nbsp;
+						<a target="_blank" href="https://www.cnblogs.com/qianguyihao/p/10701923.html">导航资源收集</a>
+					</p>
+				</div>
+				
+				<div class="share_box">
+					<h4>官方与社区类（系统学习--对口网站）</h4>
+					<p>视频类：
+						<a href="https://ke.qq.com/user/index/index.html#/plan/cid=152997&term_id=100174752" target="_blank">腾讯课堂</a>
+						<a href="https://study.163.com/category/480000003120007" target="_blank">网易云课堂</a>
+						<a href="https://ke.jikexueyuan.com/zhiye/web/" target="_blank">极客学院</a>
+						<a href="https://www.html.cn/js/javascript/" target="_blank">HTML中文网-JS</a>
+						<a target="_blank" href="http://www.imooc.com/course/list?c=fe"> 慕课网 </a>
+						<a target="_blank" href="http://yun.itheima.com/course"> 黑马程序员 </a>
+					</p>
+					<p> 文档类：
+						<a href="https://www.w3school.com.cn/" target="_blank">w3school</a>
+						<a href="https://www.runoob.com/" target="_blank">菜鸟教程</a>
+						<a href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN</a>
+						<a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1031549578462080" target="_blank">廖JS</a>
+						<a href="https://wangdoc.com/javascript/types/function.html" target="_blank">阮JS</a>
+						<a href="https://es6.ruanyifeng.com/" target="_blank">阮ES6</a>
+						<a href="https://www.jb51.net/onlineread/JavaScript-Garden-CN/" target="_blank">js秘密</a>
+						<a href="https://www.w3.org/" target="_blank">W3C</a>
+					</p>
+					<p>扩展（官网）：
+						<a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>
+						<a href="http://nodejs.cn/api/" target="_blank">Nodejs</a>
+						<a href="https://www.sass.hk/" target="_blank">Sass</a>
+						<a href="http://lesscss.cn/" target="_blank">Less</a>
+						<a href="https://www.gulpjs.com.cn/" target="_blank">Gulp</a>
+						<a href="https://www.webpackjs.com/" target="_blank">Webpack</a>
+						<a href="https://jquery.com/" target="_blank">jQuery</a>
+						<a href="https://www.bootcss.com/" target="_blank">BootStrap</a>
+						<a href="https://ant.design/index-cn" target="_blank">Antd</a>
+						<a href="https://element.faas.ele.me/#/zh-CN" target="_blank">Element UI</a>
+						<a href="https://www.electronjs.org/" target="_blank">Eletron</a>
+						<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/" target="_blank">微信开放文档</a>
+						<a href="https://zh.snipaste.com/" target="_blank">Snipaste</a>
+						<a href="https://docs.emmet.io/" target="_blank">Emmet</a>
+					</p>
+					
+				</div>
+			</div>
+
+			<div class="kapian">
+				<div class="share_box">
+					<h4>前端日常 <a href="https://github.com/search/advanced" target="_blank">高级搜索项目</a> <a href="https://www.libhunt.com/about" target="_blank">Libhunt查库</a></h4>
+					<p>路线：
+						<a href="https://www.bilibili.com/video/BV18E411H7Rc" target="_blank">峰华-</a>
+						<a href="https://zxuqian.cn/front-end-learning-path" target="_blank">路线1</a> 
+						<a href="https://www.bilibili.com/video/BV1ZZ4y1H7rU" target="_blank">Luke-</a>
+						<a href="https://objtube.gitee.io/front-end-roadmap/#/" target="_blank">路线2</a>
+						<a href="https://developer.aliyun.com/article/28882" target="_blank">知识目录</a>
+          </p>
+					<p>大牛博客：
+						<a target="_blank" href="http://www.ruanyifeng.com/blog/">阮一峰</a>
+						<a target="_blank" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+					</p>
+					<p>插件：
+						<a target="_blank" href="http://www.jq22.com/">插件jq</a>
+						<a target="_blank" href="https://www.html.cn/texiao/">特效轮子</a>
+						<a target="_blank" href="https://ext.dcloud.net.cn/">dcloud插件</a>
+						<a target="_blank" href="https://freefrontend.com/">freefrontend</a>
 					</p>
 					<p>刷题：
 						<a href="https://huruji.github.io/FE-Interview/#/" target="_blank">题集1</a>
 						<a href="https://blog.poetries.top/FE-Interview-Questions/" target="_blank">题集2</a>
 						<a href="https://www.nowcoder.com/" target="_blank">牛客</a>
-						<a href="https://www.jianshu.com/p/53f6bf6f8d50" target="_blank">剑指offer指南</a>
+						<a href="https://www.jianshu.com/p/53f6bf6f8d50" target="_blank">剑指offer</a>
 						<a href="https://leetcode-cn.com/" target="_blank">力扣</a>
 					</p>
-
+          <p>css:
+					<a href="https://codepen.io/" target="_blank">codepen</a>
+					<a href="https://coolbackgrounds.io/" target="_blank">调背景</a>
+					<a href="https://neumorphism.io/" target="_blank">调阴影</a>
+					<a href="https://animista.net/" target="_blank">调动画</a>
+					<a href="https://csslayout.io/" target="_blank">css布局</a>
+					<a href="https://chokcoco.github.io/CSS-Inspiration" target="_blank">css灵感</a>
+					<a target="_blank" href="https://css-tricks.com/">css特效</a>
+					<a href="https://alteredqualia.com/" target="_blank">3D</a>
+					<a href="https://www.awwwards.com/" target="_blank">高级网站</a>
+					</p>
 				</div>
 				
 				<div class="share_box">
-					<h4>Topbook | 高效视频书</h4>
-					<p>找到的资料太乱了？好不容易找到资源却发现过期了，还要另找一份适合的教程？</p>
-					<p>那么这个网站就帮大忙了，各种资源和视频讲解一体，还丰富多样，主打高效地学习和生活。<p>
-							<p>推荐：<a href="https://topbook.cc/course/detail/153" target="_blank">GTD学习计划</a>——如何处理日常众多事件，高效做事。</p>
+					<h4>软件及帮助</h4>
+					<p>软件：
+						<a href="https://zh.snipaste.com/" target="_blank">Snipaste</a>
+						<a href="https://www.xmind.cn/" target="_blank">Xmind</a>
+						<a href="https://www.yuque.com/" target="_blank">语雀</a>
+						<a href="https://github.com/miaomiaosoft/PandaOCR" target="_blank">PandaOCR</a>
+						<a href="https://www.a.cool/" target="_blank">更多</a>
+					</p>
+					<p><a href="https://topbook.cc/" target="_blank">Topbook[高效视频书]</a>-网站，各种资源和视频讲解一体，还丰富多样，主打高效地学习和生活。 </p>
+					<p><a href="https://topbook.cc/course/detail/153" target="_blank">GTD[时间管理]</a>如何处理日常众多事件，高效做事。</p>
+					<p><a href="https://space.bilibili.com/344849038?from=search&seid=13692100793524727015" target="_blank">于建国的学习观[重新思考]</a>学习是门学问，需要考究，其方法也因人而异，我们或许能从及机器学习上获得一点启示。</p>
 				</div>
 				
 				<div class="share_box">
-					<h4>学习观 | 重新思考学习</h4>
-					<p>我们从小就熟知“好好学习，天天向上”这句话，但是究竟怎样才叫好好学习，这个问题在以前以我们的能力搞不懂，在现在久而久之与某些概念替换而不自知。</p>
-					<p>学习是一门学问，它是需要考究的，其方法也因人而异，我们或许能从及机器学习上获得一点启示。<a href="https://space.bilibili.com/344849038?from=search&seid=13692100793524727015"
-						 target="_blank">bilibili-于建国的学习观</a></p>
-				</div>
-
-			</div>
-
-			<div class="kapian">
-				<div class="share_box">
-					<h4>实践出真知 A </h4>
+					<h4>实践出真知 <a href="https://github.com/" target="_blank">Github国外</a> <a href="https://gitee.com/" target="_blank">Gitee国内</a></h4>
 					<p>实践前搞清学习原则：明确输入输出，多例子连结，分而治之，验证实现。</p>
-					<p>视频学习>文档学习，目的学习>盲目扫资料，思维导图>简单总结，分而治之做项目并解释，可写文章。</p>
+					<p>视频学习>文档学习，目的学习>盲目扫资料，思维导图>简单总结，做项目分而治之并解释。</p>
 					<p>技巧性：利用好奇心，故事引导，求知若渴，虚心若愚，不受已有模型影响。</p>
+					<p>找项目：in:name/readme/description+空+词；stars/forks/pushed/language+:+数/日-期/语言</p>
 				</div>
-				<div class="share_box">
-					<h4>实践出真知 B</h4>
-					<p>PC端/响应式/移动端/小程序</p>
-					<p>电商网站：京东+小米</p>
-					<p>效果：轮播图，瀑布流，标签云，加载互动，导航栏_线，拖拽事件，滚动的数字，歌词自动移动。</p>
-				</div>
-				<div class="share_box">
-					<h4>实践出真知 C</h4>
-					<p>项目查找：
-						<a href="https://github.com/doyouho/doyouho.github.io/" target="_blank">Github</a>
-						<a href="https://gitee.com/" target="_blank">Gitee</a>
-					</p>
-					<p>Github开源项目搜索要点：</p>
-					<p>
-						(1) in:name / in:readme / in:description 后加关键词
-						(2) stars:>3000/ forks>3000/ pushed:>2019-09-03/ language:javascript
-					</p>
-					<p>
-						<a href="https://reactjs.org/" target="_blank">React</a>
-						<a href="https://cn.vuejs.org/index.html" target="_blank">Vue</a>
-						<a href="https://cli.vuejs.org/zh/" target="_blank">Vue Cli</a>
-						<a href="https://vue-loader.vuejs.org/zh/" target="_blank">vue-loader</a>
-						<a href="https://router.vuejs.org/zh/" target="_blank">vue-router</a>
-						<a href="https://vuex.vuejs.org/zh/" target="_blank">vuex</a>
-						<a href="https://angularjs.org/" target="_blank">Angular</a>
-						<a href="https://angular.cn/" target="_blank">Angular-中</a>
-						<a href="https://www.tslang.cn/docs/handbook/basic-types.html" target="_blank">TypeScript</a>
-					</p>
 
-				</div>
 			</div>
+
 
 			<div class="kapian">
 				<div class="share_box">
@@ -328,27 +523,6 @@ $(".hd .nav li").hover(function(){
 				</div>
 			</div>
 
-			<div class="kapian">
-				<div class="share_box">
-					<h4>笔记-贴图软件Snipaste</h4>
-					<p>win10可在微软自带的应用商店上安装，其他资源：<a href="https://zh.snipaste.com/" target="_blank"> （下载）</a></p>
-					<p>特色：截到的图可以贴在屏幕上是不是很过瘾？不仅如此，贴图可以多次修改，还可以加马赛克等等。做视频笔记是再好不过了。</p>
-				</div>
-				<div class="share_box">
-					<h4>笔记-OCR图转文软件</h4>
-					<p><a href="https://www.tianruoocr.cn/" target="_blank">天若软件-官网下载</a></p>
-					<p>特点：截屏就可以把区域内的文字识别出来了，但是一次不能太多，否则出现错误就会变多。</p>
-					<p>另外，翻译的冷门方法：除了浏览器自带的翻译功能，用手机微信扫一扫也能翻译。</p>
-				</div>
-				<div class="share_box">
-					<h4>笔记-思维导图MindMaster</h4>
-					<p><a href="https://www.edrawsoft.cn/mindmaster/" target="_blank">MindMaster-官网下载</a></p>
-					<p>特点：颜色功能强大方便，模板多。</p>
-					<p>[免费版]图片导出是会有水印的，适合做笔记和不需要太清晰的图输出（用截图工具）。最新版还限制了主题的个数只能100个，有点坑了。</p>
-					<p>优点：容易导入；缺点：不容易导出，依赖性强。</p>
-				</div>
-
-			</div>
 
 
 			<div class="kapian">

@@ -13,21 +13,57 @@ input{
 	margin-right: 4px;
 }
 
+body{
+	background-color: #f6f6f6;
+	min-width: 900px;
+}
+::-webkit-scrollbar {
+	width: 4px;   
+	 height: 10px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	background: #1abc9c;
+}
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	border-radius: 0;
+	background: #fff;
+}
 
 .tips{
 	font-size: 14px;
 	color:#616161;
 }
+.simplebtn{
+  padding: 4px 10px;
+	border: 1px solid white; 
+	border-radius: 16px; 
+	cursor: pointer;
+	color: white;
+	background-color:#1abc9c ;
+	font-size: 14px;
+}
+  
+.simplebtn:hover{
+  background-color: #ff4f1a;
+}
 .circlebtn{
 	padding:4px 16px;
 	display: inline-block;
 	border-radius: 16px;
-	margin:10px 8px 0px;
+	margin:10px 6px 0px;
 	cursor: pointer;
 	font-size: 14px;
-	background-color: white;
+	color: white;
+	border: 1px solid #16A085;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-appearance: none;
+}
+
+.write .circlebtn{
+	background-color: #1abc9c;
 }
 .circlebtn.orange{
 	background-color: #ff4f1a;
@@ -40,9 +76,9 @@ input{
 	background-color: #16A085;
 	color: white;
 }
-.solvedBtn, .addBtn, .sortBtn,.overTime{
-	border: 1px solid #1ABC9C;
-}
+/* .solvedBtn, .addBtn, .sortBtn, .overTime{
+	
+} */
 
 .menu{
 	text-align: right;
@@ -52,23 +88,61 @@ input{
 	left: 0;
 	top: 0;
 	width: 100%;
-	z-index: 3;
+	z-index: 99;
 }
-
-
+.getSummary{
+	position: absolute;
+	left: 0;
+	top: 52px;
+	background-color: #000000;
+	height: 4px;
+	width: 100%;
+	/* box-shadow: #aaa 0 0 4px; */
+}
+.scrollbar_orange{
+	height: 100%;
+	width: 0%;
+	background-color: #ff4f1a;
+}
+.progress{
+	position: absolute;
+	right: 0;
+	top:4px;
+	color: #ff4f1a;
+	font-size: 12px;
+	margin-right:10px;
+	padding:0 2px;
+	background-color: #000000;
+}
 .controlers {
-	padding: 10px 0;
+	padding-bottom:16px;
 	text-align: right;
-	margin-right: 20px;
+	margin-right: 16px;
+}
+.aside .controlers{
+	padding-top: 10px;
 }
 .controlers label{
 	margin: 10px;
 }
+.header_back{
+	position: absolute;
+	width: 100%;
+	height: 42px;
+	left: 0;
+	top: -42px;
+	background-color: #000000;
+	z-index: -1;
+}
 .header{
 	position: relative;
-	padding: 5px;
+	padding: 6px 16px;
+	margin-top: 30px;
 	border-bottom: #1ABC9C solid 1px;
-	
+	color: #363636;
+}
+.aside .header{
+	color: #c2c2c2;
 }
 .arrowbtn{
 	/* 想要旋转得把它弄成盒子，块级元素或行级块元素 */
@@ -90,6 +164,7 @@ input{
 	display: flex;
 	margin: 52px auto 0;
 	width: 100%;
+	/* position: relative; */
 }
 
 .content{
@@ -99,17 +174,42 @@ input{
 	height: 100%;
 	min-height: 90%;
 }
+.content.simplepart{
+  display: none;
+	position: relative;
+}
+.simplepart p{
+	margin-top: 22px;
+}
+.originFile{
+	background-color: #EEEEEE;
+	font-size: 14px;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+.writeBoxForCopy{
+	position: absolute;  
+	left: 20px;
+	padding: 12px;
+	width: 90%;
+	max-height: 480px;
+	height: 30%;
+}
 .aside{
 	max-width: 50%;
 	width: 50%;
 	padding:20px;
-	height: 100%;
+	/* height: 100%; */
 	min-height: 90%;
-	background-color: #000000;
+	background-color: #2a2a2a;
 	color: white;
+	border-radius: 0 0 10px 10px;
 }
 .part{
-	margin-bottom:30px;
+	position: relative;
+	padding:0 20px 30px;
+	background-color: #070707;
+	border-radius: 0 0 10px 10px;
 }
 .hidden{
 	display: none;
@@ -120,11 +220,10 @@ input{
 	position: absolute;
 	right: 0;
 	top: -8px;
-	color: #000000;
 }
 /* write */
 .write{
-	z-index: 2;
+	z-index: 10;
 	width: 100%;
 	padding: 20px;
 	box-sizing: border-box;
@@ -136,7 +235,7 @@ input{
 }
 .write textarea{
 	width: 60%;
-	height: 80%;
+	height: 60%;
 	padding: 20px;
 	margin-left: 20%;
 	border-radius: 10px;
@@ -169,10 +268,20 @@ input{
 	min-height: 100%;
 	background-color: #000000;
 	color: white;
-	padding: 60px 20px 20px;
-	box-sizing: border-box;
 	display: none;
+	z-index: 8;
 }
+.upfloor_content{
+	padding: 30px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 60px;
+	bottom: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
 
 .small{
 	font-size: 14px;
@@ -180,7 +289,7 @@ input{
 }
 .analyzeCon{
 	display: flex;
-	border-top: #ababab solid 1px;
+	border-top: #363636 solid 1px;
 	padding-top: 20px;
 	min-height: 500px;
 }
@@ -188,20 +297,28 @@ input{
 .analyzeCon .list{
 	flex:1;
 	text-align: center;
-	margin: 0 4px;
+	margin: 0 14px;
 
 }
 .list h4{
 	height: 24px;
 }
+
 .detail{
 	text-align: left;
-	min-height: 400px;
+	min-height: 460px;
 	border: 1px solid #16A085;
 	padding:8px 16px;
 	margin-top: 8px;
-	border-radius: 20px;
+	border-radius: 14px;
 	font-size: 14px;
+	color: white;
+}
+.detailSimple{
+  text-align: left;
+  padding:8px 16px;
+  margin-top: 8px;
+  font-size: 14px;
 }
 .detail p{
 	margin: 12px 0;
@@ -252,10 +369,10 @@ input{
 	background-color: #333333;
 }
 
-.writebtn.line,.deletebtn.line{
+.writebtn.line,.deletebtn.line, .numberbtn.line{
 		display:none;
 }
-.deletebtn{
+.deletebtn,.numberbtn{
 	display: inline-block;
 	width: 18px;
 	height: 18px;
@@ -263,12 +380,20 @@ input{
 	text-align: center;
 	margin-left: 14px;
 	cursor: pointer;
-	font-size: 18px;
+	font-size: 14px;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-appearance: none;
 	border: 1px solid transparent;
 	transition: all 0.6s;
 }
+
+.numberbtn{
+  color: #FF0099;
+  border-radius: 50%;
+  border-color: #1ABC9C;
+  background-color: #333333;
+}
+
 .deletebtn:hover{
 	border-color: #1ABC9C;
 	background-color: #333333;
@@ -296,15 +421,18 @@ input{
 
 
 b {
-	cursor: pointer;
 	font-weight: 400;
-	display: inline-block;
-	height: 22px;
-	line-height: 22px;
+	/* height: 22px; */
+	/* line-height: 22px; */
+}
+b.overtime{
+	color:#2b2b2b;
 }
 
-.tmpMaylist b,.tmpProject b,.tmpReference b,.tmpRecycle b{
-	cursor: default;
+.tmpDolist b,
+.tmpDaylist b,
+.tmpWaitlist b{
+	cursor: pointer;
 }
 
 b.finish {
@@ -316,8 +444,8 @@ b.chosed{
 }
 .detail li{
 	position: relative;
-	height: 34px;
-	line-height: 34px;
+	min-height: 34px;
+	line-height: 26px;
 }
 
 ul li:hover {
@@ -366,7 +494,7 @@ li:hover .cbox {
 	content: "\2714";
 	position: absolute;
 	left: 3px;
-	top: -4px;
+	top: -6px;
 	font-size: 16px;
 	color: pink;
 }
@@ -376,6 +504,12 @@ li:hover .cbox {
 }
 .isEdit .detail .deletebtn{
 	display: none;
+}
+.isEdit .detail .numberbtn{
+	display: none;
+}
+.list .detail .numberbtn.active{
+	display: inline-block;
 }
 @media (max-width:991px) {
 	.detail{

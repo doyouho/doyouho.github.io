@@ -3,8 +3,15 @@
 	margin: 0;
 }
 
+body {
+	background-color: #aef8e8;
+	font-family:"Microsoft YaHei", SimHei, SimSun;
+	color: #333;
+}
+
 a {
 	text-decoration: none;
+	color: inherit;
 }
 
 ul {
@@ -15,10 +22,28 @@ button {
 	outline: none;
 }
 
+input,textarea{
+  font-family:"Microsoft YaHei", SimHei, SimSun;
+}
 ::selection {
-	background: pink;
+	background: hotpink;
+}
+::-webkit-scrollbar {
+	width: 0px;   
+}
+.endLine{
+  border:1px solid transparent;
+  border-bottom-color: #333;
+  margin-top: 80px;
 }
 
+.endLine:after{
+  display: block;
+  content: "已经到底线啦";
+  text-align: center;
+  font-size: 14px;
+  color:#666;
+}
 
 /* input框中placeholder的样式修改 */
 input::-webkit-input-placeholder {
@@ -33,6 +58,12 @@ input::-webkit-input-placeholder {
 	--btncolor: #5eb6ed;
 }
 
+.closebtn,.updownbtn{
+   -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
 .closebtn{
 	position: absolute;
 	display: block;
@@ -43,15 +74,61 @@ input::-webkit-input-placeholder {
 	font-size: 26px;
 	right: 20px;
 	top: 14px;
+  cursor: pointer;
+	z-index: 9;
 }
-
+.closebtn:hover{
+  color: #FF0099;
+}
 /* 非弹框的样式 */
-
-body {
-	background-color: #aef8e8;
-	font-family: "微软雅黑", "黑体", "宋体";
-	color: #333;
+.updownbtn{
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #aef8e8;
+  margin-left: 10px;
 }
+.updownbtn:hover{
+  background-color: #aef8e8;
+}
+.updownbtn.hidden(){
+  display: none;
+}
+.starbtn{
+  display: inline-block;
+  width:20px;
+  height: 18px;
+  position:relative;
+  margin-left: 4px;
+}
+.starbtn:before, .starbtn:after{
+  width: 10px;
+  height: 18px;
+  left:10px;
+  top:0;
+  background-color: #88c1b5;
+  position: absolute;
+  content: "";
+  border-radius: 10px 10px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  cursor: pointer;
+}
+.starbtn:after{
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+.starbtn.active:before, .starbtn.active:after{
+  background-color: #fca5d3;
+}
+
+
 
 /*头部区域*/
 .header {
@@ -190,10 +267,10 @@ body {
 	left: 10px;
 }
 
-form.out:focus-within {
+/* form.out:focus-within {
 	border-radius: 30px;
 	box-shadow: 0 6px 20px #f4a9c7;
-}
+} */
 
 input[type="checkbox"] {
 	display: none;
@@ -227,7 +304,7 @@ input:checked+.cbox::after {
 
 .taskForWork {
 	text-align: center;
-	width: 920px;
+	width: 1000px;
 	margin: 0 auto;
 }
 
@@ -249,6 +326,25 @@ input:checked+.cbox::after {
 	text-decoration: none;
 	color: deeppink;
 }
+.mianContent{
+	position: relative;
+}
+.mianContent .analyseBtn{
+	position: absolute;
+	top: -40px;
+	right: 40px;
+	width: 60px;
+	height: 60px;
+	color: white;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 60px;
+	background-color: #fca5d3;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index:2;
+}
+
 
 .taskContent {
 	width: 920px;
@@ -300,6 +396,7 @@ input:checked+.cbox::after {
 	padding-left: 10px;
 	border: none;
 	border-bottom: 1px solid #333333;
+  background: none;
 }
 
 
@@ -312,9 +409,9 @@ input:checked+.cbox::after {
 	border-radius: 10px;
 	outline: none;
 	border: 1px solid #f0f0f0;
-	padding: 8px 8px 10px;
+	padding: 16px 16px 20px;
 	height: 120px;
-	width: 520px;
+	width: 540px;
 	font-size: 14px;
 }
 
@@ -341,16 +438,52 @@ input:checked+.cbox::after {
 
 /*下面是打卡样式*/
 .slideBox {
+  max-width: 780px;
 	background-color: rgba(33, 33, 33, 0.8);
 	display: none;
 	position: fixed;
 	left: 50%;
-	margin-left: -274px;
+	transform: translateX(-50%);
 	color: white;
 	border-radius: 12px;
 	z-index: 10;
+	min-height: 360px;
 }
-
+.slideBox p{
+  position: absolute;
+  left: -28px;
+  top: -52px;
+  background-color: #000000;
+  width:136px;
+  height: 136px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 136px;
+  box-sizing: border-box;
+  box-shadow: -4px -4px #715b6e;
+  transition: .7s;
+  cursor: pointer;
+}
+.slideBox p:hover{
+  background-color: #FF0099;
+}
+.slideBox .status{
+  background-color: yellowgreen;
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  font-size: .8em;
+}
+.slideBox .days{
+	position: absolute;
+  font-size: 0.8em;
+	left: 120px;
+	top: 40px;
+	
+}
 .slideBox.active {
 	top: 66px;
 	display: block;
@@ -358,22 +491,69 @@ input:checked+.cbox::after {
 }
 
 ul.dayCheck {
+  margin-top: 24px;
 	width: 568px;
 	padding: 20px;
 	list-style: none;
-	border: 1px solid #eee;
+}
+.chart{
+	height: 100%;
+	width: 568px;
+	display: none;
+	padding:90px 20px 20px;
+	position: relative;
+}
+ul.dayCheck.active{
+	display: none;
+}
+.chart.active{
+	display: block;
+}
+/* .chart .rowtitle{
+	position: absolute;
+	right:20px;
+	top:334px;
+}
+.chart .col{
+	position: absolute;
+	top: 136px;
+	right: 540px;
+	width: 40px;
+}
+.chart .col span{
+	display: inline-block;
+	margin-left: 5px;
+	width: 40px;
+	text-align: center;
+}
+.chart .row{
+	position: absolute;
+	top: 336px;
+	left: 68px;
+}
+.chart .row span{
+	display: inline-block;
+	text-align: center;
+	margin-left: 5px;
 }
 
-
+ */
+.dayCheck .firstLine{
+	margin-top: 60px;
+}
 .dayCheck .writeIn {
 	padding-left: 12px;
 	height: 22px;
 	width: 220px;
-	margin: 2px 0 4px 40px;
+	margin: 4px 0 4px 40px;
 	visibility: hidden;
-
 }
 
+.slideBox .dataDays{
+	font-size: 20px;
+	font-weight: 700;
+	color: #FF0099;
+}
 .dayCheck li {
 	padding: 4px;
 	width: 560px;
@@ -467,6 +647,7 @@ ul.dayCheck {
 	cursor: pointer;
 	color: white;
 	background-color: #fca5d3;
+  font-size: .7em;
 }
 
 @keyframes scrollTo {
@@ -491,10 +672,6 @@ ul.dayCheck {
 
 /* 虽然后面这个动画是用作reset的，但是好像不写样式也OK */
 
-
-.setThings>div {
-	margin-top: 50px;
-}
 
 .setThings>div a {
 	color: hotpink;
@@ -991,7 +1168,7 @@ ul.card::-webkit-scrollbar {
 
 .toFixed {
 	position: fixed;
-	width: 67px;
+	width: 60px;
 	right: 16px;
 	left: 0;
 	top: 50%;
@@ -1005,7 +1182,7 @@ ul.card::-webkit-scrollbar {
 }
 .ybtn_box {
 	border: none;
-	padding: 20px 20px;
+	padding: 12px 20px;
 	display: block;
 	background-color: #fafafa;
 	cursor: pointer;
@@ -1015,7 +1192,12 @@ ul.card::-webkit-scrollbar {
 	background-color: #fca5d3;
 	color: white;
 }
-
+/* .layout{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
 .winBack {
 	width: 100%;
 	height: 100%;
@@ -1032,6 +1214,7 @@ ul.card::-webkit-scrollbar {
 .newWin {
 	position: fixed;
 	width: 1180px;
+	height: 100vh;
 	background: rgba(0, 0, 0, 0.6);
 	left: 50%;
 	top: 0;
@@ -1046,24 +1229,26 @@ ul.card::-webkit-scrollbar {
 
 .setThings,
 .discussArea,
-.noteArea {
+.noteArea,
+.analyseArea {
 	display: none;
-	position: relative;
+	position: absolute;
 	left: 0;
 	top: 0;
-	height: 880px;
 	width: 92%;
-	margin: 2% 4%;
+	margin: 3% 4% 0;
 	z-index: 13;
-	max-height: 92%;
+	height: 96%;
+	max-height: 96vh;
 }
 
 .inputBox,
 .discussBox {
+	position: relative;
 	width: 100%;
-	box-sizing: border-box;
-	padding: 8px;
-	margin-bottom: 40px;
+	/* box-sizing: border-box; */
+	/* padding: 8px; */
+	margin-bottom: 24px;
 }
 
 
@@ -1081,12 +1266,13 @@ ul.card::-webkit-scrollbar {
 
 .btn_box {
 	border: 1px solid #666;
-	padding: 10px 30px;
+	padding: 6px 20px;
 	background-color: white;
 	margin: 0 6px;
 	outline: none;
 	background-color: transparent;
 	color: white;
+	cursor: pointer;
 }
 
 .btn_box:hover {
@@ -1105,16 +1291,22 @@ ul.card::-webkit-scrollbar {
 }
 
 .hotSearch {
-	padding-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 .hotSearch span {
 	display: inline-block;
 	padding: 4px 12px;
 	cursor: pointer;
+	background-color: #333333;
 }
-
-.hotSearch span:hover {
+.hotSearch .customizeLink{
+	background-color: #197952;
+}
+.hotSearch a{
+	padding: 0px 10px;
+}
+.hotSearch a:hover {
 	color: lightgreen;
 }
 
@@ -1123,8 +1315,10 @@ ul.card::-webkit-scrollbar {
 #existNoteList {
 	color: white;
 	text-align: left;
-	height: 52%;
+	height: 68vh;
 	overflow-y: auto;
+  padding-bottom: 120px;
+  box-sizing: border-box;
 }
 
 #existList{
@@ -1139,6 +1333,7 @@ ul.card::-webkit-scrollbar {
 
 #disWords,
 #noteWords {
+	height: 60px;
 	outline: none;
 	border-radius: 8px;
 	border: 2px solid transparent;
@@ -1270,11 +1465,12 @@ ul.card::-webkit-scrollbar {
 
 #tipsOfChange {
 	width:88%;
-	border: 2px dotted #aaa;
-	padding: 2%;
+	border-bottom: 2px dotted #aaa;
+	padding: 8px;
 	margin-left: 4%;
-	margin-top: 26px;
+	margin-top: 16px;
 	color: yellowgreen;
+	font-size: 14px;
 }
 
 
@@ -1282,7 +1478,7 @@ ul.card::-webkit-scrollbar {
 #existNoteList li {
 	line-height: 1.6em;
 	box-sizing: border-box;
-	margin: 20px 5%;
+	margin: 8px 5%;
 	overflow: hidden;
 	border-radius: 12px;
 }
@@ -1320,9 +1516,100 @@ ul.card::-webkit-scrollbar {
 	background-color: yellowgreen;
 }
 
+.analyseArea .analyseContent{
+	/* padding: 20px; */
+	font-size: 14px;
+	text-align: left;
+	height: 88%;
+	overflow-y: auto;
+}
+.downloadbtn{
+	color: #FFFFFF;
+	position: absolute;
+	right: 42px;
+	background-color: #6ed7dc;
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 6px;
+	z-index: 2;
+}
+.analyseContent li{
+	position: relative;
+}
+.analyseContent b{
+	display: inline-block;
+	width: 100px;
+	height: 100%;
+	position: relative;
+}
+.analyseContent b::after{
+	display: block;
+	content: "";
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: 2px solid #86f3f8;
+	background-color: white;
+	position: absolute;
+	left: 111px;
+	top:4px;
+	z-index: 1;
+}
+.analyseContent div{
+	position: relative;
+	max-width: 83%;
+	left: 120px;
+	padding: 10px 30px;
+	top: 0;
+	border-left: #86f3f8 2px solid;
+}
+.analyseContent div.levela{
+	background-color: #44e8dd;
+	color: #3a5153;
+}
+
+.analyseContent div.levelb{
+	background-color: #113030;
+}
+.analyseContent .timer{
+	display: inline-block;
+	position: absolute;
+	left: -52px;
+	background-color: #000000;
+	font-size: 16px;
+	color: white;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #86f3f8 ;
+}
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 28px 0 18px;
+  font-size: 12px;
+  color: #666;
+}
+
+.footer h1 {
+  font-weight: 400;
+  font-size: 12px;
+  display: inline;
+}
+
+.footer a {
+  color: #666;
+}
+
 /*当992px<=width<=1199px时  设为970*/
 @media (max-width:1199px) {
 	/* 非弹框样式 */
+  .footer ,
+  .footer h1{
+  	font-size: 0.72rem;
+  	max-height: 999999px;
+  }
 	.hd .kuang {
 		margin: 18px 4px 18px 20px;
 	}
@@ -1346,7 +1633,7 @@ ul.card::-webkit-scrollbar {
 	.taskType,
 	.taskSkill,
 	.singleLine>div {
-		margin-left: 160px;
+		margin-left: 112px;
 	}
 	.cards .bigger{
 		right: 4px;
@@ -1420,7 +1707,7 @@ ul.card::-webkit-scrollbar {
 	
 	/* 评论区和笔记区 */
 	#disWords,
-	#noteWords {
+	#noteWords{
 		max-width: unset;
 		width: 86%;
 		margin-left: 6%;
@@ -1439,13 +1726,15 @@ ul.card::-webkit-scrollbar {
 		width: 726px;
 	}
 	
-	.discussBox,
-	#existNoteList {
-		height: 56%;
+	.analyseArea{
+		margin-left: 9%;
+		width: 86%;
 	}
 
 
 }
+
+
 @media (max-width:1020px) {
 	.doList .aside {
 		padding: 60px 90px 40px 70px;
@@ -1464,11 +1753,17 @@ ul.card::-webkit-scrollbar {
 	}
 	
 	html{
-		font-size: 21.14px;
+		font-size: 16px;
 	}
-	.hd,.taskForWork{
+  .footer ,
+  .footer h1{
+  	font-size:  0.9rem;
+  	max-height: 999999px;
+  	
+  }
+	/* .hd,.taskForWork{
 		width: 46.875rem;
-	}
+	} */
 	
 	.sousuokuang {
 		display: none;
@@ -1476,19 +1771,15 @@ ul.card::-webkit-scrollbar {
 	
 	
 	.taskContent {
-		width: 35.477767rem;
+		/* width: 35.477767rem; */
+		padding:60px 0;
 	}
 	
 	.scrollbar {
 		width: 320px;
-		margin: 0 30px 0 54px;
+		margin: 0 30px 0 122px;
 	}
 	
-	.taskType,
-	.taskSkill,
-	.singleLine>div{
-		margin-left: 54px;
-	}
 	
 	/* 字体处理 */
 	.hd li i,
@@ -1499,13 +1790,13 @@ ul.card::-webkit-scrollbar {
 	}
 	#allTaskData,
 	.gs_text h5 {
-		font-size: 16px;
+		font-size: 0.6rem;
 		max-height: 999999px;
 	}
 	
-	.nav .daka span {
+	/* .nav .daka span {
 		left: 16px;
-	}
+	} */
 	/* 下面两个字设置的大小很奇怪，设16不管用，自动变20多 */
 	.taskType b,
 	.taskSkill b {
@@ -1522,12 +1813,17 @@ ul.card::-webkit-scrollbar {
 	.cards .left {
 	    right: 86px;
 	}
-	
+  .slideBox {
+    max-width: 780px;
+  }
+	.dayCheck{
+	  font-size: 18px;
+	}
 	.dayCheck li{
 		padding:10px 4px;
 	}
 	.dayCheck li b, .dayCheck li i{
-		margin-right: 1.5rem;
+		margin-right: 18px;
 	}
 	
 	/* 弹框内样式 */
@@ -1537,7 +1833,6 @@ ul.card::-webkit-scrollbar {
 	}
 	.ybtn_box {
 		font-size: 16px;
-		width: 80px;
 	}
 
 	.winBack {
@@ -1610,7 +1905,7 @@ ul.card::-webkit-scrollbar {
 		top: 300px;
 		left: 0px;
 		padding: 60px 70px 40px 60px;
-		height:108%;
+		height:64%;
 		overflow: auto;
 	}
 	
@@ -1658,7 +1953,7 @@ ul.card::-webkit-scrollbar {
 	}
 
 	.btn_box {
-		padding: 10px;
+		padding: 4px 10px;
 		font-size: 16px;
 		max-height: 999999px;
 	}
@@ -1691,10 +1986,10 @@ ul.card::-webkit-scrollbar {
 	}
 
 
-	.discussBox,
+	/* .discussBox,
 	#existNoteList {
 		height:112%;
-	}
+	} */
 	.aside.openState{
 		top:300px;
 		/* height:unset; */
@@ -1705,4 +2000,9 @@ ul.card::-webkit-scrollbar {
 	}
 }
 
-
+/*当width<=767px时  设为750 */
+@media (max-width:767px){
+	html{
+		font-size: 21.14px;
+	}
+}

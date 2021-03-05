@@ -51,6 +51,7 @@
 		height: 150px;
 	}
 	
+
 	/* game页面 */
 	.game .game_word{
 		width: 52%;
@@ -454,9 +455,13 @@
 		height:8.041627rem;
 	}
 	.suiji_choose dd:hover{
-		background-size: 11%;
+		background-size: 22%;
 	}
-
+	.suiji_choose dd span{
+		font-size: 24px;
+		width: 24px;
+		line-height: 28px;
+	}
 	
 	.article .con{
 		width:40.625rem;
@@ -511,3 +516,9 @@
 	}
 }
 
+/*当width<=767px时  设为750 */
+/* @media (max-width:767px){
+	html{
+		font-size: 21.14px;
+	}
+} */

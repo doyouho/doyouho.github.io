@@ -75,11 +75,7 @@
 				<div class="toc" accesskey="c">
 					<p>(点击该区域任何一处关闭该窗口 / Alt+c )</p>
 					<div class="l_tu">
-						<span>自信</span>
-						<span>知识</span>
-						<span>初学者</span>
-						<span>专家</span>
-						<canvas id="huabu" width="266" height="186">Your browser does not support the canvas element.</canvas>
+						<canvas id="huabu" width="358" height="220">Your browser does not support the canvas element.</canvas>
 					</div>
 				</div>
 			</section>
@@ -101,35 +97,42 @@
 				var bi = document.getElementById("huabu").getContext("2d");
 				bi.lineWidth = 2;
 				bi.strokeStyle = "white";
-				bi.moveTo(4, 1);
-				bi.lineTo(4, 182);
-				bi.lineTo(265, 182);
+				bi.moveTo(54, 1);
+				bi.lineTo(54, 182);
+				bi.lineTo(315, 182);
 				bi.stroke();
 
 				//纵坐标箭头
-				bi.moveTo(4, 1);
-				bi.lineTo(0, 4);
+				bi.moveTo(54, 1);
+				bi.lineTo(50, 4);
 				bi.stroke();
 
-				bi.moveTo(4, 1);
-				bi.lineTo(8, 4);
+				bi.moveTo(54, 1);
+				bi.lineTo(58, 4);
 				bi.stroke();
 
 				//横坐标箭头
-				bi.moveTo(265, 182);
-				bi.lineTo(262, 178);
+				bi.moveTo(315, 182);
+				bi.lineTo(312, 178);
 				bi.stroke();
 
-				bi.moveTo(265, 182);
-				bi.lineTo(262, 186);
+				bi.moveTo(315, 182);
+				bi.lineTo(312, 186);
 				bi.stroke();
 
-				bi.moveTo(18, 170);
+				bi.moveTo(68, 170);
 				// bi.arcTo(-140,-3,18,26,70);
-				bi.quadraticCurveTo(16, 42, 32, 26);
-				bi.quadraticCurveTo(16, 156, 128, 150);
-				bi.quadraticCurveTo(216, 146, 252, 66);
+				bi.quadraticCurveTo(66, 42, 82, 26);
+				bi.quadraticCurveTo(66, 156, 178, 150);
+				bi.quadraticCurveTo(266, 146, 302, 66);
 				bi.stroke();
+				bi.fillStyle="#FFFFFF";
+				bi.font="16px Arial";
+				bi.fillText("自信",10,18);
+				bi.fillText("初学者",60,206);
+				bi.fillText("专家",276,206);
+				bi.fillText("知识",320,186);
+				
 			</script>
 
 			<!--文章目录区域  最近更新的在上面-->

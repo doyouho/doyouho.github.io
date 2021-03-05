@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="keywords" content="数据下载 数据显示" />
+		<title>意休 | 下载页面</title>
+		<link rel="icon" href="images/baobao.png" type="image/png">
+		<link rel="bookmark" href="images/baobao.png" />
+    <style>
+      *{
+        padding:0;
+        margin: 0;
+      }
+			a{
+				text-decoration: none;
+				color: #333333;
+			}
+			.header{
+				text-align: right;
+				height: 52px;
+				background-color: #1ABC9C ;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				z-index: 99;
+			}
+			.header h1{
+				font-size: 14px; 
+				position: absolute; 
+				left: 30px; 
+				top: 10px; 
+				color: white;
+			}
+			
+			.nav{
+				background-color: #FAFAFA;
+				margin-top: 52px;
+				padding: 20px 30px;
+			}
+			.nav p{
+				font-size: 14px;
+				margin: 8px auto;
+			}
+      .jumpbtn,
+			button{
+         outline: none;
+         border: 1px solid #14a387;
+         background-color: #1abc9c;
+				 color: white;
+         padding: 4px 10px;
+         margin-left: 10px;
+         margin-top: 10px;
+				 border-radius: 20px;
+				 cursor: pointer;
+      }
+			.clearbtn{
+				background-color: #ff5500;
+				border-color: #ff5500;
+			}
+      #content{
+				box-sizing: border-box;
+        padding: 30px;
+        margin: 0;
+        border: none;
+        outline: none;
+        width:100%;
+        min-height: 600px;
+      }
+    </style>
+	</head>
+	<body>
+		<div class="header">
+			<h1>
+				<a style="font-size: 24px; cursor: pointer; color: white;"
+					target="_blank" href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点
+				<a class="jumpbtn" href="./toreview.html">处理</a>
+				<a class="jumpbtn" href="./mind.html">导图</a>
+				<a class="jumpbtn" href="./towork.html">启</a>
+			</h1>
+		</div>
+		<div class="nav">
+			<p>提示：数据能选择就复制，下载格式为txt，排版并不好看。</p>
+			<p>小本本随记：
+				<button type="button" onclick="showData(0)">记录显示</button>
+				<a download="小本本随记.txt" class="save-btn" ><button type="button" onclick="noteDownload(0)">本本下载</button></a>
+				<button type="button" class="clearbtn" onclick="deleteData('note')">清空小本本</button>
+			</p>
+			<p>积分殿数据：
+				<button type="button" onclick="showData(1)">分析显示</button>
+				<a download="分析感悟.txt" class="save-btn" ><button type="button"  onclick="noteDownload(1)">分析下载</button></a>
+				<button type="button" class="clearbtn" onclick="deleteData('analyseData')">清空分析殿</button>
+			</p>
+			<p>各事项数据：
+				<button type="button" onclick="showData(2)">清单显示</button>
+				<button type="button" onclick="showData(3)">卡片显示</button>
+				<a download="事项数据.txt" class="save-btn" ><button type="button"  onclick="noteDownload(2)">清单下载</button></a>
+				<a download="卡片数据.txt" class="save-btn" ><button type="button"  onclick="noteDownload(3)">卡片下载</button></a>
+				<button type="button" class="clearbtn" onclick="deleteData('collectSortBox')">清空清单</button>
+				<button type="button" class="clearbtn" onclick="deleteData('summarylist','array')">清空分析卡</button>
+			</p>
+		</div>
+    
+    <textarea id="content"></textarea>
+    <script>
+      var content = document.querySelector( '#content' );
+      var saveBtns = document.querySelectorAll( '.save-btn' );
+			
+      function showData(num){
+				var str = "";
+        if(num===1){ // 分析的数据
+					let analyseStr = localStorage.getItem("analyseData");
+          str = changtostr(analyseStr,/\^+/,/\^+/g,"\r\n\r\n");
+        }else if(num===0){
+          let outputListStr = localStorage.getItem("note");
+					str = changtostr(outputListStr,/\^+/,/\^+/g);
+        }else if(num===2){  // 事项数据
+					let temp = '';
+					let templiststr = '';
+					let sortBoxStr = localStorage.getItem("collectSortBox");
+					temp = changtostr(sortBoxStr,/\~+/,/\~+/g,"\r\n\r\n");
+					templiststr = changtostr(temp,/\$+/,/\$+/g);
+					str = "【清单事项】\r\n" + templiststr + "\r\n\r\n【完成事项】\r\n" + jsonparseLS("finishlist");
+					
+				}else if(num===3){
+					str = "【检查卡】\r\n" +  jsonparseLS("checklist") + "\r\n\r\n【分析卡】\r\n" + jsonparseLS("summarylist");
+				}
+				content.value = str;
+				// console.log(str);
+      }
+			
+			function deleteData(name,type='string'){
+				// note ？ collectSortBox  summarylist
+				let answer = confirm("确定清空数据？");
+				if(answer && type!=='string'){
+					localStorage.setItem(name,'[]');
+				}else if(answer){
+					localStorage.setItem(name,'');
+				}
+			}
+			
+			function jsonparseLS(name){
+				var str =  localStorage.getItem(name);
+				return str? JSON.parse(str).join("\r\n"):'';
+			}
+			
+			function changtostr(liststr,regex,regex_g,n='\r\n'){
+				let str = "";
+				if(liststr.trim() && liststr){
+					if(regex.test(liststr)){
+						str = liststr.replace(regex_g,n);
+					}else{
+						str = liststr;
+					}
+					return str;
+				}
+			}
+						
+      function noteDownload(index){
+				showData(index);
+				var con = content.value;
+				
+				var blob;
+				if (typeof window.Blob === 'function') {
+				  blob = new Blob([con], { type: 'text/txt' });
+				} else {
+					var BlobBuilder = window.BlobBuilder || window.MozBlobBuilder || window.WebKitBlobBuilder || window.MSBlobBuilder;
+					var bb = new BlobBuilder();
+					bb.append(con);
+					blob = bb.getBlob('text/txt');
+				}
+				if (navigator.msSaveBlob) {
+					navigator.msSaveBlob(blob, saveBtns[index].download);
+				} else {
+					var URL = window.URL || window.webkitURL;
+					var bloburl = URL.createObjectURL(blob);
+        // saveBtns[index].setAttribute( 'href', 'data:text/paint; utf-8,' + con );
+        // saveBtns[index].setAttribute( 'href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(con) );
+					saveBtns[index].setAttribute( 'href', bloburl); // saveBtns[index].href = bloburl;
+					URL.revokeObjectURL(blob); 
+				}
+      }
+    </script>
+	</body>
+</html>

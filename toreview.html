@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="zh">
-	<head>
-		<meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta name="keywords" content="清单处理,清单记录,自我回顾" />
-		<title>意休 | 任务回顾</title>
-		<link rel="icon" href="images/baobao.png" type="image/png">
-		<link rel="bookmark" href="images/baobao.png" />
-		<link rel="stylesheet" type="text/css" href="css/review.css" />
-	</head>
-	<body>
-	
-		<div class="menu">
-      <h1 style="font-size: 14px; position: absolute; left: 30px; top: 14px; color: white;"><a style="font-size: 24px; color: white; cursor: pointer;" target="_blank" href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点</h1>
-			<span class="circlebtn orange" >保存所有处理</span>
-			<span class="circlebtn">折叠</span>
-			<span class="circlebtn">隐藏参考卡</span>
-			<span class="circlebtn">书写总结</span>
-			<span class="circlebtn">总结面板</span>
-		</div>
+    <meta name="keywords" content="清单处理,清单记录,自我回顾" />
+    <title>意休 | 任务回顾</title>
+    <link rel="icon" href="images/baobao.png" type="image/png">
+    <link rel="bookmark" href="images/baobao.png" />
+    <link rel="stylesheet" type="text/css" href="css/review.css" />
+  </head>
+  <body>
 
-		<!-- 书写框 -->
-		<div class="write">
-			<div class="back" onclick="writeLayer()"></div>
-			<textarea class="writebox" placeholder="总结示例:#执#能做的事情先去做,别想太多"></textarea>
-			<div class="btns">
-				<span class="circlebtn">清空</span>
-				<span class="circlebtn">提交</span>
-				<span class="circlebtn edit">标红修改</span>
-				<span class="circlebtn">加入检测单</span>
-				<span class="circlebtn">加入参考</span>
+    <div class="menu">
+      <h1 style="font-size: 14px; position: absolute; left: 30px; top: 10px; color: white;">
+				<a style="font-size: 24px; color: white; cursor: pointer;"
+          target="_blank" href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点 &nbsp;
+				<span class="simplebtn" onclick="toSimplePart(this)">切简版</span> &nbsp;
+				<a href="./mind.html" class="simplebtn" onclick="toFinish()">导图</a> &nbsp;
+				<a href="./share.html" class="simplebtn" onclick="toFinish()">资</a> &nbsp;
+				<a href="./towork.html" class="simplebtn" onclick="toFinish()">启</a>
+			</h1>
+      <span class="circlebtn orange">保序</span>
+      <span class="circlebtn">折叠</span>
+      <span class="circlebtn">隐藏右栏</span>
+      <span class="circlebtn">书写总结</span>
+      <span class="circlebtn">总结面板</span>
+			<div class="getSummary">
+				<div class="scrollbar_orange"></div>
+				<div class="progress"></div>
 			</div>
-		</div>
+    </div>
 
-		<div class="main">
-			<div class="content">
-				<!-- 执行清单 -->
+    <!-- 书写框 -->
+    <div class="write">
+      <div class="back" onclick="writeLayer()"></div>
+      <textarea class="writebox" placeholder="分析卡示例: 从事项的完成情况/难点/技巧等方面分析。(另外,清单的新增项支持批量添加,新增项之间用*分隔)"></textarea>
+      <div class="btns">
+        <span class="circlebtn">清空</span>
+        <span class="circlebtn">提交到分析卡</span>
+        <span class="circlebtn edit">标红修改</span>
+        <span class="circlebtn">加入检查卡*</span>
+        <span class="circlebtn">加入参考卡</span>
+        <span class="circlebtn datebtn">加日期</span>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="content">
+        <!-- 执行清单 -->
 				<header class="header">
 					<h3>执行清单-专一<span class="arrowbtn">></span></h3>
 				</header>
 				<section class="part  isEdit">
+					<div class="header_back"></div>
 					<div class="controlers">
-						<label>
-							<input type="checkbox" value="" />反选
-						</label>
+						<label style="color: white;"><input type="checkbox" value=""/>反选</label>
+						<span class="circlebtn sortBtn" onclick="sortFirst(1)">优先排序</span>
 						<span class="circlebtn addBtn">新增</span>
 						<span class="circlebtn solvedBtn">处理</span>
 						<span class="writebtn" onclick="ableToEdit(event,-3);"></span>
@@ -53,789 +65,1174 @@
 						<ul class="detail tmpDolist"></ul>
 					</div>
 				</section>
-		
-				<!-- 日历 -->
-				<header class="header">
-					<h3>日历清单-闹钟<span class="arrowbtn">></span></h3>
-				</header>
-				<section class="part  isEdit">
+				
+        <!-- 日历 -->
+        <header class="header">
+          <h3>日历清单-闹钟<span class="arrowbtn">></span></h3>
+        </header>
+        <section class="part  isEdit">
+          <div class="header_back"></div>
 					<div class="controlers">
-						<label>
-							<input type="checkbox" name="" id="" value="" />反选
-						</label>
-						<span  class="circlebtn sortBtn" onclick="sortIt()">升序</span>
-						<span class="circlebtn addBtn">新增</span>
-						<span class="circlebtn solvedBtn">处理</span>
-						<span class="circlebtn overTime" onclick="outOfTime()" >逾期</span>
-						<span class="writebtn" onclick="ableToEdit(event,-3);"></span>
-					</div>
-		
-					<div class="list">
-						<p class="tips">提示：待做 <span class="thingsNum">0</span> 件事 （完成事项以打勾为准，最后期限写在最后，以2020-01-01格式书写）</p>
-						<ul class="detail tmpDaylist"></ul>
-		
-					</div>
-					<div class="analyze">
-		
-					</div>
-				</section>
-		
-				<!-- 等待清单 -->
-				<header class="header">
-					<h3>等待清单-确否<span class="arrowbtn">></span></h3>
-				</header>
-				<section class="part  isEdit">
+            <label style="color: white;"><input type="checkbox" value="" />反选</label>
+            <span class="circlebtn sortBtn" onclick="sortFirst()">优先排序</span>
+            <span class="circlebtn" onclick="sortIt()">日期升序</span>
+            <span class="circlebtn addBtn">新增</span>
+            <span class="circlebtn solvedBtn">处理</span>
+            <span class="writebtn" onclick="ableToEdit(event,-3);"></span>
+          </div>
+          <div class="list">
+            <p class="tips">提示：待做 <span class="thingsNum">0</span> 件事 （最后期限写在最后，以2020-01-01格式书写）</p>
+            <ul class="detail tmpDaylist"></ul>
+
+          </div>
+          <div class="analyze">
+
+          </div>
+        </section>
+
+        <!-- 等待清单 -->
+        <header class="header">
+          <h3>等待清单-确否<span class="arrowbtn">></span></h3>
+        </header>
+        <section class="part  isEdit">
+          <div class="header_back"></div>
 					<div class="controlers">
-						<label>
-							<input type="checkbox" name="" id="" value="" />反选
-						</label>
-						<span class="circlebtn addBtn">新增</span>
-						<span class="circlebtn solvedBtn">处理</span>
-						<span class="writebtn" onclick="ableToEdit(event,-3);"></span>
-					</div>
-					<div class="list">
-						<p class="tips">提示：不该我做的事，下一步是什么？主动拿结果，并且确保事情顺利被完成。（笔记：人与人之间交流需要注意什么）</p>
-						<ul class="detail tmpWaitlist">
-						</ul>
-					</div>
-				</section>
-		
-				<!-- 项目清单 -->
-				<header class="header">
-					<h3>项目清单-拆否<span class="arrowbtn">></span></h3>
-				</header>
-				<section class="part isEdit">
+            <label style="color: white;"><input type="checkbox" value="" />反选</label>
+            <span class="circlebtn addBtn">新增</span>
+            <span class="circlebtn solvedBtn">处理</span>
+            <span class="writebtn" onclick="ableToEdit(event,-3);"></span>
+          </div>
+          <div class="list">
+            <p class="tips">提示：不该我做的事，下一步是什么？主动拿结果，并且确保事情顺利被完成。（笔记：人与人之间交流需要注意什么）</p>
+            <ul class="detail tmpWaitlist">
+            </ul>
+          </div>
+        </section>
+
+        <!-- 项目清单 -->
+        <header class="header">
+          <h3>项目清单-拆否<span class="arrowbtn">></span></h3>
+        </header>
+        <section class="part isEdit">
+          <div class="header_back"></div>
 					<div class="controlers">
-						<a class="circlebtn solvedBtn" href="./mind.html" target="_blank">思维导图</a>
-						<span class="writebtn" onclick="ableToEdit(event,-3);"></span>
-					</div>
-					<div class="list">
-						<p class="tips">提示：做得怎么样了？下一步是什么？时机成熟了吗？可行性有多大？（推荐用思维导图拆分）</p>
-						<ul class="detail tmpProject"></ul>
-					</div>
-				</section>
-		
-				<!-- 可能清单 -->
-				<header class="header">
-					<h3>可能清单-变否<span class="arrowbtn">></span></h3>
-				</header>
-				<section class="part isEdit">
+            <a class="circlebtn solvedBtn" href="./mind.html" target="_blank">思维导图</a>
+            <span class="writebtn" onclick="ableToEdit(event,-3);"></span>
+          </div>
+          <div class="list">
+            <p class="tips">提示：做得怎么样了？下一步是什么？时机成熟了吗？可行性有多大？（推荐用思维导图拆分）</p>
+            <ul class="detail tmpProject"></ul>
+          </div>
+        </section>
+
+        <!-- 可能清单 -->
+        <header class="header">
+          <h3>可能清单-变否<span class="arrowbtn">></span></h3>
+        </header>
+        <section class="part isEdit">
+          <div class="header_back"></div>
 					<div class="controlers">
-						<span class="writebtn" onclick="ableToEdit(event,-2);"></span>
+            <span class="writebtn" onclick="ableToEdit(event,-2);"></span>
+          </div>
+          <div class="list">
+            <p class="tips">提示：时机？可能性？为什么做？什么时候做？怎么做？是否影响正常的目标和生活？（阐述想要做的原因和预期效果 难度 影响力）</p>
+            <ul class="detail tmpMaylist"></ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="content simplepart">
+				<div class="originFile">
+					<input type="file" id="file_input">
+					<span class="simplebtn" onclick="toClearInput()">清空文件</span>
+					<span class="simplebtn" onclick="toInput()">数据导入</span> 
+					<p>注：备份数据导入时会覆盖已有的所有清单数据(~ $) 和^ 检查卡数据(,)。</p>
+					<p>
+						<span class="simplebtn" onclick="toOutput()">下载备份数据</span>
+						<span class="simplebtn" onclick="toOutput('solve')">下载处理数据</span>
+						<span class="simplebtn" onclick="toOutput('solve','copy')">复制处理数据</span>&nbsp;
+						<a href="./download.html">更多下载</a>&nbsp;
+						<a href="https://www.yuque.com/nibaobao-youho/questions" target="_blank">（问题收集库）</a>
+					</p>
+				</div>
+				<h4 class="progressSim"></h4>
+        <p>今日事项：（已排除项目清单和可能清单）</p>
+        <ul class="detailSimple"></ul>
+        <ul class="detailSimple"></ul>
+        <ul class="detailSimple"></ul>
+				<p>完成事项：（每周至少整理一次）</p>
+				<ul class="detailSimple"></ul>
+				<textarea class="writeBoxForCopy" placeholder="处理数据显示区(点击上面 复制处理数据 按钮可获取)"></textarea>
+      </div>
+
+      <!-- 参考卡 -->
+      <section class="aside isEdit">
+        <header class="header">
+          <h3>参考卡<span class="writebtn" onclick="ableToEdit(event,-1);"></span></h3>
+          <span class="circlebtn clearall">清空</span>
+        </header>
+        <div class="controlers">
+          <label>
+            <input type="radio" checked="true" name="card" value="参考资料" />参考资料
+          </label>
+          <label>
+            <input type="radio" name="card" value="回收箱" />回收箱
+          </label>
+        </div>
+        <div class="list">
+          <p class="tips">提示：能找到的不存，有价值或稀罕的存</p>
+          <ul class="detail tmpReference"></ul>
+        </div>
+        <div class="list hidden">
+          <p class="tips">提示：删除的事项都放在回收箱里</p>
+          <ul class="detail tmpRecycle"></ul>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- 总结层 -->
+    <section class="upfloor">
+			<div class="upfloor_content">
+				<header>
+        <h3 style="text-align: center; font-size: 26px; color:#ff4f1a;">总结面板-验收</h3>
+        <div class="controlers">
+          <label>
+            <input type="checkbox" checked="true" name="" id="" value="" />检查卡-看
+          </label>
+          <label>
+            <input type="checkbox" checked="true" name="" id="" value="" />完成卡-验
+          </label>
+          <label>
+            <input type="checkbox" checked="true" name="" id="" value="" />分析卡-思
+          </label>
+        </div>
+      </header>
+				<div class="analyzeCon">
+					<div class="list isEdit">
+						<h4><span title="checklist">检查卡</span>
+							<span class="writebtn" onclick="ableToEdit(event,1);"></span>
+						</h4>
+						<ul class="detail checkList"></ul>
 					</div>
 					<div class="list">
-						<p class="tips">提示：时机？可能性？为什么做？什么时候做？怎么做？是否影响正常的目标和生活？（阐述想要做的原因和预期效果 难度 影响力）</p>
-						<ul class="detail tmpMaylist"></ul>
+						<h4><span title="finishlist">完成卡</span><span class="finishbtn" onclick="clearList();">清</span></h4>
+						<ul class="detail finishList"></ul>
 					</div>
-				</section>
+					<div class="list isEdit">
+						<h4><span title="summarylist">分析卡</span>
+							<span class="writebtn" onclick="ableToEdit(event,2);"></span>
+							<span class="finishbtn" onclick="outputAnalysis();">复</span>
+						</h4>
+						<ul class="detail summaryList"></ul>
+					</div>
+				</div>
 			</div>
-		
-			<!-- 参考卡 -->
-			<section class="aside isEdit">
-				<header class="header">
-					<h3>参考卡<span class="writebtn" onclick="ableToEdit(event,-1);"></span></h3>
-					<span class="circlebtn clearall">清空</span>
-				</header>
-				<div class="controlers">
-					<label>
-						<input type="radio" checked="true" name="card" value="参考资料" />参考资料
-					</label>
-					<label>
-						<input type="radio" name="card" value="回收箱" />回收箱
-					</label>
-				</div>
-				<div class="list">
-					<p class="tips">提示：能找到的不存，有价值或稀罕的存</p>
-					<ul class="detail tmpReference"></ul>
-				</div>
-				<div class="list hidden">
-					<p class="tips">提示：删除的事项都放在回收箱里</p>
-					<ul class="detail tmpRecycle"></ul>
-				</div>
-		
-			</section>
-		</div>
-		
-
-		<!-- 总结层 -->
-		<section class="upfloor">
-			<header>
-				<h3 style="text-align: center; font-size: 26px; color:#ff4f1a;">验收阶段</h3>
-				<div class="controlers">
-					<label>
-						<input type="checkbox" checked="true" name="" id="" value="" />检查卡
-					</label>
-					<label>
-						<input type="checkbox" checked="true" name="" id="" value="" />完成卡
-					</label>
-					<label>
-						<input type="checkbox" checked="true" name="" id="" value="" />分析卡
-					</label>
-				</div>
-			</header>
-			<div class="analyzeCon">
-				<div class="list isEdit">
-					<h4>检查卡
-						<span class="writebtn" onclick="ableToEdit(event,1);"></span>
-					</h4>
-					<ul class="detail checkList"></ul>
-				</div>
-				<div class="list">
-					<h4>完成卡<span class="finishbtn" onclick="clearList();">清</span></h4>
-					<ul class="detail finishList"></ul>
-				</div>
-				<div class="list isEdit">
-					<h4>分析卡
-						<span class="writebtn" onclick="ableToEdit(event,2);"></span>
-					</h4>
-					<ul class="detail sumaryList"></ul>
-				</div>
-			</div>
-		</section>
-
-		<script>
-			var beforeData = {
-				sortList: [],
-				tmpRecycle: [],
-				tmpReference: [],
-				tmpMaylist: [],
-				tmpProject: [],
-				tmpWaitlist: [],
-				tmpDaylist: [],
-				tmpDolist: [],
-				checkList:["刷面试题","看视频"],
-				sumaryList:[]
-			}
-			var finishList = [];
-			var outOfList = [];
-			var solveUl = null;
-			var nowlistStr = "";
-			var dechangeIdlId = -1;
-			var recycle = document.getElementsByClassName("tmpRecycle")[0];
-			var reference = document.getElementsByClassName("tmpReference")[0];
-			var maylist = document.getElementsByClassName("tmpMaylist")[0];
-			var project = document.getElementsByClassName("tmpProject")[0];
-			var waitlist = document.getElementsByClassName("tmpWaitlist")[0];
-			var daylist = document.getElementsByClassName("tmpDaylist")[0];
-			var dolist = document.getElementsByClassName("tmpDolist")[0];
-			var thingsNums = document.getElementsByClassName("thingsNum");
-			var places = document.querySelectorAll(".analyzeCon .detail");
-			// 数据更新
-			// 添加式库collectBox($分隔符，)  覆盖式库collectBoxNew
-			// notFirstSave collectIndex solvedAll  分类库collectSortBox（先~后$划分）
-			var sortBoxStr = localStorage.getItem("collectSortBox");
-			var datalist = ["tmpDolist","tmpDaylist","tmpWaitlist","tmpProject","tmpMaylist","tmpReference","tmpRecycle"];
-			if (sortBoxStr) {
-				var sortBoxArr = sortBoxStr.split("~");
-				for (let b = 0; b < sortBoxArr.length; b++) {
-					let key = datalist[b];
-					if (/\$+/.test(sortBoxArr[b])) {
-						let arr = sortBoxArr[b].split("$");
-						// arr.shift();
-						beforeData[key] = arr;
-					} else {
-						beforeData[key] = [];
-						
-					}
-				}
-				// beforeData.tmpDolist = beforeData.sortList[0];
-				// beforeData.tmpDaylist = beforeData.sortList[1];
-				// beforeData.tmpWaitlist = beforeData.sortList[2];
-				// beforeData.tmpProject = beforeData.sortList[3];
-				// beforeData.tmpMaylist = beforeData.sortList[4];
-				// beforeData.tmpReference = beforeData.sortList[5];
-				// beforeData.tmpRecycle = beforeData.sortList[6];
-				if(localStorage.getItem("checklist")){
-					let s0 = localStorage.getItem("checklist");
-					beforeData.checkList = JSON.parse(s0);
-				}
-				if(localStorage.getItem("sumarylist")){
-					let s1 = localStorage.getItem("sumarylist");
-					beforeData.sumaryList = JSON.parse(s1);
-				}
-				if(localStorage.getItem("finishlist")){
-					let s2 = localStorage.getItem("finishlist");
-					finishList = JSON.parse(s2);
-				}
-				origin();
-				// console.log(beforeData.sortList);
-			} else {
-				console.log("内存中暂时没有数据");
-			}
+      
+    </section>
 
 
-			function origin() {
-				datasolve(beforeData.tmpDolist, dolist);
-				var num0 = beforeData.tmpDolist.length;
-				thingsNums[0].innerText = num0;
-				
-				datasolve(beforeData.tmpDaylist, daylist);
-				var num1 = beforeData.tmpDaylist.length;
-				thingsNums[1].innerText = num1;
-				
-				datasolve(beforeData.tmpWaitlist, waitlist);
-				datashow(beforeData.tmpProject, project);
-				datashow(beforeData.tmpMaylist, maylist);
-				datashow(beforeData.tmpReference, reference);
-				
-				datasimpleshow(beforeData.tmpRecycle, recycle);
-				datasimpleshow(beforeData.checkList, places[0]);
-				datasimpleshow(finishList, places[1],"simple");
-				datasimpleshow(beforeData.sumaryList, places[2]);
-				// sortIt();
+    <script>
+      var beforeData = { 
+        sortList: [],
+        tmpRecycle: [],
+        tmpReference: [],
+        tmpMaylist: [],
+        tmpProject: [],
+        tmpWaitlist: [],
+        tmpDaylist: [],
+        tmpDolist: [],
+        checkList: ["刷面试题", "看视频"],
+        summaryList: []
+      }
+      var finishList = [];
+			var thatdayNum = 0;
+			var alldayNumObj = {};
+			var today = "";
+			var todayAdd = "";
+      var solveUl = null;
+      var nowlistStr = "";
+      var dechangeIdlId = -1;
+			var regexDate = /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+      var recycle = document.getElementsByClassName("tmpRecycle")[0];
+      var reference = document.getElementsByClassName("tmpReference")[0];
+      var maylist = document.getElementsByClassName("tmpMaylist")[0];
+      var project = document.getElementsByClassName("tmpProject")[0];
+      var waitlist = document.getElementsByClassName("tmpWaitlist")[0];
+      var daylist = document.getElementsByClassName("tmpDaylist")[0];
+      var dolist = document.getElementsByClassName("tmpDolist")[0];
+      var thingsNums = document.getElementsByClassName("thingsNum");
+      var places = document.querySelectorAll(".analyzeCon .detail");
+			var progress = document.querySelector(".progress");
+			var progressSim = document.querySelector(".progressSim");
+			var {
+			  year,
+			  month,
+			  date
+			} = getTime();
+			var now = Date.UTC(year, month, date);
+			if(month<10){
+				month = "0" + month;
+			}else if(date<10){
+				date = "0" + date;
 			}
-
-			function saveData(){
-				let s = [];
-				for(let i = 0; i<7;i++){
-					let key = datalist[i];
-					s[i] = beforeData[key].join("$");
-				}
-				let str = s.join("~");
-				localStorage.setItem("collectSortBox",str);
-				localStorage.setItem("checklist",JSON.stringify(beforeData.checkList));
-				localStorage.setItem("finishlist",JSON.stringify(finishList));
-				localStorage.setItem("sumarylist",JSON.stringify(beforeData.sumaryList));
-				
-			}
-			function datashow(list, obj) {
-				let str = '';
-				for (let a = 0; a < list.length; a++) {
-					str = str + '<li data-id="' + a + '"><b>' + list[a] +
-						'</b><span class="writebtn line" onclick="lineEdit(event)"></span><span class="deletebtn line" onclick="lineDelete(event)">×</span></li>';
-				}
-				obj.innerHTML = str;
-			}
-
-			function datasimpleshow(list,obj,type){
-				let str = '';
-				for (let a = 0; a < list.length; a++) {
-					if(type==="simple"){
-						str = str + '<li><b>' + list[a] +
-							'</b></li>';
-					}else{
-						
-						str = str + '<li data-id="' + a + '"><b>' + list[a] +
-							'</b><span class="writebtn line" onclick="lineEdit(event)"></span><span class="deletebtn line" onclick="lineDelete(event,-1)">×</span></li>';
-					}
-				}
-				obj.innerHTML = str;
-			}
-
-			function datasolve(list, obj) {
-				let real = [];
-				list.map((item, index) => {
-					let li = '<li data-id="' + index +
-						'"><label><input type="checkbox"/><span class="cbox" onclick="checkIt(event)"></span><b onclick="checkIt(event)">' +
-						item +
-						'</b></label><span class="writebtn line" onclick="lineEdit(event)"></span><span class="deletebtn line" onclick="lineDelete(event)">×</span></li>';
-
-					real.push(li);
-				});
-				let realStr = real.join("");
-				obj.innerHTML = realStr;
-			}
-			function outOfTime(timer){
-				sortIt();
-				datasolve(outOfList,daylist);
-			}
-
-			function sortIt(){
-				var {year,month,date} = getTime();
-				let now = Date.UTC(year,month,date);
-				// console.log(now);
-				let list = beforeData.tmpDaylist;
-				let m =new Map();
-				let unsure = [];
-				let s = new Set();
-				let sortList = [];
-				let ids = [];
-				let len =  list.length;
-				let regex = /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
-				for (let i = 0; i < list.length; i++) {
-					if(regex.test(list[i])){
-						let time = regex.exec(list[i]);
-						let  d = Date.UTC(time[1],time[2],time[3]);
-						if(d<now){//逾期了
-							len--;
-							outOfList.push(list[i]);
-						}else{
-							m.set(i,d);
-							s.add(d);
-						}
-					}else{
-						unsure.push(i);
-					}
-				}
-				// console.log(outOfList);
-				let arr = [...s];
-				arr.sort();
-				for(let j of arr){
-					for(let [k,v] of m){
-						if(v===j){
-							ids.push(k);
-						}
-					}
-				}
-				let index = 0;
-				let unindex = 0;
-				let length = ids.length;
-				for(let u = 0; u < len; u++){
-					if(index<length){
-						let id = ids[index];
-						sortList[u] = list[id];
-						index++;
-					}else{
-						let unsureId = unsure[unindex];
-						sortList[u] = list[unsureId];
-						unindex++;
-					}
-				}
-				beforeData.tmpDaylist = sortList;
-				datasolve(sortList,daylist);
-				thingsNums[1].innerText = len;
-			}
-			function checkIt(event) {
-				// event.stopPropagation(); // IE则是使用e.cancelBubble = true
-				// event.cancelBubble = true;
-				const label = event.target.parentNode;
-				const input = label.getElementsByTagName("input")[0];
-				const b = label.getElementsByTagName("b")[0];
-				// console.log(input.attributes.checked);// 首次 undefined
-				if (input.checked) {
-					input.attributes.checked = false;
-					b.classList.remove("finish");
+			todayAdd = " " + year + "-" + month + "-" + date;
+      // 数据更新
+      // 添加式库collectBox($分隔符，)  覆盖式库collectBoxNew
+      // notFirstSave collectIndex solvedAll  分类库collectSortBox（先~后$划分）
+      var sortBoxStr = localStorage.getItem("collectSortBox");
+      var datalist = ["tmpDolist", "tmpDaylist", "tmpWaitlist", "tmpProject", "tmpMaylist", "tmpReference","tmpRecycle"];
+			strToList(sortBoxStr);
+			
+      function strToList(str){
+				if (str) {
+				  var sortBoxArr = str.split("~");
+					console.log(sortBoxArr);
+				  for (let b = 0; b < sortBoxArr.length; b++) {
+				    let key = datalist[b];
+				    if (/\$+/.test(sortBoxArr[b])) {
+				      let arr = sortBoxArr[b].split("$");
+				      // arr.shift();
+				      beforeData[key] = arr;
+				    } else if(sortBoxArr[b].trim()){
+				      beforeData[key][0] = sortBoxArr[b];
+				    }
+				  }
+				  if (localStorage.getItem("checklist")) {
+				    let s0 = localStorage.getItem("checklist");
+				    beforeData.checkList = JSON.parse(s0);
+				  }
+				  if (localStorage.getItem("summarylist")) {
+				    let s1 = localStorage.getItem("summarylist");
+				    beforeData.summaryList = JSON.parse(s1);
+				  }
+				  if (localStorage.getItem("finishlist")) {
+				    let s2 = localStorage.getItem("finishlist");
+				    finishList = JSON.parse(s2);
+				  }
+				  origin();
+				  // console.log(beforeData.sortList);
 				} else {
-					// 第一次或者没有选中的时候
-					input.attributes.checked = true;
-					b.classList.add("finish");
+				  console.log("内存中暂时没有数据");
 				}
-
 			}
-			var tmpValue = null;
-			var tmpNode = null;
+			
 
-			function lineEdit(event) { // 打开书写框 改样式 writebox.value获取值和改值对象tmpNode
-				const li = event.target.parentNode;
-				const b = li.getElementsByTagName("b")[0];
-				b.classList.add("chosed");
-				//  点击修改之后，弹出书写框 获取内容 修改项高亮显示
-				const val = b.innerText;
-				let btn = document.getElementsByClassName("circlebtn")[3];
-				let redBtn = write.getElementsByClassName("circlebtn")[2];
-				tmpValue = val;
-				redBtn.classList.remove("edit");
-				write.style.display = "block";
-				btn.innerText = "隐藏书写";
-				const submitBtn = write.getElementsByClassName("circlebtn")[1];
-				submitBtn.innerText = "确定修改";
-				writebox.value = val;
-				tmpNode = b;
-				solveUl = li.parentNode;
-				changeId = li.getAttribute("data-id");
-			}
-
-			function lineDelete(event,type="complex") { // 删除值 写在tmpRecycle列表上 改样式 writebox.value获取值和改值对象tmpNode
-				const li = event.target.parentNode;
-				let ul = li.parentNode;
-				let index = li.getAttribute("data-id");
-				ul.removeChild(li);
+      // 初始化数据
+      function origin() {
+				if (localStorage.getItem("allDayNum")) {
+				  let s3 = localStorage.getItem("allDayNum");
+					alldayNumObj = JSON.parse(s3);
+					if(today in alldayNumObj){ // 有今日完成事件数量时才取值
+						thatdayNum = alldayNumObj[today]; 
+					}
+				}else{
+					alldayNumObj[today] = thatdayNum;
+					localStorage.setItem("allDayNum",JSON.stringify(alldayNumObj));
+				}
 				
-				if(type==="complex"){
-					const val = li.querySelector("b").innerText;
-					beforeData.tmpRecycle[beforeData.tmpRecycle.length] = val;
-					datasimpleshow(beforeData.tmpRecycle, recycle);
-				}
-
-				let classname = ul.getAttribute("class");
-				findList(classname);
-				let list = getList(solveUl);
-				beforeData[nowlistStr] = list;
-				datasimpleshow(list, solveUl);
-				// console.log(list);
 				
-				if(nowlistStr === "tmpDolist"||nowlistStr === "tmpDaylist"){
-					getNum(list);
+        datasolve(beforeData.tmpDolist, dolist);
+        var num0 = beforeData.tmpDolist.length;
+        thingsNums[0].innerText = num0;
+
+        datasolve(beforeData.tmpDaylist, daylist);
+        var num1 = beforeData.tmpDaylist.length;
+        thingsNums[1].innerText = num1;
+
+        datasolve(beforeData.tmpWaitlist, waitlist);
+        datashow(beforeData.tmpProject, project);
+        datashow(beforeData.tmpMaylist, maylist);
+        datashow(beforeData.tmpReference, reference);
+
+        datasimpleshow(beforeData.tmpRecycle, recycle);
+        datasimpleshow(beforeData.checkList, places[0]);
+        datasimpleshow(finishList, places[1], "simple");
+        datasimpleshow(beforeData.summaryList, places[2]);
+        sortIt();
+				changeFinishProgress(num0,num1);
+				// outOfTime(); // daylist 排序与逾期
+      }
+
+      // 存数据 collectSortBox checklist finishlist summarylist
+      function saveData(all) {
+        let s = [];
+        for (let i = 0; i < 7; i++) {
+          let key = datalist[i];
+          s[i] = beforeData[key].join("$");
+        }
+        let str = s.join("~");
+        localStorage.setItem("collectSortBox", str);
+				sortBoxStr = str;
+				localStorage.setItem("summarylist", JSON.stringify(beforeData.summaryList));
+				if(all){
+					localStorage.setItem("checklist", JSON.stringify(beforeData.checkList));
+					localStorage.setItem("finishlist", JSON.stringify(finishList));
+				}
+      }
+
+      function datashow(list, obj) {
+        let str = '';
+        for (let a = 0; a < list.length; a++) {
+          str = str + '<li data-id="' + a + '"><b>' + list[a] +
+            '</b><span class="writebtn line" onclick="lineEdit(event)"></span><span class="deletebtn line" onclick="lineDelete(event)">×</span></li>';
+        }
+        obj.innerHTML = str;
+      }
+
+      function datasimpleshow(list, obj, type, pre) {
+				// 简单展示 有无前缀，或复杂（删除时类型传入-1，用意在不更新回收站清单数据）
+        let str = '';
+        for (let a = 0; a < list.length; a++) {
+          if (type === "simple" && pre) {
+            str = str  + '<li>' + pre + ' <b>' + list[a] +
+              '</b></li>';
+          } else if(type === "simple"){
+            str = str + '<li><b>' + list[a] +
+              '</b></li>';
+          } else {
+            str = str + '<li data-id="' + a + '"><b>' + list[a] +
+              '</b><span class="writebtn line" onclick="lineEdit(event)"></span>'+
+              '<span class="deletebtn line" onclick="lineDelete(event,-1)">×</span></li>';
+          }
+        }
+        obj.innerHTML = str;
+      }
+
+      function datasolve(list, obj) {
+        let real = [];
+        list.map((item, index) => {
+          let li = '<li data-id="' + index +
+            '"><label><input type="checkbox"/><span class="cbox" onclick="checkIt(event)"></span><b onclick="checkIt(event)">' +
+            item +'</b></label><span class="writebtn line" onclick="lineEdit(event)"></span>'+
+            '<span class="deletebtn line" onclick="lineDelete(event)">×</span>'+
+            '<span class="numberbtn line" onclick="beFirst(event)">1</span>' +
+            '<span class="numberbtn line" onclick="beSecond(event)">2</span>' +
+            '<span class="numberbtn line" onclick="beThird(event)">3</span>' +
+            '<span class="numberbtn line" onclick="beFourth(event)">4</span></li>';
+          real.push(li);
+        });
+        // console.log('datasolve创建了li', list);
+        let realStr = real.join("");
+        obj.innerHTML = realStr;
+      }
+
+      function outOfTime() {
+				let lis = daylist.querySelectorAll("b");
+        for (let i = 0; i < lis.length; i++) {
+					let item = lis[i].innerText;
+          if (regexDate.test(item)) {
+            let time = regexDate.exec(item);
+            let d = Date.UTC(time[1], time[2], time[3]);
+            if (d < now) { //逾期了
+              lis[i].classList.add("overtime");
+            }else if(lis[i].classList.contains("overtime")){
+							lis[i].classList.remove("overtime");
+						}
+          }
+        }
+      }
+			function sortFirst(num){
+				if(num){
+					tosort(dolist,"tmpDolist");
+				}else{
+					tosort(daylist,"tmpDaylist");
+					outOfTime();
 				}
 			}
+      function tosort(list,name) {
+        // 按照data-sort的值排序 从小到大排序
+        var lis = list.querySelectorAll("li");
+        var idNumberlist = new Map();
+        var idValue = new Map();
+        var leftlist = [];
+        var pointlist = [];
+        for(var i = 0; i<lis.length;i++){
+          var id = lis[i].getAttribute("data-id");
+          var val = lis[i].querySelector("b").innerText;
+          if(lis[i].getAttribute("data-sort")){
+            var number = lis[i].getAttribute("data-sort");
+            idNumberlist.set(id, number);
+            idValue.set(id, val);
+          }else{
+            leftlist.push(val);
+          }
+        }
+        for (var j = 0; j<4; j++) {
+          for (let [i, num] of idNumberlist) {
+            if (num == j) {
+              pointlist.push(idValue.get(i));
+            }
+          }
+        }
+        beforeData[name] = pointlist.concat(leftlist);
+        datasolve(beforeData[name], list);
+      }
 
-			function findList(name) {
-				if (/tmpDolist/.test(name)) {
-					nowlistStr = "tmpDolist";
-					solveUl = dolist;
-				} else if (/tmpDaylist/.test(name)) {
-					nowlistStr = "tmpDaylist";
-					solveUl = daylist;
-				} else if (/tmpWaitlist/.test(name)) {
-					nowlistStr = "tmpWaitlist";
-					solveUl = waitlist;
-				} else if (/tmpProject/.test(name)) {
-					nowlistStr = "tmpProject";
-					solveUl = project;
-				} else if (/tmpMaylist/.test(name)) {
-					nowlistStr = "tmpMaylist";
-					solveUl = maylist;
-				} else if (/tmpReference/.test(name)) {
-					nowlistStr = "tmpReference";
-					solveUl = reference;
-				} else if (/tmpRecycle/.test(name)) {
-					nowlistStr = "tmpRecycle";
-					solveUl = recycle;
-				}else if (/checkList/.test(name)) {
-					nowlistStr = "checkList";
-					solveUl = places[0];
-				}else if (/sumaryList/.test(name)) {
-					nowlistStr = "sumaryList";
-					solveUl = places[2];
+      function uniqueSort(parent,one){
+        var btns = parent.getElementsByClassName("numberbtn");
+        for(var i = 0; i < btns.length; i++){
+          if(i==one){
+            btns[i].classList.add('active');
+          }else{
+            btns[i].classList.remove('active');
+          }
+        }
+      }
+      
+      function beFirst(event) {
+        var parent = event.target.parentElement;
+        uniqueSort(parent,0);
+        parent.setAttribute('data-sort','0');
+      }
+
+      function beSecond(event) {
+        var parent = event.target.parentElement;
+        uniqueSort(parent,1);
+        parent.setAttribute('data-sort','1');
+      }
+
+      function beThird(event) {
+         var parent = event.target.parentElement;
+         uniqueSort(parent,2);
+         parent.setAttribute('data-sort','2');
+      }
+
+      function beFourth(event) {
+        var parent = event.target.parentElement;
+        uniqueSort(parent,3);
+        parent.setAttribute('data-sort','3');
+      }
+
+      function sortIt() {
+        let list = beforeData.tmpDaylist;
+        let m = new Map();
+        let unsure = [];
+        let s = new Set();
+        let sortList = [];
+        let ids = [];
+        let len = list.length;
+				// let outOfList = [];
+        for (let i = 0; i < len; i++) {
+          if (regexDate.test(list[i])) {
+					  let time = regexDate.exec(list[i]);
+					  let d = Date.UTC(time[1], time[2], time[3]);
+						m.set(i, d);
+						s.add(d);
+            // if (d < now) { //逾期了
+            //   len--;
+            //   outOfList.push(list[i]);
+            // } else { // 没逾期的排序
+            //   m.set(i, d);
+            //   s.add(d);
+            // }
+          } else {
+						// 没日期
+            unsure.push(i);
+          }
+        }
+        let arr = [...s];
+        arr.sort();
+        for (let j of arr) {
+          for (let [k, v] of m) {
+            if (v === j) {
+              ids.push(k);
+            }
+          }
+        }
+        let index = 0;
+        let unindex = 0;
+        let length = ids.length;
+        for (let u = 0; u < len; u++) {
+          if (index < length) {
+            let id = ids[index];
+            sortList[u] = list[id];
+            index++;
+          } else {
+            let unsureId = unsure[unindex];
+            sortList[u] = list[unsureId];
+            unindex++;
+          }
+        }
+				// console.log(sortList);
+        beforeData.tmpDaylist = sortList;
+        datasolve(sortList, daylist);
+				outOfTime();
+        // thingsNums[1].innerText = len;
+      }
+
+      function checkIt(event) {
+        // event.stopPropagation(); // IE则是使用e.cancelBubble = true
+        // event.cancelBubble = true;
+        const label = event.target.parentNode;
+        const input = label.getElementsByTagName("input")[0];
+        const b = label.getElementsByTagName("b")[0];
+        // console.log(input.attributes.checked);// 首次 undefined
+        if (input.checked) {
+          input.attributes.checked = false;
+          b.classList.remove("finish");
+        } else {
+          // 第一次或者没有选中的时候
+          input.attributes.checked = true;
+          b.classList.add("finish");
+        }
+
+      }
+       
+      var tmpValue = null;
+      var tmpNode = null;
+
+      function lineEdit(event) { // 打开书写框 改样式 writebox.value获取值和改值对象tmpNode
+        const li = event.target.parentNode;
+        const b = li.getElementsByTagName("b")[0];
+        b.classList.add("chosed");
+        //  点击修改之后，弹出书写框 获取内容 修改项高亮显示
+        const val = b.innerText;
+        let btn = document.getElementsByClassName("circlebtn")[3];
+        let redBtn = write.getElementsByClassName("circlebtn")[2];
+        tmpValue = val;
+        redBtn.classList.remove("edit");
+        write.style.display = "block";
+        btn.innerText = "隐藏书写";
+        const submitBtn = write.getElementsByClassName("circlebtn")[1];
+        submitBtn.innerText = "确定修改";
+        writebox.value = val;
+        tmpNode = b;
+        solveUl = li.parentNode;
+        changeId = li.getAttribute("data-id");
+				saveData(1);
+      }
+
+      function lineDelete(event, type = "complex") { // 删除值 写在tmpRecycle列表上 改样式 writebox.value获取值和改值对象tmpNode
+        const li = event.target.parentNode;
+        let ul = li.parentNode;
+        let index = li.getAttribute("data-id");
+        ul.removeChild(li);
+
+        if (type === "complex") {
+          const val = li.querySelector("b").innerText;
+          beforeData.tmpRecycle[beforeData.tmpRecycle.length] = val;
+          datasimpleshow(beforeData.tmpRecycle, recycle);
+        }
+
+        let classname = ul.getAttribute("class");
+        findList(classname);
+        let list = getList(solveUl);
+        beforeData[nowlistStr] = list;
+        // console.log(list);
+				saveData(1);
+        if (nowlistStr === "tmpDolist" || nowlistStr === "tmpDaylist" || nowlistStr === "tmpWaitlist" ) {
+					datasolve(list, solveUl);
+					if (nowlistStr === "tmpDolist" || nowlistStr === "tmpDaylist") {
+						getNum(list);
+						if(nowlistStr === "tmpDaylist"){
+							outOfTime();
+						}
+					}
+					
+					// if (nowlistStr === "tmpDolist") {
+						
+					// }else{
+					// 	datashow(list, solveUl);
+					// }
+        }else{
+					datasimpleshow(list, solveUl);
 				}
-				// console.log(nowlistStr, solveUl);
-			}
+      }
 
-			function ableToEdit(event, num) {
-				let btn = event.target;
-				let tar = btn.parentNode.parentNode;
-				if (num === -1) {
-					tar = tar.parentNode;
-				}
-				let classname = tar.getAttribute("class");
-				if (/isEdit/.test(classname)) {
-					tar.classList.remove("isEdit");
-				} else {
-					tar.classList.add("isEdit");
-				}
-			}
-		</script>
+      function findList(name) {
+        if (/tmpDolist/.test(name)) {
+          nowlistStr = "tmpDolist";
+          solveUl = dolist;
+        } else if (/tmpDaylist/.test(name)) {
+          nowlistStr = "tmpDaylist";
+          solveUl = daylist;
+        } else if (/tmpWaitlist/.test(name)) {
+          nowlistStr = "tmpWaitlist";
+          solveUl = waitlist;
+        } else if (/tmpProject/.test(name)) {
+          nowlistStr = "tmpProject";
+          solveUl = project;
+        } else if (/tmpMaylist/.test(name)) {
+          nowlistStr = "tmpMaylist";
+          solveUl = maylist;
+        } else if (/tmpReference/.test(name)) {
+          nowlistStr = "tmpReference";
+          solveUl = reference;
+        } else if (/tmpRecycle/.test(name)) {
+          nowlistStr = "tmpRecycle";
+          solveUl = recycle;
+        } else if (/checkList/.test(name)) {
+          nowlistStr = "checkList";
+          solveUl = places[0];
+        } else if (/summaryList/.test(name)) {
+          nowlistStr = "summaryList";
+          solveUl = places[2];
+        }
+        // console.log(nowlistStr, solveUl);
+      }
 
-		<script>
-			var solvedbtns = document.getElementsByClassName("solvedBtn");
-			solvedbtns[0].onclick = function() {
-				beforeData.tmpDolist = solveAll(dolist, "执");
-				var num0 = beforeData.tmpDolist.length;
-				thingsNums[0].innerText = num0;
-				datasolve(beforeData.tmpDolist, dolist);
+      function ableToEdit(event, num) {
+        let btn = event.target;
+        let tar = btn.parentNode.parentNode;
+        if (num === -1) {
+          tar = tar.parentNode;
+        }
+        let classname = tar.getAttribute("class");
+        if (/isEdit/.test(classname)) {
+          tar.classList.remove("isEdit");
+        } else {
+          tar.classList.add("isEdit");
+        }
+      }
+ 
+      //  处理 添加按钮的实现 数据处理
+      var solvedbtns = document.getElementsByClassName("solvedBtn");
+      solvedbtns[0].onclick = function() {
+        beforeData.tmpDolist = solveAll(dolist, "执");
+        var num0 = beforeData.tmpDolist.length;
+        thingsNums[0].innerText = num0;
+        datasolve(beforeData.tmpDolist, dolist);
+				changeFinishProgress(num0,0);
+      }
+      solvedbtns[1].onclick = function() {
+        // 每一项有状态（等待事项 已解决事项 逾期事项） 删除的项目将放在回收箱和逾期里面
+        // * 已完成的项目将放在已解决事项中 	处理感想（完成事项数量+逾期事项数量+感悟）
+        beforeData.tmpDaylist = solveAll(daylist, "历");
+        var num1 = beforeData.tmpDaylist.length;
+        thingsNums[1].innerText = num1;
+        datasolve(beforeData.tmpDaylist, daylist);
+				changeFinishProgress(0,num1);
+      }
+      solvedbtns[2].onclick = function() {
+        beforeData.tmpWaitlist = solveAll(waitlist, "等");
+        datasolve(beforeData.tmpWaitlist, waitlist);
+				changeFinishProgress(0,0);
+      }
+      function changeFinishProgress(num0,num1){
+				var oScrollbar = document.querySelector(".scrollbar_orange");
+				var num0 = num0 || beforeData.tmpDolist.length;
+				var num1 = num1 || beforeData.tmpDaylist.length;
+				var num2 = beforeData.tmpWaitlist.length;
+				// console.log(thatdayNum);
+				var allNum = num0 + num1 + num2 + thatdayNum;
+				var percent = Math.ceil(thatdayNum/allNum*100)+ "%";
+				oScrollbar.style.width = percent;
+				// console.log(today,finishList);
+				// console.log(allNum,thatdayNum,percent);
+				alldayNumObj[today] = thatdayNum;
+				var littleSum = todayAdd + " " + thatdayNum + "/" + allNum + "  (" + percent + ")";
+				progress.innerText = littleSum;
+				progressSim.innerText = littleSum;
+				saveData(1);
+				localStorage.setItem("allDayNum",JSON.stringify(alldayNumObj));
 			}
-			solvedbtns[1].onclick = function() {
-				// 每一项有状态（等待事项 已解决事项 逾期事项） 删除的项目将放在回收箱和逾期里面
-				// * 已完成的项目将放在已解决事项中 	处理感想（完成事项数量+逾期事项数量+感悟）
-				beforeData.tmpDaylist = solveAll(daylist, "历");
-				var num1 = beforeData.tmpDaylist.length;
-				thingsNums[1].innerText = num1;
-				datasolve(beforeData.tmpDaylist, daylist);
-			}
-			solvedbtns[2].onclick = function() {
-				beforeData.tmpWaitlist = solveAll(waitlist, "等");
-				datasolve(beforeData.tmpWaitlist, waitlist);
-			}
-			var addbtns = document.getElementsByClassName("addBtn");
-			addbtns[0].onclick = function() {
-				addItem();
-				solveUl = dolist;
-			}
-			addbtns[1].onclick = function() {
-				addItem();
-				solveUl = daylist;
-			}
-			addbtns[2].onclick = function() {
-				addItem();
-				solveUl = waitlist;
-			}
+      var addbtns = document.getElementsByClassName("addBtn");
+      addbtns[0].onclick = function() {
+        addItem();
+        solveUl = dolist;
+      }
+      addbtns[1].onclick = function() {
+        addItem();
+        solveUl = daylist;
+      }
+      addbtns[2].onclick = function() {
+        addItem();
+        solveUl = waitlist;
+      }
 
-			function addItem() {
-				// 打开编辑区
-				writeLayer();
-				menuBtns[6].innerText = "添加";
-			}
+      function addItem() {
+        // 打开编辑区
+        writeLayer();
+        menuBtns[6].innerText = "添加";
+      }
 
-			function getTime() {
-				var timer = new Date();
-				var year = timer.getFullYear();
-				var month = timer.getMonth() + 1;
-				var date = timer.getDate();
-				return {year,month,date};
-			}
+      function getTime() {
+        var timer = new Date();
+        var year = timer.getFullYear();
+        var month = timer.getMonth() + 1;
+        var date = timer.getDate();
+				today = year + "/" + month + "/" + date;
+        return {
+          year,
+          month,
+          date
+        };
+      }
 
-			function getList(obj) {
-				var bs = obj.querySelectorAll("b");
-				var list = [];
-				for (let i = 0; i < bs.length; i++) {
-					let val = bs[i].innerText;
-					list[list.length] = val;
-				}
-				return list;
-			}
+      function getList(obj) {
+        var bs = obj.querySelectorAll("b");
+        var list = [];
+        for (let i = 0; i < bs.length; i++) {
+          let val = bs[i].innerText;
+          list[list.length] = val;
+        }
+        return list;
+      }
 
-			function solveAll(obj, pre) {
-				var inputs = obj.querySelectorAll("input");
-				var bs = obj.querySelectorAll("b");
-				var list = [];
-				var {year,month,date} = getTime();
-				for (let i = 0; i < inputs.length; i++) {
-					let val = bs[i].innerText;
-					if (inputs[i].checked) {
-						finishList[finishList.length] = month + "/"+date + " (" + pre + ") " + val;
+      function solveAll(obj, pre) {
+        var inputs = obj.querySelectorAll("input");
+        var bs = obj.querySelectorAll("b");
+        var list = [];
+        for (let i = 0; i < inputs.length; i++) {
+          let val = bs[i].innerText;
+          if (inputs[i].checked) {
+            finishList[finishList.length] = today + " (" + pre + ") " + val;
+						// 当天完成的事项
+						thatdayNum++;
+          } else {
+            list[list.length] = val;
+          }
+        }
+        // console.log(finishList);
+        datasimpleshow(finishList, places[1], "simple");
+        return list;
+      }
+      
+      var nowCollect = 0;
+      var clearallBtn = document.getElementsByClassName("clearall")[0];
+      clearallBtn.onclick = function() {
+				var val = confirm("确定要删除所有的完成清单吗？删除的数据将无法恢复。");
+				if(val){
+					let list = [];
+					if (nowCollect) {
+					  // nowCollect 为1，清空回收箱
+					  beforeData.tmpRecycle = [];
+					  datashow(list, recycle);
 					} else {
-						list[list.length] = val;
+					  // nowCollect 为0，清空参考资料表
+					  beforeData.tmpReference = [];
+					  datashow(list, reference);
+					}
+					// 储存sortList
+					saveData();
+				}
+      }
+      
+      
+      var asideTogs = document.querySelectorAll(".aside input");
+      var collect = document.querySelectorAll(".aside .list");
+      asideTogs[0].onclick = function() {
+        if (asideTogs[0].checked) {
+          collect[0].style.display = "block";
+          collect[1].style.display = "none";
+          nowCollect = 0;
+        } else {
+          collect[0].style.display = "none";
+          collect[1].style.display = "block";
+          nowCollect = 1;
+        }
+      }
+      asideTogs[1].onclick = function() {
+        if (!asideTogs[1].checked) {
+          collect[0].style.display = "block";
+          collect[1].style.display = "none";
+          nowCollect = 0;
+        } else {
+          collect[0].style.display = "none";
+          collect[1].style.display = "block";
+          nowCollect = 1;
+        }
+      }
+
+      function clearList() {
+				var val = confirm("确定要删除所有的完成清单吗？删除的数据将无法恢复。");
+				if(val){
+					finishList = [];
+					datasimpleshow(finishList, places[1], "simple");
+				  localStorage.setItem("finishlist",JSON.stringify(finishList));
+					console.log("成功删除完成清单");
+				}
+      }
+      function outputAnalysis(){
+        // 复制到粘贴板  这种复制只支持文本框和文本域innput textarea (注意后者才支持换行符)
+        var copyData = beforeData.summaryList.join("\n")
+        writebox.value = copyData;
+        writebox.select(); 
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        writeLayer();
+      }
+    </script>
+    
+    
+    <script>
+      //  下面是页面主菜单和书写框的按钮 以及页面展开折叠按钮
+      var write = document.getElementsByClassName("write")[0];
+      var writebox = write.getElementsByClassName("writebox")[0];
+      var arrowBtns = document.getElementsByClassName("arrowbtn");
+      var parts = document.getElementsByClassName("part");
+      for (let i = 0; i < arrowBtns.length; i++) {
+        arrowBtns[i].parentNode.onclick = function() {
+          if (arrowBtns[i].innerText === "<") {
+            parts[i].style.display = "block";
+            arrowBtns[i].innerText = ">";
+          } else {
+            parts[i].style.display = "none";
+            arrowBtns[i].innerText = "<";
+          }
+        }
+      }
+			
+			function toClearInput(){
+				var file_input = document.getElementById('file_input');
+				file_input.value = "";
+			}
+			
+			function toInput() {
+				var file_input = document.getElementById('file_input');
+				var files = file_input.files;
+				var list = [];
+				// console.log(files);
+				if (files.length > 0) { // 判断文件存在
+					var justOpen = confirm("此操作会覆盖现有数据，确定要覆盖吗？");
+					if (justOpen) { // 确定覆盖
+						var file_data = files[0];
+						// console.log(file_data);
+						if (/\.txt$/.test(file_data.name)) {
+							let reader = new FileReader();
+							reader.readAsText(file_data, 'UTF-8'); // 读取纯文本文件,且编码格式为 utf-8
+							// 读取文件,会触发 onload 异步事件,可使用回调函数 来获取最终的值.
+							reader.onload = function(e) {
+								let fileContent = e.target.result;
+								list = fileContent.split('^');
+								sortBoxStr = list[0];
+								beforeData.checkList= list[1].split(',') ;
+								// console.log(list);
+								localStorage.setItem("collectSortBox", sortBoxStr);
+								localStorage.setItem("checklist", JSON.stringify(beforeData.checkList));
+								strToList(sortBoxStr); // 确保数据替换
+								// 简版的数据更正
+								var uls = document.querySelectorAll(".detailSimple");
+								datasimpleshow(beforeData.tmpDolist, uls[0], 'simple','【执】 ');
+								datasimpleshow(beforeData.tmpDaylist, uls[1], 'simple','【限】');
+								datasimpleshow(beforeData.tmpWaitlist, uls[2], 'simple','【待】 ');
+								datasimpleshow(finishList, uls[3], 'simple');
+							}
+						}
 					}
 				}
-				// console.log(finishList);
-				datasimpleshow(finishList, places[1],"simple");
-				return list;
 			}
-			var nowCollect = 0;
-			var clearallBtn = document.getElementsByClassName("clearall")[0];
-			clearallBtn.onclick = function() {
+      
+			function toOutput(type,copy="not") {
 				let list = [];
-				if (nowCollect) {
-					// nowCollect 为1，清空回收箱
-					beforeData.tmpRecycle = [];
-					datashow(list, recycle);
-				} else {
-					// nowCollect 为0，清空参考资料表
-					beforeData.tmpReference = [];
-					datashow(list, reference);
-				}
-				// 储存sortList
-
-			}
-			var asideTogs = document.querySelectorAll(".aside input");
-			var collect = document.querySelectorAll(".aside .list");
-
-			asideTogs[0].onclick = function() {
-				if (asideTogs[0].checked) {
-					collect[0].style.display = "block";
-					collect[1].style.display = "none";
-					nowCollect = 0;
-				} else {
-					collect[0].style.display = "none";
-					collect[1].style.display = "block";
-					nowCollect = 1;
-				}
-			}
-			asideTogs[1].onclick = function() {
-				if (!asideTogs[1].checked) {
-					collect[0].style.display = "block";
-					collect[1].style.display = "none";
-					nowCollect = 0;
-				} else {
-					collect[0].style.display = "none";
-					collect[1].style.display = "block";
-					nowCollect = 1;
-				}
-			}
-			function clearList(){
-				finishList = [];
-				datasimpleshow(finishList,places[1],"simple");
-			}
-				
-		</script>
-		<script>
-			var write = document.getElementsByClassName("write")[0];
-			var writebox = write.getElementsByClassName("writebox")[0];
-			var arrowBtns = document.getElementsByClassName("arrowbtn");
-			var parts = document.getElementsByClassName("part");
-			for (let i = 0; i < arrowBtns.length; i++) {
-				arrowBtns[i].onclick = function() {
-					if (arrowBtns[i].innerText === "<") {
-						parts[i].style.display = "block";
-						arrowBtns[i].innerText = ">";
-					} else {
-						parts[i].style.display = "none";
-						arrowBtns[i].innerText = "<";
+				let listStr = '';
+				let filename = '';
+				saveData(1);
+				// 导出数据有两种：
+				// ①下次使用的备份 = 事项清单的组合"collectSortBox",sortBoxStr（包括参考卡，回收箱）+ 检查卡"checklist",beforeData.checkList
+				// ②数据再次处理 = 参考卡beforeData.tmpReference + 完成卡"finishlist",finishList + 分析卡"summarylist",beforeData.summaryList
+				if(type==='solve'){
+					list[0] = beforeData.tmpReference.join("\n- ");
+					list[1] = finishList.join("\n- ");
+					list[2] = beforeData.summaryList.join("\n- ");
+					listStr = "##导出时间："+ today + "\n\n> 参考列表\n- " + list[0] + "\n\n> 完成事项\n- " + list[1] +"\n\n> 分析总结\n- " + list[2];
+					if(copy==='copy'){
+						var oTextarea = document.getElementsByClassName("writeBoxForCopy")[0];
+						oTextarea.value = listStr;
+						oTextarea.select();
+						document.execCommand("Copy");
+						
+					}else{
+						filename = today + "处理数据.md";
+						download(filename,listStr,'text/markdown');
 					}
+				}else{
+					list[0] = sortBoxStr;
+					list[1] = beforeData.checkList;
+					listStr = list.join("^");
+					filename = today + "备份数据.txt";
+					download(filename,listStr,'text/txt');
 				}
 			}
-			// 首行menu的按钮 +笔记button
-			var menuBtns = document.getElementsByClassName("circlebtn");
-			menuBtns[0].onclick = saveData;
-			menuBtns[1].onclick = function() {
-				if(this.innerText==="展开"){
-					for (let i = 0; i < arrowBtns.length; i++) {
-						parts[i].style.display = "block";
-						arrowBtns[i].innerText = ">";
-					}
-					this.innerText="折叠";
-				}else if(this.innerText==="折叠"){
-					for (let i = 0; i < arrowBtns.length; i++) {
-						parts[i].style.display = "none";
-						arrowBtns[i].innerText = "<";
-					}
-					this.innerText="展开";
-				}
-				
-			}
-			menuBtns[2].onclick = function() {
-				var aside = document.getElementsByClassName("aside")[0];
-				if (menuBtns[2].innerText === "隐藏参考卡") {
-					aside.style.display = "none";
-					menuBtns[2].innerText = "显示参考卡";
+			function download(filename,content,type) {
+				var blob;
+				if (typeof window.Blob === 'function') {
+				  blob = new Blob([content], { type: type });
 				} else {
-					menuBtns[2].innerText = "隐藏参考卡";
-					aside.style.display = "block";
+					var BlobBuilder = window.BlobBuilder || window.MozBlobBuilder || window.WebKitBlobBuilder || window.MSBlobBuilder;
+					var bb = new BlobBuilder();
+					bb.append(content);
+					blob = bb.getBlob(type);
 				}
-			}
-			menuBtns[3].onclick = writeLayer;
-
-			function writeLayer() {
-
-				if (menuBtns[3].innerText === "书写总结") {
-					write.style.display = "block";
-					menuBtns[3].innerText = "隐藏书写";
+				if (navigator.msSaveBlob) {
+				    navigator.msSaveBlob(blob, filename);
 				} else {
-					menuBtns[3].innerText = "书写总结";
-					write.style.display = "none";
-					// 隐藏按钮
-					let btns = write.querySelectorAll(".btns .circlebtn");
-					btns[2].classList.add("edit");
-
-					if (tmpValue === null) {
-						btns[1].innerText = "提交";
-						writebox.value = "";
-					}
+				    var URL = window.URL || window.webkitURL;
+				    var bloburl = URL.createObjectURL(blob);
+						var anchor = document.createElement('a');
+				    if ('download' in anchor) {
+				        anchor.style.visibility = 'hidden';
+				        anchor.href = bloburl;
+				        anchor.download = filename;
+				        document.body.appendChild(anchor);
+				        var evt = document.createEvent('MouseEvents');
+				        evt.initEvent('click', true, true);
+				        anchor.dispatchEvent(evt);
+				        document.body.removeChild(anchor);
+				    } else {
+				        location.href = bloburl;
+								console.log("ssss");
+				    }
 				}
 			}
+			
+      function toSimplePart(ele) { // 简版与编辑按钮
+        // 按钮和内容的切换
+        var val = ele.innerText;
+        var parts = document.querySelectorAll(".content");
+        if(val==="切简版"){
+          parts[0].style.display="none";
+          parts[1].style.display="block";
+          ele.innerText = "切编辑";
+        }else{
+          parts[0].style.display="block";
+          parts[1].style.display="none";
+          ele.innerText = "切简版";
+        }
+        // 数据保存和渲染
+        saveData(1);
+        var uls = document.querySelectorAll(".detailSimple");
+        datasimpleshow(beforeData.tmpDolist, uls[0], 'simple','【执】 ');
+        datasimpleshow(beforeData.tmpDaylist, uls[1], 'simple','【限】');
+        datasimpleshow(beforeData.tmpWaitlist, uls[2], 'simple','【待】 ');
+        datasimpleshow(finishList, uls[3], 'simple');
+      }
+      
+      function toFinish(){
+        saveData(1);
+        var str = beforeData.tmpDolist.join("*");
+        localStorage.setItem("dolist", str);
+      }
+      
+      // 首行menu的按钮 +笔记button
+      var menuBtns = document.getElementsByClassName("circlebtn");
+      menuBtns[0].onclick = saveData;
+      menuBtns[1].onclick = function() {
+        if (this.innerText === "展开") {
+          for (let i = 0; i < arrowBtns.length; i++) {
+            parts[i].style.display = "block";
+            arrowBtns[i].innerText = ">";
+          }
+          this.innerText = "折叠";
+        } else if (this.innerText === "折叠") {
+          for (let i = 0; i < arrowBtns.length; i++) {
+            parts[i].style.display = "none";
+            arrowBtns[i].innerText = "<";
+          }
+          this.innerText = "展开";
+        }
 
-			menuBtns[4].onclick = function() {
-				if (menuBtns[4].innerText === "总结面板") {
-					floor.style.display = "block";
-					menuBtns[4].innerText = "关闭面板";
-				} else {
-					menuBtns[4].innerText = "总结面板";
-					floor.style.display = "none";
-				}
-			}
-			var floor = document.getElementsByClassName("upfloor")[0];
-			var flcheckeds = floor.querySelectorAll("input");
-			var fllists = document.querySelectorAll(".analyzeCon .list");
-			for (let j = 0; j < flcheckeds.length; j++) {
-				flcheckeds[j].onclick = function() {
-					if (flcheckeds[j].checked) {
-						fllists[j].style.display = "block";
-					} else {
-						fllists[j].style.display = "none";
-					}
-				}
-			}
-			// 反向
-			var concheckeds = document.querySelectorAll(".content .controlers input");
-			for (let j = 0; j < concheckeds.length; j++) {
-				concheckeds[j].onclick = function() {
-					if (j === 0) {
-						selectReverse(dolist);
-					} else if (j === 1) {
-						selectReverse(daylist);
-					} else if (j === 2) {
-						selectReverse(waitlist);
-					}
+      }
+      menuBtns[2].onclick = function() {
+        var aside = document.getElementsByClassName("aside")[0];
+        if (menuBtns[2].innerText === "隐藏右栏") {
+          aside.style.display = "none";
+          menuBtns[2].innerText = "显示右栏";
+        } else {
+          menuBtns[2].innerText = "隐藏右栏";
+          aside.style.display = "block";
+        }
+      }
+      menuBtns[3].onclick = writeLayer;
 
-				}
-			}
+      function writeLayer() {
+        if (menuBtns[3].innerText === "书写总结") {
+          write.style.display = "block";
+          menuBtns[3].innerText = "隐藏书写";
+        } else {
+          menuBtns[3].innerText = "书写总结";
+          write.style.display = "none";
+          // 隐藏按钮
+          let btns = write.querySelectorAll(".btns .circlebtn");
+          btns[2].classList.add("edit");
 
-			function selectReverse(obj) {
-				var items = obj.querySelectorAll("b");
-				var checkeds = obj.querySelectorAll("input");
-				// console.log(checkeds);
-				for (let k = 0; k < checkeds.length; k++) {
-					if (checkeds[k].checked) {
-						checkeds[k].checked = false;
-						if (items[k].classList.contains("finish")) {
-							items[k].classList.remove("finish");
+          if (tmpValue === null) {
+            btns[1].innerText = "提交到分析卡";
+            writebox.value = "";
+          }
+        }
+      }
+
+      menuBtns[4].onclick = function() {
+        if (menuBtns[4].innerText === "总结面板") {
+          floor.style.display = "block";
+          menuBtns[4].innerText = "关闭面板";
+					document.body.style.overflow = 'hidden';
+        } else {
+          menuBtns[4].innerText = "总结面板";
+          floor.style.display = "none";
+					document.body.style.overflow = 'auto';
+        }
+      }
+      var floor = document.getElementsByClassName("upfloor")[0];
+      var flcheckeds = floor.querySelectorAll("input");
+      var fllists = document.querySelectorAll(".analyzeCon .list");
+      for (let j = 0; j < flcheckeds.length; j++) {
+        flcheckeds[j].onclick = function() {
+          if (flcheckeds[j].checked) {
+            fllists[j].style.display = "block";
+          } else {
+            fllists[j].style.display = "none";
+          }
+        }
+      }
+      // 反向
+      var concheckeds = document.querySelectorAll(".content .controlers input");
+      for (let j = 0; j < concheckeds.length; j++) {
+        concheckeds[j].onclick = function() {
+          if (j === 0) {
+            selectReverse(dolist);
+          } else if (j === 1) {
+            selectReverse(daylist);
+          } else if (j === 2) {
+            selectReverse(waitlist);
+          }
+        }
+      }
+
+      function selectReverse(obj) {
+        var items = obj.querySelectorAll("b");
+        var checkeds = obj.querySelectorAll("input");
+        // console.log(checkeds);
+        for (let k = 0; k < checkeds.length; k++) {
+          if (checkeds[k].checked) {
+            checkeds[k].checked = false;
+            if (items[k].classList.contains("finish")) {
+              items[k].classList.remove("finish");
+            }
+          } else {
+            checkeds[k].checked = true;
+            items[k].classList.add("finish");
+          }
+        }
+
+      }
+      menuBtns[5].onclick = function() {
+        writebox.value = "";
+      }
+      menuBtns[6].onclick = function() {
+        var val = writebox.value;
+        if (val.trim()) {
+          if (this.innerText === "提交到分析卡") {
+            // console.log("提交到总结项");
+            beforeData.summaryList[beforeData.summaryList.length] = val.trim();
+            writebox.value = "";
+            datasimpleshow(beforeData.summaryList, places[2]);
+          } else if (this.innerText === "确定修改") {
+            // 确定修改 需要获取当前列表 修改项 修改内容val
+            if (tmpNode) {
+              tmpNode.innerText = val;
+              tmpNode.style.color = "orange";
+              tmpNode = null;
+              tmpValue = null;
+              let classname = solveUl.getAttribute("class");
+              findList(classname);
+              beforeData[nowlistStr][changeId] = val;
+              // console.log(beforeData[nowlistStr]);
+              writebox.value = "";
+            } else {
+              console.log("选择对象出错了。");
+            }
+						if(nowlistStr === "tmpDaylist"){
+							outOfTime();
 						}
-					} else {
-						checkeds[k].checked = true;
-						items[k].classList.add("finish");
-					}
-				}
-
-			}
-			menuBtns[5].onclick = function() {
-				writebox.value = "";
-			}
-			menuBtns[6].onclick = function() {
-				var val = writebox.value;
-				if (val.trim()) {
-					if (this.innerText === "提交") {
-						// console.log("提交到总结项");
-						beforeData.sumaryList[beforeData.sumaryList.length] = val.trim();
-						writebox.value = "";
-						datasimpleshow(beforeData.sumaryList, places[2]);
-					} else if (this.innerText === "确定修改") {
-						// 确定修改 需要获取当前列表 修改项 修改内容val
-						if (tmpNode) {
-							tmpNode.innerText = val;
-							tmpNode.style.color = "orange";
-							tmpNode = null;
-							tmpValue = null;
-							let classname = solveUl.getAttribute("class");
-							findList(classname);
-							beforeData[nowlistStr][changeId]= val;
-							console.log(beforeData[nowlistStr]);
-							writebox.value = "";
-						} else {
-							console.log("选择对象出错了。");
+            writeLayer();
+          } else if (this.innerText === "添加") {
+						let lis = [];
+            if(/\*+/.test(val)){ // 多项添加 *分隔
+              lis = val.split("*");
+						}else{
+							lis[0] = val;
 						}
-						writeLayer();
-					} else if (this.innerText === "添加") {
-						let liItem =
-							'<label><input type="checkbox"/><span class="cbox" onclick="checkIt(event)"></span><b onclick="checkIt(event)">' +
-							val +
-							'</b></label><span class="writebtn line" onclick="lineEdit(event)"></span><span class="deletebtn line" onclick="lineDelete(event)">×</span>';
-						let li = document.createElement('li');
-						let index = solveUl.querySelectorAll("li").length;
-						li.setAttribute("data-id", index);
-						li.innerHTML = liItem;
-						solveUl.appendChild(li);
-						writebox.value = "";
-						let classname = solveUl.getAttribute("class");
-						findList(classname);
-						let list = getList(solveUl);
-						beforeData[nowlistStr] = list;
-						if(nowlistStr === "tmpDolist"||nowlistStr === "tmpDaylist"){
-							getNum(list);
+            let index = solveUl.querySelectorAll("li").length;
+            for(let i = 0; i < lis.length; i++){
+							let liItem =
+								'<label><input type="checkbox"/><span class="cbox" onclick="checkIt(event)"></span><b onclick="checkIt(event)">' +
+								lis[i] +
+								'</b></label><span class="writebtn line" onclick="lineEdit(event)"></span><span class="deletebtn line" onclick="lineDelete(event)">×</span>';
+							let li = document.createElement('li');
+							li.setAttribute("data-id", index+i);
+							li.innerHTML = liItem;
+							solveUl.appendChild(li);
 						}
-					}
+            writebox.value = "";
+            let classname = solveUl.getAttribute("class");
+            findList(classname);
+            let list = getList(solveUl);
+            beforeData[nowlistStr] = list;
+            if (nowlistStr === "tmpDolist" || nowlistStr === "tmpDaylist") {
+              getNum(list);
+            }
+						datasolve(list, solveUl);
+						changeFinishProgress(0,0);
+						if(nowlistStr === "tmpDaylist"){
+							outOfTime();
+						}
+          }
+					saveData(1);
+        }
+      }
 
-				}
-			}
-			function getNum(list){
-				// 事件数的计算 表的更新
-				let num = list.length;
-				// datasolve(list, ul);
-				if (nowlistStr === "tmpDolist") {
-					thingsNums[0].innerText = num;
-				} else if (nowlistStr === "tmpDaylist") {
-					thingsNums[1].innerText = num;
-				}
-			}
-			menuBtns[7].onclick = function() {
-				if (tmpNode) {
-					var val = writebox.value;
-					tmpNode.innerText = val;
-					tmpNode.style.color = "red";
-					tmpNode = null;
-					tmpValue = null;
-					let classname = solveUl.getAttribute("class");
-					findList(classname);
-					beforeData[nowlistStr][changeId]= val;
-					console.log(beforeData[nowlistStr]);
-					writebox.value = "";
-				}
-				writeLayer();
-			}
-			menuBtns[8].onclick = function() {
+      function getNum(list) {
+        // 事件数的计算 表的更新
+        let num = list.length;
+        if (nowlistStr === "tmpDolist") {
+          thingsNums[0].innerText = num;
+        } else if (nowlistStr === "tmpDaylist") {
+          thingsNums[1].innerText = num;
+        }
+      }
+      menuBtns[7].onclick = function() { // 标红修改
+        if (tmpNode) {
+          var val = writebox.value;
+          tmpNode.innerText = val;
+          tmpNode.style.color = "red";
+          tmpNode = null;
+          tmpValue = null;
+          let classname = solveUl.getAttribute("class");
+          findList(classname);
+          beforeData[nowlistStr][changeId] = val;
+          // console.log(beforeData[nowlistStr]);
+					outOfTime();
+          writebox.value = "";
+        }
+        writeLayer();
+      }
+      menuBtns[8].onclick = function() { // 检查卡
+        var val = writebox.value;
+
+        if (val.trim()) {
+					let lis = [];
+					if(/\*+/.test(val)){ // 多项添加 *分隔
+					  lis = val.split("*");
+					}else{
+						lis[0] = val;
+					}
+					beforeData.checkList.push(...lis);
+          // beforeData.checkList[beforeData.checkList.length] = val;
+          datasimpleshow(beforeData.checkList, places[0]);
+        }
+
+      }
+      menuBtns[9].onclick = function() { // 参考卡
+        var val = writebox.value;
+        if (val.trim()) {
+          beforeData.tmpReference[beforeData.tmpReference.length] = val;
+          datasimpleshow(beforeData.tmpReference, reference);
+        }
+      }
+			menuBtns[10].onclick = function() {
+				// 获取当前的输入框文字，并添加上时间
 				var val = writebox.value;
-				if(val.trim()){
-					beforeData.checkList[beforeData.checkList.length] = val;
-					datasimpleshow(beforeData.checkList,places[0]);
-				}
-				
+				writebox.value = val + todayAdd;
 			}
-			menuBtns[9].onclick = function() {
-				var val = writebox.value;
-				if(val.trim()){
-					beforeData.tmpReference[beforeData.tmpReference.length] = val;
-					datasimpleshow(beforeData.tmpReference,reference);
-				}
-			}
-		</script>
-	</body>
+	 // localStorage.removeItem("collectSortBox");
+   // localStorage.removeItem("saveData");
+			 window.onbeforeunload = function(e) {
+				console.log('即将离开本页面，请留意数据顺序的保存再离开。');
+				return 1;
+			 };
+    </script>
+	
+  </body>
 </html>

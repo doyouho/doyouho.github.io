@@ -76,11 +76,24 @@
        padding: 0;
        margin: 0;
      }
+     h3{
+       margin: 70px auto;
+     }
      h4{ margin: 30px 0 14px;}
      p{
-       margin: 6px 0;
+       margin: 12px 0;
        font-size: 14px;
        font-style: normal;
+     }
+     img{
+       width: 146px;
+       height: 146px;
+       padding: 20px 20px 5px;
+     }
+     i{
+       font-style: normal;
+       text-decoration: underline;
+       padding: 0 4px;
      }
      a {
           color: #444;
@@ -156,11 +169,33 @@
      
       
 			.about{ width: 100%;}
-			.about_main{ display: flex; height: 880px; width: 100%; margin: 66px auto 0; }
-			.left{ flex:4;   padding:30px; overflow: hidden;}
+      
+      .about_front{
+        width: 100%; 
+        margin: 166px auto 40px; 
+        text-align: center;
+       }
+			.about_main{ 
+        display: flex; 
+        min-height: 980px; 
+        width: 100%; 
+        margin: 66px auto 0; 
+       }
+			.piece{
+				 display: inline-block;
+				 width: 160px;
+			 }
+			.piece b{
+				 font-size: 12px;
+			 }
+			.left{ 
+        flex:4;   
+        padding:30px; 
+        overflow: hidden;
+      }
 			.right{ 
         flex:3; 
-        background-color:#feb38f; 
+        background-color:#ffddc4; 
         padding: 30px; 
         overflow: auto; 
         margin-top: 40px;
@@ -172,7 +207,14 @@
 				width: 2px;
 			}
 			/*底部区域*/
-			.footer {width: 100%;text-align: center;padding: 28px 0 18px;font-size: 12px;color: #666;}
+			.footer {
+        width: 100%;
+        text-align: center;
+        padding: 28px 0 18px;
+        font-size: 12px;
+        color: #666;
+        margin-top: 40px;
+       }
 			.footer h1 {font-weight: 400;font-size: 12px;display: inline;}
 			
 			#jsmindWebsite{
@@ -201,7 +243,11 @@
       	html{
       		font-size: 21.14px;
       	}
-      	
+      
+         .right{ 
+           font-size: 0.8em;
+           flex: 2;
+         }
       	.hd{
       		width: 46.875rem;
       	}
@@ -213,7 +259,6 @@
         .footer h1{
         	font-size:  0.9rem;
         	max-height: 999999px;
-        	
         }
 			}
 		</style>
@@ -234,6 +279,24 @@
       </div>
     </header>
     <div class="about">
+      <div class="about_front">
+        <h3>欢迎来到意休网站！</h3>
+        <p>偶是个爱思考，爱想象，爱唱歌的大姑娘，目前在学习前端开发的路上砥砺前行。</p>
+        <p>虽然会的东西并不多，但是也想在这里分享一下体会，愿与君共勉和学习。</p>
+        <br />
+				<span class="piece">
+					<img src="images/yixiu.jpg" />
+					<b>公众号</b>
+				</span>
+        <span class="piece">
+					<img src="images/contact.jpg" />
+					<b>Q群</b>
+				</span>
+				<span class="piece">
+					<img src="images/feedback.png" />
+					<b>反馈</b>
+				</span>
+      </div>
       <div class="about_main">
         <div class="left">
           <div id="jsmindWebsite"></div>
@@ -241,34 +304,30 @@
         <div class="right">
           <section>
             <h4>不知道意休网站怎么玩？看这里</h4>
-            <p>【无聊时——play game fiction】这里你可以：看视频，看小说，听歌，各种小事项和游戏。</p>
-            <p>【焦躁/迷茫时——heal】这里有些技巧和分析来协助你找到适合自己的方向。</p>
-            <p>【探索前端——fiction】这里的小说《伪大神的成名之路》不容错过。</p>
-            <p>【探索好物——share】这是会总结些常用的网站或方法，希望能让你找到惊喜。</p>
-            <p>【记录灵感——play】默认显示的是在towork页面本子里写的笔记，这里的[小记事]是我的零散积累。</p>
-            <p>【学习前——towork】事情太多怎么处理？做事前该做什么？这里供你理清做事思路，帮你好好专注做事。</p>
-            <p>【学习中——mind】这里提供简单的思维导图，方便快速做笔记和markdown生成脑图。</p>
-            <p>【学习后——toreview】这里可对繁杂事件进行修改和处理，回顾做过或没做的事，好好复盘。</p>
-            <p>更多好玩的，等着你去发现哦~</p>
+            <p>【意休网站的定位】简约、高效、方便，让使用者逐渐成为一个会搜索，会学习的人。</p>
+            <p>【探索物——<a href="./share.html">share</a>】分享各种常用的网站和学习方法，希望能让你找到惊喜。</p>
+            <p>【学习前——<a href="./towork.html">towork</a>】事情太多怎么办？做事前该做什么？这里供你理清思路，帮你好好专注做事。</p>
+            <p>【学习中——<a href="./mind.html">mind</a>】这里提供简单的思维导图，方便快速做笔记和markdown生成脑图。</p>
+            <p>【学习后——<a href="./toreview.html">toreview</a>】这里可对繁杂事件进行修改和处理，回顾做过或没做的事，好好复盘。</p>
+            <p>【焦躁/迷茫时——<a href="./heal.html">heal</a>】通过技巧和分析来协助你找到适合自己的方向。</p>
+            <p>【无聊时——<a href="./play.html">play</a> <a href="./game.html">game</a>】可看视频，听歌，各种记录和小游戏，还有笔记和一些零散积累。</p>
+            <p>【探索前端/制作方面——<a href="./fiction.html">fiction</a>】这里的小说《伪大神的成名之路》不容错过。</p>
+            <p>【数据下载——<a href="./download.html">download</a>】笔记本、清单事项、工作流程的下载。</p>
             <br />
           </section>
 
           <h4>关于我</h4>
-          <p>偶是个爱思考，爱想象，爱唱歌的小姑娘，目前在学习前端开发的路上砥砺前行。</p>
-          <p>刚踏出社会，懵懵懂懂地感觉到了另一个不同的世界，在这里分享自己的一点体会，也记录一下自己的前端进程。</p>
-          <br />
           <address>
-            <p>娱乐号：优酷[曲子云]，微博[颖小音_]，橙光游戏[花雅雅]，哔哩哔哩[看看外星人]</p>
-            <p>CSDN博客[youhoa]：<a href="https://blog.csdn.net/youhoa/" target="_blank">https://blog.csdn.net/youhoa/</a></p>
+						<p>语雀[nibaobao_youho]：前端笔记</p>
+						<p>个人博客[Youho]：<a href="https://gitee.com/kathy_candy/blog/" target="_blank">https://gitee.com/kathy_candy/blog/</a></p>
+						<p>知乎[匿宝宝]：<a href="https://www.zhihu.com/people/ni-bao-bao-8-35" target="_blank">https://www.zhihu.com/people/ni-bao-bao-8-35</a></p>
+            <p>CSDN[youhoa]：<a href="https://blog.csdn.net/youhoa/" target="_blank">https://blog.csdn.net/youhoa/</a></p>
             <p>博客园[youho]：<a href="https://www.cnblogs.com/youho/" target="_blank">https://www.cnblogs.com/youho/</a></p>
-            <p>Github账号[doyouho]：<a href="https://github.com/doyouho/" target="_blank">https://github.com/doyouho/</a></p>
-            <p>公众号：意休</p>
-            <p>小程序：统子皮了（未上线）</p>
+            <p>Github[doyouho]：<a href="https://github.com/doyouho/" target="_blank">https://github.com/doyouho/</a></p>
+						<p>前端学习交流Q群（417911729）：没什么人，先放这，用来交流学习分享的。</p>
+						<p>最后，关于网站内容的收集，有什么建议和推荐等可通过 ☞<a href="https://www.yuque.com/nibaobao-youho/yixiu" target="_blank">话题</a>☜ 讨论。</p>
           </address>
-          <br />
-          <p>若你还有什么想说的或好建议，麻烦请写在调查问卷上哦~<a href="https://www.wjx.cn/jq/65259218.aspx" target="_blank">（调查问卷）</a></p>
-          <br />
-          <p>最近有在筹划建一个博客，专门写文章博客的，而这里就是产出作品的，到时还会改版，不过怎么改现在还没有想好。</p>
+          
         </div>
       </div>
     </div>
@@ -295,7 +354,7 @@
               "expanded": true,
               "parentid": "root",
               "direction": "right",
-              "background-color": "#ff9900"
+              "background-color": "#ff5614"
             },
             {
               "id": "sub12",
@@ -347,6 +406,13 @@
               "parentid": "2d5fd6a21d2c9b55",
               "background-color": "#aa66dd"
             },
+						{
+						  "id": "37a0e17449207cg5",
+						  "topic": "download",
+						  "expanded": true,
+						  "parentid": "2d5fd6a21d2c9b55",
+						  "background-color": "#aa66dd"
+						},
             {
               "id": "sub2",
               "topic": "works",

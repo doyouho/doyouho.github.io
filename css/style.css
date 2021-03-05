@@ -36,6 +36,11 @@ body {
 	background: pink;
 }
 
+.none-txtchosen{
+	-webkit-user-select: none;
+	user-select: none;
+}
+
 .back {
 	width: 100%;
 	height: 100%;
@@ -71,24 +76,22 @@ body {
 	color: white;
 	text-align: center;
 }
-
-.close_kuang {
-	width: 40px;
-	height: 40px;
+.menuBtns{
 	position: absolute;
-	right: 30px;
-	top: 20px;
-	font-size: 30px;
-	background: black fixed;
+	right: -1px;
+	top: -1px;
+	font-size: 20px;
+	background: #241b21;
+}
+.menuBtns span{
+	display: inline-block;
+	padding: 8px 12px;
 	z-index: 14;
 	cursor: pointer;
-	transition: 0.3s ease-in-out;
 }
 
-.close_kuang:hover {
-	transform: rotate(90deg);
+.menuBtns span:hover {
 	color: pink;
-	font-size: 28px;
 }
 
 
@@ -107,9 +110,10 @@ body {
 	box-sizing: border-box;
 	line-height: 1.8em;
 	font-size: 16px;
-	text-indent: 2em;
-	color: #222;
-	background: #f9f5e9;
+	/* text-indent: 2em; */
+	color: #121212;
+	/* background: #fffae8; */
+	background: #fff;
 
 }
 
@@ -143,6 +147,9 @@ body {
 	border-radius: 8px;
 }
 
+.article_con p{
+	margin:18px 0;
+}
 /*不断补充区域*/
 /*头部区域另设置,逗号接龙*/
 
@@ -799,7 +806,6 @@ input::-webkit-input-placeholder {
 .share_box p {
 	font-size: 14px;
 	padding: 4px 20px;
-	text-indent: 2em;
 }
 
 
@@ -1123,13 +1129,13 @@ input::-webkit-input-placeholder {
 
 .suiji_choose dd {
 	position: relative;
-	font-size: 28px;
+	/* font-size: 28px; */
 	background: transparent;
 	color: #598091;
 	width: 46%;
 	height: 136px;
 	box-sizing: border-box;
-	padding: 20px;
+	/* padding: 20px; */
 	margin: 20px 20px 0;
 	box-shadow: 0 0 1px #eee;
 	border-radius: 12px;
@@ -1142,9 +1148,21 @@ input::-webkit-input-placeholder {
 	background-color: white;
 	background-image: url(../images/sentence/suiji.jpg);
 	background-repeat: no-repeat;
-	background-size: 14%;
+	/* background-size: 14%; */
+	background-size: 28%;
 	background-position: 42px bottom;
-	color: #fdaaa6;
+	color:#517584;
+}
+
+.suiji_choose dd span{
+	font-weight: 700;
+	font-size: 18px;
+	width: 18px;
+	line-height: 22px;
+	display: inline-block;
+	/* writing-mode: vertical-lr; */
+	/* writing-mode: tb-lr; */
+	margin: 20px;
 }
 
 .back_doit {
@@ -1187,7 +1205,7 @@ input::-webkit-input-placeholder {
 }
 
 .toc .l_tu #huabu {
-	margin: 60px 40px;
+	margin-top: 50px;
 }
 
 .toc .l_tu span {

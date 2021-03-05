@@ -2,12 +2,9 @@ var http = require('http');
 var fs = require('fs');  // 访问文件
 var url = require('url'); // url的局部获取
 
-// 创建服务器 --记得输出数据之后，需要添加response.end();
-http.createServer(onRequest).listen(3000);
+http.createServer(onRequest).listen(3060);  // 创建服务器 --记得输出数据之后，需要添加response.end();
 
 function onRequest (request, response) {  
-
-	// response.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'}); // 设置响应头部信息及编码
 
 	var pathname = url.parse(request.url,true).pathname; // 解析请求，包括文件名（搞定访问网页）
 	// 对于获取到的这个文件名，为空的时候设置为index.html; 没有后缀时加后缀（这个可以我自己控制，有我方提供的网址嘛。）；
@@ -40,5 +37,5 @@ function onRequest (request, response) {
 	 
 	 
 } 
-// 实际上访问的网站：http://127.0.0.1:3000/ 或 localhost:3000
-console.log('Server running at http://127.0.0.1:3000/');
+// 实际上访问的网站：http://127.0.0.1:3060/ 或 localhost:3060
+console.log('Server running at http://127.0.0.1:3060/');
