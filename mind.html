@@ -19,6 +19,9 @@
 				text-decoration: none;
 			}
 
+			input{
+				outline: none;
+			}
 			:root {
 				--bgcolor: #6b9fa2;
 				--fontcolor: #ffffff;
@@ -47,6 +50,9 @@
 				padding:4px 10px;
 				border-radius: 20px;
 				cursor: pointer;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-user-select: none;
+				user-select: none;
 			}
 			.jumpbtn:hover,
 			button:hover{
@@ -140,6 +146,9 @@
 			.oneline.files{
 				position: relative;
 			}
+			.oneline p{
+				margin-bottom: 4px;
+			}
 
 			.inputColor {
 				width: 60px;
@@ -179,7 +188,7 @@
 
 			.configBoard {
 				width: 600px;
-				height: 360px;
+				min-height: 360px;
 				padding: 10px;
 				position: fixed;
 				left: 50%;
@@ -200,8 +209,11 @@
 
 			.onePart label{
 				margin-left: 80px;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-user-select: none;
+				user-select: none;
 			}
-			.onePart button:nth-of-type(1) {
+			.onePart button.save {
 				margin-left: 80px;
 			}
 			.onePart p{
@@ -219,6 +231,9 @@
 				line-height: 32px;
 				text-align: center;
 				cursor: pointer;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-user-select: none;
+				user-select: none;
 			}
 			@media (max-width:1199px){
 				.jsmind_menu{
@@ -229,11 +244,11 @@
 					max-width: 60%;
 				}
         .consoleTips {
-          font-size: 20px;
+          font-size: 16px;
         	background-color: rgba(0,0,0,.8);
         	bottom: 80%;
           left:50%;
-          width: 60vw;
+          width: 70vw;
           transform: translate(-50%);
         	height: 2.4rem;
         	line-height:2.4rem;
@@ -263,14 +278,6 @@
 			<div class="colorBar"></div>
 			<div class="jsmind_menu">
 				<div class="oneline">
-					<p>默认主题样式：</p>
-					<select class="selectTheme" onchange="changeTheme()"></select>
-					<button type="button" onclick="openConfig();">配置</button>
-					<button type="button" onclick="templateShow();">模板T</button>
-					<button type="button" onclick="templateSave();">存到模板T</button>
-					<!-- 要想实现，必须用js书写style标签 -->
-				</div>
-				<div class="oneline">
 					<p>整体配色-优先级比主题颜色高：</p>
 					<button type="button" onclick="colorTemplate('colorful');">彩色</button>
 					<button type="button" onclick="colorTemplate('linear');">渐变</button>
@@ -278,6 +285,16 @@
 					<button type="button" onclick="colorTemplate('white');">白字</button>
 					<button type="button" onclick="colorTemplate('multi');" class="hasSetColor">默认配色</button>
 					<button type="button" onclick="openConfig();">配置</button>
+				</div>
+				<div class="oneline">主题配色：
+					<button type="button" onclick="colorTemplate('unset');">启用该模式</button>
+					<select class="selectTheme" onchange="changeTheme()"></select>
+					<button type="button" onclick="openConfig();">配置</button>
+				</div>
+				<div class="oneline">文字模板：
+					<button type="button" onclick="templateShow();">模板T</button>
+					<button type="button" onclick="templateSave();">存到模板T</button>
+					<!-- 要想实现，必须用js书写style标签 -->
 				</div>
 				<label class="oneline">
 					颜色卡设置：#
@@ -321,7 +338,7 @@
 						<br />
 						<p>注意点：</p>
 						<p>1. 重点内容请用文字符号标识出来；</p>
-						<p>2. 只能修改大纲原主题，删除或增加已有同级的主题，回车键新增的是同级同父级的主题。</p>
+						<p>2. 编辑模式下只能修改大纲原主题，删除或增加已有同级的主题，回车键新增的是同级同父级的主题。</p>
 						<p>3. 上面复制md数据的按钮复制的该区域显示的大纲数据。</p>
 						<p>4. 编辑时添加 @重 @急 @过 任一个标志在主题文本的开头，即可保存获得对应的颜色显示。</p>
 						<br />
@@ -340,7 +357,7 @@
 		<div class="configBoard">
 			<div class="closeConfig" onclick="closeConfig();">×</div>
 			<div class="onePart">
-				<p>自定义默认主题：</p>
+				<p>自定义默认主题：（6位）</p>
 				<p>
 					<label>文字背景：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
 					<label>文字颜色：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
@@ -351,11 +368,11 @@
 				</p>
 				<p>
 					<label>选中文字：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
-					<button type="button" onclick="setColorTheme();">保存主题</button>（选择主题mytheme）
+					<button class="save" type="button" onclick="setColorTheme();">保存主题</button>（主题选择mytheme）
 				</p>
 			</div>
 			<div class="onePart">
-				<p>自定义配色：</p>
+				<p>自定义配色：具有传递性（6位）<button type="button" onclick="clearColors();">清空</button></p>
 				<p>
 					<label>第一层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
 					<label>第二层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
@@ -370,11 +387,11 @@
 				</p>
 				<p>
 					<label>第七层级：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
-					<label>默认颜色：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
+					<label>默认颜色：#<input type="text" class="inputColor" placeholder="ff0000" /></label>（统一色）
 				</p>
 				<p>
-					<label>字体颜色：#<input type="text" class="inputColor" placeholder="ff0000" /></label>
-					<button type="button" onclick="setColorTemplate();">保存并应用配色</button>
+					<label>字体颜色：#<input type="text" class="inputColor" placeholder="333333" /></label>
+					<button class="save" type="button" onclick="setColorTemplate();">保存自定义配色</button>（选择my配色）
 				</p>
 			</div>
 		</div>
@@ -392,8 +409,8 @@
 			];
 			var colorChangeMode = "bg";
 			var oTips = document.getElementsByClassName("consoleTips")[0];
-			var userJSMindData = {
-				//  个人设置数据记得存好
+			var userJSMindData = { 
+				//  个人设置数据记得存好   hasSetTemp模板
 				colorChange: false,
 				colorCollect: [],
 				themeSet: false,
@@ -600,9 +617,6 @@
 				var theme_name = oTheme.value;
 				jm.set_theme(theme_name);
 				userJSMindData.chooseTheme = theme_name;
-				var dataStr = JSON.stringify(userJSMindData);
-				setLocalStorage('userJSMindData',dataStr);
-				console.log("保存成功？");
 			}
 
 			//  实现颜色条重新生成
@@ -642,7 +656,6 @@
 				if(userJSMindData.hasSetColors){
 					oSetColorBtn.innerText = "my配色";
 					finalColorArr = userJSMindData.setColors;
-					// console.log("测试finalColorArr："+finalColorArr);
 				}else{
 					oSetColorBtn.innerText = "默认配色";
 				}
@@ -664,8 +677,21 @@
 						let val = "#"+ valnum;
 						showSetedTheme(key,val);
 					}
+					// console.log("变量userJSMindData的值", userJSMindData);
 				}
 				
+			}
+			
+			function colorsShow(arr,index){
+				var oparts = document.getElementsByClassName("onePart");
+				let oColors = oparts[index].getElementsByTagName("input");
+				for (let i = 0; i < oColors.length; i++) {
+					if(arr[i]){
+						oColors[i].value = arr[i];
+					}else{
+						oColors[i].value = "";
+					}
+				}
 			}
 			// 色条卡颜色块的增加
 			function addColor() {
@@ -769,7 +795,7 @@
 					}
 					if (fileHasSave || justOpen) {
 						var file_data = files[0];
-						console.log(file_data);
+						// console.log(file_data);
 						if ( /\.md$/.test(file_data.name)) {
 							// 获取文件的内容
 							// 使用 FileReader 来读取文件
@@ -834,7 +860,6 @@
 					}else if(/^\@急/.test(content)){
 						tap = '"background-color":"#ff6699"';
 					}else  if(/^\@过/.test(content)){
-						console.log("guozichenggong");
 						tap = '"background-color":"#e1e1e1"';
 					}else{
 						tap='"foreground-color":"#ffffff"';
@@ -1124,6 +1149,18 @@
 				fileHasSave = true;
 			}
 
+			// 清空自定义配色的设置
+			function clearColors(){ 
+				userJSMindData.setColors = [];
+				userJSMindData.hasSetColors = false;
+				finalColorArr = [];
+				colorsShow(finalColorArr,1);
+				setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
+				var oBtn = document.getElementsByClassName("hasSetColor")[0];
+				oBtn.innerText = "默认配色";
+				tipsShow("自定义配色清除成功。");
+			}
+			
 			function colorTemplate(type, arr) {
 				//理论上， 遍历对象mind的data属性，给它加各颜色值(需要知道缩进程度，加值操作)
 				var {
@@ -1135,9 +1172,9 @@
 					dataList
 				} = forEachMindData();
 				if (type === "colorful") {
-					colorTempAdd(['ff2200', 'ffbb33', 'dddd66', '66ff00', '33ff99', '99f0fa', '66aaff', 'cc00ff']);
+					colorTempAdd(['20afab', '26de81', 'fd7272', 'cc66aa', 'fd9644', '66dd66', '66aaff', 'cc00ff']);
 				} else if (type === "linear") {
-					colorTempAdd(['ee44aa', 'ee22ff', 'cc00ff', 'aa66dd', 'aa22cc', '6699cc', '4488aa', '6b9fa2']);
+					colorTempAdd(['3b3b98', '82589f', 'cc66aa', 'fd9644', 'b28541', '7f124c', '4488aa', '6b9fa2']);
 				} else if (type === "white") {
 					colorTempAdd("#ffffff");
 				} else if (type === "black") {
@@ -1146,34 +1183,44 @@
 					if(arr){
 						var arrData = arr;
 						var defaultColor = "";
+						var count = 0;
 						if(arrData[8]!=="undefined" && arrData[8]!=="error"){
 							colorTempAdd(arrData[8]);
+							count++;
 						}
 						if(arrData[7]!=="undefined" && arrData[7]!=="error"){
 							defaultColor = arrData[7];
+							count++;
 						}
 						for(let i =0; i<7;i++){
-							if(arrData[i]!=="undefined" && arrData[i]!=="error"){
+							if(arrData[i]!=="undefined" && arrData[i]!=="error" && finalColorArr[i] !== arrData[i]){
 								finalColorArr[i] = arrData[i];
+								count++;
 							}else if(defaultColor){
 								finalColorArr[i] = defaultColor;
 							}else if(i>=1 && finalColorArr[i-1]){
 								finalColorArr[i] = finalColorArr[i-1];
-							}else{
-								finalColorArr[i] = "6b9fa2";
-								// 能否改成--bgcolor的颜色
 							}
+						}
+						if(count===0){
+							tipsShow("不存在有效修改，操作失败。");
+							return false;
+						}else{
+							return true;
 						}
 					}
 					colorTempAdd(finalColorArr);
+				}else if(type === "unset"){
+					colorTempAdd("unset");
 				}
-				
 
 				function colorTempAdd(arrOrStr) {
 					for (let j = 0; j < dataList.length; j++) {
-						if ((typeof arrOrStr) === "string") {
+						if (arrOrStr === "unset") {
+							dataList[j]['background-color'] = ""; // 切换为主题配色模式
+						} else if((typeof arrOrStr) === "string"){
 							dataList[j]['foreground-color'] = arrOrStr;
-						} else {
+						}else {
 							let element = dataList[j].id;
 							let indent = idForLevel.get(element);
 							if (indent === 0) {
@@ -1210,6 +1257,8 @@
 			function openConfig(){
 				var oPlat = document.getElementsByClassName("configBoard")[0];
 				oPlat.style.display = 'block';
+				colorsShow(userJSMindData.setColors,1);
+				colorsShow(userJSMindData.mytheme[0],0);
 			}
 			
 			function setColorTheme(){
@@ -1223,9 +1272,11 @@
 						indexForColor.set(i,colorArr[i]);
 						oIndexForColor[i.toString()] = colorArr[i];
 						// indexs.add(i);
+					}else{
+						tipsShow("提示：未设置与错误的颜色设置都会忽视。");
 					}
 				}
-				console.log(oIndexForColor);
+				// console.log("自定义主题对象oIndexForColor",oIndexForColor);
 				
 				indexForColor.forEach(function(value,key){
 					let valnum = indexForColor.get(key);
@@ -1234,7 +1285,7 @@
 				});
 				userJSMindData.themeSet = true;
 				userJSMindData.mytheme[0] = oIndexForColor;
-				console.log(userJSMindData);
+				// console.log(userJSMindData);
 				setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
 				initData();
 			}
@@ -1253,15 +1304,19 @@
 					document.documentElement.style.setProperty("--selectfont",val);
 				}
 			}
-			 
+			
+			
 			function setColorTemplate(){
 				var colorArr = getColorArr(2);
-				colorTemplate('multi', colorArr);
-				var oBtn = document.getElementsByClassName("hasSetColor")[0];
-				oBtn.innerText = "my配色";
-				userJSMindData.hasSetColors = true;
-				userJSMindData.setColors = finalColorArr;
-				setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
+				var result = colorTemplate('multi', colorArr);
+				if(result){
+					var oBtn = document.getElementsByClassName("hasSetColor")[0];
+					oBtn.innerText = "my配色";
+					userJSMindData.hasSetColors = true;
+					userJSMindData.setColors = finalColorArr;
+					setLocalStorage('userJSMindData',JSON.stringify(userJSMindData));
+					tipsShow("操作成功，已把当前配色存入“my配色”中，可以直接点击使用。");
+				}
 			}
 			
 			function getColorArr(num){
@@ -1277,6 +1332,7 @@
 						colorArr[i] = "undefined";
 					}else{
 						colorArr[i] = "error";
+						oColors[i].value = "";
 					}
 				}
 				return colorArr;

@@ -51,6 +51,7 @@
 				height: 24px;
 				line-height: 24px;
 				margin: 30px;
+				border:1px solid #666666;
 			}
 			.addUrl .certainBtn{
 				display: inline-block;
@@ -114,6 +115,9 @@
 				color: #ffffff;
 				background-color: #ea493d;
 				cursor: pointer;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-user-select: none;
+				user-select: none;
 			}
 		</style>
 		<!-- <script src="js/jquery-1.11.3.min.js"></script> -->
@@ -195,7 +199,7 @@ $.ajax({
 
     <section class="words" style="position: relative;">
       <div class="word_title title"><i class="jiantou" style="border-left-color: ;"></i>
-      	<h3>制作需要 &nbsp;&nbsp;<a href="https://www.yuque.com/nibaobao-youho/yixiu/wiow1c" target="_blank">我要反馈</a><span class="addCollectUrlBtn">+</span></h3>
+      	<h3>制作需要 &nbsp;&nbsp;<a href="https://www.yuque.com/nibaobao-youho/yixiu/wiow1c" target="_blank">我要反馈</a><span class="addCollectUrlBtn none-txtchosen">+</span></h3>
       </div>
 			<section class="addUrl">
 				<input type="text" class="urlName" placeholder="输入名称"/>

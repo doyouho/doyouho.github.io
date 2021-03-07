@@ -5,7 +5,7 @@
     <!-- <meta name="viewport" content="width=device-width"> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
-		<meta name="keywords" content="意休,高效学习,如何学习,自我检录, 前端开发,CSS,HTML,JavaScript" />
+		<meta name="keywords" content="意休,高效学习,如何学习,自我检录, 前端学习" />
 		<title>意休 | 你的高效之友</title>
 		<link rel="icon" href="images/baobao.png" type="image/png">
 		<link rel="bookmark" href="images/baobao.png" />
@@ -75,7 +75,7 @@
 				text-align: center;
 			}
 			.typeWords.first{
-				margin: 24px 0px;
+				margin: 22px 0px;
 				font-size: 32px;
 			}
 			.typeWords.next{
@@ -83,90 +83,7 @@
 				font-size: 18px;
 			}
 		</style>
-		<script>
-			$(function(){
-// 用js配合jquery的ajax来访问文件数据
-$.ajax({
-		url:"./data/sentence.json",
-		dataType:"json",
-		success:function(res){
-			var arr=res["index"];
-			var len = arr.length;
-			while(len){
-				var num=Math.ceil(Math.random()*10)-1;
-				if (num<len){
-					var sentence = "<p>"+ arr[num] + "</p>";
-					$(".words").append(sentence);
-					return 0;
-				}
-			}
-		}
-	});
-
-
-// 初始化
-var i=0;
-var size=$(".banner li").length;
-
-// 中英文切换导航条动画
-$(".hd .nav li").hover(function(){
-		$(this).find("a").stop().animate({top:-66})
-	},function(){
-		$(this).find("a").stop().animate({top:0})
-	})
-
-//图片加载
-for(let n=1; n<5;n++){
-	let n_url="url(images/new/"+n+".jpg)";
-	$(".new_con .box").eq(n-1).css("background-image",n_url);
-}
-for(let j=0; j<size; j++){
-	$("dl").append("<dt></dt>");
-	let j_url="url(images/pic"+(j+1)+".jpg)";
-	$(".banner li").eq(j-1).css("background-image",j_url);
-}
-$(".banner li").eq(0).show();
-$(".banner dt").eq(0).addClass("active");
-
-//手动控制轮播
-$(".banner dt").mouseover(function(){
-	$(this).addClass("active").siblings().removeClass("active");
-	var idx=$(this).index();
-	i=idx;
-	$(".banner li").eq(idx).fadeIn().siblings().fadeOut();
-})
-
-//自动轮播器 setInterval  setTimeout
-	var t=setInterval(move ,3000);
-//鼠标滑到轮播器，自动停掉动画
-$(".banner").hover(function(){
-	clearInterval(t);
-},function(){
-	t=setInterval(move ,5000);
-})
-
-//向右运动动画函数
-function move(){
-	i++;
-	if(i>=size){i=0;}
-	$(".banner li").eq(i).fadeIn().siblings().fadeOut();
-	$(".banner dt").eq(i).addClass("active").siblings().removeClass("active");
-	}
-//向左运动动画函数
-function move_left(){
-	i--;
-	if(i<0){i=size-1;}
-	$(".banner li").eq(i).fadeIn().siblings().fadeOut();
-	$(".banner dt").eq(i).addClass("active").siblings().removeClass("active");
-	}
-
-$(".banner .btn1").click(function(){
-	move_left();
-})
-$(".banner .btn2").click(function(){
-	move();
-}) })
-		</script>
+		
 		<style>			
 			.toGithub{
 				position: absolute;
@@ -289,34 +206,33 @@ $(".banner .btn2").click(function(){
 		</section>
 
 		<!--更新区域、更新日期/修改链接和文字-->
-		<!--按照类型显示不同颜色的遮罩框：小说：粉；技能：蓝；思考：青；分享：紫-->
 		<section class="new">
 			<div class="new_title title"><i class="jiantou"></i>
-				<h3>最新内容</h3><span>更新日期：2019.11.26</span>
+				<h3>最新内容</h3><span>更新日期：2021.03.06</span>
 			</div>
 
 			<div class="new_con model_con">
 				<a class="box box1" href="./play.html">
-					<div class="box_kuang kuang1"><b>&gt;&gt;&nbsp;&nbsp;小记事&nbsp;&nbsp;&lt;&lt;</b>
-						<h2>资源更新</h2>
-						<p>更新：前端学习资源</p>
+					<div class="box_kuang kuang1"><b>&gt;&gt;&nbsp;&nbsp;play&nbsp;&nbsp;&lt;&lt;</b>
+						<h2>看看世界</h2>
+						<p>介绍：小阶段的休息项目，也可以温故知识。</p>
 					</div>
 				</a>
 				<a class="box box2" href="./share.html">
-					<div class="box_kuang kuang2"><b>&gt;&gt;&nbsp;&nbsp;分享&nbsp;&nbsp;&lt;&lt;</b>
-						<h2>贴图软件-Snipaste</h2>
-						<p>超级好用的一个制作图笔记的软件，用在看视频做笔记最好了。</p>
+					<div class="box_kuang kuang2"><b>&gt;&gt;&nbsp;&nbsp;share&nbsp;&nbsp;&lt;&lt;</b>
+						<h2>必先利其器</h2>
+						<p>各种网站和软件的分享，是个资源库没错啦。</p>
 					</div>
 				</a>
 				<a class="box box3" href="./heal.html">
-					<div class="box_kuang kuang3"><b>&gt;&gt;&nbsp;&nbsp;思考&nbsp;&nbsp;&lt;&lt;</b>
-						<h2>《如何调整状态》</h2>
-						<p>四步讲述如何调整状态，给自己一点时间和耐心。</p>
+					<div class="box_kuang kuang3"><b>&gt;&gt;&nbsp;&nbsp;heal&nbsp;&nbsp;&lt;&lt;</b>
+						<h2>如何做自己</h2>
+						<p>迷茫，失落，烦躁，不过是因为不明确，认清眼前，认清自己，开始出发。</p>
 					</div>
 				</a>
 
 				<a class="box box4" href="./fiction.html">
-					<div class="box_kuang kuang4"><b>&gt;&gt;&nbsp;&nbsp;小说&nbsp;&nbsp;&lt;&lt;</b>
+					<div class="box_kuang kuang4"><b>&gt;&gt;&nbsp;&nbsp;fiction&nbsp;&nbsp;&lt;&lt;</b>
 						<h2>《伪大神的成名之路》</h2>
 						<p>映射前端学习：讲述顾夕一个人如何带领人闯江湖。（更新第一章）</p>
 					</div>
@@ -326,9 +242,94 @@ $(".banner .btn2").click(function(){
 
 
 
-		<!--底部区域、填补网址2个-->
 		<footer class="footer">
 			&nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
 		</footer>
+		
+		<script>
+					$(function(){
+		// 用js配合jquery的ajax来访问文件数据
+		$.ajax({
+				url:"./data/sentence.json",
+				dataType:"json",
+				success:function(res){
+					var arr=res["index"];
+					var len = arr.length;
+					while(len){
+						var num=Math.ceil(Math.random()*10)-1;
+						if (num<len){
+							var sentence = "<p>"+ arr[num] + "</p>";
+							$(".words").append(sentence);
+							return 0;
+						}
+					}
+				}
+			});
+		
+		
+		// 初始化
+		var i=0;
+		var size=$(".banner li").length;
+		
+		// 中英文切换导航条动画
+		$(".hd .nav li").hover(function(){
+				$(this).find("a").stop().animate({top:-66})
+			},function(){
+				$(this).find("a").stop().animate({top:0})
+			})
+		
+		//图片加载
+		for(let n=1; n<5;n++){
+			let n_url="url(images/new/"+n+".jpg)";
+			$(".new_con .box").eq(n-1).css("background-image",n_url);
+		}
+		for(let j=0; j<size; j++){
+			$("dl").append("<dt></dt>");
+			let j_url="url(images/pic"+(j+1)+".jpg)";
+			$(".banner li").eq(j-1).css("background-image",j_url);
+		}
+		$(".banner li").eq(0).show();
+		$(".banner dt").eq(0).addClass("active");
+		
+		//手动控制轮播
+		$(".banner dt").mouseover(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			var idx=$(this).index();
+			i=idx;
+			$(".banner li").eq(idx).fadeIn().siblings().fadeOut();
+		})
+		
+		//自动轮播器 setInterval  setTimeout
+			var t=setInterval(move ,3000);
+		//鼠标滑到轮播器，自动停掉动画
+		$(".banner").hover(function(){
+			clearInterval(t);
+		},function(){
+			t=setInterval(move ,5000);
+		})
+		
+		//向右运动动画函数
+		function move(){
+			i++;
+			if(i>=size){i=0;}
+			$(".banner li").eq(i).fadeIn().siblings().fadeOut();
+			$(".banner dt").eq(i).addClass("active").siblings().removeClass("active");
+			}
+		//向左运动动画函数
+		function move_left(){
+			i--;
+			if(i<0){i=size-1;}
+			$(".banner li").eq(i).fadeIn().siblings().fadeOut();
+			$(".banner dt").eq(i).addClass("active").siblings().removeClass("active");
+			}
+		
+		$(".banner .btn1").click(function(){
+			move_left();
+		})
+		$(".banner .btn2").click(function(){
+			move();
+		}) })
+				</script>
+		
 	</body>
 </html>

@@ -50,13 +50,12 @@
 			</div>
 
 			<div class="video_con model_con">
-				<span class="box box1" rel1="video/1.mp4"></span>
-				<span class="box box2" rel1="video/2.mp4"></span>
-				<span class="box box3" rel1="video/3.mp4"></span>
-				<span class="box box4" rel1="video/4.mp4"></span>
+				<span class="box box1" rel1="https://player.youku.com/embed/XNDA2OTk5ODAxMg=="></span>
+				<span class="box box2" rel1="https://player.youku.com/embed/XMTY3NDk4MDg4OA=="></span>
+				<span class="box box3" rel1="https://player.youku.com/embed/XMTY1ODY0OTg3Ng=="></span>
+				<span class="box box4" rel1="https://player.youku.com/embed/XMTQ1ODI5NDYzNg=="></span>
 			</div>
 		</section>
-
 
 
 		<!--内容框2-->
@@ -155,33 +154,32 @@
 					$(function(){	
 		//video_src=$(".tan_kuang video").attr("src");
 			$(".video_con .box").click(function(){
+				$(".tan_kuang,.back").css("display","block");
 				var video_src1=$(this).attr("rel1");
 				// 判断视频文件是否存在，若存在就加载，若不存在添加提示文字
 				/* 有人说：js是用来处理前端业务的，对于处理文件，它没有这样的功能，因为他是客户端脚本！无法操作到服务器上的资源！
 				不过你可以通过其他的服务端脚本或者编程语言来判断文件是否存在，再用AJAX技术来判断服务端返回的数据来确定是否存在该文件！ */
-				// var video_source=$.ajax({
-				// 	url:video_src1,   //这个能生效吗？
-				// 	success:function(){    //无法访问的返回值是undefined？
-				// 		video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
-				// 		alert(123);
-				// 		return video_source;
-				// 	}
-				// });
-				
-				// 用了try catch还是没资源的时候不显示  失败操作
-				$(".tan_kuang,.back").css("display","block");
-				try{
-					var video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
+				// 现在采用了
+				if(/^[http|https]/.test(video_src1)){
+					var video_source="<iframe height=450 width=800 src='" + video_src1 + "' frameborder=0 'allowfullscreen'></iframe>	";
 					$(".tan_kuang").append(video_source);
-				}catch(e){
-					var video_null='<p class="unfind">糟糕视频不见了，可以尝试通过优酷观看。</p>';
-					$(".tan_kuang").append(video_null);
+				}else{
+					$.ajax({
+						url:video_src1,  
+						success:function(){
+							var video_source='<video  controls="controls"><source type="video/mp4" src="'+video_src1+'">Your browser does not support HTML5 video.</video>';
+							$(".tan_kuang").append(video_source);
+						},
+						error:function(){ // 真正实现得是用服务器返回404错误。
+							let video_null='<p class="unfind">糟糕视频不见了，可以尝试通过优酷观看。</p>';
+							$(".tan_kuang").append(video_null);
+						}
+					});
 				}
-		
-				
 				$(".back").click(function(){
 					// alert($(".tan_kuang video").currentTime);
 					$(".tan_kuang video").remove();
+					$(".tan_kuang iframe").remove();
 					$(".tan_kuang,.back").css("display","none");
 					$(".tan_kuang p").remove();
 				}) 

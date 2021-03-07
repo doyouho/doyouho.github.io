@@ -39,11 +39,11 @@
 		</header>
  
 		<div class="slideBox">
-      <p onclick="toggleDaka('chart','dayCheck')"><b style="font-size: 32px;">今</b>日<span class="status">未</span>打卡</p>
+      <p class="none-txtchosen" onclick="toggleDaka('chart','dayCheck')"><b style="font-size: 32px;">今</b>日<span class="status">未</span>打卡</p>
 			<span class="closebtn" onclick="toggleDaka('slideBox')">×</span>
 			<ul class="dayCheck">
         <div class="days">已经打卡<span class="dataDays">03</span>天，继续加油哦~</div>
-				<li class="firstLine"><input type="text" class="writeIn" placeholder="支持逗号分隔,多项输入" /><span class="addItemBtn">添加</span><span class="saveChange">保存新项</span></li>
+				<li class="firstLine"><input type="text" class="writeIn" placeholder="支持逗号分隔,多项输入" /><span class="addItemBtn none-txtchosen">添加</span><span class="saveChange none-txtchosen">保存新项</span></li>
 				<li><span>学习项目</span><span>学习天数</span>once a day</li>
 			</ul>
 			<div class="chart">
@@ -100,13 +100,13 @@
 			</section>
 
 			<section class="mianContent">
-				<div class="analyseBtn">析</div>
+				<div class="analyseBtn none-txtchosen">析</div>
 				<form autocomplete="off">
 					<div class="taskContent">
 						<div class="scrollbar">
 							<div class="scrollmove"></div>
 						</div>
-						<div class="startBtn">开始计时</div>
+						<div class="startBtn none-txtchosen">开始计时</div>
 						<!-- <p>（Tab键可以快速跳到下一个输入框）</p> -->
 
 						<div class="taskType">
@@ -327,7 +327,7 @@
 				<section class="setThings">
 					<div>郑重说明：本清单的理论知识来自Topbook <a href="https://topbook.cc/course/detail/153" target="_blank">《重新认识GTD》</a>系列文</div>
 					<div class="doList">
-						<div class="btnClose">收起</div>
+						<div class="btnClose none-txtchosen">收起</div>
 						<section class="main">
 							<div class="head">
 								<h1>执行清单 <span class="getBtn btn">get</span> </h1>
@@ -505,7 +505,7 @@
 							<a href='https://www.yuque.com/nibaobao-youho/frontend' target='_blank'>前端知识</a>
 							<a href='https://www.yuque.com/nibaobao-youho/frontend/learn' target='_blank'>学习方法</a>
 						</span>
-						<span class="customizeLink"></span>
+						<span class="customizeLink">（自定义热链区）</span>
 					</div>
 					<!--3. 已有问题 -->
 					<div class="discussBox">
@@ -564,10 +564,10 @@
 		<!-- 左侧固定操作按钮 -->
 		<section>
 			<div class="toFixed">
-				<span class="ybtn_box" id="nBtnSetThings">统筹</span>
-				<span class="ybtn_box" id="nBtnAsk" onclick="toreviewPage()">处理</span>
-				<span class="ybtn_box" id="nBtnDiscuss">评论</span>
-				<span class="ybtn_box" id="nBtnNote">本子</span>
+				<span class="ybtn_box none-txtchosen" id="nBtnSetThings">统筹</span>
+				<span class="ybtn_box none-txtchosen" id="nBtnAsk" onclick="toreviewPage()">处理</span>
+				<span class="ybtn_box none-txtchosen" id="nBtnDiscuss">评论</span>
+				<span class="ybtn_box none-txtchosen" id="nBtnNote">本子</span>
 			</div>
 		</section>
     <script>

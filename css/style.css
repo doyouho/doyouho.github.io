@@ -3,6 +3,8 @@
 * {
 	padding: 0;
 	margin: 0;
+	/* -webkit-tap-highlight-color: rgba(0,0,0,0)
+	outline:none; */
 }
 
 ul {
@@ -11,6 +13,21 @@ ul {
 
 a {
 	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-user-select: none;
+	-moz-user-focus: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+.none-txtchosen{
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+input{
+	outline: none;
+	font-family:"Microsoft YaHei", SimHei, SimSun;
 }
 
 h5 {
@@ -36,10 +53,7 @@ body {
 	background: pink;
 }
 
-.none-txtchosen{
-	-webkit-user-select: none;
-	user-select: none;
-}
+
 
 .back {
 	width: 100%;

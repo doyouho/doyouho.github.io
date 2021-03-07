@@ -9,11 +9,23 @@ body {
 	color: #333;
 }
 
+
 a {
 	text-decoration: none;
 	color: inherit;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-user-select: none;
+	-moz-user-focus: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: pointer;
 }
 
+.none-txtchosen{
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
+}
 ul {
 	list-style: none;
 }
@@ -92,6 +104,9 @@ input::-webkit-input-placeholder {
   cursor: pointer;
   border: 1px solid #aef8e8;
   margin-left: 10px;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 .updownbtn:hover{
   background-color: #aef8e8;
@@ -376,6 +391,8 @@ input:checked+.cbox::after {
 .taskSkill label {
 	margin-right: 12px;
 	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
 	user-select: none;
 }
 
@@ -430,6 +447,9 @@ input:checked+.cbox::after {
 	font-weight: 600;
 	cursor: pointer;
 	margin-left: 20px;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .btnLine .dataSTNoteBtn:hover {
@@ -591,6 +611,9 @@ ul.dayCheck.active{
 	font-style: normal;
 	display: none;
 	margin-right: 10px;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .dayCheck li b:hover,
@@ -720,6 +743,9 @@ ul.dayCheck.active{
 	border: 1px solid var(--keycolor);
 	padding: 4px 12px;
 	border-radius: 30px;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .btn:hover {
@@ -764,6 +790,9 @@ input.smInput {
 	padding: 0 10px;
 	background-color: var(--btncolor);
 	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .doList textarea {
@@ -1004,6 +1033,9 @@ ul.card::-webkit-scrollbar {
 .collect label {
 	margin-left: 20px;
 	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .collect input {
@@ -1273,6 +1305,9 @@ ul.card::-webkit-scrollbar {
 	background-color: transparent;
 	color: white;
 	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .btn_box:hover {
@@ -1297,7 +1332,6 @@ ul.card::-webkit-scrollbar {
 .hotSearch span {
 	display: inline-block;
 	padding: 4px 12px;
-	cursor: pointer;
 	background-color: #333333;
 }
 .hotSearch .customizeLink{
@@ -1379,6 +1413,9 @@ ul.card::-webkit-scrollbar {
 	margin-right: 30px;
 	float: right;
 	margin-top: 8px;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 /* .quesFront :nth-child(3) {
@@ -1429,6 +1466,10 @@ ul.card::-webkit-scrollbar {
 	margin: 10px 0 0 30px;
 	float: right;
 	width: 50px;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .answerList .praise span {

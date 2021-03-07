@@ -22,7 +22,6 @@ function onRequest (request, response) {
 	// 从文件系统中读取请求的文件内容
 	fs.readFile(filename, function (err, data) {
 			if (err) {  // HTTP 状态码: 404 : NOT FOUND
-				 console.log(err);
 				 response.writeHead(404, {'Content-Type': 'text/html'});
 			}else{ // HTTP 状态码: 200 : OK
         if(/\.css/.test(pathname)){

@@ -273,7 +273,8 @@
 			var now = Date.UTC(year, month, date);
 			if(month<10){
 				month = "0" + month;
-			}else if(date<10){
+			}
+			if(date<10){
 				date = "0" + date;
 			}
 			todayAdd = " " + year + "-" + month + "-" + date;
@@ -287,7 +288,7 @@
       function strToList(str){
 				if (str) {
 				  var sortBoxArr = str.split("~");
-					console.log(sortBoxArr);
+					// console.log(sortBoxArr);
 				  for (let b = 0; b < sortBoxArr.length; b++) {
 				    let key = datalist[b];
 				    if (/\$+/.test(sortBoxArr[b])) {
@@ -716,7 +717,10 @@
 				var num2 = beforeData.tmpWaitlist.length;
 				// console.log(thatdayNum);
 				var allNum = num0 + num1 + num2 + thatdayNum;
-				var percent = Math.ceil(thatdayNum/allNum*100)+ "%";
+				var percent = "0%";
+				if(allNum){
+					percent = Math.ceil(thatdayNum/allNum*100)+ "%";
+				}
 				oScrollbar.style.width = percent;
 				// console.log(today,finishList);
 				// console.log(allNum,thatdayNum,percent);

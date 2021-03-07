@@ -54,6 +54,9 @@
          margin-top: 10px;
 				 border-radius: 20px;
 				 cursor: pointer;
+				 -webkit-tap-highlight-color: transparent;
+				 -webkit-user-select: none;
+				 user-select: none;
       }
 			.clearbtn{
 				background-color: #ff5500;
@@ -100,6 +103,9 @@
 				<button type="button" class="clearbtn" onclick="deleteData('collectSortBox')">清空清单</button>
 				<button type="button" class="clearbtn" onclick="deleteData('summarylist','array')">清空分析卡</button>
 			</p>
+			<p>谨慎操作：	
+				<button type="button" class="clearbtn" onclick="deleteDataAll()">清空所有数据</button>
+			</p> 
 		</div>
     
     <textarea id="content"></textarea>
@@ -132,11 +138,18 @@
 			
 			function deleteData(name,type='string'){
 				// note ？ collectSortBox  summarylist
-				let answer = confirm("确定清空数据？");
+				let answer = window.confirm("确定清空数据？");
 				if(answer && type!=='string'){
 					localStorage.setItem(name,'[]');
 				}else if(answer){
 					localStorage.setItem(name,'');
+				}
+			}
+			
+			function deleteDataAll(){
+				var value = window.prompt("谨慎操作，输入123将清理所有本地的用户数据！");
+				if(value === "123"){
+					localStorage.clear();
 				}
 			}
 			
