@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
 	<title>意休 | 游戏</title>
 	<link rel="icon" href="images/baobao.png" type="image/png">
 	<link rel="bookmark" href="images/baobao.png" />
@@ -33,7 +34,7 @@
 						let content = conArr.map(item => {
 							return "<p>" + item + "</p>";
 						});
-						let con = '<h3><a href="' + url + '" target="_blank">' + title + '</a></h3><br />' + content.join("");
+						let con = '<h3><a href="' + url + '" target="_blank" rel="noopener" >' + title + '</a></h3><br />' + content.join("");
 						var gs_url = "url(images/game/00" + i + ".jpg)";
 						$(".games_con").append('<div class="game"><div class="game_pic"></div><div class="game_word">' + con + '</div></div>');
 						$(".game .game_pic").eq(i - 1).css("background-image", gs_url);
@@ -53,9 +54,9 @@
 			<div class="hd">
 				<h1><a href="./index.html" class="logo">意休</a></h1>
 				<div class="sousuokuang">
-					<form action="https://www.baidu.com/s" target="_blank">
+					<form action="https://www.baidu.com/s" target="_blank" rel="noopener" >
 						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
-						<input class="search" type="image" src="images/sousuo.png" />
+						<input class="search" type="image" src="images/sousuo.png"  alt="搜索"/>
 					</form>
 				</div>
 				<div class="nav">
@@ -104,7 +105,7 @@
 
 		<!--底部区域、填补网址2个-->
 		<footer class="footer">
-			&nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
+			&nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank" rel="noopener" >关于我 | 网站帮助</a>
 		</footer>
 	</div>
 </body>

@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<meta name="keywords" content="高效学习,记录学习,学习打卡,思维导图" />
+		<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
 		<title>意休 | 工作</title>
 		<link rel="stylesheet" href="css/note.css" type="text/css" />
 		<link rel="icon" href="images/baobao.png" type="image/png">
@@ -21,9 +22,9 @@
 			<div class="hd">
 				<h1><a href="./index.html" class="logo">意休</a></h1>
 				<div class="sousuokuang">
-					<form action="https://www.baidu.com/s" target="_blank">
+					<form action="https://www.baidu.com/s" target="_blank" rel="noopener" >
 						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" />
-						<input class="search" type="image" src="images/sousuo.png" />
+						<input class="search" type="image" src="images/sousuo.png"  alt="搜索"/>
 					</form>
 					<span class="tishiwenben">+增加必备关键字 -排除关键字 双引号来限定整词 site intitle inurl filetype</span>
 				</div>
@@ -85,17 +86,17 @@
 
 		<div class="taskForWork">
 			<h1>好的开始就成功了一大半</h1>
-			<a class="pinkbtn" href="./mind.html" target="_blank">使用思维导图</a>
+			<a class="pinkbtn" href="./mind.html" target="_blank" rel="noopener" >使用思维导图</a>
 			<section class="textTips">
 				<div>准备物资和环境：水 ，零食，梳子。</div>
 				<div>打起精神状态：适合地做下准备运动，调整呼吸。</div>
 				<div>明确目标：由什么得什么，用什么技术或工具，最优解是什么。</div>
 				<div>提示：学习没必要全部都学，学适合自己学习的，学自己需要的。</div>
 				<div>最后，要不要来点音乐？
-					<a href="https://www.kugou.com/yy/special/single/1513086.html" target="_blank"> 《悠闲》 </a>
-					<a href="https://www.kugou.com/yy/special/single/1514174.html" target="_blank"> 《触动》 </a>
-					<a href="https://www.kugou.com/yy/special/single/1383070.html" target="_blank"> 《犯傻》 </a>
-					<a href="./heal.html" target="_blank"> （困惑入口）</a>
+					<a href="https://www.kugou.com/yy/special/single/1513086.html" target="_blank" rel="noopener" > 《悠闲》 </a>
+					<a href="https://www.kugou.com/yy/special/single/1514174.html" target="_blank" rel="noopener" > 《触动》 </a>
+					<a href="https://www.kugou.com/yy/special/single/1383070.html" target="_blank" rel="noopener" > 《犯傻》 </a>
+					<a href="./heal.html" target="_blank" rel="noopener" > （困惑入口）</a>
 				</div>
 			</section>
 
@@ -132,15 +133,15 @@
 
 						<div class="singleLine">
 							<div>
-								<b>总任务： </b><input class="oData" id="taskAGoal" type="text"  placeholder="目前内容可设为默认"/>
+								<b>总任务： </b><input class="oData" id="taskAGoal" type="text"  placeholder="总任务-输入内容可设为默认"/>
 								<em>一天总任务是什么呢</em>
 								<span class="updownbtn" onclick="autoContent(this, 'default')">设</span>
 							</div>
-							<div><b>优先解决：</b><input class="oData" id="taskGoal" type="text"  placeholder="数据联通执行清单,可上下切换" /><em>具体、现在就能做的</em>
+							<div><b>优先解决：</b><input class="oData" id="taskGoal" type="text"  placeholder="优先解决-可上下切换执行清单的数据" /><em>具体、现在就能做的</em>
                 <span class="updownbtn" onclick="autoContent(this, 'up')">上</span>
                 <span class="updownbtn" onclick="autoContent(this, 'down')">下</span>
               </div>
-							<div><b>计划用时：</b><input class="oData" id="taskPTime" type="number"  min="3" placeholder="单位分钟"/>
+							<div><b>计划用时：</b><input class="oData" id="taskPTime" type="number"  min="3" placeholder="计划用时-单位分钟"/>
               <span class="updownbtn" onclick="addTime('8')">8</span>
               <span class="updownbtn" onclick="addTime('15')">15</span>
                 <span class="updownbtn" onclick="addTime('20')">20</span>
@@ -148,28 +149,28 @@
                 <span class="updownbtn" onclick="addTime('45')">45</span>
                 <span class="updownbtn" onclick="addTime('60')">60</span>
               </div>
-							<div><b>自估难度：</b><input class="oData" id="taskLevel" type="number" max="5" min="1" placeholder="1~5" />
+							<div><b>自估难度：</b><input class="oData" id="taskLevel" type="number" max="5" min="1" placeholder="自估难度-1~5" />
                 <span class="starbtn" onclick="toDegree('1')"></span>
                 <span class="starbtn" onclick="toDegree('2')"></span>
                 <span class="starbtn" onclick="toDegree('3')"></span>
                 <span class="starbtn" onclick="toDegree('4')"></span>
                 <span class="starbtn" onclick="toDegree('5')"></span>
               </div>
-							<div><b>开始时间：</b><input class="oData" id="taskSFTime" type="text" placeholder="10:20" />
+							<div><b>开始时间：</b><input class="oData" id="taskSFTime" type="text" placeholder="开始时间-格式10:20" />
                 <em>now or never</em>
                 <span class="updownbtn" onclick="addPresentTime()">get</span>
               </div>
-							<div><b>实际用时：</b><input class="oData" id="taskFTime" type="number" min="1"  placeholder="单位分钟"/>
+							<div><b>实际用时：</b><input class="oData" id="taskFTime" type="number" min="1"  placeholder="实际用时-单位分钟"/>
                 <em> Let it be</em>
                 <span class="updownbtn" onclick="getWorkTime()">算</span>
               </div>
 							<div>
-                <b>完成度：</b><input class="oData" id="taskFStatus" type="text" disabled/>
+                <b>完成度：</b><input class="oData" id="taskFStatus" type="text" disabled/ placeholder="实际用时/计划用时(按'算'获取)">
                 <span class="updownbtn" onclick="getWorkProccess()">算</span>
               </div>
-							<div><b>困难或障碍在哪里：</b><input class="oData" id="taskDifficult" type="text" /><em>What happened?</em></div>
-							<div><b>接下来？</b><input class="oData" id="taskContinue" type="text" /><em>Accept it, 办法总比困难多</em></div>
-							<div><b>生成的文本：</b><textarea id="allTaskData"></textarea></div>
+							<div><b>困难或障碍在哪里：</b><input class="oData" id="taskDifficult" type="text" placeholder="如果有难度,难在哪里？" /><em>What happened?</em></div>
+							<div><b>接下来？</b><input class="oData" id="taskContinue" type="text" placeholder="接下来的打算,怎么处理或避免？"/><em>Accept it, 办法总比困难多</em></div>
+							<div><b>生成的文本：</b><textarea id="allTaskData" placeholder="(实践过程生成区域,可写入记录中并分析)"></textarea></div>
 							<div class="btnLine">
 								<div class="dataSTNoteBtn">生成</div>
 								<div class="dataSTNoteBtn">写入</div>
@@ -325,7 +326,7 @@
 			<div class="newWin">
 				<!-- 弹框区域一、统筹区 -->
 				<section class="setThings">
-					<div>郑重说明：本清单的理论知识来自Topbook <a href="https://topbook.cc/course/detail/153" target="_blank">《重新认识GTD》</a>系列文</div>
+					<div>郑重说明：本清单的理论知识来自Topbook <a href="https://topbook.cc/course/detail/153" target="_blank" rel="noopener" >《重新认识GTD》</a>系列文</div>
 					<div class="doList">
 						<div class="btnClose none-txtchosen">收起</div>
 						<section class="main">
@@ -499,11 +500,11 @@
 					<!--2.关键字搜索 -->
 					<div class="hotSearch">
 						<span>热链：
-							<a href='https://www.yuque.com/nibaobao-youho/note/me' target='_blank'>日记</a>
-							<a href='https://www.yuque.com/nibaobao-youho/note/plan' target='_blank'>计划</a>
-							<a href='https://www.yuque.com/nibaobao-youho/note/draft' target='_blank'>写草稿</a>
-							<a href='https://www.yuque.com/nibaobao-youho/frontend' target='_blank'>前端知识</a>
-							<a href='https://www.yuque.com/nibaobao-youho/frontend/learn' target='_blank'>学习方法</a>
+							<a href='https://www.yuque.com/nibaobao-youho/note/me' target='_blank' rel='noopener' >日记</a>
+							<a href='https://www.yuque.com/nibaobao-youho/note/plan' target='_blank' rel='noopener' >计划</a>
+							<a href='https://www.yuque.com/nibaobao-youho/note/draft' target='_blank' rel='noopener' >写草稿</a>
+							<a href='https://www.yuque.com/nibaobao-youho/frontend' target='_blank' rel='noopener' >前端知识</a>
+							<a href='https://www.yuque.com/nibaobao-youho/frontend/learn' target='_blank' rel='noopener' >学习方法</a>
 						</span>
 						<span class="customizeLink">（自定义热链区）</span>
 					</div>
@@ -572,12 +573,11 @@
 		</section>
     <script>
 			function toreviewPage () {
-				console.log("dianjile");
-				window.location.href = "toreview.html";
+				window.open("./toreview.html");
 			}
 		</script>
     <footer class="footer">
-    	&nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank">关于我 | 网站帮助</a>
+    	&nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./about.html" target="_blank" rel="noopener" >关于我 | 网站帮助</a>
     </footer>
 
 		<script>
@@ -630,8 +630,7 @@
 					}
 				}
 				bbtns[1].onclick = function() {
-					console.log("打开大框模式");
-					window.location.href = "./toreview.html";
+					window.open("./toreview.html");
 				}
 
 				const nextBtn = document.getElementsByClassName("solved");
@@ -1162,7 +1161,7 @@
 					showHotlink();
 					oTip.innerText = "成功写入热键";
 				}else{
-					oInput.value = "<a href='网址' target='_blank'>资源</a>";
+					oInput.value = "<a href='网址' target='_blank' rel='noopener' >资源</a>";
 				}
 			}
 			

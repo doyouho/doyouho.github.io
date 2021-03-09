@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<meta name="keywords" content="数据下载 数据显示" />
+		<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
 		<title>意休 | 下载页面</title>
 		<link rel="icon" href="images/baobao.png" type="image/png">
 		<link rel="bookmark" href="images/baobao.png" />
@@ -77,7 +78,7 @@
 		<div class="header">
 			<h1>
 				<a style="font-size: 24px; cursor: pointer; color: white;"
-					target="_blank" href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点
+					target="_blank" rel="noopener"  href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点
 				<a class="jumpbtn" href="./toreview.html">处理</a>
 				<a class="jumpbtn" href="./mind.html">导图</a>
 				<a class="jumpbtn" href="./towork.html">启</a>
@@ -92,7 +93,7 @@
 			</p>
 			<p>积分殿数据：
 				<button type="button" onclick="showData(1)">分析显示</button>
-				<a download="分析感悟.txt" class="save-btn" ><button type="button"  onclick="noteDownload(1)">分析下载</button></a>
+				<a download="分析感悟.txt" class="save-btn"  ><button type="button"  onclick="noteDownload(1)">分析下载</button></a>
 				<button type="button" class="clearbtn" onclick="deleteData('analyseData')">清空分析殿</button>
 			</p>
 			<p>各事项数据：
@@ -108,7 +109,7 @@
 			</p> 
 		</div>
     
-    <textarea id="content"></textarea>
+    <textarea id="content" placeholder="(内容显示区)"></textarea>
     <script>
       var content = document.querySelector( '#content' );
       var saveBtns = document.querySelectorAll( '.save-btn' );

@@ -86,7 +86,7 @@ function noteOn() {
 
 	document.getElementById("addLinkBtn").onclick = function() { // 加链接
 		var notesInput = document.getElementById("noteWords");
-		var val = notesInput.value + "&nbsp;&nbsp;<a href='' target='_blank'></a>";
+		var val = notesInput.value + "&nbsp;&nbsp;<a href='' target='_blank' rel='noopener' ></a>";
 		notesInput.value = val;
 	}
 	document.getElementsByClassName("dataSTNoteBtn")[0].onclick = generateFormData; //生成表单信息

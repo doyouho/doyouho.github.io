@@ -12,6 +12,9 @@ a{
 	user-select: none;
 }
 
+h2{
+	font-size: 1.17em;
+}
 
 ul{
 	list-style: none;
@@ -173,6 +176,8 @@ body{
 	text-align: center;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-appearance: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .main{

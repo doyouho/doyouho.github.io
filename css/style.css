@@ -171,7 +171,7 @@ body {
 	margin: 88px auto 30px;
 }
 
-h3 {
+h2,h3 {
 	font-weight: 400;
 	font-size: 16px;
 	display: inline-block;
@@ -423,7 +423,7 @@ input::-webkit-input-placeholder {
 	z-index: 10;
 }
 
-.banner dt {
+.banner dd {
 	width: 0;
 	height: 0;
 	border: 7px solid rgba(22, 22, 22, 0.6);
@@ -433,11 +433,11 @@ input::-webkit-input-placeholder {
 	display: inline-block;
 }
 
-.banner dt.active {
+.banner dd.active {
 	border-color: #e63;
 }
 
-.banner dt:hover {
+.banner dd:hover {
 	transform: rotate(90deg);
 	border-color: #333;
 }
@@ -791,7 +791,7 @@ input::-webkit-input-placeholder {
 }
 
 .share_box a {
-	color: #888888;
+	color: #666666;
 }
 
 .share_box a:hover {
@@ -813,8 +813,9 @@ input::-webkit-input-placeholder {
 
 
 
-.share_box h4 {
+.share_box h3 {
 	padding: 12px 14px;
+	font-weight: 700;
 }
 
 .share_box p {
@@ -824,14 +825,15 @@ input::-webkit-input-placeholder {
 
 
 /*玩一玩页面*/
-.play_back {
+/* .play_back {
 	width: 100%;
-	height: 620px;
-}
+	position: relative;
+	min-height: 620px;
+} */
 
 .play {
 	width: 1200px;
-	height: 550px;
+	min-height: 550px;
 	margin: 0 auto;
 	background: white;
 	box-shadow: 0 0 3px 0 #d3d3d3;
@@ -869,9 +871,9 @@ input::-webkit-input-placeholder {
 	width: 1200px;
 	height: 508px;
 	position: absolute;
+	float: left;
 	top: 0;
 	left: 0;
-	float: left;
 	display: none;
 	background-color: #eee;
 }

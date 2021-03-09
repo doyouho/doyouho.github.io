@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="清单处理,清单记录,自我回顾" />
+		<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
     <title>意休 | 任务回顾</title>
     <link rel="icon" href="images/baobao.png" type="image/png">
     <link rel="bookmark" href="images/baobao.png" />
@@ -14,7 +15,7 @@
     <div class="menu">
       <h1 style="font-size: 14px; position: absolute; left: 30px; top: 10px; color: white;">
 				<a style="font-size: 24px; color: white; cursor: pointer;"
-          target="_blank" href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点 &nbsp;
+          target="_blank" rel="noopener"  href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点 &nbsp;
 				<span class="simplebtn" onclick="toSimplePart(this)">切简版</span> &nbsp;
 				<a href="./mind.html" class="simplebtn" onclick="toFinish()">导图</a> &nbsp;
 				<a href="./share.html" class="simplebtn" onclick="toFinish()">资</a> &nbsp;
@@ -49,7 +50,7 @@
       <div class="content">
         <!-- 执行清单 -->
 				<header class="header">
-					<h3>执行清单-专一<span class="arrowbtn">></span></h3>
+					<h2>执行清单-专一<span class="arrowbtn">></span></h2>
 				</header>
 				<section class="part  isEdit">
 					<div class="header_back"></div>
@@ -68,7 +69,7 @@
 				
         <!-- 日历 -->
         <header class="header">
-          <h3>日历清单-闹钟<span class="arrowbtn">></span></h3>
+          <h2>日历清单-闹钟<span class="arrowbtn">></span></h2>
         </header>
         <section class="part  isEdit">
           <div class="header_back"></div>
@@ -92,7 +93,7 @@
 
         <!-- 等待清单 -->
         <header class="header">
-          <h3>等待清单-确否<span class="arrowbtn">></span></h3>
+          <h2>等待清单-确否<span class="arrowbtn">></span></h2>
         </header>
         <section class="part  isEdit">
           <div class="header_back"></div>
@@ -111,12 +112,12 @@
 
         <!-- 项目清单 -->
         <header class="header">
-          <h3>项目清单-拆否<span class="arrowbtn">></span></h3>
+          <h2>项目清单-拆否<span class="arrowbtn">></span></h2>
         </header>
         <section class="part isEdit">
           <div class="header_back"></div>
 					<div class="controlers">
-            <a class="circlebtn solvedBtn" href="./mind.html" target="_blank">思维导图</a>
+            <a class="circlebtn solvedBtn" href="./mind.html" target="_blank" rel="noopener" >思维导图</a>
             <span class="writebtn" onclick="ableToEdit(event,-3);"></span>
           </div>
           <div class="list">
@@ -127,7 +128,7 @@
 
         <!-- 可能清单 -->
         <header class="header">
-          <h3>可能清单-变否<span class="arrowbtn">></span></h3>
+          <h2>可能清单-变否<span class="arrowbtn">></span></h2>
         </header>
         <section class="part isEdit">
           <div class="header_back"></div>
@@ -152,7 +153,7 @@
 						<span class="simplebtn" onclick="toOutput('solve')">下载处理数据</span>
 						<span class="simplebtn" onclick="toOutput('solve','copy')">复制处理数据</span>&nbsp;
 						<a href="./download.html">更多下载</a>&nbsp;
-						<a href="https://www.yuque.com/nibaobao-youho/questions" target="_blank">（问题收集库）</a>
+						<a href="https://www.yuque.com/nibaobao-youho/questions" target="_blank" rel="noopener" >（问题收集库）</a>
 					</p>
 				</div>
 				<h4 class="progressSim"></h4>
@@ -168,7 +169,7 @@
       <!-- 参考卡 -->
       <section class="aside isEdit">
         <header class="header">
-          <h3>参考卡<span class="writebtn" onclick="ableToEdit(event,-1);"></span></h3>
+          <h2>参考卡<span class="writebtn" onclick="ableToEdit(event,-1);"></span></h2>
           <span class="circlebtn clearall">清空</span>
         </header>
         <div class="controlers">
@@ -195,7 +196,7 @@
     <section class="upfloor">
 			<div class="upfloor_content">
 				<header>
-        <h3 style="text-align: center; font-size: 26px; color:#ff4f1a;">总结面板-验收</h3>
+        <h2 style="text-align: center; font-size: 26px; color:#ff4f1a;">总结面板-验收</h2>
         <div class="controlers">
           <label>
             <input type="checkbox" checked="true" name="" id="" value="" />检查卡-看

@@ -3,7 +3,7 @@
 		{
 		"title":"《歌词篇》",
 		"content":[
-			"节目:<a href='http://music.ifkdy.com/' target='_blank'>音乐搜索</a><a href='http://tv.cctv.com/lm/jdylc/index.shtml' target='_blank'>《经典咏流传》</a><a href='https://www.iqiyi.com/u/fav' target='_blank'>《其他唱歌综艺》</a>",
+			"节目:<a href='http://music.ifkdy.com/' target='_blank' rel='noopener' >音乐搜索</a><a href='http://tv.cctv.com/lm/jdylc/index.shtml' target='_blank' rel='noopener' >《经典咏流传》</a><a href='https://www.iqiyi.com/u/fav' target='_blank' rel='noopener' >《其他唱歌综艺》</a>",
 			"啊参一生参不透这条难题，吞风吻雨葬落日未曾彷徨，欺山赶海践雪径也未绝望，拈花把酒偏折煞世人情狂，凭这两眼与百臂或千手不能防。《难念的经》",
 			"也许我一直害怕有答案，也许爱静静在风里打转，离开释怀，很短暂又重来，有时候自问自答。我不要困难把我们击散，我责备自己那么不勇敢，遗憾没有到达，拥抱过还是害怕，用力推开你我依然留下。有一束光，那瞬间 是什么痛得刺眼，你的视线 是谅解，为什么舍不得熄灭，我逆着光却看见《逆光》",
 			"放弃所有，抛下所有，让我漂流在安静的夜夜空里。你也不必牵强再说爱我，反正我的灵魂已片片掉落，慢慢的拼凑，慢慢的拼凑，拼凑成一个完全不属于真正的我。《夜夜夜夜》",
@@ -40,7 +40,7 @@
 		{	
 			"title":"《学习篇》",
 			"content":[
-				"<a href='https://so.gushiwen.cn/shiwenv_c743b1310a1c.aspx' target='_blank'>古代的劝学</a>，<a href='https://www.xue8nav.com/'  target='_blank'>线上学习导航(学吧导航)</a>，<a href='https://topbook.cc/overview' target='_blank'>个人修炼(Topbook)</a>",
+				"<a href='https://so.gushiwen.cn/shiwenv_c743b1310a1c.aspx' target='_blank' rel='noopener' >古代的劝学</a>，<a href='https://www.xue8nav.com/'  target='_blank' rel='noopener' >线上学习导航(学吧导航)</a>，<a href='https://topbook.cc/overview' target='_blank' rel='noopener' >个人修炼(Topbook)</a>",
 				"状态确认：主动学习VS被动学习 &nbsp; 系统学习VS碎片化学习 &nbsp; 向内学习VS向外学习 &nbsp; 专业学习VS跨界学习",
 				"把书读厚，再把书读薄。内在的道理就是阅读大量的案例之后，将信息中的规律内化成自己的，然后总结出自己的一套方法，巩固运用。",
 				"被需要也是很好的一个激励学习的途径。",
@@ -213,12 +213,12 @@
 			"title":"《工具快捷键》",
 			"content":[
 				"若是官方的快捷键不管用，很有可能是与其他软件的快捷键冲突了，例如输入法。",
-				"1.Snipaste贴图 --<a href='https://docs.snipaste.com/zh-cn/' target='_blank'>文档</a>",
+				"1.Snipaste贴图 --<a href='https://docs.snipaste.com/zh-cn/' target='_blank' rel='noopener' >文档</a>",
 				"常用快捷键：截图F1，贴图F3，隐藏贴图 Shift+F3，放大镜 Alt ",
 				"贴图操作：透明度[Ctrl + 滑动滚轮]， 缩略图[shift+左键双击、鼠标中键恢复]，回放截图记录 ，和.",
 				"代码贴图：把HTML或文本先复制再F3贴图就好。",
 				"<br />",
-				"2.编辑器快捷键 --<a href='https://code.visualstudio.com/docs' target='_blank'>VScode(用V指代)</a>，<a href='https://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/35357' target='_blank'>HbuilderX(H指代)</a>",
+				"2.编辑器快捷键 --<a href='https://code.visualstudio.com/docs' target='_blank' rel='noopener' >VScode(用V指代)</a>，<a href='https://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/35357' target='_blank' rel='noopener' >HbuilderX(H指代)</a>",
 				"查找类：查找替换Ctrl+F，跳到指定行Ctrl+G， 搜索文件Ctrl+P，  多文件搜索(V用Ctrl+Shift+F | H用Ctrl+Alt+F)",
 				"下插空行：Ctrl+Enter；上插空行：Ctrl+Shift+Enter； 选择当前行：Ctrl+L； 多字符多行选择：Shift+箭头；注释：Ctrl+/；右缩进Tab； 左缩进Shift+Tab ",
 				"复制粘贴：默认粘贴在下面一行，加Shift则粘贴在上面一行；撤销Ctrl+Z ，恢复Ctrl+Y ",
@@ -237,7 +237,7 @@
 				"总结：",
 				"在代码提示/转定义/查看修改历史/支持插件方面，VScode更胜一筹；在代码快速选择/快捷键记忆/内置浏览器方面，HbuilderX更胜一筹。VScode更专注兼容和提供各种工具，HbuilderX更专注代码书写选择显示方面。",
 				"<br />",
-				"3.Emmet快捷使用 --<a href='https://emmet.io/' target='_blank'>官网</a>， <a href='https://docs.emmet.io/cheat-sheet/' target='_blank'>示例</a>",
+				"3.Emmet快捷使用 --<a href='https://emmet.io/' target='_blank' rel='noopener' >官网</a>， <a href='https://docs.emmet.io/cheat-sheet/' target='_blank' rel='noopener' >示例</a>",
 				"HTML中：",
 				"标签及标签间 --- >父子 +兄弟 ^升级/父级 ()整体 *数量 $数字序列 {}文字内容",
 				"示例：ul>(li>a.abc$$+b)*2 、 div>p{好好学习吧，第$$$天}*5 （$常和*一起使用） ",
@@ -256,7 +256,7 @@
 		{
 			"title":"《练声》",
 			"content":[
-				"资源：<a href='https://music.163.com/#/song?id=375085' target='_blank'>《中国话》</a>， <a href='http://www.pthxuexi.com/60pages_list1.html' target='_blank'>普通话文章练习</a>， <a href='https://m.dxsbb.com/news/list_72.html' target='_blank'>演讲</a>， <a href='https://open.163.com/' target='_blank'>网易公开课</a>",
+				"资源：<a href='https://music.163.com/#/song?id=375085' target='_blank' rel='noopener' >《中国话》</a>， <a href='http://www.pthxuexi.com/60pages_list1.html' target='_blank' rel='noopener' >普通话文章练习</a>， <a href='https://m.dxsbb.com/news/list_72.html' target='_blank' rel='noopener' >演讲</a>， <a href='https://open.163.com/' target='_blank' rel='noopener' >网易公开课</a>",
 				"（1）咬字清晰：练练绕口令/快歌 --- 绕口令大全：http://rkl.intowz.com/",
 				"（2）语言表达力：演讲/辩论[语气，语调，情感，节奏]",
 				"（3）口腔操（哔哩哔哩的胖雪人Ozu）https://www.bilibili.com/video/av53451608?zw " ,
@@ -317,7 +317,7 @@
 		{
 			"title":"《世界有多大？》",
 			"content":[
-				"<a href='https://tv.cctv.com/' target='_blank'>CCTV节目官网</a>，<a href='https://tv.cctv.com/lm/dwsj/' target='_blank'>动物世界</a>，<a href='https://tv.cctv.com/lm/ryzr/index.shtml?spm=C28340.P9dhkRStLqPh.EKWHnE44lmRl.16' target='_blank'>人与自然</a>",
+				"<a href='https://tv.cctv.com/' target='_blank' rel='noopener' >CCTV节目官网</a>，<a href='https://tv.cctv.com/lm/dwsj/' target='_blank' rel='noopener' >动物世界</a>，<a href='https://tv.cctv.com/lm/ryzr/index.shtml?spm=C28340.P9dhkRStLqPh.EKWHnE44lmRl.16' target='_blank' rel='noopener' >人与自然</a>",
 				"请从蚂蚁的视角逐渐放大来观察世界",
 				"处处皆是艺术。画画可以呈现在任何地方：纸，土，沙，布，木，墙，石，菜，蛋糕，雪，玻璃，水。",
 				"各种极限运动，各种不同极限的远方，The more you see and feel， the more you respect. ",
@@ -333,7 +333,7 @@
 		{
 			"title":"《读史明志，以古鉴今》",
 			"content":[
-				"链接：<a href='https://www.allhistory.com/' target='_blank'>全历史网</a>，<a href='https://space.bilibili.com/26420656/video' target='_blank'>看鉴</a>，<a href='https://www.bilibili.com/video/BV1Ct411u7Yr?from=search&seid=4631458634846102809' target='_blank'>《中国通史》</a>，<a href='https://www.xuexi.cn/' target='_blank'>学习强国</a>，<a href='https://www.bilibili.com/bangumi/play/ep246674?from=search&seid=9323708570689603986' target='_blank'>《如果历史是一群喵》</a>",
+				"链接：<a href='https://www.allhistory.com/' target='_blank' rel='noopener' >全历史网</a>，<a href='https://space.bilibili.com/26420656/video' target='_blank' rel='noopener' >看鉴</a>，<a href='https://www.bilibili.com/video/BV1Ct411u7Yr?from=search&seid=4631458634846102809' target='_blank' rel='noopener' >《中国通史》</a>，<a href='https://www.xuexi.cn/' target='_blank' rel='noopener' >学习强国</a>，<a href='https://www.bilibili.com/bangumi/play/ep246674?from=search&seid=9323708570689603986' target='_blank' rel='noopener' >《如果历史是一群喵》</a>",
 				"中国近代史：1840年6月-1949年10月，近110年",
 				"年份记忆（从1901年辛丑条约签订后开始算）： 4 6 | 7 5 3 | 4 3 2 1 | 9 4 | ",
 				"<br />",
@@ -354,7 +354,7 @@
 				"♪调控情绪+♫锻炼身体+♬明确目标和下一步",
 				"【情绪】是基于人的个体本能的需要自发产生的身体与心理状态。(情绪是情感的基础和外部表现，情感是情绪的深化和本质内容)",
 				"【不良情绪】是指一个人对客观刺激进行反映之后所产生的过度体验。焦虑、紧张、愤怒、沮丧、悲伤、痛苦、难过、不快、忧郁等情绪均属于不良情绪。",
-				"【态度】是个体对特定对象（人、观念、情感或者事件等）所持有的稳定的心理倾向。这种心理倾向蕴含着个体的主观评价以及由此产生的行为倾向性。<a href='http://blog.sina.com.cn/s/blog_492564890102vedm.html' target='_blank'>[情绪与态度的区别]</a>",
+				"【态度】是个体对特定对象（人、观念、情感或者事件等）所持有的稳定的心理倾向。这种心理倾向蕴含着个体的主观评价以及由此产生的行为倾向性。<a href='http://blog.sina.com.cn/s/blog_492564890102vedm.html' target='_blank' rel='noopener' >[情绪与态度的区别]</a>",
 				"【情绪ABC理论】让我们难过和痛苦的，不是事件本身，而是对事情的不正确的解释和评价。A表示诱发事件；B表示个体针对此诱发事件产生的一些信念，即对这件事的看法和解释；C表示个体产生的情绪和行为结果。",
 				"【信念】认为是事实或者必将成为事实，对事物的判断、观点或看法。你的信念决定了你对特定的环境和事物产生什么样的情绪和欲望。",
 				"【欲望】是由人的本性产生的想达到某种目的的要求，欲望无善恶之分，关键在于如何控制。欲望的过分膨胀是幸福的敌人，故知足者常乐。",
@@ -414,13 +414,13 @@
 				"提供工具的聚合导航网站：阿酷导航  程序员导航  极客导航  导航湾 ",
 				"插画参考 Humaaans， Vector Creator，ManyPixels，unDraw， 更多可在topbook里搜索",
 				"其他常用的工具： 程序员在线工具 爱资源在线工具 在线工具  ",
-				"更多请看<a href='./share.html' target='_blank'>分享页面</a>。"
+				"更多请看<a href='./share.html' target='_blank' rel='noopener' >分享页面</a>。"
 			]
 		},
 		{
 			"title":"《方法论》",
 			"content":[
-				"资源：<a href='https://space.bilibili.com/344849038?from=search&seid=13692100793524727015' target='_blank'>bilibili-于建国的学习观</a> | <a href='https://www.xue8nav.com/' target='_blank'>学吧导航</a>",
+				"资源：<a href='https://space.bilibili.com/344849038?from=search&seid=13692100793524727015' target='_blank' rel='noopener' >bilibili-于建国的学习观</a> | <a href='https://www.xue8nav.com/' target='_blank' rel='noopener' >学吧导航</a>",
 				"总体上：多学，多练，多总结。练习足够多的例子，然后形成自己的知识链。",
 				"知识点的理解与区分（看视频文档）——模仿与学习（跟着操作）——应用与测试（创作）——优化和修改（美化作品）",
 				"例子可以是视频上的，文档的，网页的，博客的，也可以是搜索到的作品的（反推），还可以是自己想做的。而形成自己的知识链，需要学习期间内不断巩固知识和处理混乱的信息干扰。"
@@ -431,7 +431,7 @@
 		{
 			"title":"《读书清单》",
 			"content":[
-				"资源：<a href='http://cn.epubee.com/books/' target='_blank'>epubee</a>，<a href='https://ebook2.lorefree.com/' target='_blank'>lorefree</a>，<a href='https://www.jiumodiary.com/' target='_blank'>鸠摩搜书</a>，<a href='https://www.zhihu.com/question/22591993' target='_blank'>前端书籍推荐</a>，<a href='https://weread.qq.com/' target='_blank'>微信读书</a>",
+				"资源：<a href='http://cn.epubee.com/books/' target='_blank' rel='noopener' >epubee</a>，<a href='https://ebook2.lorefree.com/' target='_blank' rel='noopener' >lorefree</a>，<a href='https://www.jiumodiary.com/' target='_blank' rel='noopener' >鸠摩搜书</a>，<a href='https://www.zhihu.com/question/22591993' target='_blank' rel='noopener' >前端书籍推荐</a>，<a href='https://weread.qq.com/' target='_blank' rel='noopener' >微信读书</a>",
 				"定个小目标：计划到2021年看12本书，一个月一本书。 最近更新时间：2020年2月13日",
 				"[下面大部分在 <b>网易蜗牛读书APP</b> 上可读，每天1小时免费阅读]",
 				"<br />",
@@ -450,7 +450,7 @@
 		{
 			"title":"《影视清单》",
 			"content":[
-				"资源：<a href='https://movie.douban.com/' target='_blank'>豆瓣电影</a>，<a href='https://www.dianyinggou.com/' target='_blank'>电影狗</a>，<a href='http://www.sixia.xyz/' target='_blank'>小众导航</a>，<a href='https://www.heji.ltd/8.html' target='_blank'>合集网</a>，<a href='http://ilxdh.com/cat/171' target='_blank'>龙轩导航</a>",
+				"资源：<a href='https://movie.douban.com/' target='_blank' rel='noopener' >豆瓣电影</a>，<a href='https://www.dianyinggou.com/' target='_blank' rel='noopener' >电影狗</a>，<a href='http://www.sixia.xyz/' target='_blank' rel='noopener' >小众导航</a>，<a href='https://www.heji.ltd/8.html' target='_blank' rel='noopener' >合集网</a>，<a href='http://ilxdh.com/cat/171' target='_blank' rel='noopener' >龙轩导航</a>",
 				"待观：",
 				"《通灵男孩诺曼》《无敌破坏王2》《假装不正经》《墨镜》《龙虾》《了不起的菲丽西》",
 				"《调音师》《量身定制》《楚门的世界》《实习生》《唐人街探案》《寄生虫》",
@@ -522,7 +522,7 @@
 				"2.生活之于游戏",
 				"游戏的诞生是为了模拟生存环境对自身进行训练。为什么同样的知识和技能，不同的人施展的结果不一样？因为熟练度和掌握程度。这和学习是相通的，只是游戏的目的性更强，而学习则需要自己定目标。但不管怎样，熟能生巧不是一句空话。",
 				"观察力-拼图--",
-				"脑力-<a href='https://www.oubk.com/' target='_blank'>数独1</a>--<a href='http://www.sudokufans.org.cn/' target='_blank'>数独2</a>--<a href='https://nonogram.frvr.com/' target='_blank'>填格子</a>--",
+				"脑力-<a href='https://www.oubk.com/' target='_blank' rel='noopener' >数独1</a>--<a href='http://www.sudokufans.org.cn/' target='_blank' rel='noopener' >数独2</a>--<a href='https://nonogram.frvr.com/' target='_blank' rel='noopener' >填格子</a>--",
 				"脑力-棋类--",
 				"其他-解压或放松小游戏"
 			]
