@@ -489,7 +489,7 @@ input:checked+.cbox::after {
 	z-index:4;
 }
 .slideBox p:hover{
-  background-color: #FF0099;
+  background-color: #613364;
 }
 .slideBox .status{
   background-color: yellowgreen;
@@ -500,13 +500,14 @@ input:checked+.cbox::after {
   text-align: center;
   line-height: 26px;
   font-size: .8em;
+	font-weight: 700;
 }
 .slideBox .days{
 	position: absolute;
   font-size: 0.8em;
-	left: 120px;
+	/* left: 120px; */
 	top: 40px;
-	
+	text-align: center;
 }
 .slideBox.active {
 	top: 66px;
@@ -566,17 +567,22 @@ ul.dayCheck.active{
 	margin-top: 60px;
 }
 .dayCheck .writeIn {
-	padding-left: 12px;
+	padding: 4px 12px;
 	height: 22px;
-	width: 220px;
-	margin: 4px 0 4px 40px;
+	width: 280px;
+	margin: 4px 0 4px 56px;
 	visibility: hidden;
+	outline: none;
+	border: 1px solid #666666;
 }
 
 .slideBox .dataDays{
 	font-size: 20px;
 	font-weight: 700;
 	color: #FF0099;
+	width: 46px;
+	margin: 4px;
+	text-align: center;
 }
 .dayCheck li {
 	padding: 4px;
@@ -589,6 +595,15 @@ ul.dayCheck.active{
 	color: #333333;
 }
 
+.dayCheck:hover li:nth-child(1) {
+	background-color: unset;
+	color: white;
+}
+
+.dayCheck:hover li:nth-child(3) {
+	background-color: unset;
+	color: white;
+}
 .dayCheck li:hover b,
 .dayCheck li:hover i {
 	display: inline-block;
@@ -627,19 +642,17 @@ ul.dayCheck.active{
 }
 
 
-.dayCheck .addItemBtn,
-.dayCheck .saveChange {
+.dayCheck .addItemBtn{
 	border: 1px solid #999999;
 	padding: 4px 10px;
 	border-radius: 14px;
-	margin: 12px;
+	margin: 12px 42px;
 	/* width:72px; */
 	text-align: center;
 	cursor: pointer;
 }
 
-.addItemBtn:hover,
-.saveChange:hover {
+.addItemBtn:hover {
 	background-color: var(--themecolor);
 	border-color: transparent;
 }

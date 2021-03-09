@@ -43,8 +43,8 @@
       <p class="none-txtchosen" onclick="toggleDaka('chart','dayCheck')"><b style="font-size: 32px;">今</b>日<span class="status">未</span>打卡</p>
 			<span class="closebtn" onclick="toggleDaka('slideBox')">×</span>
 			<ul class="dayCheck">
-        <div class="days">已经打卡<span class="dataDays">03</span>天，继续加油哦~</div>
-				<li class="firstLine"><input type="text" class="writeIn" placeholder="支持逗号分隔,多项输入" /><span class="addItemBtn none-txtchosen">添加</span><span class="saveChange none-txtchosen">保存新项</span></li>
+        <li class="days">已经打卡<span class="dataDays">03</span>天，继续加油哦~</li>
+				<li class="firstLine"><input type="text" class="writeIn" placeholder="支持逗号分隔,多项输入" /><span class="addItemBtn none-txtchosen">添加</span></li>
 				<li><span>学习项目</span><span>学习天数</span>once a day</li>
 			</ul>
 			<div class="chart">
@@ -1219,22 +1219,30 @@
 
 		<script>
 			// 每天打卡的实现
+			var everyDay = true;
+			var dakaData = {};
+			var daysBtn =  document.querySelectorAll(".dataDays"); // 天数显示元素
+			var dakaDays = 0; // 总打卡天数
+			var listnum = 0;
       everyDayDaka();
 			function everyDayDaka() {
 				// 1.每天只能点击一次 进行数据储存
 				// 2.数据显示，存的是对象的字符串
         var statusBtn =  document.querySelector(".status");  // 未与已打卡的显示文本
+				var oulCheck = document.getElementsByClassName("dayCheck")[0];
 				// var odate = new Date(); //这时间获取的是本地的？
 				// var nowDate = odate.getFullYear() + "/" + (odate.getMonth()+1) + "/" + odate.getDate();
 				if (window.localStorage) {
 					if (localStorage.saveData) {
 						var dataDaka = localStorage.getItem("saveData");
-						var dakaData = JSON.parse(dataDaka);
+					  dakaData = JSON.parse(dataDaka);
 						var lastSave = localStorage.getItem("lastDaka");
 						if (lastSave !== nowDate) {
-							var everyDay = true; // 未打卡
+							console.log(lastSave,nowDate);
+							everyDay = true; // 未打卡
 						} else {
-							var everyDay = false; // 已打卡
+							everyDay = false; // 已打卡
+							console.log(lastSave,nowDate);
               statusBtn.style.backgroundColor = "#FF0099";
               statusBtn.innerText = "已";
 						}
@@ -1248,8 +1256,17 @@
 							"Vue": 3,
 							"Weex": 1
 						}
-						var everyDay = true;
+						everyDay = true;
 					}
+					for (let key in dakaData) { // 初始化表
+						let oli = document.createElement("li");
+						oli.innerHTML = "<span>" + key + "</span><span>" + dakaData[key] + "</span><b>打卡</b><i>删除</i>";
+						oulCheck.append(oli);
+						dakaDays = dakaDays + (dakaData[key] * 1);
+						listnum++;
+					}
+					daysBtn[0].innerText = dakaDays;
+					daysBtn[1].innerText = dakaDays;
 				} else {
 					console.log("该浏览器不支持localStorage本地存储功能。");
 				}
@@ -1323,44 +1340,39 @@
 				function showDays(){
 					var dakaDaylength = 0;
 					var maxDays = 0;
-					var dakaDays = 0; // 总打卡天数
-					var oulCheck = document.getElementsByClassName("dayCheck")[0];
-					var daysBtn =  document.querySelectorAll(".dataDays");
+					if(!everyDay){
+						statusBtn.innerText = "已";
+						statusBtn.style.backgroundColor = "#FF0099";
+					}
 					for (let key in dakaData) {
-						let oli = document.createElement("li");
-						oli.innerHTML = "<span>" + key + "</span><span>" + dakaData[key] + "</span><b>打卡</b><i>删除</i>";
-						oulCheck.append(oli);
-					  dakaDays = dakaDays + (dakaData[key] * 1);
 						if(dakaData[key]>maxDays){
 							maxDays = dakaData[key];
 						}
 						dakaDaylength++;
 					}
-					daysBtn[0].innerText = dakaDays;
-					daysBtn[1].innerText = dakaDays;
 					return {dakaDaylength,maxDays};
 				}
-				
-        
-				
-        // btnAchieve实现的是打卡和删除按钮的功能
-				function btnAchieve() {
+
+			
+			
+			
+				// btnAchieve实现的是打卡和删除按钮的功能
+				function btnAchieve(index) {
 					var obDaka = document.querySelectorAll(".dayCheck b");
 					var obDel = document.querySelectorAll(".dayCheck i");
-					for (let i = 0; i < obDaka.length; i++) {
+					for (let i = index; i < obDaka.length; i++) {
 						obDaka[i].onclick = function(e) {
 							if (everyDay) {
 								var keyLi = e.target.parentNode.firstChild.innerText;
 								var newNum = dakaData[keyLi] + 1;
-								dakaData[keyLi] = dakaData[keyLi] + 1;
-								e.target.previousElementSibling.innerText = newNum;
+								dakaData[keyLi] = newNum;
 								everyDay = false;
-                daysBtn.innerText = dakaDays+1;
-                statusBtn.innerText = "已";
-                statusBtn.style.backgroundColor = "#FF0099";
+								e.target.previousElementSibling.innerText = newNum;
+								daysBtn[0].innerText = dakaDays+1;
+								daysBtn[1].innerText = dakaDays+1;
 								localSave(dakaData, "saveData");
 								localStorage.setItem("lastDaka", nowDate);
-                paint();
+								paint();
 							}
 						};
 						obDel[i].onclick = function(e) {
@@ -1368,45 +1380,48 @@
 							var delVal = window.confirm("是否删除项目" + keyLi);
 							if (delVal) {
 								e.target.parentNode.remove();
-								delete dakaData[keyLi]; //为什么没有作用？不能用.来获取属性
+								listnum--;
+								dakaDays = dakaDays - dakaData[keyLi];
+								daysBtn[0].innerText = dakaDays;
+								daysBtn[1].innerText = dakaDays;
+								delete dakaData[keyLi]; // 注意不能用.来获取属性
 								localSave(dakaData, "saveData");
 							}
 						};
 					}
 				}
 
-				btnAchieve();
-
+				btnAchieve(0);
 				var addBtn = document.getElementsByClassName("addItemBtn")[0];
 				addBtn.onclick = function() {
 					var oval = document.getElementsByClassName("writeIn")[0];
 					var val = oval.value.trim();
-          var valList = [];
+					var valList = [];
+					var oldlistnum = listnum;
 					if (val !== "") {
-            if(/,/.test(val)){
-              valList = val.split(',');
-              // console.log(valList);
-            }else{
-              valList[0] = val;
-            }
-            for(var item = 0; item < valList.length; item++){
-              let oli = document.createElement("li");
-              var addItem = valList[item];
-              oli.innerHTML = "<span>" + addItem + "</span><span>0</span><b>打卡</b><i>删除</i>";
-              oulCheck.append(oli);
-              dakaData[addItem] = 0;
-            }
-            // console.log(dakaData);
-            oval.value = "";
+						if(/,/.test(val)){
+							valList = val.split(',');
+							// console.log(valList);
+						}else{
+							valList[0] = val;
+						}
+						for(var item = 0; item < valList.length; item++){
+							let oli = document.createElement("li");
+							var addItem = valList[item];
+							oli.innerHTML = "<span>" + addItem + "</span><span>0</span><b>打卡</b><i>删除</i>";
+							oulCheck.append(oli);
+							dakaData[addItem] = 0;
+							listnum++;
+						}
+						// console.log(dakaData);
+						oval.value = "";
+						localSave(dakaData, "saveData");
+						btnAchieve(oldlistnum);
 					}
+					
 				}
-
-        // 增加项目之后，点击保存将把当前的项目数据保存下来
-				var saveBtn = document.getElementsByClassName("saveChange")[0];
-				saveBtn.onclick = function() {
-					localSave(dakaData, "saveData");
-					btnAchieve();
-				}
+			
+			
 			}
 			// localStorage.removeItem("lastDaka");
 			// localStorage.removeItem("saveData");
