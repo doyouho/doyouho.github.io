@@ -243,7 +243,7 @@
 						     keyindex++;
 						   }
 						   taskInput.value = list[keyindex];
-						}else if(liststr.trim()){
+						}else if(liststr){
 						  ele.classList.remove('hidden');
 						  taskInput.value = liststr;
 						}else{
@@ -286,21 +286,21 @@
 					// 判断输入时间是否正确
 					var hour = /[0-9]+\:/.exec(startimeStr);
 					var min = /\:[0-9]+/.exec(startimeStr);
-					console.log(hour);
+					// console.log(hour);
 					if(hour && hour[0].slice(0,-1)*1<24){
 						startime = (hour[0].slice(0,-1)*1)*60;
-						console.log("hour 成功",startime);
+						// console.log("hour 成功",startime);
 					}
 					if(min && min[0].substring(1)*1<60){
 						startime += min[0].substring(1)*1;
-						console.log("min 成功",startime);
+						// console.log("min 成功",startime);
 					}
 					if(finalTime >= startime){
 						val = Math.ceil(finalTime-startime);
 					}else{
 						val = Math.ceil(1440-finalTime+startime);
 					}
-					console.log("不是计算出来的起始时间",startime,val);
+					// console.log("不是计算出来的起始时间",startime,val);
 				}else{
 					timeCount.endMin = date.getTime()/60000;
 					if(timeCount.startMin>0){
@@ -490,10 +490,10 @@
 					<form class="inputBox" action="https://www.zhihu.com/search">
 						<textarea id="disWords" placeholder="想要问什么……"  name="q"></textarea>
 						<button id="disSearchBtn" class="btn_box" type="submit"> 知乎中查找答案</button>
-						<input id="reSetBtn" class="btn_box" type="reset" value="重置" />
-						<button id="disSubmitBtn" class="btn_box" type="button">提问</button>
-						<button id="hotLinkBtn" class="btn_box" type="button">加热链</button>
 						<button id="disNoteBtn" class="btn_box" type="button">做笔记</button>
+						<button id="disSubmitBtn" class="btn_box" type="button">提问</button>
+						<input id="reSetBtn" class="btn_box" type="reset" value="重置" />
+						<button id="hotLinkBtn" class="btn_box" type="button">加热链</button>
 						<button id="turnNoteBtn" class="btn_box" type="button">转到笔记区</button>
 						<span class="wordsCanIn">还可以输入200字</span>
 					</form>
@@ -1165,12 +1165,13 @@
 				}
 			}
 			
+			const ocustomizeLink = document.getElementsByClassName("customizeLink")[0];
 			function showHotlink(){
 				if(localStorage.getItem("hotlink")){
 					let data = localStorage.getItem("hotlink");
 					let list = data.split("^");
 					let str = '';
-					const ocustomizeLink = document.getElementsByClassName("customizeLink")[0];
+					
 					for (let i = 0; i < list.length; i++) {
 						str += list[i];
 					}
@@ -1178,9 +1179,10 @@
 					ocustomizeLink.innerHTML = str;
 				}
 			}
+			
 			function clearHotlink(){
 				localStorage.setItem('hotlink','');
-				showHotlink();
+				ocustomizeLink.innerHTML = "（自定义热链区）";
 			}
 
 			// 数据的加载【请设置懒加载】
@@ -1223,7 +1225,6 @@
 			var dakaData = {};
 			var daysBtn =  document.querySelectorAll(".dataDays"); // 天数显示元素
 			var dakaDays = 0; // 总打卡天数
-			var listnum = 0;
       everyDayDaka();
 			function everyDayDaka() {
 				// 1.每天只能点击一次 进行数据储存
@@ -1263,7 +1264,6 @@
 						oli.innerHTML = "<span>" + key + "</span><span>" + dakaData[key] + "</span><b>打卡</b><i>删除</i>";
 						oulCheck.append(oli);
 						dakaDays = dakaDays + (dakaData[key] * 1);
-						listnum++;
 					}
 					daysBtn[0].innerText = dakaDays;
 					daysBtn[1].innerText = dakaDays;
@@ -1357,10 +1357,10 @@
 			
 			
 				// btnAchieve实现的是打卡和删除按钮的功能
-				function btnAchieve(index) {
+				function btnAchieve() {
 					var obDaka = document.querySelectorAll(".dayCheck b");
 					var obDel = document.querySelectorAll(".dayCheck i");
-					for (let i = index; i < obDaka.length; i++) {
+					for (let i = 0; i < obDaka.length; i++) {
 						obDaka[i].onclick = function(e) {
 							if (everyDay) {
 								var keyLi = e.target.parentNode.firstChild.innerText;
@@ -1368,8 +1368,9 @@
 								dakaData[keyLi] = newNum;
 								everyDay = false;
 								e.target.previousElementSibling.innerText = newNum;
-								daysBtn[0].innerText = dakaDays+1;
-								daysBtn[1].innerText = dakaDays+1;
+								dakaDays++;
+								daysBtn[0].innerText = dakaDays;
+								daysBtn[1].innerText = dakaDays;
 								localSave(dakaData, "saveData");
 								localStorage.setItem("lastDaka", nowDate);
 								paint();
@@ -1380,8 +1381,8 @@
 							var delVal = window.confirm("是否删除项目" + keyLi);
 							if (delVal) {
 								e.target.parentNode.remove();
-								listnum--;
 								dakaDays = dakaDays - dakaData[keyLi];
+								console.log(dakaDays,dakaData[keyLi]);
 								daysBtn[0].innerText = dakaDays;
 								daysBtn[1].innerText = dakaDays;
 								delete dakaData[keyLi]; // 注意不能用.来获取属性
@@ -1391,13 +1392,12 @@
 					}
 				}
 
-				btnAchieve(0);
+				btnAchieve();
 				var addBtn = document.getElementsByClassName("addItemBtn")[0];
 				addBtn.onclick = function() {
 					var oval = document.getElementsByClassName("writeIn")[0];
 					var val = oval.value.trim();
 					var valList = [];
-					var oldlistnum = listnum;
 					if (val !== "") {
 						if(/,/.test(val)){
 							valList = val.split(',');
@@ -1411,12 +1411,11 @@
 							oli.innerHTML = "<span>" + addItem + "</span><span>0</span><b>打卡</b><i>删除</i>";
 							oulCheck.append(oli);
 							dakaData[addItem] = 0;
-							listnum++;
 						}
 						// console.log(dakaData);
 						oval.value = "";
 						localSave(dakaData, "saveData");
-						btnAchieve(oldlistnum);
+						btnAchieve();
 					}
 					
 				}

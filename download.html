@@ -161,7 +161,7 @@
 			
 			function changtostr(liststr,regex,regex_g,n='\r\n'){
 				let str = "";
-				if(liststr.trim() && liststr){
+				if(liststr && liststr.trim() ){
 					if(regex.test(liststr)){
 						str = liststr.replace(regex_g,n);
 					}else{
