@@ -1,484 +1,757 @@
 <!DOCTYPE html>
 <html lang="zh">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>意休 | 玩一玩</title>
-		<meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
-		<link rel="icon" href="images/baobao.png" type="image/png">
-		<link rel="bookmark" href="images/baobao.png" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/othersize.css" />
-		<!-- <script src="js/jquery-1.11.3.min.js"></script> -->
-		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>意休 | 玩一玩</title>
+    <meta name="description" content="意休，意在通过高效实践来获得更多休息，是一个个人高效学习及前端实践的记录网站。" />
+    <link rel="icon" href="images/baobao.png" type="image/png">
+    <link rel="bookmark" href="images/baobao.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/othersize.css" />
+    <!-- <script src="js/jquery-1.11.3.min.js"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-	</head>
-
-
-	<body>
-		<!--头部区域-->
-		<header class="header">
-			<div class="hd">
-				<h1><a href="./index.html" class="logo">意休</a></h1>
-				<div class="sousuokuang">
-					<form action="https://www.baidu.com/s" target="_blank" rel="noopener" >
-						<input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" value="歌词 "/>
-						<input class="search" type="image" src="images/sousuo.png"  alt="搜索"/>
-					</form>
-					<span class="tishiwenben">+增加必备关键字 -排除关键字 双引号来限定整词 site intitle inurl filetype</span>
-				</div>
-				<nav class="nav">
-					<ul>
-						<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
-						<li><a href="./works.html"><i>Works</i><b>个人作品</b></a></li>
-						<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
-						<li><a href="./play.html"><i style="color: #ff557f;">Play</i><b>玩一玩</b></a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-
-		<!--美句区域   修改文字！！-->
-		<section class="words words_top">
-			<div class="word_title title"><i class="jiantou"></i>
-				<h2>叨叨一下</h2>
-			</div>
-		</section>
-
-		<!--内容框-->
-		<!-- <section class="play_back"> -->
-			<section class="play">
-				<div class="play_title title">
-					<h3>小句子</h3>
-					<h3>小记录</h3>
-					<h3>小歌单</h3>
-					<h3>小游戏</h3>
-					<h3>选事做</h3>
-				</div>
+    <style type="text/css">
+      .footer {
+        position: relative;
+        height: 72px;
+        margin: -50px auto 0 auto;
+        clear: both;
+        line-height: 72px;
+      }
+    </style>
+  </head>
 
 
-				<div class="play_con">
-					<ul>
-						<li>
-							<div class="out">
-								<!--第一个句子框-->
-								<div class="out_kuang kse1">
-									<div class="wen_kuang">
-										<p>你不能不自信，因为除却天赋，唯有自信能持续驱动。</p>
-										<p>什么是自信？自信可定义为相信自己有在任何困难的情况下完成任务的能力或信念。通过简单的重复再重复，不断练习失败，学别人好的地方远离坏影响，坚定自己的理解，自我激励，快速调整心态，相信自己会进步（切记，自信不是别人能给的，只有你自己能）。
-										</p>
-										<p>如果注定无缘遇到自己的伯乐，请善待自己，做自己的伯乐。</p>
-									</div>
-									<div class="tukuang"></div>
-								</div>
+  <body>
+    <!--头部区域-->
+    <header class="header">
+      <div class="hd">
+        <h1><a href="./index.html" class="logo">意休</a></h1>
+        <div class="sousuokuang">
+          <form action="https://www.baidu.com/s" target="_blank" rel="noopener">
+            <input class="kuang" type="text" name="wd" placeholder="搜索技能、应用、话题..." autocomplete="off" value="歌词 " />
+            <input class="search" type="image" src="images/sousuo.png" alt="搜索" />
+          </form>
+          <span class="tishiwenben">+增加必备关键字 -排除关键字 双引号来限定整词 site intitle inurl filetype</span>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
+            <li><a href="./works.html"><i>Works</i><b>个人作品</b></a></li>
+            <li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
+            <li><a href="./towork.html"><i style="color:#34a29e; font-weight: 700;">towork</i><b>工作</b></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-								<!--第二个句子框-->
-								<div class="out_kuang kse2">
-									<div class="wen_kuang" style="float:right">
-										<p>好的东西要多多拥有，比如自信；双面的东西要把握好度，究其目的，发挥积极效果，比如压力，缺点等。</p>
-										<p>面对不足 => 接受自己的不完美，只因这世界不完美的地方太多太多了。关注缺点的同时更要关注优点，发扬优点，用优点弥补缺点带来的影响。</p>
-										<p>面对选择 => 要做主动的人。基于自己的能力，没有选择时创造选择，有选择就看自己的目标，选最优。</p>
-										<p>面对比较 => 关于竞争，田忌赛马告诉我们要合理比较，做好战略规划；关于合作，周总理告诉我们求同存异；关于学习，取长补短。</p>
-									</div>
-									<div class="tukuang" style="float:left"></div>
-								</div>
+    <!--内容框-->
+    <section class="play">
 
-								<!--第三个句子框-->
-								<div class="out_kuang kse3">
-									<div class="wen_kuang">
-										<p>成长是需要经历和练习的。远离诱惑和安逸，刻意练习，一步又一步。如练表达，从对镜子，再对活人，公共场合积极发言，用肯定的语气说话。</p>
-										<p>自证预言指人会不自觉地按照自己的预言来行事，最终令预言发生。故不贴标签，这会固化自我；以开放的心态去面对未来，因为自己的能力不会是一成不变的，应会的都主动去学，该有的都努力去争取，技不如人时不自卑，鹤立鸡群时不自负，别高估自己的能力，也别低估自己的潜力。
-										</p>
-									</div>
-									<div class="tukuang"></div>
-								</div>
-							</div>
-						</li>
+      <div class="play_outer">
+
+        <!--美句区域   修改文字！！-->
+        <section class="words words_top">
+          <div class="word_title title"><i class="jiantou"></i>
+            <h2>叨叨一下</h2>
+          </div>
+        </section>
+
+        <div class="play_title title">
+          <h3>小句子</h3>
+          <h3>小记录</h3>
+          <h3>小歌单</h3>
+          <h3>小游戏</h3>
+          <h3>小轮子</h3>
+          <h3>选事做</h3>
+        </div>
+
+        <div class="play_con">
+          <ul>
+            <li>
+              <div class="out">
+                <!--第一个句子框-->
+                <div class="out_kuang kse1">
+                  <div class="wen_kuang">
+                    <p>你不能不自信，因为除却天赋，唯有自信能持续驱动。</p>
+                    <p>
+                      什么是自信？自信可定义为相信自己有在任何困难的情况下完成任务的能力或信念。通过简单的重复再重复，不断练习失败，学别人好的地方远离坏影响，坚定自己的理解，自我激励，快速调整心态，相信自己会进步（切记，自信不是别人能给的，只有你自己能）。
+                    </p>
+                    <p>如果注定无缘遇到自己的伯乐，请善待自己，做自己的伯乐。</p>
+                  </div>
+                  <div class="tukuang">
+                    <span class="under"></span>
+                    <span class="upper">点我</span>
+                  </div>
+                </div>
+
+                <!--第二个句子框-->
+                <div class="out_kuang kse2">
+                  <div class="wen_kuang" style="float:right">
+                    <p>好的东西要多多拥有，比如自信；双面的东西要把握好度，究其目的，发挥积极效果，比如压力，缺点等。</p>
+                    <p>面对不足 => 接受自己的不完美，善待自己。关注缺点的同时更要关注优点，发扬优点，用优点弥补缺点带来的影响。</p>
+                    <p>面对选择 => 要做主动的人。基于自己的能力，没有选择时创造选择，有选择就看自己的目标，选最优。</p>
+                    <p>面对比较 => 关于竞争，田忌赛马告诉我们要合理比较，做好战略规划；关于合作，周总理告诉我们求同存异；关于学习，取长补短。</p>
+                  </div>
+                  <div class="tukuang" style="float:left">
+                    <span class="under"></span>
+                    <span class="upper">点我</span>
+                  </div>
+                </div>
+
+                <!--第三个句子框-->
+                <div class="out_kuang kse3">
+                  <div class="wen_kuang">
+                    <p>成长是需要经历和练习的。远离诱惑和安逸，刻意练习，一步又一步。如练表达，从对镜子，再对活人，公共场合积极发言，用肯定的语气说话。</p>
+                    <p>
+                      自证预言指人会不自觉地按照自己的预言来行事，最终令预言发生。故不贴标签，这会固化自我；以开放的心态去面对未来，因为自己的能力不会是一成不变的，应会的都主动去学，该有的都努力去争取，技不如人时不自卑，鹤立鸡群时不自负，别高估自己的能力，也别低估自己的潜力。
+                    </p>
+                  </div>
+                  <div class="tukuang">
+                    <span class="under"></span>
+                    <span class="upper">点我</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="gushi">
+                <div class="gs_con">
+
+                  <div class="gs_text">
+                    <h5>我的小本本 &nbsp;&nbsp;<a href="./towork.html">（去记录）</a> <a href="./download.html">（去下载）</a></h5>
+                    <div class="show_localStorage"></div>
+                  </div>
+                </div>
 
 
-						<li>
-							<div class="gushi">
-								<div class="gs_con">
-									<!--栏目1  灵感-->
-									<!--栏目2  励志-->
-									<!--栏目3  练习-->
-									<!--栏目4  甜文-->
-									<!--栏目5  资源-->
-									<!--栏目6  清单-->
-									<!--栏目7  叨叨-->
-									<div class="gs_text">
-										<h5>我的小本本 &nbsp;&nbsp;<a href="./towork.html">（去记录）</a> <a href="./download.html">（去下载）</a></h5>
-										<div class="show_localStorage"></div>
-									</div>
-								</div>
+                <div class="navOpenBtn none-txtchosen">&equiv;</div>
+                <div class="navCloseBtn none-txtchosen">×</div>
 
-								<script>
-									// 关于获取localStorage数据
-									if (typeof(Storage) !== "undefined") {
-										// Store
-										if (localStorage.getItem("note")) {
-											var local_itemsStr = localStorage.getItem("note");
-											var local_items_list = [];
-											var local_items_data = '';
-											if (/\^+/.test(local_itemsStr)) {
-												local_items_list = local_itemsStr.split("^");
-												for (let i = 0; i < local_items_list.length; i++) {
-													local_items_data = "<p>" + "&nbsp;&lceil;" + (i + 1) + "&rfloor;&nbsp;&nbsp;&nbsp;" + local_items_list[i] +
-														"</p>";
-													$(".show_localStorage").append(local_items_data);
-												}
-											} else {
-												local_items_list[0] = local_itemsStr;
-												local_items_data = "<p>" + "&nbsp;&lceil;1&rfloor;&nbsp;&nbsp;&nbsp;" + local_items_list[0] + "</p>";
-												$(".show_localStorage").append(local_items_data);
-											}
-										} else {
-											$(".show_localStorage").html("咦？笔记本空空的哦，你还没有写过笔记呢~");
-										}
-									} else {
-										$(".show_localStorage").html("抱歉！您的浏览器不支持localStorage功能。");
-									}
-								</script>
-								<div class="navOpenBtn none-txtchosen">《</div>
-								<div class="navCloseBtn none-txtchosen">×</div>
+                <div class="gs_nav">
+                  <h4>灵感</h4>
+                  <p> <i>《歌词篇》</i> <i>《学习篇》</i> <i>《奇葩篇》</i> </p>
 
-								<div class="gs_nav">
-									<h4 style="margin-top: 136px;">灵感</h4>
-									<p> <i>《歌词篇》</i> <i>《学习篇》</i> <i>《奇葩篇》</i> </p>
+                  <h4>励志</h4>
+                  <p> <i>《山的那边》</i> <i>《我很重要》</i> <i>《"精彩极了"和"糟糕透了"》</i> <i>《匆匆》</i> <i>《劝学》</i></p>
 
-									<h4>励志</h4>
-									<p> <i>《山的那边》</i> <i>《我很重要》</i> <i>《"精彩极了"和"糟糕透了"》</i> <i>《匆匆》</i> <i>《劝学》</i></p>
+                  <h4>练习</h4>
+                  <p> <i>《工具快捷键》</i> <i>《练声》</i> <i>《计算机英语-前端》</i> <i>《前端易遗忘知识点》</i></p>
 
-									<h4>练习</h4>
-									<p> <i>《工具快捷键》</i> <i>《练声》</i> <i>《计算机英语-前端》</i> <i>《前端易遗忘知识点》</i></p>
+                  <h4>思考</h4>
+                  <p> <i>《世界之大》</i><i>《读史明智》</i><i>《状态分析》</i></p>
 
-									<h4>思考</h4>
-									<p> <i>《世界之大》</i><i>《读史明智》</i><i>《状态分析》</i></p>
+                  <h4>资源</h4>
+                  <p> <i>《说前端》</i> <i>《工具说》</i> <i>《方法论》</i></p>
 
-									<h4>资源</h4>
-									<p> <i>《说前端》</i> <i>《工具说》</i> <i>《方法论》</i></p>
+                  <h4>清单</h4>
+                  <p> <i>读书清单</i> <i>影视清单</i> <i>动漫清单</i> </p>
 
-									<h4>清单</h4>
-									<p> <i>读书清单</i> <i>影视清单</i> <i>动漫清单</i> </p>
+                  <h4>叨叨</h4>
+                  <p> <i>日常</i> <i>感悟</i> <i>关联</i> </p>
 
-									<h4>叨叨</h4>
-									<p> <i>日常</i> <i>感悟</i> <i>关联</i> </p>
+                </div>
+              </div>
 
-								</div>
-							</div>
+            </li>
 
-						</li>
+            <li>
+              <div class="gedan">
+                <h4>当你觉得累了，自己犯傻了</h4>
+                <img alt="歌单1二维码" />
+                <div class="lyrics">
+                  <p>如果你觉得自由是快乐 爰是犯了软弱陈旧的差错 又何必在乎别人怎么看 怎么说</p>
+                  <p>而我就像你没有一秒曾后悔 爱那么绵那么粘 管命运设定要谁离别 海岸线越让人流连 总是美得越蜿蜒 我们太倔强 连天都不忍再反对</p>
+                  <p> 字幕画面分割上演谍对谍 而谁是谁</p>
+                  <p> 对于第三人称的角度而言 也明白其实每个人都有缺陷 才不断的追寻 更好的自己</p>
+                  <br />
+                  <a href="https://www.kugou.com/yy/special/single/1383070.html" target="_blank" rel="noopener"> 听一听</a>
+                </div>
+              </div>
+              <div class="gedan">
+                <h4>碎片时刻，属于我的悠闲轻松时刻</h4>
+                <img alt="歌单2二维码" />
+                <div class="lyrics">
+                  <p>电影中角色也会有不同 每个小人物也拥有小的梦 大屏幕映不出现实中的暗涌 我只想和你牵着手 在雨中等彩虹</p>
+                  <p>慢慢的你会明白丢了的是什么 人生路本就是场获得与失的选择 迷路时想想当年阿婆怎么说</p>
+                  <p>吉他不难 学长他说这样弹吉他 T1213121~~~</p>
+                  <p>就像没有预定的剧情 感觉拉着我们在靠近 月光下牵你的手漫步旅行 听心跳和弦的声音</p>
+                  <br />
+                  <a href="https://www.kugou.com/yy/special/single/1513086.html" target="_blank" rel="noopener"> 听一听</a>
+                </div>
 
-						<li>
-							<div class="gedan">
-								<h4>当你觉得累了，自己犯傻了</h4>
-								<img src="images/sentence/gedanma1.jpg" alt="歌单1二维码" />
-								<div class="lyrics">
-									<p>如果你觉得自由是快乐 爰是犯了软弱陈旧的差错 又何必在乎别人怎么看 怎么说</p>
-									<p>而我就像你没有一秒曾后悔 爱那么绵那么粘 管命运设定要谁离别 海岸线越让人流连 总是美得越蜿蜒 我们太倔强 连天都不忍再反对</p>
-									<p> 字幕画面分割上演谍对谍 而谁是谁</p>
-									<p> 对于第三人称的角度而言 也明白其实每个人都有缺陷 才不断的追寻 更好的自己</p>
-									<br />
-									<a href="https://www.kugou.com/yy/special/single/1383070.html" target="_blank" rel="noopener" > 听一听</a>
-								</div>
-							</div>
-							<div class="gedan">
-								<h4>碎片时刻，属于我的悠闲轻松时刻</h4>
-								<img src="images/sentence/gedanma2.jpg" alt="歌单2二维码" />
-								<div class="lyrics">
-									<p>电影中角色也会有不同 每个小人物也拥有小的梦 大屏幕映不出现实中的暗涌 我只想和你牵着手 在雨中等彩虹</p>
-									<p>慢慢的你会明白丢了的是什么 人生路本就是场获得与失的选择 迷路时想想当年阿婆怎么说</p>
-									<p>吉他不难 学长他说这样弹吉他 T1213121~~~</p>
-									<p>就像没有预定的剧情 感觉拉着我们在靠近 月光下牵你的手漫步旅行 听心跳和弦的声音</p>
-									<br />
-									<a href="https://www.kugou.com/yy/special/single/1513086.html" target="_blank" rel="noopener" > 听一听</a>
-								</div>
+              </div>
+              <div class="gedan">
+                <h4>歌里的故事只有自己懂</h4>
+                <img alt="歌单3二维码" />
+                <div class="lyrics">
+                  <p>渔火点~聚散 欸乃声声浅淡 天近晚 炊烟袅飘沿斑</p>
+                  <p>执手相看 把酒当歌言欢 红尘路漫漫 愿今生与你共览</p>
+                  <p>生活中交错失望 越想念就越孤单 若再被寂寞迎头赶上 多感伤原来只是正常</p>
+                  <p>飞字有一双翅膀 在右边在成长 蝴蝶也有它的梦想 在风中流浪 流星粉墨登场有自己的光芒 为什么我学不会飞翔 从前的我太倔强 看不清自己的模样</p>
+                  <br />
+                  <a href="https://www.kugou.com/yy/special/single/1514174.html" target="_blank" rel="noopener"> 听一听</a>
+                </div>
 
-							</div>
-							<div class="gedan">
-								<h4>歌里的故事只有自己懂</h4>
-								<img src="images/sentence/gedanma3.jpg" alt="歌单3二维码" />
-								<div class="lyrics">
-									<p>渔火点~聚散 欸乃声声浅淡 天近晚 炊烟袅飘沿斑</p>
-									<p>执手相看 把酒当歌言欢 红尘路漫漫 愿今生与你共览</p>
-									<p>生活中交错失望 越想念就越孤单 若再被寂寞迎头赶上 多感伤原来只是正常</p>
-									<p>飞字有一双翅膀 在右边在成长 蝴蝶也有它的梦想 在风中流浪 流星粉墨登场有自己的光芒 为什么我学不会飞翔 从前的我太倔强 看不清自己的模样</p>
-									<br />
-									<a href="https://www.kugou.com/yy/special/single/1514174.html" target="_blank" rel="noopener" > 听一听</a>
-								</div>
+              </div>
 
-							</div>
+            </li>
 
-						</li>
-
-						<li>
-							<div class="youxi">
-								<div>
-									<b>打字</b>
-									<div class="g_box">
-										<a href="https://www.typingclub.com/" target="_blank" rel="noopener" >练字(英)</a>
-										<a href="https://dazi.kukuw.com/" target="_blank" rel="noopener" >练字(中英)</a>
-										<a href="https://www.keybr.com/" target="_blank" rel="noopener" >一直打字</a>
-									</div>
-								</div>
+            <li>
+              <div class="youxi">
+                <div>
+                  <b>打字</b>
+                  <div class="g_box">
+                    <a href="https://www.typingclub.com/" target="_blank" rel="noopener">练字(英)</a>
+                    <a href="https://dazi.kukuw.com/" target="_blank" rel="noopener">练字(中英)</a>
+                    <a href="https://www.keybr.com/" target="_blank" rel="noopener">一直打字</a>
+                  </div>
+                </div>
 
 
 
-								<div>
-									<b>创意</b>
-									<div class="g_box">
-										<a href="https://wordart.com/" target="_blank" rel="noopener" >文字云</a>
-										<a href="http://weavesilk.com/" target="_blank" rel="noopener" >粒子对称图</a>
-										<a href="http://pixelmap.amcharts.com/" target="_blank" rel="noopener" >世界地图</a>
-									</div>
-								</div>
+                <div>
+                  <b>创意</b>
+                  <div class="g_box">
+                    <a href="https://wordart.com/" target="_blank" rel="noopener">文字云</a>
+                    <a href="http://weavesilk.com/" target="_blank" rel="noopener">粒子对称图</a>
+                    <a href="http://pixelmap.amcharts.com/" target="_blank" rel="noopener">世界地图</a>
+                  </div>
+                </div>
 
 
-								<div>
-									<b>益智</b>
-									<div class="g_box">
-										<a href="https://nonogram.frvr.com/" target="_blank" rel="noopener" >填格子</a>
-									</div>
-								</div>
+                <div>
+                  <b>益智</b>
+                  <div class="g_box">
+                    <a href="https://nonogram.frvr.com/" target="_blank" rel="noopener">填格子</a>
+                  </div>
+                </div>
 
-								<div>
-									<b>代码</b>
-									<div class="g_box">
-										<a href="https://tob.codemao.cn/tower/#/home/" target="_blank" rel="noopener" >题通关</a>
-										<a href="https://box.codemao.cn/" target="_blank" rel="noopener" >世界建造</a>
-									</div>
-								</div>
+                <div>
+                  <b>代码</b>
+                  <div class="g_box">
+                    <a href="https://tob.codemao.cn/tower/#/home/" target="_blank" rel="noopener">题通关</a>
+                    <a href="https://box.codemao.cn/" target="_blank" rel="noopener">世界建造</a>
+                  </div>
+                </div>
 
-							</div>
-						</li>
-						<!-- 随机选择 -->
-						<li>
+              </div>
+            </li>
 
-							<dl class="suiji_choose">
-								<dd><span>精致生活</span>
-									<div class="back_doit">（点击一下，随机抽取）</div>
-								</dd>
-								<dd><span>生活享乐</span>
-									<div class="back_doit">（点击一下，随机抽取）</div>
-								</dd>
-								<dd><span>解决疑难</span>
-									<div class="back_doit">（点击一下，随机抽取）</div>
-								</dd>
-								<dd><span>遇见世界</span>
-									<div class="back_doit">（点击一下，随机抽取）</div>
-								</dd>
-								<dd><span>快乐运动</span>
-									<div class="back_doit">（点击一下，随机抽取）</div>
-								</dd>
-								<dd><span>主动挖掘</span>
-									<div class="back_doit">（点击一下，随机抽取）</div>
-								</dd>
-							</dl>
-						</li>
-					</ul>
-				</div>
-
-		<!-- 	</div> -->
-
-		</section>
-		
-		
-		<!--底部区域、填补网址2个-->
-		<footer class="footer">
-			&nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="about.html" target="_blank" rel="noopener" >关于我 | 网站帮助</a>
-		</footer>
-		<script>
-			// function open_tangkuang(){
-			// 	alert("打算加个“加密”功能，做个刮奖效果。");
-			// }
+            <li>
+              <div class="example">
+                <!-- 进度圈和步骤条 -->
+                <div class="tip">
+                  <div class="process-back"></div>
+                  <div class="process-order">
+                    <span class="item now">介绍</span>
+                    <span class="item">刮刮乐<b></b></span>
+                    <span class="item">放大镜</span>
+                    <b class="item">遮罩动画</b>
+                  </div>
+                  <div class="process-btn">下一步</div>
+                  <!-- <canvas class="ctx-decoration" width="240" height="180"></canvas> -->
+                  <div class="process-circle">
+                    <span class="circle-number">0%</span>
+                  </div>
+                </div>
+                <div class="content-wrapper">
+                  <div class="example-content">
 
 
-			$(function() {
-
-				var randomChData = [];
-				// 用js配合jquery的ajax来访问文件数据
-				function playAjax(p_url, choo) {
-					$.ajax({
-						url: p_url,
-						dataType: "json",
-						success: function(res) {
-							var arr = res[choo];
-							if (choo == "play") {
-								var len = arr.length;
-								while (len) {
-									var num = Math.ceil(Math.random() * 10) - 1;
-									if (num < len) {
-										var sentence = "<p>" + arr[num] + "</p>";
-										$(".words").append(sentence);
-										return 0;
-									}
-								}
-							}
-							if (choo == "gushi") {
-								this.gushi(res);
-							}
-							if (choo == "randomThings") {
-								randomChData = res;
-							}
-						},
-
-						gushi: function(obj) {
-							var lanmu_con = '';
-							for (let i = 0; i < 7; i++) {
-								let arr = obj[i];
-								var lanmu = arr.length;
-								for (var j = 0; j < lanmu; j++) {
-									var oLanmu = arr[j];
-									var title = oLanmu.title;
-									var content = oLanmu.content;
-									var con = content.map(item => '<p>' + item + '</p>');
-									lanmu_con += '<div class="gs_text"><h5>' + title + '</h5>' + con.join("") + '</div>';
-								}
-								$(".gushi .gs_con").append('<div class="gs_lanmu">' + lanmu_con + '</div>');
-								lanmu_con = "";
-							}
-						}
-					});
-				}
-
-				playAjax("data/sentence.json", "play");
-				playAjax("data/play_data.json", 'gushi');
-				playAjax("data/play_random_things.json", 'randomThings');
-
-				function chooseTest(index) {
-					$(".back_doit").eq(index).html("");
-					var sjxzList = randomChData[index];
-					var num_length = sjxzList.length;
-					var suji_num = 0;
-					suji_num = Math.ceil(Math.random() * num_length) - 1;
-					var sj_one = sjxzList[suji_num];
-					$(".back_doit").eq(index).append(sj_one);
-				}
-
-				$(".suiji_choose dd").click(function() {
-					var ind = $(this).index().toString();
-					chooseTest(ind);
-				})
+                    <!-- 介绍 -->
+                    <div class="piece introduce">
+                      <div class="show-area">
+                        <span class="text">效果区域</span>
+                        <span>关于鼠标操作的案例，需要先点击一下红点，提高鼠标使用的准确性。</span>
+                      </div>
+                      <div class="summary-area">
+                        <span class="text">原理说明区</span>
+                        <span>主要显示原理，具体的可查看代码。</span>
+                      </div>
+                    </div>
 
 
-				//头部中英切换效果
+                    <!-- 刮刮乐 -->
+                    <div class="piece scratch-card">
+                      <div class="show-area">
+                        <div class="point"></div>
+                        <section class="awards">
+                          <span>恭喜中奖</span>
+                        </section>
+                        <canvas id="awardsCtx" width="322px" height="370px"></canvas>
+                      </div>
+                      <div class="summary-area">
+                        <p>刮刮乐技术原理：涂层使用两个图形合成方式实现 </p>
+                        <p>注意点：矩形和圆形的绘制要自行调整数据</p>
+                        <p>① 准备-获取canvas元素变量c，并设上下文</p>
+                        <p>var ctx=c.getContext("2d");</p>
+                        <p>② 画涂层</p>
+                        <p>ctx.fillStyle="#999999"; ctx.fillRect(0,0,320,368); </p>
+                        <p>③ 关键点：绘图组合模式为相减，新的消旧涂层</p>
+                        <p>ctx.globalCompositeOperation = "destination-out";</p>
+                        <p>④ 以鼠标指针为圆心创建圆，即擦除</p>
+                        <div>
+                          c.addEventListener("mousemove",function(e){
+                          ctx.arc(e.clientX-pointX,e.clientY-pointY,40,0,2*Math.PI);
+                          ctx.fill();
+                          });
+                        </div>
+                      </div>
+                    </div>
 
-				$(".hd .nav li").hover(function() {
-					$(this).find("a").stop().animate({
-						top: -66
-					})
-				}, function() {
-					$(this).find("a").stop().animate({
-						top: 0
-					})
-				})
+                    <!-- 放大镜 -->
+                    <div class="piece scale">
+                      <div class="show-area">
+                        <div class="point"></div>
+                        <div class="quyu1">
+                          <img alt="选区图" />
+                          <div class="mask"></div>
+                        </div>
+                        <div class="quyu2">
+                          <img class="scale-pic" alt="放大图">
+                        </div>
+                      </div>
+                      <div class="summary-area">
+                        <p>放大镜技术原理：一图缩小，一图显原样</p>
+                        <p>获取三个对象：遮罩框，遮罩框所在的原框A，放大区域中的图片</p>
+                        <p>(1)遮罩框所在的原框-绑定鼠标移动事件，里面获取遮罩框左上角的坐标位置并限制边界；</p>
+                        <p>(2)设置遮罩框和放大区域图片的绝对定位数据。</p>
+                        <p>注意点：</p>
+                        <p>① 框A的宽高大小减去遮罩框的宽高大小得到限制边界的数值（多层嵌套会复杂些）；</p>
+                        <p>② 遮罩框和放大框设置成比例（这里是3），该比例同时是框A与放大框图片的比例（320px 960px）；</p>
+                        <p>③ 剩下的注意布局，定位和隐藏就OK了。</p>
+                      </div>
+                    </div>
 
-				//play选项卡的制作
-				$(".play_con li").eq(0).show().siblings().hide();
-				$(".play_title h3").eq(0).addClass("active");
-
-				$(".play_title h3").click(function() {
-					$(this).addClass("active").siblings().removeClass("active");
-					var idx = $(this).index();
-					$(".play_con li").eq(idx).fadeIn().siblings().fadeOut();
-				})
-
-				//句子部分的 小图 1/2/3.jpg 加载( 96*96 )
-				$(".out_kuang").hover(function() {
-					$(this).find(".tukuang").css("background", "url(images/sentence/0.jpg)");
-
-				}, function() {
-					var ids = $(this).index() + 1;
-					var juzi_url = "url(images/sentence/" + ids + ".jpg) no-repeat";
-					$(this).find(".tukuang").css("background", juzi_url);
-
-				})
-				//故事选项卡
-				// $(".gs_nav p").first().show();  // 故事列表第一个默认展开
-				$(".gs_con .gs_text").first().show();
-				gslanmu_id = 0;
-				$(".gs_nav h4").click(function() {
-					gslanmu_id = $(this).index() / 2;
-					//$(".gs_lanmu").eq(gslanmu_id)
-					$(this).next("p").slideToggle().siblings("p").slideUp();
-					$(".gs_con .gs_lanmu").eq(gslanmu_id).show().siblings().hide();
-					//故事内容的对应	
-				});
-				$(".gs_nav  i").click(function() {
-					gs_id = $(this).index();
-
-					$(".gs_con .gs_lanmu").eq(gslanmu_id).children().eq(gs_id).show().siblings(".gs_text").hide();
-					$(this).css("color", "#aaa");
-				});
-
-				// 小屏幕下的故事目录展开
-				$(".navOpenBtn").click(function() {
-					$(".gs_nav").show();
-					$(".navCloseBtn").show();
-				});
-				$(".navCloseBtn").click(function() {
-					$(".gs_nav").hide();
-					$(this).hide();
-				});
-
-				//歌单图gedan1/2/3.jpg加载( 300*400 )
-				function gedantu() {
-					for (var i = 1; i < 4; i++) {
-						var gd_src = "url(images/sentence/gedan" + i + ".jpg)";
-						$(".play_con .gedan").eq(i - 1).css("background-image", gd_src);
-					}
-				}
-				gedantu();
-
-				//歌单的划过效果
-				$(".play_con .gedan").hover(function() {
-					$(this).find("p,a").css("display", "block");
-					$(this).css("background-image", "none");
-					$(this).find("img").css("display", "none");
-				}, function() {
-					$(this).find("p,a").css("display", "none");
-					$(this).find("img").css("display", "");
-
-					gedantu();
-				})
-
-
-				//循环设置随机游戏圈圈大小
-				var game_num = $(".youxi>div").length;
-				for (let b = 1; b <= game_num; b++) {
-					var num = parseInt(Math.random() * 60);
-					var circle_value = 140 + num;
-					var d = parseInt(circle_value / 2);
-					var cvirVal = circle_value + "px";
-					var thisCircle = $(".youxi>div").eq(b - 1);
-					thisCircle.css({
-						width: circle_value,
-						height: circle_value,
-						"border-radius": d,
-						margin: d,
-						lineHeight: cvirVal
-					})
-					// $(".youxi .g_box").css("marginLeft",d);
-				}
+                    <!-- 遮罩 -->
+                    <div class="piece cover">
+                      <div class="show-area">
+                        <div class="light-wrapper">
+                          <span class="light"></span>
+                          <span class="light"></span>
+                          <span class="light"></span>
+                        </div>
+                        <canvas class="covercan ctx-coverall" width="360" height="408"></canvas>
+                        <canvas class="covercan tree" width="360" height="408" style="display: none;"></canvas>
+                        <canvas class="covercan flowers" width="360" height="408"></canvas>
+                        <canvas class="covercan ctx-cover" width="360" height="408"></canvas>
+                      </div>
+                      <div class="summary-area">
+                        <p>主要的三个部分：遮罩剪裁，粒子，光线</p>
+                        <p>① 遮罩剪裁利用canvas的清除画布clearRect()，还包含图像绘制，缩放比例，数据获取以及灰度绘制。</p>
+                        <p>new Image()对象创建 | image.src赋值 | image.onload = function(){}图片加载后操作</p>
+                        <p>ctx.drawImage(image, 0, 0, ow, oh, 0, 0, height * ow / oh, height);</p>
+                        <p>// ow, oh为图像原本的宽高，取较短边为变量边，此处为height</p>
+                        <p>var pixels = ctx.getImageData(0, 0, height * ow / oh, height);</p>
+                        <p>// 获取哪个范围的图片数据形成pixels，并取pixels.data数组的每一项的值进行灰度处理</p>
+                        <p>ctx.putImageData(pixels, 0, 0); // 把pixels绘制出来</p>
+                        <p>② 粒子效果--粒子创立和粒子的移动</p>
+                        <p>花瓣参数较多，有 x，y，sx-x轴偏移值，sy-y轴偏移值，color颜色，r半径，deg旋转角度，共7项。</p>
+                        <p>③ 光线是CSS样式效果，background-image: linear-gradient(); box-shadow设置。</p>
+                      </div>
+                    </div>
 
 
+                  </div>
+                </div>
 
-				//鼠标滑上去其他游戏圈圈的具体内容消失
-				$(".youxi>div").hover(function() {
-					$(this).find(".g_box").css("display", "block");
-					$(this).siblings().find(".g_box").css("display", "none");
-					var a_length = $(this).find("a").length;
-					var aNodes = $(this).find("a");
-					// console.log(a_length);
-					for (let a = -2; a < a_length - 2; a++) {
-						let deg = a * 16;
-						let rdeg = "rotate(" + deg + "deg)";
-						aNodes.eq(a + 2).css("transform", rdeg);
-					}
-				});
+              </div>
 
-			})
-		</script>
-	</body>
+            </li>
+
+            <!-- 随机选择 -->
+            <li>
+
+              <dl class="suiji_choose">
+                <dd><span>精致生活</span>
+                  <div class="back_doit">（点击一下，随机抽取）</div>
+                </dd>
+                <dd><span>生活享乐</span>
+                  <div class="back_doit">（点击一下，随机抽取）</div>
+                </dd>
+                <dd><span>解决疑难</span>
+                  <div class="back_doit">（点击一下，随机抽取）</div>
+                </dd>
+                <dd><span>遇见世界</span>
+                  <div class="back_doit">（点击一下，随机抽取）</div>
+                </dd>
+                <dd><span>快乐运动</span>
+                  <div class="back_doit">（点击一下，随机抽取）</div>
+                </dd>
+                <dd><span>主动挖掘</span>
+                  <div class="back_doit">（点击一下，随机抽取）</div>
+                </dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <footer class="footer">
+        &nbsp;<h1>意休，让生活更高效一点</h1>&nbsp;&nbsp;&nbsp;&nbsp;<a href="about.html" target="_blank" rel="noopener">关于我 |
+          网站帮助</a>
+      </footer>
+
+    </section>
+
+
+    <!-- 页面数据加载 -->
+    <script>
+      $(function() {
+        var randomChData = [];
+        // 用js配合jquery的ajax来访问文件数据
+        function playAjax(p_url, choo) {
+          $.ajax({
+            url: p_url,
+            dataType: "json",
+            success: function(res) {
+              var arr = res[choo];
+              if (choo == "play") {
+                var len = arr.length;
+                while (len) {
+                  var num = Math.ceil(Math.random() * 10) - 1;
+                  if (num < len) {
+                    var sentence = "<p>" + arr[num] + "</p>";
+                    $(".words").append(sentence);
+                    return 0;
+                  }
+                }
+              }
+              if (choo == "gushi") {
+                this.gushi(res);
+              }
+              if (choo == "randomThings") {
+                randomChData = res;
+              }
+            },
+
+            gushi: function(obj) {
+              var lanmu_con = '';
+              for (let i = 0; i < 7; i++) {
+                let arr = obj[i];
+                var lanmu = arr.length;
+                for (var j = 0; j < lanmu; j++) {
+                  var oLanmu = arr[j];
+                  var title = oLanmu.title;
+                  var content = oLanmu.content;
+                  var con = content.map(item => '<p>' + item + '</p>');
+                  lanmu_con += '<div class="gs_text"><h5>' + title + '</h5>' + con.join("") + '</div>';
+                }
+                $(".gushi .gs_con").append('<div class="gs_lanmu">' + lanmu_con + '</div>');
+                lanmu_con = "";
+              }
+            }
+          });
+        }
+
+        playAjax("data/sentence.json", "play");
+        playAjax("data/play_data.json", 'gushi');
+        playAjax("data/play_random_things.json", 'randomThings');
+
+        function chooseTest(index) {
+          $(".back_doit").eq(index).html("");
+          var sjxzList = randomChData[index];
+          var num_length = sjxzList.length;
+          var suji_num = 0;
+          suji_num = Math.ceil(Math.random() * num_length) - 1;
+          var sj_one = sjxzList[suji_num];
+          $(".back_doit").eq(index).append(sj_one);
+        }
+
+        $(".suiji_choose dd").click(function() {
+          var ind = $(this).index().toString();
+          chooseTest(ind);
+        })
+
+        //头部中英切换效果
+
+        $(".hd .nav li").hover(function() {
+          $(this).find("a").stop().animate({
+            top: -66
+          })
+        }, function() {
+          $(this).find("a").stop().animate({
+            top: 0
+          })
+        })
+
+
+
+        //句子部分的 小图 1/2/3.jpg 加载( 96*96 )
+        $(".out_kuang").hover(function() {
+          $(this).find(".upper").html("");
+          $(this).find(".upper").css("z-index", -1);
+
+        }, function() {
+          var ids = $(this).index() + 1;
+          $(this).find(".upper").css("z-index", 0);
+          var juzi_url = "url(./images/sentence/" + ids + ".jpg) no-repeat";
+          $(this).find(".upper").css("background", juzi_url);
+        })
+
+
+        //play选项卡的制作
+        $(".play_con li").eq(0).show().siblings().hide();
+        $(".play_title h3").eq(0).addClass("active");
+
+        $(".play_title h3").click(function() {
+          $(".play").scrollTop(130);
+
+          $(this).addClass("active").siblings().removeClass("active");
+          var idx = $(this).index();
+          if (idx === 1) {
+            $(".gushi .gs_nav").css("background-image", "url(./images/touxiang_4b.png)");
+          }
+          if (idx === 2) {
+            gedantu();
+          }
+          if (idx === 3) {
+            $(".play_con .youxi").css("background-image", "url(./images/sentence/youxi.jpg)");
+          }
+          if (idx === 4) {
+            $(".footer").css("display", "none");
+            exampleStar();
+            $(".awards").css("background-image", "url(./images/forcanvas.jpg)");
+            $(".quyu1 img").attr("src", "./images/forscale.jpg");
+            $(".quyu2 img").attr("src", "./images/forscale.jpg");
+            $(".cover .show-area").css("background-image", "url(./images/forframe.jpg)");
+          } else {
+            $(".footer").css("display", "block");
+          }
+          if (idx === 5) {
+            $(".suiji_choose").css("background-image", "url(./images/huawen.jpg)");
+          }
+
+          $(".play_con li").eq(idx).fadeIn().siblings().fadeOut();
+        })
+
+        //故事选项卡
+        // $(".gs_nav p").first().show();  // 故事列表第一个默认展开
+        $(".gs_con .gs_text").first().show();
+        gslanmu_id = 0;
+        $(".gs_nav h4").click(function() {
+          gslanmu_id = $(this).index() / 2;
+          //$(".gs_lanmu").eq(gslanmu_id)
+          $(this).next("p").slideToggle().siblings("p").slideUp();
+          $(".gs_con .gs_lanmu").eq(gslanmu_id).show().siblings().hide();
+          //故事内容的对应	
+        });
+        $(".gs_nav  i").click(function() {
+          gs_id = $(this).index();
+
+          $(".gs_con .gs_lanmu").eq(gslanmu_id).children().eq(gs_id).show().siblings(".gs_text").hide();
+          $(this).css("color", "#aaa");
+        });
+
+        // 小屏幕下的故事目录展开
+        $(".navOpenBtn").click(function() {
+          $(".gs_nav").show();
+          $(".navCloseBtn").show();
+        });
+        $(".navCloseBtn").click(function() {
+          $(".gs_nav").hide();
+          $(this).hide();
+        });
+
+        //歌单图gedan1/2/3.jpg加载( 300*400 )
+        function gedantu() {
+          for (var i = 1; i < 4; i++) {
+            var gd_src = "url(./images/sentence/gedan" + i + ".jpg)";
+            var gdm_src = "./images/sentence/gedanma" + i + ".jpg";
+            $(".play_con .gedan").eq(i - 1).css("background-image", gd_src);
+            $(".gedan img").eq(i - 1).attr("src", gdm_src);
+          }
+        }
+
+
+        //歌单的划过效果
+        $(".play_con .gedan").hover(function() {
+          $(this).find("p,a").css("display", "block");
+          $(this).css("background-image", "none");
+          $(this).find("img").css("display", "none");
+        }, function() {
+          $(this).find("p,a").css("display", "none");
+          $(this).find("img").css("display", "");
+
+          gedantu();
+        })
+
+
+        //循环设置随机游戏圈圈大小
+        var game_num = $(".youxi>div").length;
+        for (let b = 1; b <= game_num; b++) {
+          var num = parseInt(Math.random() * 60);
+          var circle_value = 140 + num;
+          var d = parseInt(circle_value / 2);
+          var cvirVal = circle_value + "px";
+          var thisCircle = $(".youxi>div").eq(b - 1);
+          thisCircle.css({
+            width: circle_value,
+            height: circle_value,
+            "border-radius": d,
+            margin: d,
+            lineHeight: cvirVal
+          })
+          // $(".youxi .g_box").css("marginLeft",d);
+        }
+
+
+
+        //鼠标滑上去其他游戏圈圈的具体内容消失
+        $(".youxi>div").hover(function() {
+          $(this).find(".g_box").css("display", "block");
+          $(this).siblings().find(".g_box").css("display", "none");
+          var a_length = $(this).find("a").length;
+          var aNodes = $(this).find("a");
+          for (let a = -2; a < a_length - 2; a++) {
+            let deg = a * 16;
+            let rdeg = "rotate(" + deg + "deg)";
+            aNodes.eq(a + 2).css("transform", rdeg);
+          }
+        });
+
+      })
+    </script>
+
+
+    <!-- 笔记本记录数据 -->
+    <script>
+      // 关于获取localStorage数据
+      if (typeof(Storage) !== "undefined") {
+        // Store
+        if (localStorage.getItem("note")) {
+          var local_itemsStr = localStorage.getItem("note");
+          var local_items_list = [];
+          var local_items_data = '';
+          if (/\^+/.test(local_itemsStr)) {
+            local_items_list = local_itemsStr.split("^");
+            for (let i = 0; i < local_items_list.length; i++) {
+              local_items_data = "<p>" + "&nbsp;&lceil;" + (i + 1) + "&rfloor;&nbsp;&nbsp;&nbsp;" +
+                local_items_list[i] +
+                "</p>";
+              $(".show_localStorage").append(local_items_data);
+            }
+          } else {
+            local_items_list[0] = local_itemsStr;
+            local_items_data = "<p>" + "&nbsp;&lceil;1&rfloor;&nbsp;&nbsp;&nbsp;" + local_items_list[0] +
+              "</p>";
+            $(".show_localStorage").append(local_items_data);
+          }
+        } else {
+          $(".show_localStorage").html("咦？笔记本空空的哦，你还没有写过笔记呢~");
+        }
+      } else {
+        $(".show_localStorage").html("抱歉！您的浏览器不支持localStorage功能。");
+      }
+    </script>
+
+    <script src="./js/examples.js"></script>
+    <!-- 小轮子-效果 -->
+    <script>
+      var pointX = 246;
+      var pointY = 342;
+      var opoints = document.getElementsByClassName("point");
+      opoints[0].onclick = getPoint;
+      opoints[1].onclick = getPoint;
+
+      function getPoint(e) {
+        // 此数值在刮刮乐和放大镜都会用到
+        pointX = e.clientX;
+        pointY = e.clientY;
+      }
+
+      function exampleStar() {
+        // 刮刮乐
+        var oAwardsCtx = document.getElementById("awardsCtx");
+        guaguale(oAwardsCtx, "#999", 320, 368);
+        // [参考] guaguale(oCover, color, width, height)
+
+        // 放大镜
+        var oDiv = document.getElementsByClassName("quyu1")[0];
+        var oMask = document.getElementsByClassName("mask")[0];
+        var oImg = document.getElementsByClassName("scale-pic")[0];
+        var oOuter = document.getElementsByClassName("play_outer")[0];
+        var oPlayTitle = document.getElementsByClassName("words")[0];
+        picToBiger(oDiv, oMask, oImg, 320, 370, 50, 50, 3);
+        //[参考] picToBiger(nodeOrigin, oMask, oLargerPic, nodeOriginWidth, nodeOriginHeight,maskW, maskH, times)
+
+        // 遮罩动画  渐变  打光 流动的水
+        const WIDTH = 360;
+        const HEIGHT = 408;
+        var ctxCover = document.getElementsByClassName("ctx-cover")[0]; // 剪切层
+        var ctxCoverall = document.getElementsByClassName("ctx-coverall")[0]; // 灰层
+        var ctxc = ctxCoverall.getContext("2d");
+
+        function starFrame() {
+          for (let j = 0; j <= 121; j++) {
+            var timer = setTimeout(function() {
+              ctxc.clearRect(0, 0, 3 * j, HEIGHT);
+            }, 50 * j)
+          }
+          clearTimeout(timer);
+        }
+        grayPicture(ctxCover, ctxc, HEIGHT);
+
+        // 小轮子 花瓣 //两个canvas 
+        var tree = document.getElementsByClassName("tree")[0];
+        var flower = document.getElementsByClassName("flowers")[0];
+        flowerTree(tree, flower);
+
+        // 小轮子 下一步
+        var nowExample = 0;
+        var oExampleItems = document.querySelectorAll(".process-order .item");
+        var exampleItemsLen = oExampleItems.length;
+        var oProcessCircle = document.querySelector(".process-circle");
+        var oCircleNumber = document.getElementsByClassName("circle-number")[0];
+        var oExampleContent = document.querySelector(".example-content");
+        var oBack = document.querySelector(".process-back");
+        var circleToNumber = ["one", "two", "three", "four"];
+        var oProcessbtn = document.querySelector(".process-btn");
+
+        oProcessbtn.onclick = function(e) {
+          var itemWidth = oExampleItems[0].offsetWidth;
+          var oPlay = document.querySelector(".play");
+          oPlay.scrollTo({top:130,behavior: 'smooth'}); // 滚动到某位置
+          
+          if (nowExample < exampleItemsLen - 1) {
+            oExampleItems[nowExample].classList.add("active");
+            oProcessCircle.classList.add(circleToNumber[nowExample]);
+            nowExample++;
+            oExampleItems[nowExample].classList.add("now");
+            oCircleNumber.innerText = nowExample * 25 + '%';
+            oExampleContent.style.top = nowExample * (-626) + 'px';
+            oBack.style.width = 111 + itemWidth * nowExample + 'px';
+            if (nowExample === 3) {
+              var oLight = document.getElementsByClassName("light-wrapper")[0];
+              var time1 = setTimeout(function() {
+                starFrame();
+              }, 2000);
+              var time2 = setTimeout(function() {
+                ctxCover.style.display = "block";
+                oLight.style.display = "block";
+                flower.style.display = "block";
+              }, 8000);
+            }
+          } else {
+            var ele = e.target || e.srcElement;
+            ele.innerText = "已完成";
+            ele.classList.add("finish");
+            oExampleItems[nowExample].classList.add("active");
+            oCircleNumber.innerText = '100%';
+            oProcessCircle.classList.add("four");
+            oBack.style.width = document.querySelector(".tip").offsetWidth + 'px';
+            oBack.classList.add('finish');
+            clearTimeout(time1);
+            clearTimeout(time2);
+          }
+        }
+      }
+    </script>
+
+
+  </body>
 
 </html>

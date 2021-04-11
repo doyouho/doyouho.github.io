@@ -3,7 +3,7 @@
 		{
 		"title":"《歌词篇》",
 		"content":[
-			"节目:<a href='http://music.ifkdy.com/' target='_blank' rel='noopener' >音乐搜索</a><a href='http://tv.cctv.com/lm/jdylc/index.shtml' target='_blank' rel='noopener' >《经典咏流传》</a><a href='https://www.iqiyi.com/u/fav' target='_blank' rel='noopener' >《其他唱歌综艺》</a>",
+			"节目: <a href='http://music.ifkdy.com/' target='_blank' rel='noopener' >音乐搜索</a><a href='http://tv.cctv.com/lm/jdylc/index.shtml' target='_blank' rel='noopener' >《经典咏流传》</a><a href='https://www.iqiyi.com/u/fav' target='_blank' rel='noopener' >《其他唱歌综艺》</a>",
 			"啊参一生参不透这条难题，吞风吻雨葬落日未曾彷徨，欺山赶海践雪径也未绝望，拈花把酒偏折煞世人情狂，凭这两眼与百臂或千手不能防。《难念的经》",
 			"也许我一直害怕有答案，也许爱静静在风里打转，离开释怀，很短暂又重来，有时候自问自答。我不要困难把我们击散，我责备自己那么不勇敢，遗憾没有到达，拥抱过还是害怕，用力推开你我依然留下。有一束光，那瞬间 是什么痛得刺眼，你的视线 是谅解，为什么舍不得熄灭，我逆着光却看见《逆光》",
 			"放弃所有，抛下所有，让我漂流在安静的夜夜空里。你也不必牵强再说爱我，反正我的灵魂已片片掉落，慢慢的拼凑，慢慢的拼凑，拼凑成一个完全不属于真正的我。《夜夜夜夜》",
@@ -40,7 +40,7 @@
 		{	
 			"title":"《学习篇》",
 			"content":[
-				"<a href='https://so.gushiwen.cn/shiwenv_c743b1310a1c.aspx' target='_blank' rel='noopener' >古代的劝学</a>，<a href='https://www.xue8nav.com/'  target='_blank' rel='noopener' >线上学习导航(学吧导航)</a>，<a href='https://topbook.cc/overview' target='_blank' rel='noopener' >个人修炼(Topbook)</a>",
+				"<a href='https://so.gushiwen.cn/shiwenv_c743b1310a1c.aspx' target='_blank' rel='noopener' >古代的劝学</a>，<a href='https://www.xue8nav.com/'  target='_blank' rel='noopener' >线上学习导航(学吧导航)</a>，<a href='https://topbook.cc/overview' target='_blank' rel='noopener' >个人修炼(Topbook)</a>，<a href='https://uiiiuiii.com/inspirations/illustrations' target='_blank' rel='noopener' >插画观赏</a>",
 				"状态确认：主动学习VS被动学习 &nbsp; 系统学习VS碎片化学习 &nbsp; 向内学习VS向外学习 &nbsp; 专业学习VS跨界学习",
 				"把书读厚，再把书读薄。内在的道理就是阅读大量的案例之后，将信息中的规律内化成自己的，然后总结出自己的一套方法，巩固运用。",
 				"被需要也是很好的一个激励学习的途径。",
@@ -256,7 +256,7 @@
 		{
 			"title":"《练声》",
 			"content":[
-				"资源：<a href='https://music.163.com/#/song?id=375085' target='_blank' rel='noopener' >《中国话》</a>， <a href='http://www.pthxuexi.com/60pages_list1.html' target='_blank' rel='noopener' >普通话文章练习</a>， <a href='https://m.dxsbb.com/news/list_72.html' target='_blank' rel='noopener' >演讲</a>， <a href='https://open.163.com/' target='_blank' rel='noopener' >网易公开课</a>",
+				"资源： <a href='https://music.163.com/#/song?id=375085' target='_blank' rel='noopener' >《中国话》</a>， <a href='http://www.pthxuexi.com/60pages_list1.html' target='_blank' rel='noopener' >普通话文章练习</a>， <a href='https://m.dxsbb.com/news/list_72.html' target='_blank' rel='noopener' >演讲</a>， <a href='https://open.163.com/' target='_blank' rel='noopener' >网易公开课</a>",
 				"（1）咬字清晰：练练绕口令/快歌 --- 绕口令大全：http://rkl.intowz.com/",
 				"（2）语言表达力：演讲/辩论[语气，语调，情感，节奏]",
 				"（3）口腔操（哔哩哔哩的胖雪人Ozu）https://www.bilibili.com/video/av53451608?zw " ,
@@ -309,7 +309,11 @@
 		{
 			"title":"《前端易遗忘知识点》",
 			"content":[
-				"3d开启场景--父级添加 transform-style:preserve-3d; &nbsp; &nbsp; perspective:600px;"
+				"3d开启场景--父级添加 transform-style:preserve-3d; &nbsp; &nbsp; perspective:600px;",
+        "",
+        "ctx.globalCompositeOperation = 'destination-out'; 两图混合情况，此处用作刮刮乐",
+        "ctx.globalCompositeOperation = 'source-in'; 两图混合情况，此处用作遮罩，第一次画形状，第二次画遮罩内容",
+        "记忆法-想想最后保留谁  [source新/destination旧]-[atop/in/out/over] (in与out是直接切，atop与over是前后两图都保留了一部分，atop是容纳，over是合并；另外还有lighter合并且融合，copy只留新的，xor取不相交部分)"
 			]
 		}
 	],

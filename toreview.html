@@ -319,7 +319,6 @@
 				}
 			}
 			
-
       // 初始化数据
       function origin() {
 				if (localStorage.getItem("allDayNum")) {
@@ -1233,11 +1232,13 @@
 			}
 	 // localStorage.removeItem("collectSortBox");
    // localStorage.removeItem("saveData");
-			 window.onbeforeunload = function(e) {
-				console.log('即将离开本页面，请留意数据顺序的保存再离开。');
-				return 1;
-			 };
+   
     </script>
-	
+    <script>
+      window.onbeforeunload = function(e) {
+        console.log('即将离开本页面，请留意数据顺序的保存再离开。');
+        return 1;
+      };
+    </script>
   </body>
 </html>

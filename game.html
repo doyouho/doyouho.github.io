@@ -34,10 +34,10 @@
 						let content = conArr.map(item => {
 							return "<p>" + item + "</p>";
 						});
-						let con = '<h3><a href="' + url + '" target="_blank" rel="noopener" >' + title + '</a></h3><br />' + content.join("");
+						let h3 = '<h3><a href="' + url + '" target="_blank" rel="noopener" >' + title + '</a></h3>';
 						var gs_url = "url(images/game/00" + i + ".jpg)";
-						$(".games_con").append('<div class="game"><div class="game_pic"></div><div class="game_word">' + con + '</div></div>');
-						$(".game .game_pic").eq(i - 1).css("background-image", gs_url);
+						$(".games_con").append('<div class="game"><div class="game_pic"><div class="game_img"></div>' + h3 +'</div><div class="game_word">'+ content.join("") +'</div></div>');
+						$(".game .game_img").eq(i - 1).css("background-image", gs_url);
 					}
 				}
 			})
@@ -62,7 +62,7 @@
 				<div class="nav">
 					<ul>
 						<li><a href="./index.html"><i>Home</i><b>首页</b></a></li>
-						<li><a href="./works.html"><i style="color:hotpink;">Works</i><b>个人作品</b></a></li>
+						<li><a href="./towork.html"><i style="color:#ff557f;">towork</i><b>工作</b></a></li>
 						<li><a href="./share.html"><i>Share</i><b>资源分享</b></a></li>
 						<li><a href="./play.html"><i>Play</i><b>玩一玩</b></a></li>
 					</ul>

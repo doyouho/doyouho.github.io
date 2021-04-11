@@ -96,7 +96,9 @@
 					<a href="https://www.kugou.com/yy/special/single/1513086.html" target="_blank" rel="noopener" > 《悠闲》 </a>
 					<a href="https://www.kugou.com/yy/special/single/1514174.html" target="_blank" rel="noopener" > 《触动》 </a>
 					<a href="https://www.kugou.com/yy/special/single/1383070.html" target="_blank" rel="noopener" > 《犯傻》 </a>
+					<a href="https://www.kugou.com/yy/special/single/3352777.html" target="_blank" rel="noopener" > 《恋之歌》 </a>
 					<a href="./heal.html" target="_blank" rel="noopener" > （困惑入口）</a>
+          
 				</div>
 			</section>
 
@@ -133,7 +135,7 @@
 
 						<div class="singleLine">
 							<div>
-								<b>总任务： </b><input class="oData" id="taskAGoal" type="text"  placeholder="总任务-输入内容可设为默认"/>
+								<b>主要任务： </b><input class="oData" id="taskAGoal" type="text"  placeholder="主要任务-输入内容可设为默认"/>
 								<em>一天总任务是什么呢</em>
 								<span class="updownbtn" onclick="autoContent(this, 'default')">设</span>
 							</div>
@@ -150,11 +152,11 @@
                 <span class="updownbtn" onclick="addTime('60')">60</span>
               </div>
 							<div><b>自估难度：</b><input class="oData" id="taskLevel" type="number" max="5" min="1" placeholder="自估难度-1~5" />
-                <span class="starbtn" onclick="toDegree('1')"></span>
-                <span class="starbtn" onclick="toDegree('2')"></span>
-                <span class="starbtn" onclick="toDegree('3')"></span>
-                <span class="starbtn" onclick="toDegree('4')"></span>
-                <span class="starbtn" onclick="toDegree('5')"></span>
+                <span class="starbtn"></span>
+                <span class="starbtn"></span>
+                <span class="starbtn"></span>
+                <span class="starbtn"></span>
+                <span class="starbtn"></span>
               </div>
 							<div><b>开始时间：</b><input class="oData" id="taskSFTime" type="text" placeholder="开始时间-格式10:20" />
                 <em>now or never</em>
@@ -170,7 +172,7 @@
               </div>
 							<div><b>困难或障碍在哪里：</b><input class="oData" id="taskDifficult" type="text" placeholder="如果有难度,难在哪里？" /><em>What happened?</em></div>
 							<div><b>接下来？</b><input class="oData" id="taskContinue" type="text" placeholder="接下来的打算,怎么处理或避免？"/><em>Accept it, 办法总比困难多</em></div>
-							<div><b>生成的文本：</b><textarea id="allTaskData" placeholder="(实践过程生成区域,可写入记录中并分析)"></textarea></div>
+							<div><b>生成的文本：</b><br /><textarea id="allTaskData" placeholder="(实践过程生成区域,可写入记录中并分析)"></textarea></div>
 							<div class="btnLine">
 								<div class="dataSTNoteBtn">生成</div>
 								<div class="dataSTNoteBtn">写入</div>
@@ -258,18 +260,47 @@
       function addTime(time){
         taskPTime.value = time;
       }
-      function toDegree(degree){
-        taskLevel.value = degree;
-        var stars = document.getElementsByClassName("starbtn");
-        var deg = degree*1-1; 
-        for(let u = 0; u < 5; u++){
-          if( deg < u ){
+      
+      
+      // 侦听事件  鼠标滑过，添加class 滑过startouchbtn 点击active
+      var stars = document.getElementsByClassName("starbtn");
+      var starLength = stars.length;
+      function toDegree(touchbtn){
+        for(let u = 0; u < starLength; u++){
+          if( touchbtn < u ){
             stars[u].classList.remove("active");
           }else{
             stars[u].classList.add("active");
           }
         }
       }
+      taskLevel.onchange = function () {
+        if (taskLevel.value) {
+          var degree = taskLevel.value;
+          var deg = degree*1-1; 
+          toDegree(deg);
+        }
+      }
+      for(let touchbtn = 0; touchbtn < 5; touchbtn++){
+        stars[touchbtn].onmouseenter = function() {
+          for(let u = 0; u < 5; u++){
+            if( u <= touchbtn ){
+              stars[u].classList.add("startouchbtn");
+            }
+          }
+          
+        }
+        stars[touchbtn].onmouseleave = function() {
+          for(let u = 0; u < 5; u++){
+            stars[u].classList.remove("startouchbtn");
+          }
+        }
+        stars[touchbtn].onclick  = function () {
+          taskLevel.value = touchbtn + 1;
+          toDegree(touchbtn);
+        }
+      }
+      
       function addPresentTime(){
         var date = new Date();
         var nowTime = date.getHours()+':'+date.getMinutes();
@@ -500,7 +531,7 @@
 					<!--2.关键字搜索 -->
 					<div class="hotSearch">
 						<span>热链：
-							<a href='https://www.yuque.com/nibaobao-youho/note/me' target='_blank' rel='noopener' >日记</a>
+							<a href='http://wolai.ooo' target='_blank' rel='noopener' >日记</a>
 							<a href='https://www.yuque.com/nibaobao-youho/note/plan' target='_blank' rel='noopener' >计划</a>
 							<a href='https://www.yuque.com/nibaobao-youho/note/draft' target='_blank' rel='noopener' >写草稿</a>
 							<a href='https://www.yuque.com/nibaobao-youho/frontend' target='_blank' rel='noopener' >前端知识</a>

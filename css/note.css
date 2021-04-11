@@ -38,7 +38,8 @@ input,textarea{
   font-family:"Microsoft YaHei", SimHei, SimSun;
 }
 ::selection {
-	background: hotpink;
+	background: #ff557f;
+  color: #fff;
 }
 ::-webkit-scrollbar {
 	width: 0px;   
@@ -107,12 +108,15 @@ input::-webkit-input-placeholder {
   cursor: pointer;
   border: 1px solid #aef8e8;
   margin-left: 10px;
+  color: #638d83;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-user-select: none;
 	user-select: none;
 }
 .updownbtn:hover{
-  background-color: #aef8e8;
+  border-color: #ff557f;
+  background-color: #ff557f;
+  color: #fff;
 }
 .updownbtn.hidden(){
   display: none;
@@ -124,6 +128,7 @@ input::-webkit-input-placeholder {
   position:relative;
   margin-left: 4px;
 }
+
 .starbtn:before, .starbtn:after{
   width: 10px;
   height: 18px;
@@ -136,6 +141,7 @@ input::-webkit-input-placeholder {
   transform: rotate(-45deg);
   transform-origin: 0 100%;
   cursor: pointer;
+  transition: 0.5s;
 }
 .starbtn:after{
   left: 0;
@@ -146,7 +152,13 @@ input::-webkit-input-placeholder {
   background-color: var(--themecolor);
 }
 
-
+.startouchbtn:before, 
+.startouchbtn:after{
+  background-color: var(--themecolor);
+}
+.starbtn:nth-child(1){
+  left: 20px;
+}
 
 /*头部区域*/
 .header {
@@ -250,7 +262,7 @@ input::-webkit-input-placeholder {
 	display: block;
 	font-style: normal;
 	font-weight: 400;
-	padding: 0 27px;
+	padding: 0 18px;
 	height: 66px;
 	line-height: 66px;
 	font-size: 14px;
@@ -282,7 +294,7 @@ input::-webkit-input-placeholder {
 	border-left: 32px solid var(--themecolor);
 	border-right: 32px solid var(--themecolor);
 	top: 0;
-	left: 10px;
+	left: 0;
 }
 
 /* form.out:focus-within {
@@ -349,8 +361,8 @@ input:checked+.cbox::after {
 }
 .mianContent .analyseBtn{
 	position: absolute;
-	top: -40px;
-	right: 40px;
+	top: 20px;
+	left: 40px;
 	width: 60px;
 	height: 60px;
 	color: white;
@@ -376,10 +388,9 @@ input:checked+.cbox::after {
 
 .taskType,
 .taskSkill {
-	margin-left: 120px;
+	margin-left: 146px;
 	padding: 20px 0;
 	color: #555;
-
 }
 
 
@@ -401,7 +412,7 @@ input:checked+.cbox::after {
 
 .singleLine>div {
 	margin-top: 30px;
-	margin-left: 120px;
+	margin-left: 146px;
 	color: #555;
 	z-index: 1;
 }
@@ -411,14 +422,17 @@ input:checked+.cbox::after {
 	display: inline-block;
 	width: 260px;
 	height: 26px;
-	/* border-radius: 10px; */
 	outline: none;
 	padding-left: 10px;
+  margin-right: 10px;
 	border: none;
 	border-bottom: 1px solid #333333;
   background: none;
 }
 
+#taskLevel{
+  margin-right: 20px;
+}
 
 .singleLine em {
 	margin-left: 20px;
@@ -431,8 +445,9 @@ input:checked+.cbox::after {
 	border: 1px solid #f0f0f0;
 	padding: 16px 16px 20px;
 	height: 120px;
-	width: 540px;
+	width: 594px;
 	font-size: 14px;
+  margin-top: 20px;
 }
 
 .btnLine {
@@ -658,13 +673,13 @@ ul.dayCheck.active{
 }
 
 .scrollbar {
-	width: 500px;
+	width: 370px;
 	height: 8px;
 	background-color: #85beb2;
 	border-radius: 6px;
 	border: 1px solid #88c1b5;
 	display: inline-block;
-	margin: 0 30px 0 100px;
+	margin: 0 30px 0 146px;
 	overflow: hidden;
 	border-spacing: white;
 }
@@ -1539,7 +1554,7 @@ ul.card::-webkit-scrollbar {
 	box-sizing: border-box;
 	margin: 8px 5%;
 	overflow: hidden;
-	border-radius: 12px;
+	border-radius:4px;
 }
 
 #existNoteList li p {
@@ -1563,8 +1578,9 @@ ul.card::-webkit-scrollbar {
 }
 
 #existNoteList li:hover {
-	background-color: pink;
-	color: black;
+  box-shadow: 0px 2px 4px 0px #8c2e47, 0px -1px 2px 0px #ffc1d5;
+	background-color: black;
+	/* color: black; */
 }
 
 #existNoteList li:hover button {
@@ -1573,6 +1589,7 @@ ul.card::-webkit-scrollbar {
 
 #existNoteList li button:hover {
 	background-color: yellowgreen;
+  color: #fff;
 }
 
 .analyseArea .analyseContent{
@@ -1594,12 +1611,14 @@ ul.card::-webkit-scrollbar {
 }
 .analyseContent li{
 	position: relative;
+  padding-bottom: 4px;
 }
 .analyseContent b{
 	display: inline-block;
 	width: 100px;
 	height: 100%;
 	position: relative;
+  padding-bottom: 4px;
 }
 .analyseContent b::after{
 	display: block;
@@ -1611,7 +1630,7 @@ ul.card::-webkit-scrollbar {
 	background-color: white;
 	position: absolute;
 	left: 111px;
-	top:4px;
+	top:0;
 	z-index: 1;
 }
 .analyseContent div{
@@ -1633,16 +1652,66 @@ ul.card::-webkit-scrollbar {
 .analyseContent .timer{
 	display: inline-block;
 	position: absolute;
-	left: -52px;
-	background-color: #000000;
-	font-size: 16px;
-	color: white;
-	width: 30px;
+	left: -92px;
+  top: 32px;
+	width: 50px;
 	height: 30px;
+  padding-left: 20px;
 	line-height: 30px;
+	font-size: 14px;
+	color: #fff;
 	text-align: center;
-	border: 1px solid #86f3f8 ;
+	background-color: #000000;
+	/* border: 1px solid #86f3f8 ; */
+  border-radius: 12px;
 }
+.timer::before{
+  display: block;
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  width: 2px;
+  height: 6px;
+  background-color: #86f3f8;
+}
+.timer::after{
+  display: block;
+  content: "-";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  color: #86f3f8;
+  font-weight: 700;
+  border: 2px solid #86f3f8;
+  border-radius: 50%;
+}
+.analyseContent::after{
+  display:block ;
+  position: absolute;
+  left: 120px;
+  top: 0;
+  content: "";
+  width: 2px;
+  height: 88%;
+  background-color: #86f3f8;
+}
+.analyseContent::before{
+  display:block ;
+  position: absolute;
+  z-index: 2;
+  left: 112px;
+  top: 88%;
+  width: 14px;
+  height: 14px;
+  content: "";
+  background-color: white;
+  border: 2px solid #86f3f8;
+}
+
 .footer {
   width: 100%;
   text-align: center;
@@ -1685,8 +1754,8 @@ ul.card::-webkit-scrollbar {
 	}
 	
 	.scrollbar {
-		width: 330px;
-		margin: 0 30px 0 160px;
+		width: 400px;
+		margin: 0 30px 0 112px;
 	}
 	
 	.taskType,
@@ -1805,15 +1874,61 @@ ul.card::-webkit-scrollbar {
 
 /*当768px<=width<=991px时  设为750*/
 @media (max-width:991px) {
+  html{
+  	font-size: 21.14px;
+  }
 	/* 非弹框内样式 */
-	body {
+	body,.analyseContent {
 		max-width: 992px;
 		min-width: 768px;
 	}
+
+  .mianContent .analyseBtn{
+    left: 70px;
+  }
+	.analyseArea{
+    margin: 3% 4% 0;
+    width: 92%;
+  }
+  .analyseContent .timer{
+    font-size: 1.4rem;
+    max-height: 999999px;
+  }
+  .timer::before{
+    width: 4px;
+    height: 10px;
+    left:-1px;
+    top: 7px;
+  }
+  .timer::after{
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    left: -12px;
+    top: 0;
+  }
+  .analyseContent div{
+    left: 150px;
+    font-size: 1.3rem;
+    max-height: 999999px;
+  }
+  #allTaskData {
+  	width: 632px;
+  }
+  .analyseContent b::after{
+    left: 141px;
+  }
+  .analyseContent::before{
+    left: 142px;
+  }
+  .analyseContent::after{
+    left: 150px;
+    width: 4px;
+  }
 	
-	html{
-		font-size: 16px;
-	}
+  .nav .daka span {
+    left: 7px;
+  }
   .footer ,
   .footer h1{
   	font-size:  0.9rem;
@@ -1834,21 +1949,19 @@ ul.card::-webkit-scrollbar {
 		padding:60px 0;
 	}
 	
-	.scrollbar {
-		width: 320px;
-		margin: 0 30px 0 122px;
-	}
 	
 	
 	/* 字体处理 */
 	.hd li i,
 	.hd li b,
-	#existNoteList li p{
+	#existNoteList li p,
+  .analyseContent b{
 		font-size: 1rem;
 		max-height: 999999px;
 	}
 	#allTaskData,
-	.gs_text h5 {
+	.gs_text h5,
+  .startBtn{
 		font-size: 0.6rem;
 		max-height: 999999px;
 	}
@@ -2059,9 +2172,3 @@ ul.card::-webkit-scrollbar {
 	}
 }
 
-/*当width<=767px时  设为750 */
-@media (max-width:767px){
-	html{
-		font-size: 21.14px;
-	}
-}

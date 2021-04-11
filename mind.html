@@ -20,8 +20,10 @@
 				text-decoration: none;
 			}
 
-			input{
+			input,select{
 				outline: none;
+        border: 1px solid #999;
+        padding: 2px 4px;
 			}
 			:root {
 				--bgcolor: #6b9fa2;
@@ -62,12 +64,13 @@
 			.inputFile{
 				width: 100%;
 				height: 36px;
+        margin-bottom: 6px;
 			}
 			.inputFile .out{
 				position: absolute;
 				/* width: 58px;
 				height: 18px; */
-				left:38px;
+				left: 48px;
 				top: -2px;
 				background-color: #7d7d7d;
 				color: white;
@@ -91,7 +94,7 @@
 			.container {
 				width: 100%;
 				display: flex;
-				height: 100%;
+				min-height: 100%;
 				overflow: auto;
 			}
 			.menuToggle{
@@ -132,7 +135,7 @@
 			}
 
 			.jsmind_menu {
-				flex: 8;
+				flex: 6;
 				font-size: 14px;
 				padding: 12px;
         margin-top: 52px;
@@ -147,9 +150,7 @@
 			.oneline.files{
 				position: relative;
 			}
-			.oneline p{
-				margin-bottom: 4px;
-			}
+			
 
 			.inputColor {
 				width: 60px;
@@ -172,19 +173,21 @@
 				padding: 6px;
 			}
 
-
 			.consoleTips {
-				background-color: #000000;
+				/* display: none; */
+        opacity: 0;
+        z-index:10;
 				position: fixed;
 				left: 0;
 				bottom: 0;
 				width: 100%;
 				height: 66px;
-				text-align: center;
-				display: none;
 				line-height: 66px;
+				text-align: center;
 				color: white;
-        z-index:10;
+				background-color: #000000;
+        border-radius: 6px;
+        transition: 0.6s;
 			}
 
 			.configBoard {
@@ -237,13 +240,70 @@
 				user-select: none;
 			}
 			@media (max-width:1199px){
-				.jsmind_menu{
-					width: 18.75rem;
-					flex: 15;
-				}
+        select{
+          height: 36px;
+          margin: 2px;
+        }
+        button,input,p,select{
+          font-size: 21.14px;
+          max-height: 999999px;
+        }
+        .menuToggle{
+          top: 8px;
+        }
+     
+        .jumpbtn, button{
+          padding: 4px 16px;
+        }
+       
+        .container{
+          flex-direction: column;
+          
+        }
 				.jsmind_body{
-					max-width: 60%;
+					width: 100%;
+          max-width: 100%;
+          min-height: unset;
+          flex:12;
 				}
+       #jsmind_container{
+         min-width: 100%;
+         overflow-x: auto;
+       }
+        .colorBar{
+          flex:1;
+          margin-top: 0px;
+          max-width: 100%;
+          height: 32px;
+        }
+       
+        .colorBar dt{
+          display: inline-block;
+          /* white-space: ; */
+          width: 40px;
+          height: 32px;
+          margin: 0 2px;
+        }
+				.jsmind_menu{
+          font-size: 21px;
+          margin-top: 2px;
+					flex: 4;
+				}
+        
+        .textContent{
+          padding-bottom: 100px;
+        }
+          
+        .configBoard {
+          width: 80%;
+        }
+        .inputColor {
+          width: 80px;
+          
+        }
+        .inputFile .out{
+          left: 72px;
+        }
         .consoleTips {
           font-size: 16px;
         	background-color: rgba(0,0,0,.8);
@@ -278,8 +338,8 @@
 			</div>
 			<div class="colorBar"></div>
 			<div class="jsmind_menu">
-				<div class="oneline">
-					<p>整体配色-优先级比主题颜色高：</p>
+				<div class="oneline title">整体配色-优先级比主题颜色高：</div>
+        <div class="oneline">
 					<button type="button" onclick="colorTemplate('colorful');">彩色</button>
 					<button type="button" onclick="colorTemplate('linear');">渐变</button>
 					<button type="button" onclick="colorTemplate('black');">黑字</button>
@@ -312,7 +372,7 @@
 				<hr />
 				<div class="oneline files">
 					<div class="inputFile">导入：<input type="file" id="file_input" /><div class="out">选择文件</div></div>
-					<button type="button" onclick="open_file();">打开文件</button>(仅支持md，jm格式)
+					<button type="button" onclick="open_file();">打开文件</button> &nbsp;(仅支持md，jm格式)
 				</div>
 				<div class="oneline">
 					导出：
@@ -687,7 +747,7 @@
 				var oparts = document.getElementsByClassName("onePart");
 				let oColors = oparts[index].getElementsByTagName("input");
 				for (let i = 0; i < oColors.length; i++) {
-					if(arr[i]){
+					if(arr && i < arr.length){
 						oColors[i].value = arr[i];
 					}else{
 						oColors[i].value = "";
@@ -711,10 +771,10 @@
 			}
 
 			function tipsShow(data) {
-				oTips.style.display = "block";
+				oTips.style.opacity = 1;
 				oTips.innerText = data;
 				setTimeout(function() {
-					oTips.style.display = "none";
+					oTips.style.opacity = 0;
 				}, 4000);
 			}
 
