@@ -19,7 +19,8 @@
 				<span class="simplebtn" onclick="toSimplePart(this)">切简版</span> &nbsp;
 				<a href="./mind.html" class="simplebtn" onclick="toFinish()">导图</a> &nbsp;
 				<a href="./share.html" class="simplebtn" onclick="toFinish()">资</a> &nbsp;
-				<a href="./towork.html" class="simplebtn" onclick="toFinish()">启</a>
+				<a href="./towork.html" class="simplebtn" onclick="toFinish()">启</a> &nbsp;
+				<a href="./download.html" class="simplebtn" onclick="toFinish()">下载</a>
 			</h1>
       <span class="circlebtn orange">保序</span>
       <span class="circlebtn">折叠</span>
@@ -33,9 +34,10 @@
     </div>
 
     <!-- 书写框 -->
-    <div class="write">
-      <div class="back" onclick="writeLayer()"></div>
-      <textarea class="writebox" placeholder="分析卡示例: 从事项的完成情况/难点/技巧等方面分析。(另外,清单的新增项支持批量添加,新增项之间用*分隔)"></textarea>
+    <div class="write" >
+      <div class="back" onclick="writeLayer()" accesskey="w"></div>
+      <textarea class="writebox" placeholder="[快捷键:Alt+W] （清单的新增项支持批量添加，新增项之间用*分隔）"></textarea>
+      <div class="writeboxTips">分析卡示例: 从事项的完成情况/难点/技巧等方面分析。</div>
       <div class="btns">
         <span class="circlebtn">清空</span>
         <span class="circlebtn">提交到分析卡</span>
@@ -43,6 +45,8 @@
         <span class="circlebtn">加入检查卡*</span>
         <span class="circlebtn">加入参考卡</span>
         <span class="circlebtn datebtn">加日期</span>
+        <span class="circlebtn">加入记忆列表</span>
+        <span class="circlebtn">加链接</span>
       </div>
     </div>
 
@@ -151,8 +155,7 @@
 					<p>
 						<span class="simplebtn" onclick="toOutput()">下载备份数据</span>
 						<span class="simplebtn" onclick="toOutput('solve')">下载处理数据</span>
-						<span class="simplebtn" onclick="toOutput('solve','copy')">复制处理数据</span>&nbsp;
-						<a href="./download.html">更多下载</a>&nbsp;
+						<span class="simplebtn" onclick="toOutput('solve','copy')">复制处理数据</span>
 						<a href="https://www.yuque.com/nibaobao-youho/questions" target="_blank" rel="noopener" >（问题收集库）</a>
 					</p>
 				</div>
@@ -160,6 +163,8 @@
         <p>今日事项：（已排除项目清单和可能清单）</p>
         <ul class="detailSimple"></ul>
         <ul class="detailSimple"></ul>
+        <ul class="detailSimple"></ul>
+        <p>记忆列表：（遗忘曲线：[5分钟 30分钟 12小时-省略] 1天 2天 4天 7天 15天）</p>
         <ul class="detailSimple"></ul>
 				<p>完成事项：（每周至少整理一次）</p>
 				<ul class="detailSimple"></ul>
@@ -254,6 +259,8 @@
       var solveUl = null;
       var nowlistStr = "";
       var dechangeIdlId = -1;
+      var omemory = {};
+      var memorylist = [];
 			var regexDate = /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
       var recycle = document.getElementsByClassName("tmpRecycle")[0];
       var reference = document.getElementsByClassName("tmpReference")[0];
@@ -321,6 +328,53 @@
 			
       // 初始化数据
       function origin() {
+        if(localStorage.getItem("memoryObj")){
+          let ss = localStorage.getItem("memoryObj");
+          omemory = JSON.parse(ss); 
+          // console.log(omemory);
+          // 取完数据了，接下来是按照遗忘记忆表的日期计算着来显示（只管天数）
+          // 5分钟 30分钟 12小时  1天   2天    4天    7天   15天
+          let [undefined, year, month, date] = /(\d{4})-(\d{2})-(\d{2})/.exec(todayAdd);
+          // console.log(year, month, date);
+          let newDay = '';
+          let num = {
+            "15": [16,14,16,15,16,15,16,16,15,16,15,16],
+            "7": [24,22,24,23,24,23,24,24,23,24,23,24],
+            "4": [27,25,27,26,27,26,27,27,26,27,26,27],
+            "2": [29,27,29,28,29,28,29,29,28,29,28,29],
+            "1": [30,28,30,29,30,29,30,30,29,30,29,30]
+          }
+          let daymemorylist = [1,2,4,7,15];
+          function isWrite(n) {
+            let numlist = num[n];
+            if(date > n){
+              let newdate = date - n;
+              if(newdate<10){
+              	newdate = "0" + newdate;
+              }
+              newDay = " " + year + "-" + month + "-" + newdate;
+            }else if(month>1){
+              let newmonth = month-1;
+              let newdate = date*1 + numlist[newmonth];
+              if(newmonth<10){
+              	newmonth = "0" + newmonth;
+              }
+              newDay = " " + year + "-" + newmonth + "-" + newdate;
+            }else{ // 当日份不够减，月份是1月的时候，处理年份
+              let newyear = year-1;
+              let newdate = date*1 + numlist[11];
+              newDay = " " + newyear + "-" + 12 + "-" + newdate;
+            }
+              if(omemory[newDay]){
+                memorylist.push(newDay +' |  ' + omemory[newDay]);
+              }
+          }
+          
+          for(let i = 0; i < 5;i++){
+            isWrite(daymemorylist[i]);
+          }
+        }
+        
 				if (localStorage.getItem("allDayNum")) {
 				  let s3 = localStorage.getItem("allDayNum");
 					alldayNumObj = JSON.parse(s3);
@@ -385,13 +439,21 @@
 				// 简单展示 有无前缀，或复杂（删除时类型传入-1，用意在不更新回收站清单数据）
         let str = '';
         for (let a = 0; a < list.length; a++) {
+          let temp = '';
           if (type === "simple" && pre) {
             str = str  + '<li>' + pre + ' <b>' + list[a] +
               '</b></li>';
           } else if(type === "simple"){
             str = str + '<li><b>' + list[a] +
               '</b></li>';
-          } else {
+          } else if(type === "memory"){
+            let spanlist = list[a].split("~");
+            for(let b = 0; b < spanlist.length; b++){
+             temp = temp + "<span>" + spanlist[b] +"</span>";
+            }
+            str = str + '<li>' + temp +
+              '</li>';
+          }else {
             str = str + '<li data-id="' + a + '"><b>' + list[a] +
               '</b><span class="writebtn line" onclick="lineEdit(event)"></span>'+
               '<span class="deletebtn line" onclick="lineDelete(event,-1)">×</span></li>';
@@ -594,6 +656,7 @@
         tmpValue = val;
         redBtn.classList.remove("edit");
         write.style.display = "block";
+        writebox.focus();
         btn.innerText = "隐藏书写";
         const submitBtn = write.getElementsByClassName("circlebtn")[1];
         submitBtn.innerText = "确定修改";
@@ -863,6 +926,8 @@
       //  下面是页面主菜单和书写框的按钮 以及页面展开折叠按钮
       var write = document.getElementsByClassName("write")[0];
       var writebox = write.getElementsByClassName("writebox")[0];
+      var writeboxTips = write.getElementsByClassName("writeboxTips")[0];
+      
       var arrowBtns = document.getElementsByClassName("arrowbtn");
       var parts = document.getElementsByClassName("part");
       for (let i = 0; i < arrowBtns.length; i++) {
@@ -910,7 +975,8 @@
 								datasimpleshow(beforeData.tmpDolist, uls[0], 'simple','【执】 ');
 								datasimpleshow(beforeData.tmpDaylist, uls[1], 'simple','【限】');
 								datasimpleshow(beforeData.tmpWaitlist, uls[2], 'simple','【待】 ');
-								datasimpleshow(finishList, uls[3], 'simple');
+                datasimpleshow(memorylist, uls[3], 'memory');
+								datasimpleshow(finishList, uls[4], 'simple');
 							}
 						}
 					}
@@ -979,7 +1045,10 @@
 				    }
 				}
 			}
-			
+			// function memoryShow(list,ele){
+        
+   //    }
+      
       function toSimplePart(ele) { // 简版与编辑按钮
         // 按钮和内容的切换
         var val = ele.innerText;
@@ -999,7 +1068,8 @@
         datasimpleshow(beforeData.tmpDolist, uls[0], 'simple','【执】 ');
         datasimpleshow(beforeData.tmpDaylist, uls[1], 'simple','【限】');
         datasimpleshow(beforeData.tmpWaitlist, uls[2], 'simple','【待】 ');
-        datasimpleshow(finishList, uls[3], 'simple');
+        datasimpleshow(memorylist, uls[3],'memory');
+        datasimpleshow(finishList, uls[4], 'simple');
       }
       
       function toFinish(){
@@ -1042,6 +1112,7 @@
       function writeLayer() {
         if (menuBtns[3].innerText === "书写总结") {
           write.style.display = "block";
+          writebox.focus();
           menuBtns[3].innerText = "隐藏书写";
         } else {
           menuBtns[3].innerText = "书写总结";
@@ -1112,6 +1183,7 @@
 
       }
       menuBtns[5].onclick = function() {
+        writeboxTips.innerText = '分析卡示例: 从事项的完成情况/难点/技巧等方面分析。';
         writebox.value = "";
       }
       menuBtns[6].onclick = function() {
@@ -1230,6 +1302,32 @@
 				var val = writebox.value;
 				writebox.value = val + todayAdd;
 			}
+      
+      menuBtns[11].onclick = function() {
+      	// 记忆单的保存
+      	var val = writebox.value;
+        var tip = "（记忆项添加成功！）";
+        var regex = /记忆项添加成功/g;
+        if (val && !regex.test(val)) {
+          if (omemory[todayAdd]) {
+            omemory[todayAdd] = omemory[todayAdd] + "~" + val;
+          }else{
+            omemory.origin = todayAdd;
+            omemory[todayAdd] = val;
+          }
+          
+          localStorage.setItem("memoryObj",JSON.stringify(omemory));
+          writebox.value = val + "  " + tip;
+        }
+      }
+      
+      menuBtns[12].onclick = function() {
+      	// 加链接
+        writeboxTips.innerText = '<a target="_blank" rel="noopener" href="【这里补上网址】">链接文字</a>';
+      	var val = writebox.value;
+      	writebox.value = '<a target="_blank" rel="noopener" href="">' + val + '</a>';
+      }
+      
 	 // localStorage.removeItem("collectSortBox");
    // localStorage.removeItem("saveData");
    

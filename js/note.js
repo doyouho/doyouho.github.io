@@ -84,11 +84,7 @@ function noteOn() {
 		btnAddNote(notesInput);
 	}
 
-	document.getElementById("addLinkBtn").onclick = function() { // 加链接
-		var notesInput = document.getElementById("noteWords");
-		var val = notesInput.value + "&nbsp;&nbsp;<a href='' target='_blank' rel='noopener' ></a>";
-		notesInput.value = val;
-	}
+	
 	document.getElementsByClassName("dataSTNoteBtn")[0].onclick = generateFormData; //生成表单信息
 
 	document.getElementsByClassName("dataSTNoteBtn")[1].onclick = function() {
@@ -109,16 +105,16 @@ function noteOn() {
 	};
 	// 界面打开和关闭
 	document.getElementById("turnNoteBtn").onclick = function() { // 讨论区显示笔记区
-		openSliceBox("noteArea");
+		openSliceBox("noteArea","writebox");
 		showNote();
 	}
 
 	document.getElementById("nBtnNote").onclick = function() { // 事件 ---打开笔记区
-		openSliceBox("noteArea");
+		openSliceBox("noteArea","writebox");
 		showNote();
 	}
 	document.getElementById("nBtnDiscuss").onclick = function() { // 事件 ---回到讨论区
-		openSliceBox("discussArea");
+		openSliceBox("discussArea","writebox");
 	};
 	document.getElementsByClassName("analyseBtn")[0].onclick = function() {
 		openSliceBox("analyseArea");
@@ -205,10 +201,14 @@ function generateFormData() {
 // 	}
 // }
 
-function openSliceBox(name) {
+function openSliceBox(name, type) {
 	document.getElementsByClassName("winBack")[0].style.display = "block";
 	document.getElementsByClassName("newWin")[0].style.display = "block";
-	document.getElementsByClassName(name)[0].style.display = "block";
+  let owrap = document.getElementsByClassName(name)[0];
+	owrap.style.display = "block";
+  if(type==="writebox"){
+    owrap.getElementsByTagName("textarea")[0].focus();
+  }
 	var list = ["setThings", "discussArea", "noteArea", "analyseArea"];
 	for (let i = 0; i < 4; i++) {
 		if (name !== list[i]) {

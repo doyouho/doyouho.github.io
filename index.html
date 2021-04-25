@@ -85,6 +85,7 @@
 		</style>
 
 		<style>
+      
 			.toGithub{
 				position: absolute;
 				z-index: 9;
@@ -95,6 +96,31 @@
 				height: 80px;
 				width: 80px;
 			}
+      .toblog{
+        position: absolute;
+        z-index: 9;
+        top: 14px;
+        left:14px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #ff7ec7;
+        background-color: #ff7ec7;
+        border-radius: 50%;
+        border: 2px solid #ff7ec7;
+        height: 20px;
+        width: 20px;
+        transition: .5s;
+        /* transform: rotate(45deg); */
+      }
+      .toblog:hover{
+        line-height: 30px;
+        height: 30px;
+        width: 30px;
+        background-color: transparent;
+      }
+      
 			.toGithub .yx-arm{
 				transform-origin: 130px 106px;
 			}
@@ -113,6 +139,8 @@
 				    transform: rotate(10deg);
 				}
 			}
+      
+      
 		</style>
 	</head>
 	<body>
@@ -142,7 +170,7 @@
 
 		<!--海报区域-->
 		<section class="banner">
-			<a class="yx-corner" href="https://github.com/doyouho/doyouho.github.io/" target="_blank" rel="noopener"  title="点击查看该网站项目" rel="noopener">
+			<a class="yx-corner" href="https://github.com/doyouho/doyouho.github.io/" target="_blank" rel="noopener"  title="点击查看Github库" rel="noopener">
 				<svg class="toGithub" viewBox="0 0 250 250" aria-hidden="true">
 
 					<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -165,6 +193,7 @@
 			</ul>
 
 			<div class="typeBox">
+        <a class="toblog" href="https://kathy_candy.gitee.io/blog/#/" target="_blank" rel="noopener"  title="点击进入博客" rel="noopener">博</a>
 				<h2 class="typeWords animaFir first">Welcome guys!</h2>
 				<br />
 				<h3 class="typeWords animaSec next"></h3>
@@ -200,6 +229,7 @@
 
 		</section>
 
+    
 		<!--美句区域   修改文字！！-->
 		<section class="words">
 			<div class="word_title title"><i class="jiantou"></i>

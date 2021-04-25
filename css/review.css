@@ -27,6 +27,9 @@ textarea{
 	outline: none;
 	border: 1px solid #888888;
 }
+button,input,textarea{
+  font-family:"Microsoft YaHei", SimHei, SimSun; /* 分别对应-微软雅黑|黑体|宋体 */
+}
 
 body{
 	background-color: #f6f6f6;
@@ -65,10 +68,10 @@ body{
   background-color: #ff4f1a;
 }
 .circlebtn{
-	padding:4px 16px;
+	padding:4px 12px;
 	display: inline-block;
 	border-radius: 16px;
-	margin:10px 6px 0px;
+	margin:10px 2px 0px;
 	cursor: pointer;
 	font-size: 14px;
 	color: white;
@@ -200,13 +203,18 @@ body{
 }
 .simplepart p{
 	margin-top: 22px;
+  font-size: 14px;
 }
 .originFile{
 	background-color: #EEEEEE;
 	font-size: 14px;
 	padding: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 14px;
 }
+.originFile .simplebtn{
+  border: none;
+}
+
 .writeBoxForCopy{
 	position: absolute;  
 	left: 20px;
@@ -269,7 +277,21 @@ body{
 	margin-bottom: 10px;
 	position: relative;
 }
-
+.write .btns .circlebtn:nth-child(1){
+  position: absolute;
+  left: 82%;
+  top: -400%;
+}
+.write .btns .circlebtn:nth-child(6){
+  position: absolute;
+  left: 82%;
+  top: -300%;
+}
+.write .btns .circlebtn:nth-child(8){
+  position: absolute;
+  left: 82%;
+  top: -200%;
+}
 .write .back{
 	width: 100%;
 	height: 100%;
@@ -278,6 +300,12 @@ body{
 	position: absolute;
 	left: 0;
 	top:0;
+}
+.write .writeboxTips{
+  position: relative;
+  text-align: center;
+  color:#FFF;
+  font-size: 14px;
 }
 /* upfloor */
 .upfloor{
@@ -336,10 +364,19 @@ body{
 }
 .detailSimple{
   text-align: left;
-  padding:8px 16px;
-  margin-top: 8px;
+  padding: 4px 0px;
+  margin-bottom: 8px;
   font-size: 14px;
 }
+ul.detailSimple li:hover{
+  color: inherit;
+}
+
+.detailSimple span{
+  display: inline-block;
+  padding: 4px 6px;
+}
+
 .detail p{
 	margin: 12px 0;
 }

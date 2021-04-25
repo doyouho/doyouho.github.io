@@ -290,6 +290,7 @@ input::-webkit-input-placeholder {
 	display: block;
 	width: 0;
 	height: 52px;
+  background-color: var(--themecolor);
 	border-bottom: 14px solid white;
 	border-left: 32px solid var(--themecolor);
 	border-right: 32px solid var(--themecolor);
@@ -1274,6 +1275,7 @@ ul.card::-webkit-scrollbar {
 	color: #aaa;
 	line-height: 3em;
 	display: none;
+  cursor: pointer;
 }
 
 .newWin {
@@ -1331,6 +1333,7 @@ ul.card::-webkit-scrollbar {
 
 .btn_box {
 	border: 1px solid #666;
+  border-radius: 4px;
 	padding: 6px 20px;
 	background-color: white;
 	margin: 0 6px;

@@ -250,7 +250,13 @@
 				"相对定位pore，绝对定位posa，不显示d:n，溢出隐藏ov:h，小手鼠标cur:p，文本居中ta:c，字号设置fz16",
 				"<br />",
 				"4.Edge快捷使用",
-				"收藏当前Ctrl+D；当前所有窗口收藏到新的文件夹Ctrl+Shift+D；查看历史Ctrl+H；查看下载Ctrl+J； 恢复已删页面Ctrl+Shift+T；开发者工具Ctrl+Shift+I；大声朗读Ctrl+Shift+U；切换标签页Ctrl+Tab/Ctrl+数字"
+				"收藏当前Ctrl+D；当前所有窗口收藏到新的文件夹Ctrl+Shift+D；查看历史Ctrl+H；查看下载Ctrl+J； 恢复已删页面Ctrl+Shift+T；开发者工具Ctrl+Shift+I；大声朗读Ctrl+Shift+U；切换标签页Ctrl+Tab/Ctrl+数字",
+        "<br />",
+        "5.电脑快捷键使用",
+        "[window + ] 任务栏软件 数字；切换 Tab；我的电脑 E； 显示桌面 D；锁屏 L；",
+        "运行 R（输入值可以为：cmd命令提示符，calc计算器，control控制面板，osk屏幕键盘，notepad记事本）<a href='https://kathy_candy.gitee.io/blog/#/tools/assist?id=computer' target='_blank' rel='noopener' >更多</a>",
+        "任务管理器 Ctrl+Shift+Esc；跳出安全窗口 Ctrl+Alt+Delete(可关机)",
+        "[文件夹操作] Ctrl+Shift+N新建文件夹，按住Shift拖动文件夹为移动，按住Ctrl拖动文件夹为复制，Alt+双击文件是看属性，在路径栏上输入cmd按回车将在当前文件夹里打开命令提示符窗口。"
 			]
 		},
 		{

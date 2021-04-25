@@ -17,8 +17,10 @@
 				text-decoration: none;
 				color: #333333;
 			}
+      body{
+        text-align: center;
+      }
 			.header{
-				text-align: right;
 				height: 52px;
 				background-color: #1ABC9C ;
 				position: fixed;
@@ -34,15 +36,30 @@
 				top: 10px; 
 				color: white;
 			}
-			
+			.link{
+        position: absolute;
+        width: 50%;
+        right: 0;
+        top: 52px;
+        z-index: 2;
+        text-align: left;
+        font-size: 14px;
+        padding: 14px 20px;
+        background-color: rgba(11,11,11,.8);
+        color: #fff;
+      }
+      .link a{
+        color: #f31054;
+      }
+      
 			.nav{
-				background-color: #FAFAFA;
+        text-align: left;
 				margin-top: 52px;
 				padding: 20px 30px;
 			}
 			.nav p{
 				font-size: 14px;
-				margin: 8px auto;
+				margin: 4px auto;
 			}
       .jumpbtn,
 			button{
@@ -50,8 +67,8 @@
          border: 1px solid #14a387;
          background-color: #1abc9c;
 				 color: white;
-         padding: 4px 10px;
-         margin-left: 10px;
+         padding: 4px 8px;
+         margin-left: 6px;
          margin-top: 10px;
 				 border-radius: 20px;
 				 cursor: pointer;
@@ -59,18 +76,36 @@
 				 -webkit-user-select: none;
 				 user-select: none;
       }
+      .downloadbtn{
+        opacity: 0.6;
+      	background-color: #ff954e;
+      	border-color: #ff954e;
+      }
 			.clearbtn{
-				background-color: #ff5500;
-				border-color: #ff5500;
+        opacity: 0.6;
+				background-color: #fe4242;
+				border-color: #fe4242;
 			}
-      #content{
+      .downloadbtn:hover,
+      .clearbtn:hover{
+        opacity: 1;
+      }
+      #content,
+      #summary{
 				box-sizing: border-box;
         padding: 30px;
         margin: 0;
         border: none;
         outline: none;
-        width:100%;
-        min-height: 600px;
+        width:49%;
+        min-height: 400px;
+        background-color: #d7efeb;
+      }
+      @media(max-width:991px){
+        #content,
+        #summary{
+          width:100%;
+        }
       }
     </style>
 	</head>
@@ -79,28 +114,59 @@
 			<h1>
 				<a style="font-size: 24px; cursor: pointer; color: white;"
 					target="_blank" rel="noopener"  href="./index.html">意休</a>&nbsp;&nbsp;让生活更高效一点
-				<a class="jumpbtn" href="./toreview.html">处理</a>
-				<a class="jumpbtn" href="./mind.html">导图</a>
-				<a class="jumpbtn" href="./towork.html">启</a>
+				<a class="jumpbtn" href="./toreview.html">处理页</a>
+				<a class="jumpbtn" href="./mind.html">导图页</a>
+				<a class="jumpbtn" href="./share.html">资源页</a>
+				<a class="jumpbtn" href="./towork.html">启动页</a>
+				<span class="jumpbtn summarybtn">提示</span>
 			</h1>
 		</div>
+    
+    <div class="link">
+      <p>复盘 -> 
+        <a href="https://kathy_candy.gitee.io/doyouho.io/download.html" target="_blank"  rel="noopener" >意休网</a> 
+        <a href="https://kathy_candy.gitee.io/blog/#/" target="_blank"  rel="noopener" >博客</a> 
+        <span>历史记录（浏览器Ctrl+H，手机，截图，B站笔记 ）</span> 
+        <a href="https://www.wolai.com/a9Gch5XPqk7e4kWDZu7BNi" target="_blank" rel="noopener">写轮子</a>
+        <a href="https://www.wolai.com/XMyFihXNzCDSiHf8tGn5Y" target="_blank" rel="noopener">公众号</a> 
+        <a href="https://www.yuque.com/nibaobao-youho/fiction" target="_blank" rel="noopener">小说</a> 
+      </p>
+      <p>温故 -> 
+        <a href="https://www.wolai.com/gzNY4PBbM9sjSGgg2Y8QPo" target="_blank" rel="noopener">草稿</a> -
+        <a href="https://www.wolai.com/up7diM9fViNVxxCf1xJrd5" target="_blank" rel="noopener">单词</a> - 
+        <a href="https://www.yuque.com/dashboard" target="_blank" rel="noopener">语雀</a> -
+        <a href="https://kathy_candy.gitee.io/blog/#/tools/lists?id=new" target="_blank" rel="noopener">博客</a> - 
+        <a href="https://www.wolai.com/jEdsAYm5y7j8Fjffy5wXng" target="_blank" rel="noopener">备忘本</a> </p>
+      <p>计划 -> 
+        <a href="https://www.wolai.com/diqjZ9bPMaTHi33N6Yd1TC" target="_blank" rel="noopener">计划书-任务分解</a> - 
+        <a href="https://kathy_candy.gitee.io/doyouho.io/toreview.html" target="_blank" rel="noopener">遗忘记忆本</a>
+      </p>
+      <p>总结：<a  href="https://www.wolai.com/4KqMdWPbVtiHEUacUiDCp4" target="_blank"  rel="noopener">日复盘 / 周复盘</a> / <a  href="https://www.wolai.com/6m3zEqAiKCiHGt1fPzcd5" target="_blank"  rel="noopener">月复盘</a> / <a  href="https://www.wolai.com/brr2kptxQVrfWCD5i5Ne9F" target="_blank"  rel="noopener">年复盘</a></p>
+      <br />
+      <p>（时间段-算一下比重/考虑其合理性：睡觉 饮食 工作学习 休息 锻炼 兴趣培养-阅读等）</p>
+      <p>理论支撑：回顾目标、评估结果、分析原因、总结经验。</p>
+      <p>做的事情：做了什么，怎么解决的及技巧，新认识，查漏补缺。</p>
+      <p>其他从未完成，多完成，原因分析三方面总结，最后抽空整理下邮箱、通讯工具等。</p>
+    </div>
+    
 		<div class="nav">
-			<p>提示：数据能选择就复制，下载格式为txt，排版并不好看。</p>
+			<p>提示：数据能选择就复制，下载格式为txt，排版并不好看。(右边的提示可点击上面菜单"提示"关闭)</p>
 			<p>小本本随记：
 				<button type="button" onclick="showData(0)">记录显示</button>
-				<a download="小本本随记.txt" class="save-btn" ><button type="button" onclick="noteDownload(0)">本本下载</button></a>
+				<a download="小本本随记.txt" class="savebtn" ><button type="button" class="downloadbtn" onclick="noteDownload(0)">本本下载</button></a>
 				<button type="button" class="clearbtn" onclick="deleteData('note')">清空小本本</button>
 			</p>
 			<p>积分殿数据：
 				<button type="button" onclick="showData(1)">分析显示</button>
-				<a download="分析感悟.txt" class="save-btn"  ><button type="button"  onclick="noteDownload(1)">分析下载</button></a>
+				<a download="分析感悟.txt" class="savebtn"  ><button type="button" class="downloadbtn" onclick="noteDownload(1)">分析下载</button></a>
 				<button type="button" class="clearbtn" onclick="deleteData('analyseData')">清空分析殿</button>
 			</p>
 			<p>各事项数据：
 				<button type="button" onclick="showData(2)">清单显示</button>
 				<button type="button" onclick="showData(3)">卡片显示</button>
-				<a download="事项数据.txt" class="save-btn" ><button type="button"  onclick="noteDownload(2)">清单下载</button></a>
-				<a download="卡片数据.txt" class="save-btn" ><button type="button"  onclick="noteDownload(3)">卡片下载</button></a>
+				<button type="button" onclick="showData(4)">记忆显示</button>
+				<a download="事项数据.txt" class="savebtn" ><button type="button" class="downloadbtn" onclick="noteDownload(2)">清单下载</button></a>
+				<a download="卡片数据.txt" class="savebtn" ><button type="button" class="downloadbtn" onclick="noteDownload(3)">卡片下载</button></a>
 				<button type="button" class="clearbtn" onclick="deleteData('collectSortBox')">清空清单</button>
 				<button type="button" class="clearbtn" onclick="deleteData('summarylist','array')">清空分析卡</button>
 			</p>
@@ -110,10 +176,20 @@
 		</div>
     
     <textarea id="content" placeholder="(内容显示区)"></textarea>
+    <textarea id="summary" placeholder="(总结书写区)"></textarea>
+    
     <script>
       var content = document.querySelector( '#content' );
-      var saveBtns = document.querySelectorAll( '.save-btn' );
-			
+      var saveBtns = document.querySelectorAll( '.savebtn' );
+			var summarybtn =  document.querySelector( '.summarybtn' );
+      summarybtn.onclick = function(){
+        var olink =  document.querySelector( '.link' );
+        if(olink.style.display === "none"){
+          olink.style.display = "block";
+        }else{
+          olink.style.display = "none";
+        }
+      }
       function showData(num){
 				var str = "";
         if(num===1){ // 分析的数据
@@ -132,7 +208,9 @@
 					
 				}else if(num===3){
 					str = "【检查卡】\r\n" +  jsonparseLS("checklist") + "\r\n\r\n【分析卡】\r\n" + jsonparseLS("summarylist");
-				}
+				}else if(num===4){
+          str = jsonparseOS("memoryObj");
+        }
 				content.value = str;
 				// console.log(str);
       }
@@ -158,7 +236,19 @@
 				var str =  localStorage.getItem(name);
 				return str? JSON.parse(str).join("\r\n"):'';
 			}
-			
+			function jsonparseOS(name){
+        var temp = "";
+				var str =  localStorage.getItem(name);
+				if(str){
+          let obj = JSON.parse(str);
+          for(let val in obj){
+            let newStr = obj[val].replace("~","   ");
+            temp = temp + "【" + val + " 】  " + newStr + "\r\n";
+          };
+          return temp;
+        }
+			}
+      
 			function changtostr(liststr,regex,regex_g,n='\r\n'){
 				let str = "";
 				if(liststr && liststr.trim() ){

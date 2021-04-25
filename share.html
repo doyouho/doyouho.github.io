@@ -194,6 +194,7 @@
           oaddBtn.onclick = function() {
             var oaddUrl = document.getElementsByClassName("addUrl")[0];
             oaddUrl.classList.toggle("active");
+            oaddUrl.getElementsByClassName("urlLink")[0].focus();
             oaddBtn.classList.toggle("active");
             document.getElementById("newAddUrl").classList.toggle("active");
           }
@@ -443,6 +444,7 @@
           <p>刷题：
             <a href="https://huruji.github.io/FE-Interview/#/" target="_blank" rel="noopener">题集1</a>
             <a href="https://blog.poetries.top/FE-Interview-Questions/" target="_blank" rel="noopener">题集2</a>
+            <a href="https://github.com/yisainan/web-interview" target="_blank" rel="noopener">题集3</a>
             <a href="https://www.nowcoder.com/" target="_blank" rel="noopener">牛客</a>
             <a href="https://www.jianshu.com/p/53f6bf6f8d50" target="_blank" rel="noopener">剑指offer</a>
             <a href="https://leetcode-cn.com/" target="_blank" rel="noopener">力扣</a>
